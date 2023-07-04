@@ -1,7 +1,10 @@
 import os
+import sys
 import typing
 import math
 import threading
+
+sys.path.append('./worlds/dk64/DK64R/')
 
 from BaseClasses import Item, MultiWorld, Tutorial, ItemClassification
 from .Items import DK64Item, ItemData, full_item_table, setup_items

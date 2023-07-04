@@ -2,6 +2,9 @@ import typing
 
 from BaseClasses import MultiWorld, Location
 
+from randomizer.Lists import Location as DK64RLocation
+
+BASE_ID = 0xD64000
 
 class DK64Location(Location):
     game: str = "Donkey Kong 64"
@@ -26,18 +29,20 @@ event_location_table = {
     "Victory": 0x00, # Temp
 }
 
-all_locations = {
-    **level_location_table,
-    **boss_location_table,
-    **kong_location_table,
-    **event_location_table,
-}
+# Complete location table
+all_locations = { location.name: (BASE_ID + index) for index, location in enumerate(DK64RLocation.LocationList)}
+
+all_locations.update(event_location_table) # Temp for generating goal location
 
 
 def setup_locations(multiworld: MultiWorld, player: int) -> typing.Dict[str, DK64Location]:
     location_table = {}
 
-    # DK64_TODO: Pull Locations from DK64R
+    # DK64_TODO: Pull Active Locations from DK64R
+
+    # DEBUG
+    #for k, v in all_locations.items():
+    #    print(k + ": " + hex(v))
 
     return location_table
 
