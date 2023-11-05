@@ -40,13 +40,16 @@ game you will be playing as well as the settings you would like for that game.
 
 YAML is a format very similar to JSON however it is made to be more human-readable. If you are ever unsure of the
 validity of your YAML file you may check the file by uploading it to the check page on the Archipelago website:
-[YAML Validation Page](/mysterycheck)
+[YAML Validation Page](/check)
 
 ### Creating a YAML
 
 YAML files may be generated on the Archipelago website by visiting the [games page](/games) and clicking the
 "Settings Page" link under the relevant game. Clicking "Export Settings" in a game's settings page will download the
 YAML to your system.
+
+Alternatively, you can run `ArchipelagoLauncher.exe` and click on `Generate Template Settings` to create a set of template 
+YAMLs for each game in your Archipelago install (including for APWorlds). These will be placed in your `Players/Templates` folder.
 
 In a multiworld there must be one YAML per world. Any number of players can play on each world using either the game's
 native coop system or using Archipelago's coop support. Each world will hold one slot in the multiworld and will have a

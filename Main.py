@@ -13,7 +13,8 @@ import worlds
 from BaseClasses import CollectionState, Item, Location, LocationProgressType, MultiWorld, Region
 from Fill import balance_multiworld_progression, distribute_items_restrictive, distribute_planned, flood_items
 from Options import StartInventoryPool
-from Utils import __version__, get_options, output_path, version_tuple
+from settings import get_settings
+from Utils import __version__, output_path, version_tuple
 from worlds import AutoWorld
 from worlds.generic.Rules import exclusion_rules, locality_rules
 
@@ -22,7 +23,8 @@ __all__ = ["main"]
 
 def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = None):
     if not baked_server_options:
-        baked_server_options = get_options()["server_options"]
+        baked_server_options = get_settings().server_options.as_dict()
+    assert isinstance(baked_server_options, dict)
     if args.outputpath:
         os.makedirs(args.outputpath, exist_ok=True)
         output_path.cached_path = args.outputpath
@@ -106,7 +108,7 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
     logger.info('')
 
     for player in world.player_ids:
-        for item_name, count in world.start_inventory[player].value.items():
+        for item_name, count in world.worlds[player].options.start_inventory.value.items():
             for _ in range(count):
                 world.push_precollected(world.create_item(item_name, player))
 
@@ -120,31 +122,34 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
     logger.info('Creating Items.')
     AutoWorld.call_all(world, "create_items")
 
-    # All worlds should have finished creating all regions, locations, and entrances.
-    # Recache to ensure that they are all visible for locality rules.
-    world._recache()
-
     logger.info('Calculating Access Rules.')
 
     for player in world.player_ids:
         # items can't be both local and non-local, prefer local
-        world.non_local_items[player].value -= world.local_items[player].value
-        world.non_local_items[player].value -= set(world.local_early_items[player])
-
-    if world.players > 1:
-        locality_rules(world)
-    else:
-        world.non_local_items[1].value = set()
-        world.local_items[1].value = set()
+        world.worlds[player].options.non_local_items.value -= world.worlds[player].options.local_items.value
+        world.worlds[player].options.non_local_items.value -= set(world.local_early_items[player])
 
     AutoWorld.call_all(world, "set_rules")
 
     for player in world.player_ids:
-        exclusion_rules(world, player, world.exclude_locations[player].value)
-        world.priority_locations[player].value -= world.exclude_locations[player].value
-        for location_name in world.priority_locations[player].value:
-            world.get_location(location_name, player).progress_type = LocationProgressType.PRIORITY
+        exclusion_rules(world, player, world.worlds[player].options.exclude_locations.value)
+        world.worlds[player].options.priority_locations.value -= world.worlds[player].options.exclude_locations.value
+        for location_name in world.worlds[player].options.priority_locations.value:
+            try:
+                location = world.get_location(location_name, player)
+            except KeyError as e:  # failed to find the given location. Check if it's a legitimate location
+                if location_name not in world.worlds[player].location_name_to_id:
+                    raise Exception(f"Unable to prioritize location {location_name} in player {player}'s world.") from e
+            else:
+                location.progress_type = LocationProgressType.PRIORITY
 
+    # Set local and non-local item rules.
+    if world.players > 1:
+        locality_rules(world)
+    else:
+        world.worlds[1].options.non_local_items.value = set()
+        world.worlds[1].options.local_items.value = set()
+    
     AutoWorld.call_all(world, "generate_basic")
 
     # remove starting inventory from pool items.
@@ -156,7 +161,8 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
         for player, items in depletion_pool.items():
             player_world: AutoWorld.World = world.worlds[player]
             for count in items.values():
-                new_items.append(player_world.create_filler())
+                for _ in range(count):
+                    new_items.append(player_world.create_filler())
         target: int = sum(sum(items.values()) for items in depletion_pool.values())
         for i, item in enumerate(world.itempool):
             if depletion_pool[item.player].get(item.name, 0):
@@ -176,6 +182,7 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
                 if remaining_items:
                     raise Exception(f"{world.get_player_name(player)}"
                                     f" is trying to remove items from their pool that don't exist: {remaining_items}")
+        assert len(world.itempool) == len(new_items), "Item Pool amounts should not change."
         world.itempool[:] = new_items
 
     # temporary home for item links, should be moved out of Main
@@ -222,7 +229,7 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
 
         region = Region("Menu", group_id, world, "ItemLink")
         world.regions.append(region)
-        locations = region.locations = []
+        locations = region.locations
         for item in world.itempool:
             count = common_item_count.get(item.player, {}).get(item.name, 0)
             if count:
@@ -256,7 +263,6 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
             world.itempool.extend(items_to_add[:itemcount - len(world.itempool)])
 
     if any(world.item_links.values()):
-        world._recache()
         world._all_state = None
 
     logger.info("Running Item Plando")
@@ -290,15 +296,16 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
 
     output = tempfile.TemporaryDirectory()
     with output as temp_dir:
-        with concurrent.futures.ThreadPoolExecutor(world.players + 2) as pool:
+        output_players = [player for player in world.player_ids if AutoWorld.World.generate_output.__code__
+                          is not world.worlds[player].generate_output.__code__]
+        with concurrent.futures.ThreadPoolExecutor(len(output_players) + 2) as pool:
             check_accessibility_task = pool.submit(world.fulfills_accessibility)
 
             output_file_futures = [pool.submit(AutoWorld.call_stage, world, "generate_output", temp_dir)]
-            for player in world.player_ids:
+            for player in output_players:
                 # skip starting a thread for methods that say "pass".
-                if AutoWorld.World.generate_output.__code__ is not world.worlds[player].generate_output.__code__:
-                    output_file_futures.append(
-                        pool.submit(AutoWorld.call_single, world, "generate_output", player, temp_dir))
+                output_file_futures.append(
+                    pool.submit(AutoWorld.call_single, world, "generate_output", player, temp_dir))
 
             # collect ER hint info
             er_hint_data: Dict[int, Dict[int, str]] = {}
@@ -349,11 +356,11 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
                                                                f" {location}"
                         locations_data[location.player][location.address] = \
                             location.item.code, location.item.player, location.item.flags
-                        if location.name in world.start_location_hints[location.player]:
+                        if location.name in world.worlds[location.player].options.start_location_hints:
                             precollect_hint(location)
-                        elif location.item.name in world.start_hints[location.item.player]:
+                        elif location.item.name in world.worlds[location.item.player].options.start_hints:
                             precollect_hint(location)
-                        elif any([location.item.name in world.start_hints[player]
+                        elif any([location.item.name in world.worlds[player].options.start_hints
                                   for player in world.groups.get(location.item.player, {}).get("players", [])]):
                             precollect_hint(location)
 
@@ -368,7 +375,6 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
                 multidata = {
                     "slot_data": slot_data,
                     "slot_info": slot_info,
-                    "names": names,  # TODO: remove after 0.3.9
                     "connect_names": {name: (0, player) for player, name in world.player_name.items()},
                     "locations": locations_data,
                     "checks_in_area": checks_in_area,
@@ -390,7 +396,7 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
                     f.write(bytes([3]))  # version of format
                     f.write(multidata)
 
-            multidata_task = pool.submit(write_multidata)
+            output_file_futures.append(pool.submit(write_multidata))
             if not check_accessibility_task.result():
                 if not world.can_beat_game():
                     raise Exception("Game appears as unbeatable. Aborting.")
@@ -398,7 +404,6 @@ def main(args, seed=None, baked_server_options: Optional[Dict[str, object]] = No
                     logger.warning("Location Accessibility requirements not fulfilled.")
 
             # retrieve exceptions via .result() if they occurred.
-            multidata_task.result()
             for i, future in enumerate(concurrent.futures.as_completed(output_file_futures), start=1):
                 if i % 10 == 0 or i == len(output_file_futures):
                     logger.info(f'Generating output files ({i}/{len(output_file_futures)}).')

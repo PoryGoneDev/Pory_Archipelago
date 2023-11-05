@@ -27,16 +27,21 @@
 *.archipelago
 *.apsave
 *.BIN
+*.puml
 
 setups
 build
 bundle/components.wxs
 dist
+/prof/
 README.html
 .vs/
 EnemizerCLI/
 /Players/
 /SNI/
+/sni-*/
+/appimagetool*
+/host.yaml
 /options.yaml
 /config.yaml
 /logs/
@@ -138,6 +143,7 @@ ipython_config.py
 .venv*
 env/
 venv/
+/venv*/
 ENV/
 env.bak/
 venv.bak/
@@ -167,6 +173,10 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Cython intermediates
+_speedups.cpp
+_speedups.html
 
 # minecraft server stuff
 jdk*/
