@@ -52,6 +52,37 @@ class DragonCoinChecks(Toggle):
     display_name = "Dragon Coin Checks"
 
 
+class MoonChecks(Toggle):
+    """
+    Whether collecting a 3up Moon in a level will grant a check
+    """
+    display_name = "3up Moon Checks"
+
+
+class CheckpointChecks(Toggle):
+    """
+    Whether collecting a hidden 1up mushroom in a level will grant a check
+    """
+    display_name = "Checkpoint Checks"
+
+
+class BonusBlockChecks(Toggle):
+    """
+    Whether collecting a 1up mushroom from a Bonus Block in a level will grant a check
+    """
+    display_name = "Bonus Block Checks"
+
+
+class Blocksanity(Toggle):
+    """
+    Whether hitting a block (question mark block, turn block, note block or switch palace blocks) will grant a check
+    Note that some [?] blocks are 100% excluded due to how the option and the game works!
+    Exclusion list:
+      * Blocks in Top Secret Area & Front Door/Bowser Castle
+      * Blocks that are 100% unreachable unless you glitch your way in
+    """
+    display_name = "Blocksanity"
+
 class BowserCastleDoors(Choice):
     """
     How the doors of Bowser's Castle behave
@@ -88,7 +119,7 @@ class BowserCastleRooms(Choice):
 
 class BossShuffle(Choice):
     """
-    How the rooms of Bowser's Castle Front Door behave
+    How bosses are shuffled
     None: Bosses are not shuffled
     Simple: Four Reznors and the seven Koopalings are shuffled around
     Full: Each boss location gets a fully random boss
@@ -108,6 +139,12 @@ class LevelShuffle(Toggle):
     """
     display_name = "Level Shuffle"
 
+
+class EasyEarlyLevels(Toggle):
+    """
+    If active, this option will place "easy" levels in the first two worlds for a smooth AP experience.
+    """
+    display_name = "Easy Early Levels"
 
 class ExcludeSpecialZone(Toggle):
     """
@@ -146,6 +183,29 @@ class DisplayReceivedItemPopups(Choice):
     option_all = 1
     option_progression = 2
     default = 2
+
+class BaseJunkWeight(Choice):
+    """
+    Base Class for Trap Weights
+    """
+    option_none = 0
+    option_low = 1
+    option_medium = 2
+    option_high = 4
+    default = 2
+
+
+class JunkCoinsWeight(BaseJunkWeight):
+    """
+    Likelihood of coins being junk items.
+    """
+    display_name = "Junk Coins Weight"
+
+class JunkLivesWeight(BaseJunkWeight):
+    """
+    Likelihood of lives being junk items.
+    """
+    display_name = "Junk Lives Weight"
 
 
 class TrapFillPercentage(Range):
@@ -204,6 +264,13 @@ class Autosave(DefaultOnToggle):
     display_name = "Autosave"
 
 
+class AdjustVerticalScroll(DefaultOnToggle):
+    """
+    Adjusts the camera in certain levels to follow Mario in a more natural way.
+    May create some blind jumps if enabled.
+    """
+    display_name = "Adjust Vertical Scroll"
+
 class EarlyClimb(Toggle):
     """
     Force Climb to appear early in the seed as a local item.
@@ -239,6 +306,15 @@ class MusicShuffle(Choice):
     default = 0
 
 
+class SFXShuffle(Toggle):
+    """
+    Shuffles almost every instance of sound effect playback
+    Archipelago elements that play sound effects aren't randomized
+    """
+    display_name = "Sound effect shuffle"
+    default = 0
+
+
 class MarioPalette(Choice):
     """
     Mario palette color
@@ -255,9 +331,22 @@ class MarioPalette(Choice):
     default = 0
 
 
+class PaletteShuffleType(Choice):
+    """
+    Determines which kind of palette shuffle will be used.
+    Legacy: Uses only the palette sets from the original game
+    Curated: Uses palette combinations created by some people to have a greater amount of variety of palettes
+             Using this option will make both levels and maps have randomized palettes
+    """
+    display_name = "Palette Shuffle Type"
+    option_legacy = 0
+    option_curated = 1
+    default = 1
+
 class ForegroundPaletteShuffle(Toggle):
     """
     Whether to shuffle level foreground palettes
+    Only used when Palette Shuffle Type is set to "Legacy"
     """
     display_name = "Foreground Palette Shuffle"
 
@@ -265,6 +354,7 @@ class ForegroundPaletteShuffle(Toggle):
 class BackgroundPaletteShuffle(Toggle):
     """
     Whether to shuffle level background palettes
+    Only used when Palette Shuffle Type is set to "Legacy"
     """
     display_name = "Background Palette Shuffle"
 
@@ -272,6 +362,7 @@ class BackgroundPaletteShuffle(Toggle):
 class OverworldPaletteShuffle(Toggle):
     """
     Whether to shuffle overworld palettes
+    Only used when Palette Shuffle Type is set to "Legacy"
     """
     display_name = "Overworld Palette Shuffle"
 
@@ -294,24 +385,34 @@ smw_options: typing.Dict[str, type(Option)] = {
     "number_of_yoshi_eggs": NumberOfYoshiEggs,
     "percentage_of_yoshi_eggs": PercentageOfYoshiEggs,
     "dragon_coin_checks": DragonCoinChecks,
+    "moon_checks": MoonChecks,
+    "checkpoint_checks": CheckpointChecks,
+    "bonus_block_checks": BonusBlockChecks,
+    "blocksanity": Blocksanity,
     "bowser_castle_doors": BowserCastleDoors,
     "bowser_castle_rooms": BowserCastleRooms,
     "level_shuffle": LevelShuffle,
+    "easy_early_levels": EasyEarlyLevels,
     "exclude_special_zone": ExcludeSpecialZone,
     "boss_shuffle": BossShuffle,
     "swap_donut_gh_exits": SwapDonutGhostHouseExits,
     #"display_sent_item_popups": DisplaySentItemPopups,
     "display_received_item_popups": DisplayReceivedItemPopups,
+    "junk_coins_weight": JunkCoinsWeight,
+    "junk_lives_weight": JunkLivesWeight,
     "trap_fill_percentage": TrapFillPercentage,
     "ice_trap_weight": IceTrapWeight,
     "stun_trap_weight": StunTrapWeight,
     "literature_trap_weight": LiteratureTrapWeight,
     "timer_trap_weight": TimerTrapWeight,
     "autosave": Autosave,
+    "vertical_scroll": AdjustVerticalScroll,
     "early_climb": EarlyClimb,
     "overworld_speed": OverworldSpeed,
     "music_shuffle": MusicShuffle,
+    "sfx_shuffle": SFXShuffle,
     "mario_palette": MarioPalette,
+    "palette_shuffle_type": PaletteShuffleType,
     "foreground_palette_shuffle": ForegroundPaletteShuffle,
     "background_palette_shuffle": BackgroundPaletteShuffle,
     "overworld_palette_shuffle": OverworldPaletteShuffle,

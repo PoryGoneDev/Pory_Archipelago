@@ -4,17 +4,18 @@ import math
 import threading
 
 from BaseClasses import Item, MultiWorld, Tutorial, ItemClassification
-from .Items import SMWItem, ItemData, item_table
-from .Locations import SMWLocation, all_locations, setup_locations, special_zone_level_names, special_zone_dragon_coin_names
+from .Items import SMWItem, ItemData, item_table, junk_table
+from .Locations import SMWLocation, all_locations, setup_locations, special_zone_level_names, special_zone_dragon_coin_names, special_zone_checkpoint_names, special_zone_blocksanity_names
 from .Options import smw_options
 from .Regions import create_regions, connect_regions
 from .Levels import full_level_list, generate_level_list, location_id_to_level_id
 from .Rules import set_rules
-from ..generic.Rules import add_rule, exclusion_rules
+from worlds.generic.Rules import add_rule, exclusion_rules
 from .Names import ItemName, LocationName
 from .Client import SMWSNIClient
-from ..AutoWorld import WebWorld, World
+from worlds.AutoWorld import WebWorld, World
 from .Rom import LocalRom, patch_rom, get_base_rom_path, SMWDeltaPatch
+
 
 
 class SMWWeb(WebWorld):
@@ -32,6 +33,7 @@ class SMWWeb(WebWorld):
     tutorials = [setup_en]
 
 
+
 class SMWWorld(World):
     """
     Super Mario World is an action platforming game.
@@ -40,6 +42,7 @@ class SMWWorld(World):
     """
     game: str = "Super Mario World"
     option_definitions = smw_options
+    #settings: typing.ClassVar[SMWSettings]
     topology_present = False
     data_version = 3
     required_client_version = (0, 3, 5)
@@ -55,7 +58,7 @@ class SMWWorld(World):
         super().__init__(world, player)
 
     @classmethod
-    def stage_assert_generate(cls, world):
+    def stage_assert_generate(cls, multiworld: MultiWorld):
         rom_file = get_base_rom_path()
         if not os.path.exists(rom_file):
             raise FileNotFoundError(rom_file)
@@ -78,7 +81,12 @@ class SMWWorld(World):
         if self.multiworld.early_climb[self.player]:
             self.multiworld.local_early_items[self.player][ItemName.mario_climb] = 1
 
-    def generate_basic(self):
+
+    def create_regions(self):
+        location_table = setup_locations(self.multiworld, self.player)
+        create_regions(self.multiworld, self.player, location_table)
+
+        # Not generate basic
         itempool: typing.List[SMWItem] = []
 
         self.active_level_dict = dict(zip(generate_level_list(self.multiworld, self.player), full_level_list))
@@ -98,6 +106,8 @@ class SMWWorld(World):
             if self.multiworld.dragon_coin_checks[self.player]:
                 exclusion_pool.update(special_zone_level_names)
                 exclusion_pool.update(special_zone_dragon_coin_names)
+                exclusion_pool.update(special_zone_checkpoint_names)
+                exclusion_pool.update(special_zone_blocksanity_names)
             elif self.multiworld.number_of_yoshi_eggs[self.player].value <= 72:
                 exclusion_pool.update(special_zone_level_names)
             exclusion_rules(self.multiworld, self.player, exclusion_pool)
@@ -105,6 +115,14 @@ class SMWWorld(World):
         total_required_locations = 96
         if self.multiworld.dragon_coin_checks[self.player]:
             total_required_locations += 49
+        if self.multiworld.moon_checks[self.player]:
+            total_required_locations += 7
+        if self.multiworld.checkpoint_checks[self.player]:
+            total_required_locations += 14
+        if self.multiworld.bonus_block_checks[self.player]:
+            total_required_locations += 4
+        if self.multiworld.blocksanity[self.player]:
+            total_required_locations += 657
 
         itempool += [self.create_item(ItemName.mario_run)]
         itempool += [self.create_item(ItemName.mario_carry)]
@@ -120,6 +138,7 @@ class SMWWorld(World):
         itempool += [self.create_item(ItemName.green_switch_palace)]
         itempool += [self.create_item(ItemName.red_switch_palace)]
         itempool += [self.create_item(ItemName.blue_switch_palace)]
+        itempool += [self.create_item(ItemName.special_world_clear)]
         
         if self.multiworld.goal[self.player] == "yoshi_egg_hunt":
             itempool += [self.create_item(ItemName.yoshi_egg)
@@ -144,7 +163,26 @@ class SMWWorld(World):
 
         itempool += trap_pool
 
-        itempool += [self.create_item(ItemName.one_up_mushroom) for _ in range(junk_count)]
+
+        coin_weights = self.multiworld.junk_coins_weight[self.player].value
+        life_weights = self.multiworld.junk_lives_weight[self.player].value
+        if coin_weights | life_weights == 0:
+            coin_weights = 50
+            life_weights = 50
+
+        junk_weights = []
+        junk_weights += ([ItemName.one_coin] * math.ceil(coin_weights / 2))
+        junk_weights += ([ItemName.five_coins] * math.ceil(coin_weights / 4))
+        junk_weights += ([ItemName.ten_coins] * math.ceil(coin_weights / 8))
+        junk_weights += ([ItemName.fifteen_coins] * math.ceil(coin_weights / 8))
+        junk_weights += ([ItemName.one_up_mushroom] * life_weights)
+
+        junk_pool = []
+        for i in range(junk_count):
+            junk_item = self.multiworld.random.choice(junk_weights)
+            junk_pool.append(self.create_item(junk_item))
+        
+        itempool += junk_pool
 
         boss_location_names = [LocationName.yoshis_island_koopaling, LocationName.donut_plains_koopaling, LocationName.vanilla_dome_koopaling,
                                LocationName.twin_bridges_koopaling, LocationName.forest_koopaling, LocationName.chocolate_koopaling,
@@ -228,16 +266,21 @@ class SMWWorld(World):
 
                     if self.multiworld.dragon_coin_checks[self.player].value == 0 and "Dragon Coins" in loc_name:
                         continue
+                    if self.multiworld.moon_checks[self.player].value == 0 and "3up Moon" in loc_name:
+                        continue
+                    if self.multiworld.checkpoint_checks[self.player].value == 0 and "Invisible 1up Checkpoints" in loc_name:
+                        continue
+                    if self.multiworld.bonus_block_checks[self.player].value == 0 and "Bonus Block" in loc_name:
+                        continue
+                    if self.multiworld.blocksanity[self.player].value == 0 and "Block #" in loc_name:
+                        continue
+
 
                     location = self.multiworld.get_location(loc_name, self.player)
                     er_hint_data[location.address] = world_names[i]
                     break
 
             hint_data[self.player] = er_hint_data
-
-    def create_regions(self):
-        location_table = setup_locations(self.multiworld, self.player)
-        create_regions(self.multiworld, self.player, location_table)
 
     def create_item(self, name: str, force_non_progression=False) -> Item:
         data = item_table[name]
@@ -256,6 +299,9 @@ class SMWWorld(World):
         created_item = SMWItem(name, classification, data.code, self.player)
 
         return created_item
+    
+    def get_filler_item_name(self) -> str:
+        return self.multiworld.random.choice(list(junk_table.keys()))
 
     def set_rules(self):
         set_rules(self.multiworld, self.player)
