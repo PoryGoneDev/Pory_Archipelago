@@ -62,6 +62,9 @@ class DK64World(World):
             #"death_link": self.world.death_link[self.player].value,
         }
 
+    def generate_early(self):
+        pass
+
     def create_regions(self) -> None:
         location_table = setup_locations(self.multiworld, self.player)
         create_regions(self.multiworld, self.player, location_table)
