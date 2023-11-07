@@ -1,3 +1,4 @@
 [submodule "worlds/dk64/DK64R"]
 	path = worlds/dk64/DK64R
 	url = https://github.com/2dos/DK64-Randomizer.git
+	branch = dev
