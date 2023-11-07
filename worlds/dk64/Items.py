@@ -51,7 +51,7 @@ def setup_items(world: World) -> typing.List[DK64Item]:
     item_table.append(DK64Item(donkey_item.name, ItemClassification.progression, full_item_table[donkey_item.name], world.player))
 
     gb_item = DK64RItem.ItemList[DK64RItems.GoldenBanana]
-    for i in range(201):
+    for i in range(3):
         item_table.append(DK64Item(gb_item.name, ItemClassification.progression, full_item_table[gb_item.name], world.player))
 
     # Example of accessing Option result

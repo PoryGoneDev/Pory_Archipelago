@@ -8,9 +8,8 @@ sys.path.append('./worlds/dk64/DK64R/')
 
 from BaseClasses import Item, MultiWorld, Tutorial, ItemClassification
 from .Items import DK64Item, ItemData, full_item_table, setup_items
-from .Locations import DK64Location, all_locations, setup_locations
 from .Options import dk64_options
-from .Regions import create_regions, connect_regions
+from .Regions import DK64Location, all_locations, create_regions, connect_regions
 from .Rules import set_rules
 from worlds.AutoWorld import WebWorld, World
 import Patch
@@ -66,8 +65,7 @@ class DK64World(World):
         pass
 
     def create_regions(self) -> None:
-        location_table = setup_locations(self)
-        create_regions(self.multiworld, self.player, location_table)
+        create_regions(self.multiworld, self.player)
 
     def create_items(self) -> None:
         itempool: typing.List[DK64Item] = setup_items(self)
