@@ -46,9 +46,9 @@ class DK64World(World):
 
     web = DK64Web()
     
-    def __init__(self, world: MultiWorld, player: int):
+    def __init__(self, multiworld: MultiWorld, player: int):
         self.rom_name_available_event = threading.Event()
-        super().__init__(world, player)
+        super().__init__(multiworld, player)
 
     @classmethod
     def stage_assert_generate(cls, multiworld: MultiWorld):
@@ -59,7 +59,7 @@ class DK64World(World):
 
     def _get_slot_data(self):
         return {
-            #"death_link": self.world.death_link[self.player].value,
+            #"death_link": self.options.death_link.value,
         }
 
     def generate_early(self):
