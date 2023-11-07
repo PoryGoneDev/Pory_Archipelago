@@ -4,6 +4,7 @@ from BaseClasses import Item, ItemClassification
 from worlds.AutoWorld import World
 
 from randomizer.Lists import Item as DK64RItem
+from randomizer.Enums.Items import Items as DK64RItems
 
 BASE_ID = 0xD64000
 
@@ -35,15 +36,25 @@ event_table = {
 # Complete item table
 full_item_table = { item.name: ItemData(int(BASE_ID + index), item.playthrough) for index, item in DK64RItem.ItemList.items() }
 
+lookup_id_to_name: typing.Dict[int, str] = {data.code: item_name for item_name, data in full_item_table.items()}
+
 full_item_table.update(event_table) # Temp for generating goal item
 
 
-def setup_items(world: World) -> typing.Dict[str, DK64Item]:
-    item_table = {}
+def setup_items(world: World) -> typing.List[DK64Item]:
+    item_table = []
 
     # DK64_TODO: Pull Active Items from DK64R
 
-    # Example
+    # Example item creation
+    donkey_item = DK64RItem.ItemList[DK64RItems.Donkey]
+    item_table.append(DK64Item(donkey_item.name, ItemClassification.progression, full_item_table[donkey_item.name], world.player))
+
+    gb_item = DK64RItem.ItemList[DK64RItems.GoldenBanana]
+    for i in range(201):
+        item_table.append(DK64Item(gb_item.name, ItemClassification.progression, full_item_table[gb_item.name], world.player))
+
+    # Example of accessing Option result
     if world.options.goal == "krool":
         pass
 
@@ -52,5 +63,3 @@ def setup_items(world: World) -> typing.Dict[str, DK64Item]:
     #    print(k + ": " + hex(v.code) + " | " + str(v.progression))
 
     return item_table
-
-lookup_id_to_name: typing.Dict[int, str] = {data.code: item_name for item_name, data in full_item_table.items()}
