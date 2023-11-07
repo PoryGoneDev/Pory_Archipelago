@@ -28,7 +28,6 @@ def create_regions(multiworld: MultiWorld, player: int):
     menu_region = create_region(multiworld, player, "Menu")
     test_region = create_region(multiworld, player, "Test", ["Victory"])
 
-    # Set up the regions correctly.
     multiworld.regions += [
         menu_region,
         test_region,
@@ -46,11 +45,23 @@ def create_regions(multiworld: MultiWorld, player: int):
     # DK64_TODO: Get Regions from DK64R
 
 
+def create_region(multiworld: MultiWorld, player: int, name: str, locations=None) -> Region:
+    new_region = Region(name, player, multiworld)
+    if locations:
+        for location_name in locations:
+            loc_id = all_locations.get(location_name, 0)
+
+            location = DK64Location(player, location_name, loc_id, new_region)
+            new_region.locations.append(location)
+
+    return new_region
+
+
 def connect_regions(world: World):
-    connect(world.multiworld, world.player, "Menu", "DK Isles")
+    connect(world, "Menu", "DK Isles")
 
     # Example Region Connection
-    connect(world.multiworld, world.player, "DK Isles", "Test",
+    connect(world, "DK Isles", "Test",
             lambda state: state.has(DK64RItem.ItemList[DK64RItems.GoldenBanana].name, world.player, 2))
 
     # DK64_TODO: Get region access requirements from DK64R
@@ -58,22 +69,10 @@ def connect_regions(world: World):
     pass
 
 
-def create_region(multiworld: MultiWorld, player: int, name: str, locations=None) -> Region:
-    ret = Region(name, player, multiworld)
-    if locations:
-        for locationName in locations:
-            loc_id = all_locations.get(locationName, 0)
-
-            location = DK64Location(player, locationName, loc_id, ret)
-            ret.locations.append(location)
-
-    return ret
-
-
-def connect(multiworld: MultiWorld, player: int, source: str, target: str,
+def connect(world: World, source: str, target: str,
             rule: typing.Optional[typing.Callable] = None):
-    source_region = multiworld.get_region(source, player)
-    target_region = multiworld.get_region(target, player)
+    source_region = world.multiworld.get_region(source, world.player)
+    target_region = world.multiworld.get_region(target, world.player)
 
     name = source + "->" + target
 
