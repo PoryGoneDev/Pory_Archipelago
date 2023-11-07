@@ -1,6 +1,7 @@
 import typing
 
-from BaseClasses import MultiWorld, Location
+from BaseClasses import Location
+from worlds.AutoWorld import World
 
 from randomizer.Lists import Location as DK64RLocation
 
@@ -35,7 +36,7 @@ all_locations = { location.name: (BASE_ID + index) for index, location in enumer
 all_locations.update(event_location_table) # Temp for generating goal location
 
 
-def setup_locations(multiworld: MultiWorld, player: int) -> typing.Dict[str, DK64Location]:
+def setup_locations(world: World) -> typing.Dict[str, DK64Location]:
     location_table = {}
 
     # DK64_TODO: Pull Active Locations from DK64R

@@ -1,6 +1,7 @@
 import typing
 
-from BaseClasses import MultiWorld, Item, ItemClassification
+from BaseClasses import Item, ItemClassification
+from worlds.AutoWorld import World
 
 from randomizer.Lists import Item as DK64RItem
 
@@ -37,10 +38,14 @@ full_item_table = { item.name: ItemData(int(BASE_ID + index), item.playthrough) 
 full_item_table.update(event_table) # Temp for generating goal item
 
 
-def setup_items(multiworld: MultiWorld, player: int) -> typing.Dict[str, DK64Item]:
+def setup_items(world: World) -> typing.Dict[str, DK64Item]:
     item_table = {}
 
     # DK64_TODO: Pull Active Items from DK64R
+
+    # Example
+    if world.options.goal == "krool":
+        pass
 
     # DEBUG
     #for k, v in full_item_table.items():

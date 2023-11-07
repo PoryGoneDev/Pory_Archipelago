@@ -66,18 +66,18 @@ class DK64World(World):
         pass
 
     def create_regions(self) -> None:
-        location_table = setup_locations(self.multiworld, self.player)
+        location_table = setup_locations(self)
         create_regions(self.multiworld, self.player, location_table)
 
     def create_items(self) -> None:
-        itempool: typing.List[DK64Item] = setup_items(self.multiworld, self.player)
+        itempool: typing.List[DK64Item] = setup_items(self)
         self.multiworld.itempool += itempool
 
     def set_rules(self):
         set_rules(self.multiworld, self.player)
 
     def generate_basic(self):
-        connect_regions(self.multiworld, self.player)
+        connect_regions(self)
 
         self.multiworld.get_location("Victory", self.player).place_locked_item(DK64Item("Victory", ItemClassification.progression, 0x000000, self.player)) # TEMP
 

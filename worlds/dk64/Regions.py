@@ -1,6 +1,7 @@
 import typing
 
 from BaseClasses import MultiWorld, Region, Entrance
+from worlds.AutoWorld import World
 from .Items import DK64Item
 from .Locations import DK64Location
 
@@ -18,8 +19,8 @@ def create_regions(multiworld, player: int, active_locations):
     ]
 
 
-def connect_regions(multiworld: MultiWorld, player: int):
-    connect(multiworld, player, "Menu", "Test")
+def connect_regions(world: World):
+    connect(world.multiworld, world.player, "Menu", "Test")
 
     # DK64_TODO: Get region access requirements from DK64R
 
