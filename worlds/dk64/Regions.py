@@ -76,7 +76,7 @@ def connect(world: World, source: str, target: str,
 
     name = source + "->" + target
 
-    connection = Entrance(player, name, source_region)
+    connection = Entrance(world.player, name, source_region)
 
     if rule:
         connection.access_rule = rule
