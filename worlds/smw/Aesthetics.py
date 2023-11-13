@@ -1,4 +1,3 @@
-#import os
 import json
 import pkgutil
 
@@ -31,6 +30,7 @@ tileset_names = [
     "switch_palace",
     "yoshi_house"
 ]
+
 map_names = [
     "main",
     "yoshi",
@@ -814,7 +814,6 @@ def generate_curated_palette_data(rom, world, player):
     rom.write_bytes(PALETTE_LEVEL_TILESET_ADDR, bytearray(level_palette_index))
 
     # Builds the table in ROM that holds the palette index for each level, including sublevels
-    #print (f"====================================================")
     for level_id in range(0x200):
         tileset_num = level_palette_index[level_id]
         if tileset_num != 0xFF:
@@ -823,41 +822,25 @@ def generate_curated_palette_data(rom, world, player):
             tileset = tileset_names[0x19]
         palette = world.per_slot_randoms[player].randint(0, len(tilesets[tileset])-1)
         rom.write_bytes(PALETTE_INDEX_ADDR + level_id, bytearray([palette]))
-        #print (f"Level: {level_id:03X}")
-        #print (f"    Tileset: {tileset} ({level_palette_index[level_id]:02X})")
-        #print (f"    Palette: {palette:02X} ({tilesets[tileset][palette]})")
-        #print (f"===========================================")
         
     # Writes the actual level palette data and pointer to said data to the ROM
     pal_offset = 0x0000
     tileset_num = 0
-    palette_count = 0
     bank_palette_count = 0
-    #print (f"====================================================")
     for tileset in tilesets.keys():
-        tileset_palette_count = 0
-        #print (f"Tileset: {tileset}")
         for palette in range(len(tilesets[tileset])):
             # Handle bank crossing
             if bank_palette_count == 110:
                 pal_offset = (pal_offset & 0xF8000) + 0x8000
                 bank_palette_count = 0
             # Write pointer
-            pointer_ptr = pc_to_snes(PALETTE_LEVEL_PTR_ADDR + ((tileset_num*3)<<8) + (palette*3))
             data_ptr = pc_to_snes(PALETTE_LEVEL_DATA_ADDR + pal_offset)
             rom.write_bytes(PALETTE_LEVEL_PTR_ADDR + ((tileset_num*3)<<8) + (palette*3), bytearray([data_ptr & 0xFF, (data_ptr>>8)&0xFF, (data_ptr>>16)&0xFF]))
             # Write data
             rom.write_bytes(PALETTE_LEVEL_DATA_ADDR + pal_offset, read_palette_file(tileset, tilesets[tileset][palette], "level"))
-            #print (f"    File {tileset_palette_count:02}: '{tilesets[tileset][palette]}'")
-            #print (f"       Palette pointer = ${pointer_ptr:06X} (0x{PALETTE_LEVEL_PTR_ADDR + ((tileset_num*3)<<8) + (palette*3):05X})")
-            #print (f"       Palette data    = ${data_ptr:06X} (0x{PALETTE_LEVEL_DATA_ADDR + pal_offset:05X})")
             pal_offset += 0x128
-            palette_count += 1
             bank_palette_count += 1
-            tileset_palette_count += 1
         tileset_num += 1
-        #print (f"===========================================")
-    #print (f"Level palette count: {palette_count}")
 
     PALETTE_MAP_CODE_ADDR = 0x88200
     PALETTE_UPLOADER_EDIT = 0x88400
@@ -957,53 +940,35 @@ def generate_curated_palette_data(rom, world, player):
     data = pkgutil.get_data(__name__, f"data/palettes/map/palettes.json").decode("utf-8")
     maps = json.loads(data)
 
-    #print (f"====================================================")
     for map_id in range(0x07):
         current_map_name = map_names[map_id]
         palette = world.per_slot_randoms[player].randint(0, len(maps[current_map_name])-1)
         rom.write_bytes(PALETTE_MAP_INDEX_ADDR + map_id, bytearray([palette]))
-        #print (f"Map: {map_id:03X}")
-        #print (f"        Map: {current_map_name} ({map_id:02X})")
-        #print (f"    Palette: {palette:02X} ({maps[current_map_name][palette]})")
-        #print (f"===========================================")
 
     # Writes the actual map palette data and pointer to said data to the ROM
     pal_offset = 0x0000
     map_num = 0
-    palette_count = 0
     bank_palette_count = 0
-    #print (f"====================================================")
     for current_map in maps.keys():
-        map_palette_count = 0
-        #print (f"Map: {current_map}")
         for palette in range(len(maps[current_map])):
             # Handle bank crossing
             if bank_palette_count == 113:
                 pal_offset = (pal_offset & 0xF8000) + 0x8000
                 bank_palette_count = 0
             # Write pointer
-            pointer_ptr = pc_to_snes(PALETTE_MAP_PTR_ADDR + ((map_num*3)<<8) + (palette*3))
             data_ptr = pc_to_snes(PALETTE_MAP_DATA_ADDR + pal_offset)
             rom.write_bytes(PALETTE_MAP_PTR_ADDR + ((map_num*3)<<8) + (palette*3), bytearray([data_ptr & 0xFF, (data_ptr>>8)&0xFF, (data_ptr>>16)&0xFF]))
             # Write data
             rom.write_bytes(PALETTE_MAP_DATA_ADDR + pal_offset, read_palette_file(current_map, maps[current_map][palette], "map"))
-            #print (f"    File {map_palette_count:02}: '{maps[current_map][palette]}'")
-            #print (f"       Palette pointer = ${pointer_ptr:06X} (0x{PALETTE_MAP_PTR_ADDR + ((map_num*3)<<8) + (palette*3):05X})")
-            #print (f"       Palette data    = ${data_ptr:06X} (0x{PALETTE_MAP_DATA_ADDR + pal_offset:05X})")
             pal_offset += 0x11C
-            palette_count += 1
             bank_palette_count += 1
-            map_palette_count += 1
         map_num += 1
-        #print (f"===========================================")
-    #print (f"Map palette count: {palette_count}")
 
 def pc_to_snes(address):
     return ((address << 1) & 0x7F0000) | (address & 0x7FFF) | 0x8000
 
 def read_palette_file(tileset, filename, type_):
     palette_file = pkgutil.get_data(__name__, f"data/palettes/{type_}/{tileset}/{filename}")
-    #palette_file = open(os.path.join(os.path.dirname(__file__), "data", "palettes", tileset, filename), "rb").read()
     colors = bytearray([])
 
     # Copy back colors
