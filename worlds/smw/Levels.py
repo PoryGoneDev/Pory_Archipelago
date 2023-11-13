@@ -261,6 +261,7 @@ easy_single_levels = [
     0x3D,
     0x01,
     0x0C,
+    0x0D,
     0x46,
     0x1D,
 ]
@@ -272,7 +273,6 @@ hard_single_levels = [
     0x10,
     0x22,
     0x1C,
-    0x0D,
     0x21,
     0x3B,
     0x3A,
@@ -518,9 +518,6 @@ location_id_to_level_id = {
     LocationName.special_zone_7_dragon: [0x4A, 2],
     LocationName.special_zone_8_exit_1: [0x49, 0],
     LocationName.special_zone_8_dragon: [0x49, 2],
-
-
-
 
 
     LocationName.vanilla_secret_2_yoshi_block_1: [0x01, 100],
@@ -1215,77 +1212,39 @@ def generate_level_list(world, player):
     switch_palace_levels_copy = switch_palace_levels.copy()
     world.random.shuffle(switch_palace_levels_copy)
 
-    if world.easy_early_levels[player]:
+    # Yoshi's Island
+    shuffled_level_list.append(0x03)
+    shuffled_level_list.append(easy_single_levels_copy.pop(0))
+    shuffled_level_list.append(0x14)
+    shuffled_level_list.append(easy_single_levels_copy.pop(0))
+    shuffled_level_list.append(easy_single_levels_copy.pop(0))
+    shuffled_level_list.append(easy_single_levels_copy.pop(0))
+    shuffled_level_list.append(easy_castle_fortress_levels_copy.pop(0))
 
-        # Yoshi's Island
-        shuffled_level_list.append(0x03)
-        shuffled_level_list.append(easy_single_levels_copy.pop(0))
-        shuffled_level_list.append(0x14)
-        shuffled_level_list.append(easy_single_levels_copy.pop(0))
-        shuffled_level_list.append(easy_single_levels_copy.pop(0))
-        shuffled_level_list.append(easy_single_levels_copy.pop(0))
-        shuffled_level_list.append(easy_castle_fortress_levels_copy.pop(0))
+    # Donut Plains
+    shuffled_level_list.append(easy_double_levels_copy.pop(0))
+    shuffled_level_list.append(easy_double_levels_copy.pop(0))
+    shuffled_level_list.append(easy_double_levels_copy.pop(0))
+    shuffled_level_list.append(0x08)
+    shuffled_level_list.append(easy_double_levels_copy.pop(0))
+    shuffled_level_list.append(easy_double_levels_copy.pop(0))
+    shuffled_level_list.append(easy_single_levels_copy.pop(0))
+    shuffled_level_list.append(easy_single_levels_copy.pop(0))
+    shuffled_level_list.append(easy_single_levels_copy.pop(0))
+    shuffled_level_list.append(easy_castle_fortress_levels_copy.pop(0))
+    shuffled_level_list.append(0x28)
+    shuffled_level_list.append(0x16)
 
-        # Donut Plains
-        shuffled_level_list.append(easy_double_levels_copy.pop(0))
-        shuffled_level_list.append(easy_double_levels_copy.pop(0))
-        shuffled_level_list.append(easy_double_levels_copy.pop(0))
-        shuffled_level_list.append(0x08)
-        shuffled_level_list.append(easy_double_levels_copy.pop(0))
-        shuffled_level_list.append(easy_double_levels_copy.pop(0))
-        shuffled_level_list.append(easy_single_levels_copy.pop(0))
-        shuffled_level_list.append(easy_single_levels_copy.pop(0))
-        shuffled_level_list.append(easy_single_levels_copy.pop(0))
-        shuffled_level_list.append(easy_castle_fortress_levels_copy.pop(0))
-        shuffled_level_list.append(0x28)
-        shuffled_level_list.append(0x16)
+    single_levels_copy = (easy_single_levels_copy.copy() + hard_single_levels_copy.copy())
+    if not world.exclude_special_zone[player]:
+        single_levels_copy.extend(special_zone_levels_copy)
+    world.random.shuffle(single_levels_copy)
 
-        single_levels_copy = (easy_single_levels_copy.copy() + hard_single_levels_copy.copy())
-        if not world.exclude_special_zone[player]:
-            single_levels_copy.extend(special_zone_levels_copy)
-        world.random.shuffle(single_levels_copy)
+    castle_fortress_levels_copy = (easy_castle_fortress_levels_copy.copy() + hard_castle_fortress_levels_copy.copy())
+    world.random.shuffle(castle_fortress_levels_copy)
 
-        castle_fortress_levels_copy = (easy_castle_fortress_levels_copy.copy() + hard_castle_fortress_levels_copy.copy())
-        world.random.shuffle(castle_fortress_levels_copy)
-
-        double_levels_copy = (easy_double_levels_copy.copy() + hard_double_levels_copy.copy())
-        world.random.shuffle(double_levels_copy)
-
-    else:
-        
-        single_levels_copy = (easy_single_levels_copy.copy() + hard_single_levels_copy.copy())
-        if not world.exclude_special_zone[player]:
-            single_levels_copy.extend(special_zone_levels_copy)
-        world.random.shuffle(single_levels_copy)
-
-        castle_fortress_levels_copy = (easy_castle_fortress_levels_copy.copy() + hard_castle_fortress_levels_copy.copy())
-        world.random.shuffle(castle_fortress_levels_copy)
-
-        double_levels_copy = (easy_double_levels_copy.copy() + hard_double_levels_copy.copy())
-        world.random.shuffle(double_levels_copy)
-
-        # Yoshi's Island
-        shuffled_level_list.append(0x03)
-        shuffled_level_list.append(single_levels_copy.pop(0))
-        shuffled_level_list.append(0x14)
-        shuffled_level_list.append(single_levels_copy.pop(0))
-        shuffled_level_list.append(single_levels_copy.pop(0))
-        shuffled_level_list.append(single_levels_copy.pop(0))
-        shuffled_level_list.append(castle_fortress_levels_copy.pop(0))
-
-        # Donut Plains
-        shuffled_level_list.append(double_levels_copy.pop(0))
-        shuffled_level_list.append(double_levels_copy.pop(0))
-        shuffled_level_list.append(double_levels_copy.pop(0))
-        shuffled_level_list.append(0x08)
-        shuffled_level_list.append(double_levels_copy.pop(0))
-        shuffled_level_list.append(double_levels_copy.pop(0))
-        shuffled_level_list.append(single_levels_copy.pop(0))
-        shuffled_level_list.append(single_levels_copy.pop(0))
-        shuffled_level_list.append(single_levels_copy.pop(0))
-        shuffled_level_list.append(castle_fortress_levels_copy.pop(0))
-        shuffled_level_list.append(0x28)
-        shuffled_level_list.append(0x16)
+    double_levels_copy = (easy_double_levels_copy.copy() + hard_double_levels_copy.copy())
+    world.random.shuffle(double_levels_copy)
 
     # Vanilla Dome
     shuffled_level_list.append(double_levels_copy.pop(0))
