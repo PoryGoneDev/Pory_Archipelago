@@ -2232,16 +2232,13 @@ def connect_regions(world, player, level_to_tile_dict):
     connect(world, player, names, LocationName.star_road_5_region, LocationName.star_road_5_exit_1,
             lambda state: state.has(ItemName.p_switch, player))
     connect(world, player, names, LocationName.star_road_5_region, LocationName.star_road_5_exit_2,
-            lambda state: ((state.has(ItemName.mario_carry, player) and
+            lambda state: (state.has(ItemName.mario_carry, player) and
                            state.has(ItemName.mario_climb, player) and
                            state.has(ItemName.p_switch, player) and
                            state.has(ItemName.yellow_switch_palace, player) and
                            state.has(ItemName.green_switch_palace, player) and
                            state.has(ItemName.red_switch_palace, player) and
-                           state.has(ItemName.blue_switch_palace, player)) or
-                           (state.has(ItemName.yoshi_activate, player) and
-                            state.has(ItemName.special_world_clear, player) and 
-                            state.has(ItemName.mario_carry, player))))
+                           state.has(ItemName.blue_switch_palace, player)))
 
     connect(world, player, names, LocationName.special_zone_1_region, LocationName.special_zone_1_exit_1,
             lambda state: (state.has(ItemName.mario_climb, player) and
