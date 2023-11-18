@@ -13,7 +13,9 @@ from .Regions import DK64Location, all_locations, create_regions, connect_region
 from .Rules import set_rules
 from worlds.AutoWorld import WebWorld, World
 import Patch
-
+from .Logic import LogicVarHolder
+from randomizer.Spoiler import Spoiler
+from randomizer.Settings import Settings
 
 class DK64Web(WebWorld):
     theme = "jungle"
@@ -45,6 +47,13 @@ class DK64World(World):
 
     web = DK64Web()
     
+
+    settings_dict = {}
+    settings = Settings(settings_dict)
+    spoiler = Spoiler(settings)
+    logic_holder = LogicVarHolder(spoiler)
+    
+    
     def __init__(self, multiworld: MultiWorld, player: int):
         self.rom_name_available_event = threading.Event()
         super().__init__(multiworld, player)
@@ -75,7 +84,7 @@ class DK64World(World):
         set_rules(self.multiworld, self.player)
 
     def generate_basic(self):
-        connect_regions(self)
+        connect_regions(self, self.logic_holder)
 
         self.multiworld.get_location("Victory", self.player).place_locked_item(DK64Item("Victory", ItemClassification.progression, 0x000000, self.player)) # TEMP
 
