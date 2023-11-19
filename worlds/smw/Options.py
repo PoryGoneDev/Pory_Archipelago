@@ -179,30 +179,6 @@ class DisplayReceivedItemPopups(Choice):
     default = 2
 
 
-class BaseJunkWeight(Choice):
-    """
-    Base Class for Trap Weights
-    """
-    option_none = 0
-    option_low = 1
-    option_medium = 2
-    option_high = 4
-    default = 2
-
-
-class JunkCoinsWeight(BaseJunkWeight):
-    """
-    Likelihood of coins being junk items.
-    """
-    display_name = "Junk Coins Weight"
-
-class JunkLivesWeight(BaseJunkWeight):
-    """
-    Likelihood of lives being junk items.
-    """
-    display_name = "Junk Lives Weight"
-
-
 class TrapFillPercentage(Range):
     """
     Replace a percentage of junk items in the item pool with random traps
@@ -392,8 +368,6 @@ smw_options: typing.Dict[str, type(Option)] = {
     "swap_donut_gh_exits": SwapDonutGhostHouseExits,
     #"display_sent_item_popups": DisplaySentItemPopups,
     "display_received_item_popups": DisplayReceivedItemPopups,
-    "junk_coins_weight": JunkCoinsWeight,
-    "junk_lives_weight": JunkLivesWeight,
     "trap_fill_percentage": TrapFillPercentage,
     "ice_trap_weight": IceTrapWeight,
     "stun_trap_weight": StunTrapWeight,

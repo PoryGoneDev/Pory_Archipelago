@@ -163,19 +163,12 @@ class SMWWorld(World):
 
         itempool += trap_pool
 
-
-        coin_weights = self.multiworld.junk_coins_weight[self.player].value
-        life_weights = self.multiworld.junk_lives_weight[self.player].value
-        if coin_weights | life_weights == 0:
-            coin_weights = 50
-            life_weights = 50
-
         junk_weights = []
-        junk_weights += ([ItemName.one_coin] * math.ceil(coin_weights / 2))
-        junk_weights += ([ItemName.five_coins] * math.ceil(coin_weights / 4))
-        junk_weights += ([ItemName.ten_coins] * math.ceil(coin_weights / 8))
-        junk_weights += ([ItemName.fifteen_coins] * math.ceil(coin_weights / 8))
-        junk_weights += ([ItemName.one_up_mushroom] * life_weights)
+        junk_weights += ([ItemName.one_coin] * 30)
+        junk_weights += ([ItemName.five_coins] * 25)
+        junk_weights += ([ItemName.ten_coins] * 15)
+        junk_weights += ([ItemName.fifteen_coins] * 10)
+        junk_weights += ([ItemName.one_up_mushroom] * 20)
 
         junk_pool = []
         for i in range(junk_count):
