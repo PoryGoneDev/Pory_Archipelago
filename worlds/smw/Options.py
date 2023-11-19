@@ -140,12 +140,6 @@ class LevelShuffle(Toggle):
     display_name = "Level Shuffle"
 
 
-class EasyEarlyLevels(Toggle):
-    """
-    If active, this option will place "easy" levels in the first two worlds for a smooth AP experience.
-    """
-    display_name = "Easy Early Levels"
-
 class ExcludeSpecialZone(Toggle):
     """
     If active, this option will prevent any progression items from being placed in Special Zone levels.
@@ -183,6 +177,7 @@ class DisplayReceivedItemPopups(Choice):
     option_all = 1
     option_progression = 2
     default = 2
+
 
 class BaseJunkWeight(Choice):
     """
@@ -392,7 +387,6 @@ smw_options: typing.Dict[str, type(Option)] = {
     "bowser_castle_doors": BowserCastleDoors,
     "bowser_castle_rooms": BowserCastleRooms,
     "level_shuffle": LevelShuffle,
-    "easy_early_levels": EasyEarlyLevels,
     "exclude_special_zone": ExcludeSpecialZone,
     "boss_shuffle": BossShuffle,
     "swap_donut_gh_exits": SwapDonutGhostHouseExits,
