@@ -519,7 +519,6 @@ location_id_to_level_id = {
     LocationName.special_zone_8_exit_1: [0x49, 0],
     LocationName.special_zone_8_dragon: [0x49, 2],
 
-
     LocationName.vanilla_secret_2_yoshi_block_1: [0x01, 100],
     LocationName.vanilla_secret_2_green_block_1: [0x01, 101],
     LocationName.vanilla_secret_2_powerup_block_1: [0x01, 102],
