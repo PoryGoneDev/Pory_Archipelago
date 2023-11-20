@@ -259,11 +259,11 @@ class SMWWorld(World):
 
                     if self.multiworld.dragon_coin_checks[self.player].value == 0 and "Dragon Coins" in loc_name:
                         continue
-                    if self.multiworld.moon_checks[self.player].value == 0 and "3up Moon" in loc_name:
+                    if self.multiworld.moon_checks[self.player].value == 0 and "3-Up Moon" in loc_name:
                         continue
-                    if self.multiworld.checkpoint_checks[self.player].value == 0 and "Invisible 1up Checkpoints" in loc_name:
+                    if self.multiworld.checkpoint_checks[self.player].value == 0 and "Hidden 1-Up" in loc_name:
                         continue
-                    if self.multiworld.bonus_block_checks[self.player].value == 0 and "Bonus Block" in loc_name:
+                    if self.multiworld.bonus_block_checks[self.player].value == 0 and "1-Up from Bonus Block" in loc_name:
                         continue
                     if self.multiworld.blocksanity[self.player].value == 0 and "Block #" in loc_name:
                         continue
