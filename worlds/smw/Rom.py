@@ -763,8 +763,40 @@ def handle_bonus_block(rom):
 
 
 def handle_blocksanity(rom):
-    #rom.write_byte(0x2273, 0x00)   # debug
-    rom.write_bytes(0x80000, read_code_file("data/blocksanity_data.bin"))
+    import json 
+    blocksanity_data = pkgutil.get_data(__name__, f"data/blocksanity.json").decode("utf-8")
+    blocksanity_data = json.loads(blocksanity_data)
+    blocksanity_coords = bytearray([])
+    blocksanity_bytes = bytearray([])
+
+    block_count = 0
+    entries = 0
+    for level_name, level_data in blocksanity_data.items():
+        # Calculate blocksanity pointer
+        if level_data == []:
+            # Skip if the level doesn't have any data
+            blocksanity_bytes += bytearray([0xFF, 0xFF])
+            continue
+        level_ptr = 0x80C0 + entries
+        blocksanity_bytes += bytearray([level_ptr & 0xFF, (level_ptr >> 8) & 0xFF])
+        
+        # Get block data
+        block_coords = bytearray([])
+        for x in range(len(level_data)):
+            block_coords += bytearray([
+                int(level_data[x][1], 16) & 0xFF, (int(level_data[x][1], 16) >> 8) & 0xFF,
+                int(level_data[x][2], 16) & 0xFF, (int(level_data[x][2], 16) >> 8) & 0xFF,
+                block_count & 0xFF, (block_count >> 8) & 0xFF])
+            entries += 6
+            block_count += 1
+        block_coords += bytearray([0xFF, 0xFF])
+        entries += 2
+
+        blocksanity_coords += block_coords
+
+    blocksanity_bytes += blocksanity_coords
+
+    rom.write_bytes(0x80000, blocksanity_bytes)
     rom.write_bytes(0x071D0, bytearray([0x5C, 0x00, 0xF7, 0x0F])) # org $00F1D0 : jml blocksanity_main
     rom.write_bytes(0x0AD59, bytearray([0x5C, 0x15, 0xF7, 0x0F])) # org $01AD5C : jml blocksanity_flying_init
     rom.write_bytes(0x0AE16, bytearray([0x22, 0x39, 0xF7, 0x0F])) # org $01AE16 : jsl blocksanity_flying_main
@@ -2116,11 +2148,9 @@ def handle_indicators(rom):
 
 def read_code_file(filename):
     return pkgutil.get_data(__name__, f"{filename}")
-    #return open(os.path.join(os.path.dirname(__file__), filename), "rb").read()
 
 def read_graphics_file(filename):
     return pkgutil.get_data(__name__, f"data/graphics/{filename}")
-    #return open(os.path.join(os.path.dirname(__file__), "data", "graphics", filename), "rb").read()
 
 def handle_uncompressed_player_gfx(rom):
     # Decompresses and moves into a expanded region the player, yoshi and animated graphics
@@ -2451,8 +2481,6 @@ def handle_uncompressed_player_gfx(rom):
     rom.write_bytes(UPLOAD_INDICATOR_GFX + 0x0081, bytearray([0x6B]))                         # .skip                       rtl 
 
 
-
-    
 def decompress_gfx(compressed_graphics):
     # This code decompresses graphics in LC_LZ2 format in order to be able to swap player and yoshi's graphics with ease.
     decompressed_gfx = bytearray([])
@@ -2499,6 +2527,7 @@ def decompress_gfx(compressed_graphics):
                     decompressed_gfx += bytearray([copy_byte])
     return decompressed_gfx
 
+
 def convert_3bpp(decompressed_gfx):
     i = 0
     converted_gfx = bytearray([])
@@ -2511,16 +2540,6 @@ def convert_3bpp(decompressed_gfx):
             i += 1
     return converted_gfx
 
-def convert_2bpp(decompressed_gfx):
-    i = 0
-    converted_gfx = bytearray([])
-    while i < len(decompressed_gfx):
-        converted_gfx += bytearray([decompressed_gfx[i+j] for j in range(16)])
-        i += 16
-        for j in range(8):
-            converted_gfx += bytearray([0x00, 0x00])
-            converted_gfx += bytearray([0x00, 0x00])
-    return converted_gfx
 
 def copy_gfx_tiles(original, order):
     result = bytearray([])
@@ -2530,10 +2549,10 @@ def copy_gfx_tiles(original, order):
     return result
 
 
-
 def file_to_bytes(filename):  
     return open(os.path.dirname(__file__)+filename, "rb").read()
    
+
 def handle_music_shuffle(rom, world, player):
     from .Aesthetics import generate_shuffled_level_music, generate_shuffled_ow_music, level_music_address_data, ow_music_address_data
 
