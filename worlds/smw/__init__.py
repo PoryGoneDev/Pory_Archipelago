@@ -51,7 +51,7 @@ class SMWWorld(World):
     """
     game: str = "Super Mario World"
     option_definitions = smw_options
-    #settings: typing.ClassVar[SMWSettings]
+    settings: typing.ClassVar[SMWSettings]
     topology_present = False
     data_version = 3
     required_client_version = (0, 3, 5)
