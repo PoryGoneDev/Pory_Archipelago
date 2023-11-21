@@ -732,12 +732,10 @@ def handle_vertical_scroll(rom):
         0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, # Levels 1C0-1CF
         0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, # Levels 1D0-1DF
         0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, # Levels 1E0-1EF
-        0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x01, 0x02, 0x02, 0x02, 0x02  # Levels 1F0-1FF
-    ]
-
-
+        0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x02, 0x01, 0x02, 0x02, 0x02, 0x02] # Levels 1F0-1FF
 
     rom.write_bytes(0x7F500, bytes(vertical_scroll_table))
+
 
 def handle_bonus_block(rom):
     rom.write_bytes(0x71A5, bytearray([0x5C, 0x19, 0x8E, 0x05])) # JML $058E19
@@ -1510,9 +1508,9 @@ def handle_map_indicators(rom):
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01B7, bytearray([0xA0, 0x3F]))                     #                             ldy.b #!icon_obtained
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01B9, bytearray([0x98]))                           # .write                      tya 
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01BA, bytearray([0x87, 0x06]))                     #                             sta [$06]
-    rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01BC, bytearray([0xA9, 0x02]))                     #                             lda #$02
+    rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01BC, bytearray([0xA9, 0x07]))                     #                             lda #$07
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01BE, bytearray([0x87, 0x00]))                     #                             sta [$00]
-    rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01C0, bytearray([0xA9, 0x47]))                     #                             lda #$47
+    rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01C0, bytearray([0xA9, 0x48]))                     #                             lda #$48
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01C2, bytearray([0x87, 0x03]))                     #                             sta [$03]
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01C4, bytearray([0x20, 0xC0, 0xA3]))               #                             jsr update_flag_pointers
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x01C7, bytearray([0xAF, 0xA8, 0xBF, 0x03]))         # handle_moons:               lda.l moon_enabled_flag
