@@ -1,6 +1,7 @@
 import os
 import typing
 import math
+import settings
 import threading
 
 from BaseClasses import Item, MultiWorld, Tutorial, ItemClassification
@@ -17,6 +18,15 @@ from worlds.AutoWorld import WebWorld, World
 from .Rom import LocalRom, patch_rom, get_base_rom_path, SMWDeltaPatch
 
 
+class SMWSettings(settings.Group):
+    class RomFile(settings.SNESRomPath):
+        """File name of the SMW US rom"""
+        description = "Super Mario World (USA) ROM File"
+        copy_to = "Super Mario World (USA).sfc"
+        md5s = [SMWDeltaPatch.hash]
+
+    rom_file: RomFile = RomFile(RomFile.copy_to)
+
 
 class SMWWeb(WebWorld):
     theme = "grass"
@@ -31,7 +41,6 @@ class SMWWeb(WebWorld):
     )
     
     tutorials = [setup_en]
-
 
 
 class SMWWorld(World):
