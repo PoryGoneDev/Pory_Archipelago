@@ -2146,9 +2146,6 @@ def handle_indicators(rom):
     rom.write_bytes(INDICATOR_CODE + 0x02AC, bytearray([0x8D, 0xFC, 0x1D]))                   #                             sta $1DFC
     rom.write_bytes(INDICATOR_CODE + 0x02AF, bytearray([0x4C, 0xCB, 0xC0]))                   #                             jmp .handle_movement
 
-def read_code_file(filename):
-    return pkgutil.get_data(__name__, f"{filename}")
-
 def read_graphics_file(filename):
     return pkgutil.get_data(__name__, f"data/graphics/{filename}")
 
