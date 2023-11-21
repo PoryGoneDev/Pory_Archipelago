@@ -2686,10 +2686,6 @@ def handle_boss_shuffle(rom, world, player):
 
 
 def patch_rom(world, rom, player, active_level_dict):
-    # Handle ROM expansion
-    rom.write_bytes(0x07FD7, bytearray([0x0A]))
-    rom.write_bytes(0x80000, bytearray([0x00 for _ in range(0x80000)]))
-
     goal_text = generate_goal_text(world, player)
 
     rom.write_bytes(0x2A6E2, goal_text)
@@ -2700,6 +2696,10 @@ def patch_rom(world, rom, player, active_level_dict):
 
     handle_bowser_rooms(rom, world, player)
     handle_boss_shuffle(rom, world, player)
+
+    # Handle ROM expansion
+    rom.write_bytes(0x07FD7, bytearray([0x0A]))
+    rom.write_bytes(0x80000, bytearray([0x00 for _ in range(0x80000)]))
 
     # Prevent Title Screen Deaths
     rom.write_byte(0x1C6A, 0x80)
