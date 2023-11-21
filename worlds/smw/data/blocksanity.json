@@ -153,7 +153,8 @@
         ["vine",    "01E0", "0110", ["pswitch"]],
         ["pswitch", "01D0", "0150", ["cape pswitch"]],
         ["pswitch", "01E0", "0150", ["cape pswitch"]],
-        ["pswitch", "01F0", "0150", ["cape pswitch"]]
+        ["pswitch", "01F0", "0150", ["cape pswitch"]],
+        ["dir",     "0180", "0130", ["pswitch"]]
     ],
     "014_yellow_switch_palace": [],
     "015_donut_plains_1": [

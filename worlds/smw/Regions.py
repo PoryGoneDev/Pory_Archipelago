@@ -896,11 +896,6 @@ def create_regions(world, player: int, active_locations):
         add_location_to_region(world, player, active_locations, LocationName.butter_bridge_1_region, LocationName.butter_bridge_1_bonus_block)
         add_location_to_region(world, player, active_locations, LocationName.chocolate_island_3_region, LocationName.chocolate_island_3_bonus_block)
 
-
-
-
-
-
     if world.blocksanity[player]:
         add_location_to_region(world, player, active_locations, LocationName.vanilla_secret_2_region, LocationName.vanilla_secret_2_yoshi_block_1)
         add_location_to_region(world, player, active_locations, LocationName.vanilla_secret_2_region, LocationName.vanilla_secret_2_green_block_1,
@@ -1053,8 +1048,10 @@ def create_regions(world, player: int, active_locations):
         add_location_to_region(world, player, active_locations, LocationName.cookie_mountain_region, LocationName.cookie_mountain_coin_block_30)
         add_location_to_region(world, player, active_locations, LocationName.soda_lake_region, LocationName.soda_lake_powerup_block_1,
                         lambda state: state.has(ItemName.mario_swim, player))
-        add_location_to_region(world, player, active_locations, LocationName.donut_secret_house_region, LocationName.donut_secret_house_powerup_block_1)
-        add_location_to_region(world, player, active_locations, LocationName.donut_secret_house_region, LocationName.donut_secret_house_multi_coin_block_1)
+        add_location_to_region(world, player, active_locations, LocationName.donut_secret_house_region, LocationName.donut_secret_house_powerup_block_1,
+                        lambda state: state.has(ItemName.p_switch, player))
+        add_location_to_region(world, player, active_locations, LocationName.donut_secret_house_region, LocationName.donut_secret_house_multi_coin_block_1,
+                        lambda state: state.has(ItemName.p_switch, player))
         add_location_to_region(world, player, active_locations, LocationName.donut_secret_house_region, LocationName.donut_secret_house_life_block_1,
                         lambda state: state.has(ItemName.p_switch, player))
         add_location_to_region(world, player, active_locations, LocationName.donut_secret_house_region, LocationName.donut_secret_house_vine_block_1,
@@ -1065,6 +1062,8 @@ def create_regions(world, player: int, active_locations):
                         lambda state: (state.has(ItemName.progressive_powerup, player, 3) and state.has(ItemName.p_switch, player)))
         add_location_to_region(world, player, active_locations, LocationName.donut_secret_house_region, LocationName.donut_secret_house_pswitch_coin_block_3,
                         lambda state: (state.has(ItemName.progressive_powerup, player, 3) and state.has(ItemName.p_switch, player)))
+        add_location_to_region(world, player, active_locations, LocationName.donut_secret_house_region, LocationName.donut_secret_house_directional_coin_block_1,
+                        lambda state: state.has(ItemName.p_switch, player))
         add_location_to_region(world, player, active_locations, LocationName.donut_plains_1_region, LocationName.donut_plains_1_coin_block_1)
         add_location_to_region(world, player, active_locations, LocationName.donut_plains_1_region, LocationName.donut_plains_1_coin_block_2)
         add_location_to_region(world, player, active_locations, LocationName.donut_plains_1_region, LocationName.donut_plains_1_yoshi_block_1)
@@ -2033,7 +2032,6 @@ def create_regions(world, player: int, active_locations):
                         lambda state: (state.has(ItemName.green_switch_palace, player)  and state.has(ItemName.yoshi_activate, player) and state.has(ItemName.mario_carry, player) and state.has(ItemName.special_world_clear, player)))
         add_location_to_region(world, player, active_locations, LocationName.star_road_5_region, LocationName.star_road_5_green_block_20,
                         lambda state: (state.has(ItemName.green_switch_palace, player)  and state.has(ItemName.yoshi_activate, player) and state.has(ItemName.mario_carry, player) and state.has(ItemName.special_world_clear, player)))
-
 
 
 def connect_regions(world, player, level_to_tile_dict):

@@ -122,7 +122,7 @@ class SMWWorld(World):
         if self.multiworld.bonus_block_checks[self.player]:
             total_required_locations += 4
         if self.multiworld.blocksanity[self.player]:
-            total_required_locations += 657
+            total_required_locations += 658
 
         itempool += [self.create_item(ItemName.mario_run)]
         itempool += [self.create_item(ItemName.mario_carry)]

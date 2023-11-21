@@ -388,8 +388,6 @@ special_zone_8_tile   = "Funky - Tile"
 special_zone_8_region = "Funky"
 special_complete      = "Special Zone - Star Road - Complete"
 
-
-
 vanilla_secret_2_yoshi_block_1 = "Vanilla Secret 2 - Yoshi Block #1"
 vanilla_secret_2_green_block_1 = "Vanilla Secret 2 - Green Switch Palace Block #1"
 vanilla_secret_2_powerup_block_1 = "Vanilla Secret 2 - Powerup Block #1"
@@ -510,6 +508,7 @@ donut_secret_house_vine_block_1 = "Donut Secret House - Vine Block #1"
 donut_secret_house_pswitch_coin_block_1 = "Donut Secret House - P-Switch Coin Block #1"
 donut_secret_house_pswitch_coin_block_2 = "Donut Secret House - P-Switch Coin Block #2"
 donut_secret_house_pswitch_coin_block_3 = "Donut Secret House - P-Switch Coin Block #3"
+donut_secret_house_directional_coin_block_1 = "Donut Secret House - Directional Coin Block #1"
 donut_plains_1_coin_block_1 = "Donut Plains 1 - Coin Block #1"
 donut_plains_1_coin_block_2 = "Donut Plains 1 - Coin Block #2"
 donut_plains_1_yoshi_block_1 = "Donut Plains 1 - Yoshi Block #1"
