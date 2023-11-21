@@ -176,7 +176,7 @@ class SMWWorld(World):
         junk_weights += ([ItemName.one_coin] * 30)
         junk_weights += ([ItemName.five_coins] * 25)
         junk_weights += ([ItemName.ten_coins] * 15)
-        junk_weights += ([ItemName.fifteen_coins] * 10)
+        junk_weights += ([ItemName.fifty_coins] * 10)
         junk_weights += ([ItemName.one_up_mushroom] * 20)
 
         junk_pool = []

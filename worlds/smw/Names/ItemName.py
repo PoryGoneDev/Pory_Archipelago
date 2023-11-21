@@ -3,7 +3,7 @@ one_up_mushroom  = "1-Up Mushroom"
 one_coin = "1 coin"
 five_coins = "5 coins"
 ten_coins = "10 coins"
-fifteen_coins = "15 coins"
+fifty_coins = "50 coins"
 
 # Collectable Definitions
 yoshi_egg = "Yoshi Egg"
