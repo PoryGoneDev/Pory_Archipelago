@@ -2838,7 +2838,7 @@ def patch_rom(world, rom, player, active_level_dict):
     rom.write_byte(0x01BFA6, world.dragon_coin_checks[player].value)
     rom.write_byte(0x01BFA7, world.swap_donut_gh_exits[player].value)
     rom.write_byte(0x01BFA8, world.moon_checks[player].value)
-    rom.write_byte(0x01BFA9, world.checkpoint_checks[player].value)
+    rom.write_byte(0x01BFA9, world.hidden_1up_checks[player].value)
     rom.write_byte(0x01BFAA, world.bonus_block_checks[player].value)
     rom.write_byte(0x01BFAB, world.blocksanity[player].value)
 

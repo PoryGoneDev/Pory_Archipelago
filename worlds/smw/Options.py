@@ -54,34 +54,37 @@ class DragonCoinChecks(Toggle):
 
 class MoonChecks(Toggle):
     """
-    Whether collecting a 3up Moon in a level will grant a check
+    Whether collecting a 3-Up Moon in a level will grant a check
     """
     display_name = "3up Moon Checks"
 
 
-class CheckpointChecks(Toggle):
+class Hidden1UpChecks(Toggle):
     """
-    Whether collecting a hidden 1up mushroom in a level will grant a check
+    Whether collecting a hidden 1-Up mushroom in a level will grant a check
+    These checks are considered cryptic as there's no actual indicator that they're in their respective places
+    Enable this option at your own risk
     """
-    display_name = "Checkpoint Checks"
+    display_name = "Hidden 1-Up Checks"
 
 
 class BonusBlockChecks(Toggle):
     """
-    Whether collecting a 1up mushroom from a Bonus Block in a level will grant a check
+    Whether collecting a 1-Up mushroom from a Bonus Block in a level will grant a check
     """
     display_name = "Bonus Block Checks"
 
 
 class Blocksanity(Toggle):
     """
-    Whether hitting a block (question mark block, turn block, note block or switch palace blocks) will grant a check
-    Note that some [?] blocks are 100% excluded due to how the option and the game works!
+    Whether hitting a block with an item or coin inside will grant a check
+    Note that some blocks are excluded due to how the option and the game works!
     Exclusion list:
       * Blocks in Top Secret Area & Front Door/Bowser Castle
-      * Blocks that are 100% unreachable unless you glitch your way in
+      * Blocks that are unreachable unless you glitch your way in
     """
     display_name = "Blocksanity"
+
 
 class BowserCastleDoors(Choice):
     """
@@ -357,7 +360,7 @@ smw_options: typing.Dict[str, type(Option)] = {
     "percentage_of_yoshi_eggs": PercentageOfYoshiEggs,
     "dragon_coin_checks": DragonCoinChecks,
     "moon_checks": MoonChecks,
-    "checkpoint_checks": CheckpointChecks,
+    "hidden_1up_checks": Hidden1UpChecks,
     "bonus_block_checks": BonusBlockChecks,
     "blocksanity": Blocksanity,
     "bowser_castle_doors": BowserCastleDoors,

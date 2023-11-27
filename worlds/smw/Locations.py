@@ -206,21 +206,21 @@ moon_location_table = {
     LocationName.valley_of_bowser_1_moon: 0xBC0345
 }
 
-checkpoints_location_table = {
-    LocationName.yoshis_island_4_checkpoint:      0xBC0403,
-    LocationName.donut_plains_1_checkpoint:       0xBC0406,
-    LocationName.donut_plains_4_checkpoint:       0xBC040B,
-    LocationName.donut_plains_castle_checkpoint:  0xBC0412,
-    LocationName.vanilla_dome_4_checkpoint:       0xBC0419,
-    LocationName.vanilla_ghost_house_checkpoint:  0xBC041E,
-    LocationName.vanilla_fortress_checkpoint:     0xBC0420,
-    LocationName.cookie_mountain_checkpoint:      0xBC0427,
-    LocationName.forest_of_illusion_3_checkpoint: 0xBC042E,
-    LocationName.chocolate_island_2_checkpoint:    0xBC0439,
-    LocationName.chocolate_castle_checkpoint:     0xBC0443,
-    LocationName.valley_of_bowser_2_checkpoint:   0xBC0446,
-    LocationName.valley_castle_checkpoint:        0xBC044F,
-    LocationName.special_zone_1_checkpoint:       0xBC045B
+hidden_1ups_location_table = {
+    LocationName.yoshis_island_4_hidden_1up:      0xBC0403,
+    LocationName.donut_plains_1_hidden_1up:       0xBC0406,
+    LocationName.donut_plains_4_hidden_1up:       0xBC040B,
+    LocationName.donut_plains_castle_hidden_1up:  0xBC0412,
+    LocationName.vanilla_dome_4_hidden_1up:       0xBC0419,
+    LocationName.vanilla_ghost_house_hidden_1up:  0xBC041E,
+    LocationName.vanilla_fortress_hidden_1up:     0xBC0420,
+    LocationName.cookie_mountain_hidden_1up:      0xBC0427,
+    LocationName.forest_of_illusion_3_hidden_1up: 0xBC042E,
+    LocationName.chocolate_island_2_hidden_1up:    0xBC0439,
+    LocationName.chocolate_castle_hidden_1up:     0xBC0443,
+    LocationName.valley_of_bowser_2_hidden_1up:   0xBC0446,
+    LocationName.valley_castle_hidden_1up:        0xBC044F,
+    LocationName.special_zone_1_hidden_1up:       0xBC045B
 }
 bonus_block_location_table = {
     LocationName.yoshis_island_3_bonus_block:    0xBC0502,
@@ -902,7 +902,7 @@ all_locations = {
     **level_location_table,
     **dragon_coin_location_table,
     **moon_location_table,
-    **checkpoints_location_table,
+    **hidden_1ups_location_table,
     **bonus_block_location_table,
     **blocksanity_location_table,
     **bowser_location_table,
@@ -931,8 +931,8 @@ special_zone_dragon_coin_names = [
     LocationName.special_zone_8_dragon,
 ]
 
-special_zone_checkpoint_names = [
-    LocationName.special_zone_1_checkpoint
+special_zone_hidden_1up_names = [
+    LocationName.special_zone_1_hidden_1up
 ]
 
 special_zone_blocksanity_names = [
@@ -1062,9 +1062,9 @@ def setup_locations(world, player: int):
     if world.moon_checks[player].value:
         location_table.update({**moon_location_table})
 
-    # 1up Checkpoints here
-    if world.checkpoint_checks[player].value:
-        location_table.update({**checkpoints_location_table})
+    # Hidden 1-Ups here
+    if world.hidden_1up_checks[player].value:
+        location_table.update({**hidden_1ups_location_table})
 
     # Green Star Blocks here
     if world.bonus_block_checks[player].value:

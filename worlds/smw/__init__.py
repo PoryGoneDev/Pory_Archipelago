@@ -6,7 +6,7 @@ import threading
 
 from BaseClasses import Item, MultiWorld, Tutorial, ItemClassification
 from .Items import SMWItem, ItemData, item_table, junk_table
-from .Locations import SMWLocation, all_locations, setup_locations, special_zone_level_names, special_zone_dragon_coin_names, special_zone_checkpoint_names, special_zone_blocksanity_names
+from .Locations import SMWLocation, all_locations, setup_locations, special_zone_level_names, special_zone_dragon_coin_names, special_zone_hidden_1up_names, special_zone_blocksanity_names
 from .Options import smw_options
 from .Regions import create_regions, connect_regions
 from .Levels import full_level_list, generate_level_list, location_id_to_level_id
@@ -115,7 +115,7 @@ class SMWWorld(World):
             if self.multiworld.dragon_coin_checks[self.player]:
                 exclusion_pool.update(special_zone_level_names)
                 exclusion_pool.update(special_zone_dragon_coin_names)
-                exclusion_pool.update(special_zone_checkpoint_names)
+                exclusion_pool.update(special_zone_hidden_1up_names)
                 exclusion_pool.update(special_zone_blocksanity_names)
             elif self.multiworld.number_of_yoshi_eggs[self.player].value <= 72:
                 exclusion_pool.update(special_zone_level_names)
@@ -126,7 +126,7 @@ class SMWWorld(World):
             total_required_locations += 49
         if self.multiworld.moon_checks[self.player]:
             total_required_locations += 7
-        if self.multiworld.checkpoint_checks[self.player]:
+        if self.multiworld.hidden_1up_checks[self.player]:
             total_required_locations += 14
         if self.multiworld.bonus_block_checks[self.player]:
             total_required_locations += 4
@@ -270,7 +270,7 @@ class SMWWorld(World):
                         continue
                     if self.multiworld.moon_checks[self.player].value == 0 and "3-Up Moon" in loc_name:
                         continue
-                    if self.multiworld.checkpoint_checks[self.player].value == 0 and "Hidden 1-Up" in loc_name:
+                    if self.multiworld.hidden_1up_checks[self.player].value == 0 and "Hidden 1-Up" in loc_name:
                         continue
                     if self.multiworld.bonus_block_checks[self.player].value == 0 and "1-Up from Bonus Block" in loc_name:
                         continue

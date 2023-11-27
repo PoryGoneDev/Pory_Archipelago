@@ -23,7 +23,7 @@ SMW_PATH_DATA           = WRAM_START + 0x1EA2
 SMW_EVENT_ROM_DATA      = ROM_START + 0x2D608
 SMW_ACTIVE_LEVEL_DATA   = ROM_START + 0x37F70
 SMW_MOON_DATA           = WRAM_START + 0x1FEE
-SMW_CHECKPOINT_DATA     = WRAM_START + 0x1F3C
+SMW_HIDDEN_1UP_DATA     = WRAM_START + 0x1F3C
 SMW_BONUS_BLOCK_DATA    = WRAM_START + 0x1A000
 SMW_BLOCKSANITY_DATA    = WRAM_START + 0x1A400
 SMW_BLOCKSANITY_FLAGS   = WRAM_START + 0x1A010
@@ -39,7 +39,7 @@ SMW_DEATH_LINK_ACTIVE_ADDR   = ROM_START + 0x01BFA5
 SMW_DRAGON_COINS_ACTIVE_ADDR = ROM_START + 0x01BFA6
 SMW_SWAMP_DONUT_GH_ADDR      = ROM_START + 0x01BFA7
 SMW_MOON_ACTIVE_ADDR         = ROM_START + 0x01BFA8
-SMW_CHECKPOINT_ACTIVE_ADDR   = ROM_START + 0x01BFA9
+SMW_HIDDEN_1UP_ACTIVE_ADDR   = ROM_START + 0x01BFA9
 SMW_BONUS_BLOCK_ACTIVE_ADDR  = ROM_START + 0x01BFAA
 SMW_BLOCKSANITY_ACTIVE_ADDR  = ROM_START + 0x01BFAB
 
@@ -318,8 +318,8 @@ class SMWSNIClient(SNIClient):
         dragon_coins_active = await snes_read(ctx, SMW_DRAGON_COINS_ACTIVE_ADDR, 0x1)
         moon_data = bytearray(await snes_read(ctx, SMW_MOON_DATA, 0x0C))
         moon_active = await snes_read(ctx, SMW_MOON_ACTIVE_ADDR, 0x1)
-        checkpoint_data = bytearray(await snes_read(ctx, SMW_CHECKPOINT_DATA, 0x0C))
-        checkpoint_active = await snes_read(ctx, SMW_CHECKPOINT_ACTIVE_ADDR, 0x1)
+        hidden_1up_data = bytearray(await snes_read(ctx, SMW_HIDDEN_1UP_DATA, 0x0C))
+        hidden_1up_active = await snes_read(ctx, SMW_HIDDEN_1UP_ACTIVE_ADDR, 0x1)
         bonus_block_data = bytearray(await snes_read(ctx, SMW_BONUS_BLOCK_DATA, 0x0C))
         bonus_block_active = await snes_read(ctx, SMW_BONUS_BLOCK_ACTIVE_ADDR, 0x1)
         blocksanity_data = bytearray(await snes_read(ctx, SMW_BLOCKSANITY_DATA, SMW_BLOCKSANITY_BLOCK_COUNT))
@@ -363,14 +363,14 @@ class SMWSNIClient(SNIClient):
                     if bit_set:
                         new_checks.append(loc_id)
                 elif level_data[1] == 4:
-                    # Checkpoint Check
-                    if not checkpoint_active or checkpoint_active[0] == 0:
+                    # Hidden 1-Up Check
+                    if not hidden_1up_active or hidden_1up_active[0] == 0:
                         continue
 
                     progress_byte = (level_data[0] // 8)
                     progress_bit  = 7 - (level_data[0] % 8)
 
-                    data = checkpoint_data[progress_byte]
+                    data = hidden_1up_data[progress_byte]
                     masked_data = data & (1 << progress_bit)
                     bit_set = (masked_data != 0)
 
@@ -528,7 +528,7 @@ class SMWSNIClient(SNIClient):
         donut_gh_swapped = await snes_read(ctx, SMW_SWAMP_DONUT_GH_ADDR, 0x1)
         new_dragon_coin = False
         new_moon = False
-        new_checkpoint = False
+        new_hidden_1up = False
         new_bonus_block = False
         new_blocksanity = False
         i = 0
@@ -568,17 +568,17 @@ class SMWSNIClient(SNIClient):
 
                     new_moon = True
                 elif level_data[1] == 4:
-                    # Checkpoint Check
+                    # Hidden 1-Up Check
                     progress_byte = (level_data[0] // 8)
                     progress_bit  = 7 - (level_data[0] % 8)
 
-                    data = checkpoint_data[progress_byte]
+                    data = hidden_1up_data[progress_byte]
                     new_data = data | (1 << progress_bit)
-                    checkpoint_data[progress_byte] = new_data
+                    hidden_1up_data[progress_byte] = new_data
 
-                    new_checkpoint = True
+                    new_hidden_1up = True
                 elif level_data[1] == 5:
-                    # Checkpoint Check
+                    # Bonus block prize Check
 
                     progress_byte = (level_data[0] // 8)
                     progress_bit  = 7 - (level_data[0] % 8)
@@ -638,8 +638,8 @@ class SMWSNIClient(SNIClient):
             snes_buffered_write(ctx, SMW_DRAGON_COINS_DATA, bytes(dragon_coins_data))
         if new_moon:
             snes_buffered_write(ctx, SMW_MOON_DATA, bytes(moon_data))
-        if new_checkpoint:
-            snes_buffered_write(ctx, SMW_CHECKPOINT_DATA, bytes(checkpoint_data))
+        if new_hidden_1up:
+            snes_buffered_write(ctx, SMW_HIDDEN_1UP_DATA, bytes(hidden_1up_data))
         if new_bonus_block:
             snes_buffered_write(ctx, SMW_BONUS_BLOCK_DATA, bytes(bonus_block_data))
         if new_blocksanity:

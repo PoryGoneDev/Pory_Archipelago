@@ -863,31 +863,31 @@ def create_regions(world, player: int, active_locations):
                                               state.has(ItemName.progressive_powerup, player, 3)))
         add_location_to_region(world, player, active_locations, LocationName.valley_of_bowser_1_region, LocationName.valley_of_bowser_1_moon)
 
-    if world.checkpoint_checks[player]:
-        add_location_to_region(world, player, active_locations, LocationName.yoshis_island_4_region, LocationName.yoshis_island_4_checkpoint,
+    if world.hidden_1up_checks[player]:
+        add_location_to_region(world, player, active_locations, LocationName.yoshis_island_4_region, LocationName.yoshis_island_4_hidden_1up,
                                lambda state: (state.has(ItemName.yoshi_activate, player) or
                                              (state.has(ItemName.mario_run, player, player) and
                                               state.has(ItemName.progressive_powerup, player, 3))))
-        add_location_to_region(world, player, active_locations, LocationName.donut_plains_1_region, LocationName.donut_plains_1_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.donut_plains_4_region, LocationName.donut_plains_4_checkpoint,
+        add_location_to_region(world, player, active_locations, LocationName.donut_plains_1_region, LocationName.donut_plains_1_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.donut_plains_4_region, LocationName.donut_plains_4_hidden_1up,
                                lambda state: (state.has(ItemName.mario_run, player) and
                                               state.has(ItemName.progressive_powerup, player, 3)))
-        add_location_to_region(world, player, active_locations, LocationName.donut_plains_castle_region, LocationName.donut_plains_castle_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.vanilla_ghost_house_region, LocationName.vanilla_ghost_house_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.vanilla_dome_4_region, LocationName.vanilla_dome_4_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.vanilla_fortress_region, LocationName.vanilla_fortress_checkpoint,
+        add_location_to_region(world, player, active_locations, LocationName.donut_plains_castle_region, LocationName.donut_plains_castle_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.vanilla_ghost_house_region, LocationName.vanilla_ghost_house_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.vanilla_dome_4_region, LocationName.vanilla_dome_4_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.vanilla_fortress_region, LocationName.vanilla_fortress_hidden_1up,
                                lambda state: state.has(ItemName.mario_swim, player))
-        add_location_to_region(world, player, active_locations, LocationName.cookie_mountain_region, LocationName.cookie_mountain_checkpoint,
+        add_location_to_region(world, player, active_locations, LocationName.cookie_mountain_region, LocationName.cookie_mountain_hidden_1up,
                                lambda state: (state.has(ItemName.mario_swim, player) or
                                               state.has(ItemName.yoshi_activate, player) or
                                              (state.has(ItemName.mario_run, player, player) and
                                               state.has(ItemName.progressive_powerup, player, 3))))
-        add_location_to_region(world, player, active_locations, LocationName.forest_of_illusion_3_region, LocationName.forest_of_illusion_3_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.chocolate_island_2_region, LocationName.chocolate_island_2_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.chocolate_castle_region, LocationName.chocolate_castle_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.valley_of_bowser_2_region, LocationName.valley_of_bowser_2_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.valley_castle_region, LocationName.valley_castle_checkpoint)
-        add_location_to_region(world, player, active_locations, LocationName.special_zone_1_region, LocationName.special_zone_1_checkpoint,
+        add_location_to_region(world, player, active_locations, LocationName.forest_of_illusion_3_region, LocationName.forest_of_illusion_3_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.chocolate_island_2_region, LocationName.chocolate_island_2_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.chocolate_castle_region, LocationName.chocolate_castle_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.valley_of_bowser_2_region, LocationName.valley_of_bowser_2_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.valley_castle_region, LocationName.valley_castle_hidden_1up)
+        add_location_to_region(world, player, active_locations, LocationName.special_zone_1_region, LocationName.special_zone_1_hidden_1up,
                                lambda state: state.has(ItemName.mario_climb, player))
         
     if world.bonus_block_checks[player]:
