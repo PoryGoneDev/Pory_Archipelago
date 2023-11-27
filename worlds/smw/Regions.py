@@ -1165,7 +1165,7 @@ def create_regions(world, player: int, active_locations):
         add_location_to_region(world, player, active_locations, LocationName.chocolate_island_1_region, LocationName.chocolate_island_1_yoshi_block_1,
                         lambda state: state.has(ItemName.p_switch, player))
         add_location_to_region(world, player, active_locations, LocationName.chocolate_island_1_region, LocationName.chocolate_island_1_green_block_1,
-                        lambda state:( ((state.has(ItemName.green_switch_palace, player) and state.has(ItemName.blue_switch_palace, player))) or  ((state.has(ItemName.green_switch_palace, player) and state.has(ItemName.progressive_powerup, player, 3)))))
+                        lambda state:( (((state.has(ItemName.green_switch_palace, player) or state.has(ItemName.yellow_switch_palace, player)) and state.has(ItemName.blue_switch_palace, player))) or  (((state.has(ItemName.green_switch_palace, player) or state.has(ItemName.yellow_switch_palace, player)) and state.has(ItemName.progressive_powerup, player, 3)))))
         add_location_to_region(world, player, active_locations, LocationName.chocolate_island_1_region, LocationName.chocolate_island_1_life_block_1,
                         lambda state: state.has(ItemName.p_switch, player))
         add_location_to_region(world, player, active_locations, LocationName.chocolate_island_3_region, LocationName.chocolate_island_3_powerup_block_1)
