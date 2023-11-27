@@ -43,6 +43,7 @@ SMW_HIDDEN_1UP_ACTIVE_ADDR   = ROM_START + 0x01BFA9
 SMW_BONUS_BLOCK_ACTIVE_ADDR  = ROM_START + 0x01BFAA
 SMW_BLOCKSANITY_ACTIVE_ADDR  = ROM_START + 0x01BFAB
 
+
 SMW_GAME_STATE_ADDR    = WRAM_START + 0x100
 SMW_MARIO_STATE_ADDR   = WRAM_START + 0x71
 SMW_BOSS_STATE_ADDR    = WRAM_START + 0xD9B
@@ -255,6 +256,8 @@ class SMWSNIClient(SNIClient):
     async def game_watcher(self, ctx):
         from SNIClient import snes_buffered_write, snes_flush_writes, snes_read
 
+        
+        boss_state = await snes_read(ctx, SMW_BOSS_STATE_ADDR, 0x1)
         game_state = await snes_read(ctx, SMW_GAME_STATE_ADDR, 0x1)
         mario_state = await snes_read(ctx, SMW_MARIO_STATE_ADDR, 0x1)
         if game_state is None:
@@ -307,7 +310,7 @@ class SMWSNIClient(SNIClient):
         elif goal[0] == 1 and egg_count[0] > display_count[0]:
             snes_buffered_write(ctx, SMW_BONUS_STAR_ADDR, bytes([egg_count[0]]))
             await snes_flush_writes(ctx)
-
+        
         await self.handle_message_queue(ctx)
         await self.handle_trap_queue(ctx)
 
@@ -432,10 +435,13 @@ class SMWSNIClient(SNIClient):
         if game_state[0] != 0x14:
             # Don't receive items or collect locations outside of in-level mode
             return
+        
+        if boss_state[0] in SMW_BOSS_STATES:
+            # Don't receive items or collect locations inside boss battles
+            return
 
         recv_count = await snes_read(ctx, SMW_RECV_PROGRESS_ADDR, 2)
         recv_index = recv_count[0]+(recv_count[1]<<8)
-
 
         if recv_index < len(ctx.items_received):
             item = ctx.items_received[recv_index]
