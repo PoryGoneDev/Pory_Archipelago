@@ -39,7 +39,6 @@
         "crimson.mw3",
         "dark.mw3",
         "electro.mw3",
-        "flat_brown_green.mw3",
         "geo.mw3",
         "ice.mw3",
         "miku.mw3",
@@ -339,12 +338,21 @@
         "youbonus.mw3"
     ],
     "yoshi_house": [
+        "atardecer.mw3",
+        "brawler_green.mw3",
         "choco.mw3",
+        "crimson.mw3",
+        "miku.mw3",
+        "mogumogu.mw3",
         "monocromo.mw3",
         "neon.mw3",
         "nieve.mw3",
         "night.mw3",
+        "nocturno.mw3",
         "original.mw3",
-        "strong_sun.mw3"
+        "sakura.mw3",
+        "snow.mw3",
+        "strong_sun.mw3",
+        "sunsetish_grass_hills.mw3"
     ]
 }
