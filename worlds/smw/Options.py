@@ -238,13 +238,6 @@ class Autosave(DefaultOnToggle):
     display_name = "Autosave"
 
 
-class AdjustVerticalScroll(DefaultOnToggle):
-    """
-    Adjusts the camera in certain levels to follow Mario in a more natural way.
-    May create some blind jumps if enabled.
-    """
-    display_name = "Adjust Vertical Scroll"
-
 class EarlyClimb(Toggle):
     """
     Force Climb to appear early in the seed as a local item.
@@ -305,40 +298,48 @@ class MarioPalette(Choice):
     default = 0
 
 
-class PaletteShuffleType(Choice):
-    """
-    Determines which kind of palette shuffle will be used.
-    Legacy: Uses only the palette sets from the original game
-    Curated: Uses palette combinations created by some people to have a greater amount of variety of palettes
-             Using this option will make both levels and maps have randomized palettes
-    """
-    display_name = "Palette Shuffle Type"
-    option_legacy = 0
-    option_curated = 1
-    default = 1
-
-class ForegroundPaletteShuffle(Toggle):
+class ForegroundPaletteShuffle(Choice):
     """
     Whether to shuffle level foreground palettes
-    Only used when Palette Shuffle Type is set to "Legacy"
+    off: Do not shuffle palettes
+    on_legacy: Uses only the palette sets from the original game
+    on_curated: Uses custom palette sets created by some people
+                Setting this option will also force Backgrounds to use those palettes
     """
     display_name = "Foreground Palette Shuffle"
+    option_off = 0
+    option_on_legacy = 1
+    option_on_curated = 2
+    default = 0
 
 
-class BackgroundPaletteShuffle(Toggle):
+class BackgroundPaletteShuffle(Choice):
     """
     Whether to shuffle level background palettes
-    Only used when Palette Shuffle Type is set to "Legacy"
+    off: Do not shuffle palettes
+    on_legacy: Uses only the palette sets from the original game
+    on_curated: Uses custom palette sets created by some people
+                Setting this option will also force Foregrounds to use those palettes
     """
     display_name = "Background Palette Shuffle"
+    option_off = 0
+    option_on_legacy = 1
+    option_on_curated = 2
+    default = 0
 
 
-class OverworldPaletteShuffle(Toggle):
+class OverworldPaletteShuffle(Choice):
     """
     Whether to shuffle overworld palettes
-    Only used when Palette Shuffle Type is set to "Legacy"
+    off: Do not shuffle palettes
+    on_legacy: Uses only the palette sets from the original game
+    on_curated: Uses custom palette sets created by some people
     """
     display_name = "Overworld Palette Shuffle"
+    option_off = 0
+    option_on_legacy = 1
+    option_on_curated = 2
+    default = 0
 
 
 class StartingLifeCount(Range):
@@ -377,13 +378,11 @@ smw_options: typing.Dict[str, type(Option)] = {
     "literature_trap_weight": LiteratureTrapWeight,
     "timer_trap_weight": TimerTrapWeight,
     "autosave": Autosave,
-    "vertical_scroll": AdjustVerticalScroll,
     "early_climb": EarlyClimb,
     "overworld_speed": OverworldSpeed,
     "music_shuffle": MusicShuffle,
     "sfx_shuffle": SFXShuffle,
     "mario_palette": MarioPalette,
-    "palette_shuffle_type": PaletteShuffleType,
     "foreground_palette_shuffle": ForegroundPaletteShuffle,
     "background_palette_shuffle": BackgroundPaletteShuffle,
     "overworld_palette_shuffle": OverworldPaletteShuffle,

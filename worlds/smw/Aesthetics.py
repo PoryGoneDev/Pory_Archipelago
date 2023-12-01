@@ -628,7 +628,7 @@ def generate_shuffled_ow_palettes(rom, world, player):
             rom.write_byte(address, chosen_palette)
 
 def generate_shuffled_header_data(rom, world, player):
-    if world.music_shuffle[player] != "full" and not world.foreground_palette_shuffle[player] and not world.background_palette_shuffle[player]:
+    if world.music_shuffle[player] != "full" and world.foreground_palette_shuffle[player] == "on_legacy" and world.background_palette_shuffle[player] == "on_legacy" :
         return
 
     for level_id in range(0, 0x200):
@@ -652,11 +652,11 @@ def generate_shuffled_header_data(rom, world, player):
             level_header[2] &= 0x8F
             level_header[2] |= (world.per_slot_randoms[player].randint(0, 7) << 5)
 
-        if (world.foreground_palette_shuffle[player] and tileset in valid_foreground_palettes):
+        if (world.foreground_palette_shuffle[player] == "on_legacy" and tileset in valid_foreground_palettes):
             level_header[3] &= 0xF8
             level_header[3] |= world.per_slot_randoms[player].choice(valid_foreground_palettes[tileset])
 
-        if world.background_palette_shuffle[player]:
+        if world.background_palette_shuffle[player] == "on_legacy":
             layer2_ptr_list = list(rom.read_bytes(0x2E600 + level_id * 3, 3))
             layer2_ptr = (layer2_ptr_list[2] << 16 | layer2_ptr_list[1] << 8 | layer2_ptr_list[0])
 
@@ -670,10 +670,7 @@ def generate_shuffled_header_data(rom, world, player):
 
         rom.write_bytes(layer1_ptr, bytes(level_header))
 
-def generate_curated_palette_data(rom, world, player):
-    if world.palette_shuffle_type[player] != "curated":
-        return
-
+def generate_curated_level_palette_data(rom, world, player):
     PALETTE_LEVEL_CODE_ADDR = 0x88000
     PALETTE_INDEX_ADDR = 0x8F000
     PALETTE_LEVEL_TILESET_ADDR = 0x8F200
@@ -841,6 +838,14 @@ def generate_curated_palette_data(rom, world, player):
             bank_palette_count += 1
         tileset_num += 1
 
+    # Fix eaten berry tiles
+    EATEN_BERRY_ADDR = 0x68248
+    rom.write_byte(EATEN_BERRY_ADDR + 0x01, 0x04)
+    rom.write_byte(EATEN_BERRY_ADDR + 0x03, 0x04)
+    rom.write_byte(EATEN_BERRY_ADDR + 0x05, 0x04)
+    rom.write_byte(EATEN_BERRY_ADDR + 0x07, 0x04)
+
+def generate_curated_map_palette_data(rom, world, player):
     PALETTE_MAP_CODE_ADDR = 0x88200
     PALETTE_UPLOADER_EDIT = 0x88400
     PALETTE_MAP_INDEX_ADDR = 0x8F400
@@ -935,6 +940,26 @@ def generate_curated_palette_data(rom, world, player):
     rom.write_bytes(PALETTE_UPLOADER_EDIT + 0x0035, bytearray([0x8D, 0x0B, 0x42]))            #                     sta $420B
     rom.write_bytes(PALETTE_UPLOADER_EDIT + 0x0038, bytearray([0x5C, 0xCF, 0xA4, 0x00]))      #                     jml $00A4CF
 
+    # Insert this piece of ASM again in case levels are disabled
+    PALETTE_LEVEL_CODE_ADDR = 0x88000
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00E4, bytearray([0xA6, 0x04]))                # load_colors:        ldx !_index
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00E6, bytearray([0xA4, 0x06]))                #                     ldy !_x_span
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00E8, bytearray([0xA7, 0x0A]))                # .x_loop             lda [!_ptr]
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00EA, bytearray([0x9D, 0x03, 0x07]))          #                     sta $0703,x
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00ED, bytearray([0xE6, 0x0A]))                #                     inc !_ptr
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00EF, bytearray([0xE6, 0x0A]))                #                     inc !_ptr
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00F1, bytearray([0xE8]))                      #                     inx 
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00F2, bytearray([0xE8]))                      #                     inx 
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00F3, bytearray([0x88]))                      #                     dey 
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00F4, bytearray([0x10, 0xF2]))                #                     bpl .x_loop
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00F6, bytearray([0xA5, 0x04]))                #                     lda !_index
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00F8, bytearray([0x18]))                      #                     clc 
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00F9, bytearray([0x69, 0x20, 0x00]))          #                     adc #$0020
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00FC, bytearray([0x85, 0x04]))                #                     sta !_index
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x00FE, bytearray([0xC6, 0x08]))                #                     dec !_y_span
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x0100, bytearray([0x10, 0xE2]))                #                     bpl load_colors
+    rom.write_bytes(PALETTE_LEVEL_CODE_ADDR + 0x0102, bytearray([0x60]))                      #                     rts 
+
     # Load palette paths
     data = pkgutil.get_data(__name__, f"data/palettes/map/palettes.json").decode("utf-8")
     maps = json.loads(data)
@@ -963,13 +988,6 @@ def generate_curated_palette_data(rom, world, player):
             bank_palette_count += 1
         map_num += 1
 
-    # Fix eaten berry tiles
-    EATEN_BERRY_ADDR = 0x68248
-    rom.write_byte(EATEN_BERRY_ADDR + 0x01, 0x04)
-    rom.write_byte(EATEN_BERRY_ADDR + 0x03, 0x04)
-    rom.write_byte(EATEN_BERRY_ADDR + 0x05, 0x04)
-    rom.write_byte(EATEN_BERRY_ADDR + 0x07, 0x04)
-    
 
 def pc_to_snes(address):
     return ((address << 1) & 0x7F0000) | (address & 0x7FFF) | 0x8000

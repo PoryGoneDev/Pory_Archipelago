@@ -1,6 +1,6 @@
 import Utils
 from worlds.Files import APDeltaPatch
-from .Aesthetics import generate_shuffled_header_data, generate_shuffled_ow_palettes, generate_curated_palette_data, generate_shuffled_sfx
+from .Aesthetics import generate_shuffled_header_data, generate_shuffled_ow_palettes, generate_curated_level_palette_data, generate_curated_map_palette_data, generate_shuffled_sfx
 from .Levels import level_info_dict, full_bowser_rooms, standard_bowser_rooms, submap_boss_rooms, ow_boss_rooms
 from .Names.TextBox import generate_goal_text, title_text_mapping, generate_text_box
 
@@ -2812,12 +2812,16 @@ def patch_rom(world, rom, player, active_level_dict):
     generate_shuffled_ow_palettes(rom, world, player)
 
     generate_shuffled_header_data(rom, world, player)
-    generate_curated_palette_data(rom, world, player)
+
+    if world.background_palette_shuffle[player] == "on_curated" or world.foreground_palette_shuffle[player] == "on_curated":
+        generate_curated_level_palette_data(rom, world, player)
+
+    if world.overworld_palette_shuffle[player] == "on_curated":
+        generate_curated_map_palette_data(rom, world, player)
     
     if world.sfx_shuffle[player]:
         generate_shuffled_sfx(rom, world, player)
     
-
     if world.swap_donut_gh_exits[player]:
         handle_swap_donut_gh_exits(rom)
 
