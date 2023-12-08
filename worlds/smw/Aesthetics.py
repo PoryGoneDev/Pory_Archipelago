@@ -845,6 +845,13 @@ def generate_curated_level_palette_data(rom, world, player):
     rom.write_byte(EATEN_BERRY_ADDR + 0x05, 0x04)
     rom.write_byte(EATEN_BERRY_ADDR + 0x07, 0x04)
 
+    # Fix title screen changing background colors
+    rom.write_bytes(0x1D30, bytearray([0xEA, 0xEA, 0xEA]))
+
+    # Skips level intros automatically
+    rom.write_byte(0x4896, 0x80)
+
+
 def generate_curated_map_palette_data(rom, world, player):
     PALETTE_MAP_CODE_ADDR = 0x88200
     PALETTE_UPLOADER_EDIT = 0x88400
