@@ -991,10 +991,12 @@ def generate_curated_map_palette_data(rom, world, player):
             rom.write_bytes(PALETTE_MAP_PTR_ADDR + ((map_num*3)<<8) + (palette*3), bytearray([data_ptr & 0xFF, (data_ptr>>8)&0xFF, (data_ptr>>16)&0xFF]))
             # Write data
             rom.write_bytes(PALETTE_MAP_DATA_ADDR + pal_offset, read_palette_file(current_map, maps[current_map][palette], "map"))
+            # Update map mario palette
+            chosen_palette = world.mario_palette[player].value
+            rom.write_bytes(PALETTE_MAP_DATA_ADDR + pal_offset + 206, bytes(ow_mario_palettes[chosen_palette]))
             pal_offset += 0x11C
             bank_palette_count += 1
         map_num += 1
-
 
 def pc_to_snes(address):
     return ((address << 1) & 0x7F0000) | (address & 0x7FFF) | 0x8000
