@@ -859,7 +859,7 @@ def create_regions(world, player: int, active_locations):
         add_location_to_region(world, player, active_locations, LocationName.cheese_bridge_region, LocationName.cheese_bridge_moon,
                                lambda state: (state.has(ItemName.mario_run, player) and
                                               (state.has(ItemName.progressive_powerup, player, 3) or
-                                              state.has(ItemName.yoshi_activate))))
+                                              state.has(ItemName.yoshi_activate, player))))
         add_location_to_region(world, player, active_locations, LocationName.forest_ghost_house_region, LocationName.forest_ghost_house_moon,
                                lambda state: state.has(ItemName.p_switch, player))
         add_location_to_region(world, player, active_locations, LocationName.chocolate_island_1_region, LocationName.chocolate_island_1_moon,
@@ -1930,7 +1930,7 @@ def connect_regions(world, player, level_to_tile_dict):
     connect(world, player, names, LocationName.cheese_bridge_region, LocationName.cheese_bridge_exit_2,
             lambda state: (state.has(ItemName.mario_run, player) and
                            (state.has(ItemName.progressive_powerup, player, 3) or
-                           state.has(ItemName.yoshi_activate))))
+                           state.has(ItemName.yoshi_activate, player))))
     connect(world, player, names, LocationName.soda_lake_region, LocationName.soda_lake_exit_1,
             lambda state: state.has(ItemName.mario_swim, player))
     connect(world, player, names, LocationName.cookie_mountain_region, LocationName.cookie_mountain_exit_1)
