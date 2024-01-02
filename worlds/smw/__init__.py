@@ -132,7 +132,7 @@ class SMWWorld(World):
         if self.multiworld.bonus_block_checks[self.player]:
             total_required_locations += 4
         if self.multiworld.blocksanity[self.player]:
-            total_required_locations += 658
+            total_required_locations += 582
 
         itempool += [self.create_item(ItemName.mario_run)]
         itempool += [self.create_item(ItemName.mario_carry)]
@@ -174,10 +174,10 @@ class SMWWorld(World):
         itempool += trap_pool
 
         junk_weights = []
-        junk_weights += ([ItemName.one_coin] * 30)
-        junk_weights += ([ItemName.five_coins] * 25)
-        junk_weights += ([ItemName.ten_coins] * 15)
-        junk_weights += ([ItemName.fifty_coins] * 10)
+        junk_weights += ([ItemName.one_coin] * 15)
+        junk_weights += ([ItemName.five_coins] * 15)
+        junk_weights += ([ItemName.ten_coins] * 25)
+        junk_weights += ([ItemName.fifty_coins] * 25)
         junk_weights += ([ItemName.one_up_mushroom] * 20)
 
         junk_pool = []
