@@ -306,8 +306,5 @@ class SMWWorld(World):
     def get_filler_item_name(self) -> str:
         return self.random.choice(list(junk_table.keys()))
 
-    def get_filler_item_name(self) -> str:
-        return ItemName.one_up_mushroom
-
     def set_rules(self):
         set_rules(self)
