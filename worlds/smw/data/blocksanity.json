@@ -300,6 +300,7 @@
         ["yellow", "0DA0", "00F0", ["yellowswitch"]],
         ["bonus",  "10A0", "0080", []]
     ],
+    "104_yoshis_house": [],
     "105_yoshis_island_1": [
         ["fly",    "0250", "0140", []],
         ["yellow", "09C0", "0140", ["yellowswitch"]],
