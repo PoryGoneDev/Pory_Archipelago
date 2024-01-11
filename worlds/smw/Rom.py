@@ -2770,6 +2770,24 @@ def patch_rom(world: World, rom, player, active_level_dict):
     # Repurpose Bonus Stars counter for Boss Token or Yoshi Eggs
     rom.write_bytes(0x3F1AA, bytearray([0x00] * 0x20))
 
+    # Make bonus star counter go up to 255 (999 in theory, but can't load a 16-bit addr there)
+    rom.write_bytes(0x00F5B, bytearray([0x4C, 0x73, 0x8F]))
+    rom.write_byte(0x00F95, 0x08)
+    rom.write_byte(0x00F97, 0x0C)
+    rom.write_byte(0x00FAC, 0x02)
+    rom.write_byte(0x00F9E, 0x1D)
+    rom.write_byte(0x00FA5, 0x1D)
+    rom.write_byte(0x00FA8, 0x02)
+    rom.write_byte(0x00FB0, 0x1D)
+    rom.write_byte(0x00FB8, 0x02)
+    rom.write_byte(0x00FBE, 0x1D)
+    rom.write_byte(0x00FC2, 0x03)
+
+    # Move Dragon coins one spot to the left & fix tilemap
+    rom.write_byte(0x00FF0, 0xFE)
+    rom.write_byte(0x00C94, 0x3C)
+    rom.write_byte(0x00C9C, 0x38)
+
      # Delete Routine that would copy Mario position data over repurposed Luigi save data
     rom.write_bytes(0x20F9F, bytearray([0xEA] * 0x3D))
 
