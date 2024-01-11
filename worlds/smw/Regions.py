@@ -968,7 +968,7 @@ def create_regions(multiworld: MultiWorld, player: int, world: World, active_loc
         add_location_to_region(multiworld, player, active_locations, LocationName.donut_plains_2_region, LocationName.donut_plains_2_yellow_block_2,
                         lambda state: state.has(ItemName.yellow_switch_palace, player))
         add_location_to_region(multiworld, player, active_locations, LocationName.donut_plains_2_region, LocationName.donut_plains_2_vine_block_1,
-                        lambda state:( ((state.has(ItemName.mario_climb, player) and state.has(ItemName.mario_spin_jump, player))) or  (state.has(ItemName.yoshi_activate, player))))
+                        lambda state:( ((state.has(ItemName.mario_climb, player) and state.has(ItemName.progressive_powerup, player, 1) and state.has(ItemName.mario_spin_jump, player))) or  (state.has(ItemName.yoshi_activate, player))))
         add_location_to_region(multiworld, player, active_locations, LocationName.donut_secret_1_region, LocationName.donut_secret_1_coin_block_1,
                         lambda state: state.has(ItemName.mario_swim, player))
         add_location_to_region(multiworld, player, active_locations, LocationName.donut_secret_1_region, LocationName.donut_secret_1_coin_block_2,

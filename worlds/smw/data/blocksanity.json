@@ -64,7 +64,7 @@
         ["fly",    "0820", "00E0", []],
         ["green",  "0560", "00E0", ["greenswitch"]],
         ["yellow", "0050", "0140", ["yellowswitch"]],
-        ["vine",   "02B0", "00E0", ["carry spin", "yoshi"]]
+        ["vine",   "02B0", "00E0", ["carry spin mushroom", "yoshi"]]
     ],
     "00A_donut_secret_1": [
         ["single", "02C0", "0130", ["swim"]],
