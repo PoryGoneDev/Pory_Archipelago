@@ -59,6 +59,7 @@ SMW_NUM_EVENTS_ADDR       = WRAM_START + 0x1F2E
 SMW_SFX_ADDR              = WRAM_START + 0x1DFC
 SMW_PAUSE_ADDR            = WRAM_START + 0x13D4
 SMW_MESSAGE_QUEUE_ADDR    = WRAM_START + 0xC391
+SMW_ACTIVE_THWIMP_ADDR    = WRAM_START + 0x0F3C
 
 SMW_RECV_PROGRESS_ADDR = WRAM_START + 0x1A00E
 
@@ -235,6 +236,13 @@ class SMWSNIClient(SNIClient):
                     self.add_trap_to_queue(next_trap, message)
                     return
                 else:
+                    if next_trap.item == 0xBC001D:
+                        # Special case thwimp trap
+                        # Do not fire if the previous thwimp hasn't reached the player's Y pos
+                        active_thwimp = await snes_read(ctx, SMW_ACTIVE_THWIMP_ADDR, 0x1)
+                        if active_thwimp[0] != 0xFF:
+                            self.add_trap_to_queue(next_trap, message)
+                            return
                     verify_game_state = await snes_read(ctx, SMW_GAME_STATE_ADDR, 0x1)
                     if verify_game_state[0] == 0x14 and len(trap_rom_data[next_trap.item]) > 2:
                         snes_buffered_write(ctx, SMW_SFX_ADDR, bytes([trap_rom_data[next_trap.item][2]]))
