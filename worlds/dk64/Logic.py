@@ -1,54 +1,57 @@
 """Contains the class which holds logic variables, and the master copy of regions."""
 from math import ceil
 
-import randomizer.CollectibleLogicFiles.AngryAztec
-import randomizer.CollectibleLogicFiles.CreepyCastle
-import randomizer.CollectibleLogicFiles.CrystalCaves
-import randomizer.CollectibleLogicFiles.DKIsles
-import randomizer.CollectibleLogicFiles.FranticFactory
-import randomizer.CollectibleLogicFiles.FungiForest
-import randomizer.CollectibleLogicFiles.GloomyGalleon
-import randomizer.CollectibleLogicFiles.JungleJapes
-import randomizer.LogicFiles.AngryAztec
-import randomizer.LogicFiles.CreepyCastle
-import randomizer.LogicFiles.CrystalCaves
-import randomizer.LogicFiles.DKIsles
-import randomizer.LogicFiles.FranticFactory
-import randomizer.LogicFiles.FungiForest
-import randomizer.LogicFiles.GloomyGalleon
-import randomizer.LogicFiles.HideoutHelm
-import randomizer.LogicFiles.JungleJapes
-import randomizer.LogicFiles.Shops
-from randomizer.Enums.Collectibles import Collectibles
-from randomizer.Enums.Events import Events
-from randomizer.Enums.Items import Items
-from randomizer.Enums.Kongs import Kongs
-from randomizer.Enums.Levels import Levels
-from randomizer.Enums.Locations import Locations
-from randomizer.Enums.Regions import Regions as RegionEnum
-from randomizer.Enums.Switches import Switches
-from randomizer.Enums.SwitchTypes import SwitchType
-from randomizer.Enums.Settings import (
+import dk64r.randomizer.CollectibleLogicFiles.AngryAztec
+import dk64r.randomizer.CollectibleLogicFiles.CreepyCastle
+import dk64r.randomizer.CollectibleLogicFiles.CrystalCaves
+import dk64r.randomizer.CollectibleLogicFiles.DKIsles
+import dk64r.randomizer.CollectibleLogicFiles.FranticFactory
+import dk64r.randomizer.CollectibleLogicFiles.FungiForest
+import dk64r.randomizer.CollectibleLogicFiles.GloomyGalleon
+import dk64r.randomizer.CollectibleLogicFiles.JungleJapes
+import dk64r.randomizer.LogicFiles.AngryAztec
+import dk64r.randomizer.LogicFiles.CreepyCastle
+import dk64r.randomizer.LogicFiles.CrystalCaves
+import dk64r.randomizer.LogicFiles.DKIsles
+import dk64r.randomizer.LogicFiles.FranticFactory
+import dk64r.randomizer.LogicFiles.FungiForest
+import dk64r.randomizer.LogicFiles.GloomyGalleon
+import dk64r.randomizer.LogicFiles.HideoutHelm
+import dk64r.randomizer.LogicFiles.JungleJapes
+import dk64r.randomizer.LogicFiles.Shops
+from dk64r.randomizer.Enums.Collectibles import Collectibles
+from dk64r.randomizer.Enums.Events import Events
+from dk64r.randomizer.Enums.Items import Items
+from dk64r.randomizer.Enums.Kongs import Kongs
+from dk64r.randomizer.Enums.Levels import Levels
+from dk64r.randomizer.Enums.Locations import Locations
+from dk64r.randomizer.Enums.Regions import Regions as RegionEnum
+from dk64r.randomizer.Enums.Switches import Switches
+from dk64r.randomizer.Enums.SwitchTypes import SwitchType
+from dk64r.randomizer.Enums.Settings import (
     ActivateAllBananaports,
+    BananaportRando,
     DamageAmount,
+    FasterChecksSelected,
     GlitchesSelected,
     HardModeSelected,
     HelmDoorItem,
     LogicType,
+    RemovedBarriersSelected,
     ShockwaveStatus,
     ShuffleLoadingZones,
     TrainingBarrels,
     WinCondition,
     HelmSetting,
 )
-from randomizer.Enums.Time import Time
-from randomizer.Enums.Types import Types
-from randomizer.Lists.Item import ItemList
-from randomizer.Enums.Maps import Maps
-from randomizer.Lists.ShufflableExit import GetShuffledLevelIndex
-from randomizer.Lists.Warps import BananaportVanilla
-from randomizer.Patching.Lib import IsItemSelected
-from randomizer.Prices import AnyKongCanBuy, CanBuy, GetPriceAtLocation
+from dk64r.randomizer.Enums.Time import Time
+from dk64r.randomizer.Enums.Types import Types
+from dk64r.randomizer.Lists.Item import ItemList
+from dk64r.randomizer.Enums.Maps import Maps
+from dk64r.randomizer.Lists.ShufflableExit import GetShuffledLevelIndex
+from dk64r.randomizer.Lists.Warps import BananaportVanilla
+from dk64r.randomizer.Patching.Lib import IsItemSelected
+from dk64r.randomizer.Prices import AnyKongCanBuy, CanBuy, GetPriceAtLocation
 
 STARTING_SLAM = 0  # Currently we're assuming you always start with 1 slam
 
@@ -61,11 +64,12 @@ def IsGlitchEnabled(settings, glitch_enum):
 class LogicVarHolder:
     """Used to store variables when checking logic conditions."""
 
-    def __init__(self, spoiler):
+    def __init__(self, spoiler, world):
         """Initialize with given parameters."""
         settings = spoiler.settings
         self.settings = settings
         self.spoiler = spoiler
+        self.world = world
         # Some restrictions are added to the item placement fill for the sake of reducing indirect errors. We can overlook these restrictions once we know the fill is valid.
         self.assumeFillSuccess = False
         # See CalculateWothPaths method for details on these assumptions
@@ -267,14 +271,6 @@ class LogicVarHolder:
         self.RainbowCoins = 0
         self.SpentCoins = [0] * 5
 
-        # These access variables based on current region
-        # Shouldn't be checked unless updated directly beforehand
-        self.donkeyAccess = False
-        self.diddyAccess = False
-        self.lankyAccess = False
-        self.tinyAccess = False
-        self.chunkyAccess = False
-
         self.kong = self.startkong
 
         self.bananaHoard = False
@@ -283,6 +279,8 @@ class LogicVarHolder:
 
     def isPriorHelmComplete(self, kong: Kongs):
         """Determine if there is access to the kong's helm room."""
+        if self.settings.helm_setting == HelmSetting.skip_all or Events.HelmFinished in self.Events:
+            return True
         room_seq = (Kongs.donkey, Kongs.chunky, Kongs.tiny, Kongs.lanky, Kongs.diddy)
         kong_evt = (Events.HelmDonkeyDone, Events.HelmDiddyDone, Events.HelmLankyDone, Events.HelmTinyDone, Events.HelmChunkyDone)
         desired_index = room_seq.index(kong)
@@ -292,7 +290,7 @@ class LogicVarHolder:
             if sequence_slot > 0:
                 prior_kong = room_seq[helm_order[sequence_slot - 1]]
                 return kong_evt[prior_kong] in self.Events
-        return Events.HelmDoorsOpened in self.Events
+        return True
 
     def UpdateCoins(self):
         """Update coin total."""
@@ -443,6 +441,32 @@ class LogicVarHolder:
         """Determine whether the hard bosses feature is enabled or not."""
         return IsItemSelected(self.settings.hard_mode, self.settings.hard_mode_selected, HardModeSelected.hard_bosses)
 
+    def IsHardFallDamage(self) -> bool:
+        """Determine whether the lowered fall damage height threshold is enabled or not."""
+        return IsItemSelected(self.settings.hard_mode, self.settings.hard_mode_selected, HardModeSelected.reduced_fall_damage_threshold)
+
+    def checkFastCheck(self, check: FasterChecksSelected):
+        """Determine whether a fast check is selected."""
+        return IsItemSelected(self.settings.faster_checks_enabled, self.settings.faster_checks_selected, check)
+
+    def checkBarrier(self, check: RemovedBarriersSelected):
+        """Determine whether a barrier has been removed by the removed barriers setting."""
+        return IsItemSelected(self.settings.remove_barriers_enabled, self.settings.remove_barriers_selected, check)
+
+    def canOpenLlamaTemple(self):
+        """Determine whether the switches on the Llama Temple can be shot."""
+        if not (self.checkBarrier(RemovedBarriersSelected.aztec_llama_switches) or Events.LlamaFreed in self.Events):
+            return False
+        return self.hasMoveSwitchsanity(Switches.AztecLlamaCoconut) or self.hasMoveSwitchsanity(Switches.AztecLlamaGrape) or self.hasMoveSwitchsanity(Switches.AztecLlamaFeather)
+
+    def canTravelToMechFish(self):
+        """Determine whether or not there is a fast enough path to the Mech Fish is open."""
+        if self.settings.shuffle_loading_zones != ShuffleLoadingZones.all or self.settings.bananaport_rando == BananaportRando.off:
+            return self.swim
+        lighthouse_gate = self.checkBarrier(RemovedBarriersSelected.galleon_lighthouse_gate_opened) or self.hasMoveSwitchsanity(Switches.GalleonLighthouse, False)
+        shipyard_gate = self.checkBarrier(RemovedBarriersSelected.galleon_shipwreck_gate_opened) or self.hasMoveSwitchsanity(Switches.GalleonShipwreck, False)
+        return self.swim and lighthouse_gate and shipyard_gate
+
     def hasMoveSwitchsanity(self, switchsanity_setting: Switches, kong_needs_current: bool = True, level: Levels = Levels.JungleJapes, default_slam_level: int = 0) -> bool:
         """Determine whether the kong has the necessary moves based on the switchsanity data."""
         data = self.settings.switchsanity_data[switchsanity_setting]
@@ -487,7 +511,7 @@ class LogicVarHolder:
 
     def CanGetOnCannonGamePlatform(self):
         """Determine whether the player can get on the platform in Cannon Game Room in Gloomy Galleon."""
-        return Events.WaterSwitch in self.Events or (self.advanced_platforming and (self.ischunky or (self.islanky and self.settings.krusha_kong != Kongs.lanky)))
+        return Events.WaterRaised in self.Events or (self.advanced_platforming and (self.ischunky or (self.islanky and self.settings.krusha_kong != Kongs.lanky)))
 
     def CanSkew(self, swim, kong_req=Kongs.any):
         """Determine whether the player can skew."""
@@ -622,20 +646,6 @@ class LogicVarHolder:
             return self.DoorItemCheck(HelmDoorItem.req_companycoins, self.settings.coin_door_item_count)
         return self.DoorItemCheck(self.settings.coin_door_item, self.settings.coin_door_item_count)
 
-    def CanAccessHelmStart(self):
-        """Check if you can access the start of helm."""
-        if self.settings.helm_setting != HelmSetting.skip_start:
-            # Either starts at the start, or can warp immediately to start
-            return True
-        room_events = [
-            Events.HelmDonkeyDone,
-            Events.HelmChunkyDone,
-            Events.HelmTinyDone,
-            Events.HelmLankyDone,
-            Events.HelmDiddyDone,
-        ]
-        return sum([1 for x in room_events if x in self.Events]) == len(room_events)
-
     def CanFreeDiddy(self):
         """Check if the cage locking Diddy's vanilla location can be opened."""
         return self.spoiler.LocationList[Locations.DiddyKong].item == Items.NoItem or self.HasGun(self.settings.diddy_freeing_kong)
@@ -696,14 +706,6 @@ class LogicVarHolder:
         # Otherwise you need the right slam level (usually 1)
         else:
             return self.CanSlamSwitch(Levels.FranticFactory, 1) and self.IsKong(self.settings.chunky_freeing_kong)
-
-    def UpdateCurrentRegionAccess(self, region):
-        """Set access of current region."""
-        self.donkeyAccess = region.donkeyAccess
-        self.diddyAccess = region.diddyAccess
-        self.lankyAccess = region.lankyAccess
-        self.tinyAccess = region.tinyAccess
-        self.chunkyAccess = region.chunkyAccess
 
     def LevelEntered(self, level):
         """Check whether a level, or any level above it, has been entered."""
@@ -772,14 +774,14 @@ class LogicVarHolder:
         return self.spoiler.RegionList[region].HasAccess(kong)
 
     def TimeAccess(self, region, time):
-        """Check if a certain region has the given time of day access."""
+        """Check if a certain region has the given time of day access for current kong."""
         if time == Time.Day:
-            return self.spoiler.RegionList[region].dayAccess
+            return self.spoiler.RegionList[region].dayAccess[self.kong]
         elif time == Time.Night:
-            return self.spoiler.RegionList[region].nightAccess
+            return self.spoiler.RegionList[region].nightAccess[self.kong]
         # Not sure when this'd be used
         else:  # if time == Time.Both
-            return self.spoiler.RegionList[region].dayAccess or self.spoiler.RegionList[region].nightAccess
+            return self.spoiler.RegionList[region].dayAccess[self.kong] or self.spoiler.RegionList[region].nightAccess[self.kong]
 
     def BlueprintAccess(self, item):
         """Check if we are the correct kong for this blueprint item."""
@@ -809,6 +811,25 @@ class LogicVarHolder:
 
     def CanAccessKRool(self):
         """Make sure that each required key has been turned in."""
+        required_base_keys = [
+            Events.JapesKeyTurnedIn,
+            Events.AztecKeyTurnedIn,
+            Events.FactoryKeyTurnedIn,
+            Events.GalleonKeyTurnedIn,
+            Events.ForestKeyTurnedIn,
+            Events.CavesKeyTurnedIn,
+            Events.CastleKeyTurnedIn,
+            Events.HelmKeyTurnedIn,
+        ]
+        if self.settings.k_rool_vanilla_requirement:
+            required_base_keys = [
+                Events.FactoryKeyTurnedIn,
+                Events.HelmKeyTurnedIn,
+            ]
+        return all(not keyRequired not in self.Events for keyRequired in self.settings.krool_keys_required if keyRequired in required_base_keys)
+
+    def IsKLumsyFree(self):
+        """Check all keys."""
         return all(not keyRequired not in self.Events for keyRequired in self.settings.krool_keys_required)
 
     def IsBossReachable(self, level):
@@ -842,6 +863,8 @@ class LogicVarHolder:
         hasRequiredMoves = True
         if bossFight == Maps.FactoryBoss and requiredKong == Kongs.tiny and not (self.HardBossesEnabled() and self.settings.krusha_kong != Kongs.tiny):
             hasRequiredMoves = self.twirl and self.Slam
+        elif bossFight == Maps.FactoryBoss:
+            hasRequiredMoves = self.Slam
         elif bossFight == Maps.FungiBoss:
             hasRequiredMoves = self.hunkyChunky and self.barrels
         elif bossFight == Maps.JapesBoss or bossFight == Maps.AztecBoss or bossFight == Maps.CavesBoss:

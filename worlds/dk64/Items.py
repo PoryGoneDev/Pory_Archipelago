@@ -4,9 +4,9 @@ from BaseClasses import Item, ItemClassification
 from worlds.AutoWorld import World
 from types import SimpleNamespace
 
-from randomizer.Lists import Item as DK64RItem
-from randomizer.Enums.Items import Items as DK64RItems
-from randomizer.ItemPool import AllItemsUnrestricted
+from dk64r.randomizer.Lists import Item as DK64RItem
+from dk64r.randomizer.Enums.Items import Items as DK64RItems
+from dk64r.randomizer.ItemPool import AllItemsUnrestricted
 
 BASE_ID = 0xD64000
 

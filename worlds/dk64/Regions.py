@@ -2,15 +2,15 @@ import typing
 
 from BaseClasses import MultiWorld, Region, Entrance, Location
 from worlds.AutoWorld import World
-from randomizer.Lists import Item as DK64RItem
-from randomizer.Enums.Items import Items as DK64RItems
+from dk64r.randomizer.Lists import Item as DK64RItem
+from dk64r.randomizer.Enums.Items import Items as DK64RItems
 
-from randomizer.Lists import Location as DK64RLocation
-from randomizer.Enums.Locations import Locations as DK64RLocations
+from dk64r.randomizer.Lists import Location as DK64RLocation
+from dk64r.randomizer.Enums.Locations import Locations as DK64RLocations
 from .Logic import LogicVarHolder
-from randomizer.Spoiler import Spoiler
-from randomizer.Settings import Settings
-from randomizer.LogicFiles import (
+from dk64r.randomizer.Spoiler import Spoiler
+from dk64r.randomizer.Settings import Settings
+from dk64r.randomizer.LogicFiles import (
     AngryAztec,
     CreepyCastle,
     CrystalCaves,
