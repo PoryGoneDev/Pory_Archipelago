@@ -819,24 +819,24 @@ def handle_blocksanity(rom):
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0011, bytearray([0x5C, 0xD4, 0xF1, 0x00]))           #                             jml $00F1D4
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0015, bytearray([0xB5, 0xD8]))                       # blocksanity_flying_init:    lda $D8,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0017, bytearray([0x29, 0xF0]))                       #                             and #$F0
-    rom.write_bytes(BLOCKSANITY_ADDR + 0x0019, bytearray([0x9F, 0x20, 0xB1, 0x7F]))           #                             sta !sprite_blocksanity_y_lo,x
+    rom.write_bytes(BLOCKSANITY_ADDR + 0x0019, bytearray([0x9F, 0x20, 0xB8, 0x7F]))           #                             sta !sprite_blocksanity_y_lo,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x001D, bytearray([0xBD, 0xD4, 0x14]))                 #                             lda $14D4,x
-    rom.write_bytes(BLOCKSANITY_ADDR + 0x0020, bytearray([0x9F, 0x30, 0xB1, 0x7F]))           #                             sta !sprite_blocksanity_y_hi,x
+    rom.write_bytes(BLOCKSANITY_ADDR + 0x0020, bytearray([0x9F, 0x30, 0xB8, 0x7F]))           #                             sta !sprite_blocksanity_y_hi,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0024, bytearray([0xBD, 0xE0, 0x14]))                 #                             lda $14E0,x
-    rom.write_bytes(BLOCKSANITY_ADDR + 0x0027, bytearray([0x9F, 0x10, 0xB1, 0x7F]))           #                             sta !sprite_blocksanity_x_hi,x
+    rom.write_bytes(BLOCKSANITY_ADDR + 0x0027, bytearray([0x9F, 0x10, 0xB8, 0x7F]))           #                             sta !sprite_blocksanity_x_hi,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x002B, bytearray([0xB5, 0xE4]))                       #                             lda $E4,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x002D, bytearray([0x29, 0xF0]))                       #                             and #$F0
-    rom.write_bytes(BLOCKSANITY_ADDR + 0x002F, bytearray([0x9F, 0x00, 0xB1, 0x7F]))           #                             sta !sprite_blocksanity_x_lo,x
+    rom.write_bytes(BLOCKSANITY_ADDR + 0x002F, bytearray([0x9F, 0x00, 0xB8, 0x7F]))           #                             sta !sprite_blocksanity_x_lo,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0033, bytearray([0x4A]))                             #                             lsr 
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0034, bytearray([0x4A]))                             #                             lsr 
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0035, bytearray([0x5C, 0x5D, 0xAD, 0x01]))           #                             jml $01AD5D
-    rom.write_bytes(BLOCKSANITY_ADDR + 0x0039, bytearray([0xBF, 0x20, 0xB1, 0x7F]))           # blocksanity_flying_main:    lda !sprite_blocksanity_y_lo,x
+    rom.write_bytes(BLOCKSANITY_ADDR + 0x0039, bytearray([0xBF, 0x20, 0xB8, 0x7F]))           # blocksanity_flying_main:    lda !sprite_blocksanity_y_lo,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x003D, bytearray([0x85, 0x98]))                       #                             sta $98
-    rom.write_bytes(BLOCKSANITY_ADDR + 0x003F, bytearray([0xBF, 0x30, 0xB1, 0x7F]))           #                             lda !sprite_blocksanity_y_hi,x
+    rom.write_bytes(BLOCKSANITY_ADDR + 0x003F, bytearray([0xBF, 0x30, 0xB8, 0x7F]))           #                             lda !sprite_blocksanity_y_hi,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0043, bytearray([0x85, 0x99]))                       #                             sta $99
-    rom.write_bytes(BLOCKSANITY_ADDR + 0x0045, bytearray([0xBF, 0x00, 0xB1, 0x7F]))           #                             lda !sprite_blocksanity_x_lo,x
+    rom.write_bytes(BLOCKSANITY_ADDR + 0x0045, bytearray([0xBF, 0x00, 0xB8, 0x7F]))           #                             lda !sprite_blocksanity_x_lo,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0049, bytearray([0x85, 0x9A]))                       #                             sta $9A
-    rom.write_bytes(BLOCKSANITY_ADDR + 0x004B, bytearray([0xBF, 0x10, 0xB1, 0x7F]))           #                             lda !sprite_blocksanity_x_hi,x
+    rom.write_bytes(BLOCKSANITY_ADDR + 0x004B, bytearray([0xBF, 0x10, 0xB8, 0x7F]))           #                             lda !sprite_blocksanity_x_hi,x
     rom.write_bytes(BLOCKSANITY_ADDR + 0x004F, bytearray([0x85, 0x9B]))                       #                             sta $9B
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0051, bytearray([0x8B]))                             #                             phb 
     rom.write_bytes(BLOCKSANITY_ADDR + 0x0052, bytearray([0xA9, 0x10]))                       #                             lda.b #blocksanity_pointers>>16
@@ -945,67 +945,70 @@ def handle_ram(rom):
     rom.write_bytes(0x013BB, bytearray([0x5C, 0xA0, 0xF0, 0x0F])) # org $0093BB : jml init_ram
 
     INIT_SRAM_ADDR = 0x7F200
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0000, bytearray([0xD0, 0x6C]))                         # init_sram:                  bne .clear
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0002, bytearray([0x9C, 0x09, 0x01]))                   # .load                       stz $0109
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0005, bytearray([0xDA]))                               #                             phx 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0006, bytearray([0x08]))                               #                             php
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0007, bytearray([0xE2, 0x10]))                         #                             sep #$10
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0009, bytearray([0xA2, 0x5F]))                         #                             ldx.b #$5F
-    rom.write_bytes(INIT_SRAM_ADDR + 0x000B, bytearray([0xBF, 0x00, 0x08, 0x70]))             # -                           lda !level_clears_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x000F, bytearray([0x9F, 0x00, 0xA2, 0x7F]))             #                             sta !level_clears,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0013, bytearray([0xCA]))                               #                             dex 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0014, bytearray([0x10, 0xF5]))                         #                             bpl -
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0016, bytearray([0xA2, 0x0B]))                         #                             ldx #$0B
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0018, bytearray([0xBF, 0x40, 0x09, 0x70]))             # -                           lda !blocksanity_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x001C, bytearray([0x9F, 0x10, 0xA0, 0x7F]))             #                             sta !blocksanity_flags,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0020, bytearray([0xBF, 0x10, 0x09, 0x70]))             #                             lda !moons_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0024, bytearray([0x9D, 0xEE, 0x1F]))                   #                             sta !moons_flags,x 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0027, bytearray([0xBF, 0x00, 0x09, 0x70]))             #                             lda !yoshi_coins_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x002B, bytearray([0x9D, 0x2F, 0x1F]))                   #                             sta !yoshi_coins_flags,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x002E, bytearray([0xBF, 0x30, 0x09, 0x70]))             #                             lda !bonus_block_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0032, bytearray([0x9F, 0x00, 0xA0, 0x7F]))             #                             sta !bonus_block_flags,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0036, bytearray([0xBF, 0x20, 0x09, 0x70]))             #                             lda !checkpoints_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x003A, bytearray([0x9D, 0x3C, 0x1F]))                   #                             sta !checkpoints_flags,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x003D, bytearray([0xCA]))                               #                             dex 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x003E, bytearray([0x10, 0xD8]))                         #                             bpl -
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0040, bytearray([0xC2, 0x10]))                         #                             rep #$10
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0042, bytearray([0xA2, 0x45, 0x02]))                   #                             ldx.w #!blocksanity_locs-1
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0045, bytearray([0xBF, 0x00, 0x0A, 0x70]))             # -                           lda !blocksanity_data_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0049, bytearray([0x9F, 0x00, 0xA4, 0x7F]))             #                             sta !blocksanity_data_flags,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x004D, bytearray([0xCA]))                               #                             dex 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x004E, bytearray([0x10, 0xF5]))                         #                             bpl -
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0050, bytearray([0xE2, 0x10]))                         #                             sep #$10
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0052, bytearray([0xAF, 0x50, 0x09, 0x70]))             #                             lda !received_items_count_sram+$00
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0056, bytearray([0x8F, 0x0E, 0xA0, 0x7F]))             #                             sta !received_items_count+$00
-    rom.write_bytes(INIT_SRAM_ADDR + 0x005A, bytearray([0xAF, 0x51, 0x09, 0x70]))             #                             lda !received_items_count_sram+$01
-    rom.write_bytes(INIT_SRAM_ADDR + 0x005E, bytearray([0x8F, 0x0F, 0xA0, 0x7F]))             #                             sta !received_items_count+$01
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0062, bytearray([0xAF, 0x52, 0x09, 0x70]))             #                             lda !special_world_clear_sram
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0066, bytearray([0x8D, 0xFF, 0x1F]))                   #                             sta !special_world_clear_flag
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0069, bytearray([0x28]))                               #                             plp 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x006A, bytearray([0x5C, 0xFB, 0x9C, 0x00]))             #                             jml $009CFB
-    rom.write_bytes(INIT_SRAM_ADDR + 0x006E, bytearray([0xDA]))                               # .clear                      phx 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x006F, bytearray([0xA2, 0x5F, 0x00]))                   #                             ldx.w #$005F
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0072, bytearray([0xA9, 0x00]))                         #                             lda #$00
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0074, bytearray([0x9F, 0x00, 0x08, 0x70]))             # -                           sta !level_clears_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0078, bytearray([0xCA]))                               #                             dex 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0079, bytearray([0x10, 0xF9]))                         #                             bpl -
-    rom.write_bytes(INIT_SRAM_ADDR + 0x007B, bytearray([0xA2, 0x0B, 0x00]))                   #                             ldx.w #$000B
-    rom.write_bytes(INIT_SRAM_ADDR + 0x007E, bytearray([0x9F, 0x40, 0x09, 0x70]))             # -                           sta !blocksanity_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0082, bytearray([0x9F, 0x00, 0x09, 0x70]))             #                             sta !yoshi_coins_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0086, bytearray([0x9F, 0x30, 0x09, 0x70]))             #                             sta !bonus_block_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x008A, bytearray([0x9F, 0x10, 0x09, 0x70]))             #                             sta !moons_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x008E, bytearray([0x9F, 0x20, 0x09, 0x70]))             #                             sta !checkpoints_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0092, bytearray([0xCA]))                               #                             dex 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0093, bytearray([0x10, 0xE9]))                         #                             bpl -
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0095, bytearray([0xA2, 0x45, 0x02]))                   #                             ldx.w #!blocksanity_locs-1
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0098, bytearray([0x9F, 0x00, 0x0A, 0x70]))             # -                           sta !blocksanity_data_sram,x
-    rom.write_bytes(INIT_SRAM_ADDR + 0x009C, bytearray([0xCA]))                               #                             dex 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x009D, bytearray([0x10, 0xF9]))                         #                             bpl -
-    rom.write_bytes(INIT_SRAM_ADDR + 0x009F, bytearray([0x8F, 0x52, 0x09, 0x70]))             #                             sta !special_world_clear_sram
-    rom.write_bytes(INIT_SRAM_ADDR + 0x00A3, bytearray([0x8F, 0x50, 0x09, 0x70]))             #                             sta !received_items_count_sram+$00
-    rom.write_bytes(INIT_SRAM_ADDR + 0x00A7, bytearray([0x8F, 0x51, 0x09, 0x70]))             #                             sta !received_items_count_sram+$01
-    rom.write_bytes(INIT_SRAM_ADDR + 0x00AB, bytearray([0xFA]))                               #                             plx 
-    rom.write_bytes(INIT_SRAM_ADDR + 0x00AC, bytearray([0x5C, 0x22, 0x9D, 0x00]))             #                             jml $009D22
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0000, bytearray([0xD0, 0x74]))               # init_sram:              bne .clear
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0002, bytearray([0x9C, 0x09, 0x01]))         #                         stz $0109
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0005, bytearray([0xDA]))                     #                         phx 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0006, bytearray([0x08]))                     #                         php
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0007, bytearray([0xE2, 0x10]))               #                         sep #$10
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0009, bytearray([0xA2, 0x5F]))               #                         ldx.b #$5F
+    rom.write_bytes(INIT_SRAM_ADDR + 0x000B, bytearray([0xBF, 0x00, 0x08, 0x70]))   # -                       lda !level_clears_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x000F, bytearray([0x9F, 0x00, 0xA2, 0x7F]))   #                         sta !level_clears,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0013, bytearray([0xCA]))                     #                         dex 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0014, bytearray([0x10, 0xF5]))               #                         bpl -
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0016, bytearray([0xA2, 0x0B]))               #                         ldx #$0B
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0018, bytearray([0xBF, 0x40, 0x09, 0x70]))   # -                       lda !blocksanity_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x001C, bytearray([0x9F, 0x10, 0xA0, 0x7F]))   #                         sta !blocksanity_flags,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0020, bytearray([0xBF, 0x10, 0x09, 0x70]))   #                         lda !moons_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0024, bytearray([0x9D, 0xEE, 0x1F]))         #                         sta !moons_flags,x 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0027, bytearray([0xBF, 0x00, 0x09, 0x70]))   #                         lda !yoshi_coins_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x002B, bytearray([0x9D, 0x2F, 0x1F]))         #                         sta !yoshi_coins_flags,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x002E, bytearray([0xBF, 0x30, 0x09, 0x70]))   #                         lda !bonus_block_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0032, bytearray([0x9F, 0x00, 0xA0, 0x7F]))   #                         sta !bonus_block_flags,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0036, bytearray([0xBF, 0x20, 0x09, 0x70]))   #                         lda !checkpoints_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x003A, bytearray([0x9D, 0x3C, 0x1F]))         #                         sta !checkpoints_flags,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x003D, bytearray([0xCA]))                     #                         dex 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x003E, bytearray([0x10, 0xD8]))               #                         bpl -
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0040, bytearray([0xC2, 0x10]))               #                         rep #$10
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0042, bytearray([0xA2, 0x45, 0x02]))         #                         ldx.w #!blocksanity_locs-1
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0045, bytearray([0xBF, 0x00, 0x0A, 0x70]))   # -                       lda !blocksanity_data_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0049, bytearray([0x9F, 0x00, 0xA4, 0x7F]))   #                         sta !blocksanity_data_flags,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x004D, bytearray([0xCA]))                     #                         dex 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x004E, bytearray([0x10, 0xF5]))               #                         bpl -
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0050, bytearray([0xE2, 0x10]))               #                         sep #$10
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0052, bytearray([0xAF, 0x50, 0x09, 0x70]))   #                         lda !received_items_count_sram+$00
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0056, bytearray([0x8F, 0x0E, 0xA0, 0x7F]))   #                         sta !received_items_count+$00
+    rom.write_bytes(INIT_SRAM_ADDR + 0x005A, bytearray([0xAF, 0x51, 0x09, 0x70]))   #                         lda !received_items_count_sram+$01
+    rom.write_bytes(INIT_SRAM_ADDR + 0x005E, bytearray([0x8F, 0x0F, 0xA0, 0x7F]))   #                         sta !received_items_count+$01
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0062, bytearray([0xAF, 0x52, 0x09, 0x70]))   #                         lda !special_world_clear_sram
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0066, bytearray([0x8D, 0xFF, 0x1F]))         #                         sta !special_world_clear_flag
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0069, bytearray([0xAF, 0x54, 0x09, 0x70]))   #                         lda !goal_item_count_sram
+    rom.write_bytes(INIT_SRAM_ADDR + 0x006D, bytearray([0x8F, 0x1E, 0xA0, 0x7F]))   #                         sta !goal_item_count
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0071, bytearray([0x28]))                     #                         plp 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0072, bytearray([0x5C, 0xFB, 0x9C, 0x00]))   #                         jml $009CFB
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0076, bytearray([0xDA]))                     # .clear                  phx 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0077, bytearray([0xA2, 0x5F, 0x00]))         #                         ldx.w #$005F
+    rom.write_bytes(INIT_SRAM_ADDR + 0x007A, bytearray([0xA9, 0x00]))               #                         lda #$00
+    rom.write_bytes(INIT_SRAM_ADDR + 0x007C, bytearray([0x9F, 0x00, 0x08, 0x70]))   # -                       sta !level_clears_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0080, bytearray([0xCA]))                     #                         dex 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0081, bytearray([0x10, 0xF9]))               #                         bpl -
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0083, bytearray([0xA2, 0x0B, 0x00]))         #                         ldx.w #$000B
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0086, bytearray([0x9F, 0x40, 0x09, 0x70]))   # -                       sta !blocksanity_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x008A, bytearray([0x9F, 0x00, 0x09, 0x70]))   #                         sta !yoshi_coins_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x008E, bytearray([0x9F, 0x30, 0x09, 0x70]))   #                         sta !bonus_block_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0092, bytearray([0x9F, 0x10, 0x09, 0x70]))   #                         sta !moons_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0096, bytearray([0x9F, 0x20, 0x09, 0x70]))   #                         sta !checkpoints_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x009A, bytearray([0xCA]))                     #                         dex 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x009B, bytearray([0x10, 0xE9]))               #                         bpl -
+    rom.write_bytes(INIT_SRAM_ADDR + 0x009D, bytearray([0xA2, 0x45, 0x02]))         #                         ldx.w #!blocksanity_locs-1
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00A0, bytearray([0x9F, 0x00, 0x0A, 0x70]))   # -                       sta !blocksanity_data_sram,x
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00A4, bytearray([0xCA]))                     #                         dex 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00A5, bytearray([0x10, 0xF9]))               #                         bpl -
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00A7, bytearray([0x8F, 0x52, 0x09, 0x70]))   #                         sta !special_world_clear_sram
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00AB, bytearray([0x8F, 0x50, 0x09, 0x70]))   #                         sta !received_items_count_sram+$00
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00AF, bytearray([0x8F, 0x51, 0x09, 0x70]))   #                         sta !received_items_count_sram+$01
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00B3, bytearray([0x8F, 0x54, 0x09, 0x70]))   #                         sta !goal_item_count_sram
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00B7, bytearray([0xFA]))                     #                         plx 
+    rom.write_bytes(INIT_SRAM_ADDR + 0x00B8, bytearray([0x5C, 0x22, 0x9D, 0x00]))   #                         jml $009D22
 
     SAVE_SRAM_ADDR = 0x7F300
     rom.write_bytes(SAVE_SRAM_ADDR + 0x0000, bytearray([0xE2, 0x30]))                         # save_sram:                  sep #$30
@@ -1041,47 +1044,44 @@ def handle_ram(rom):
     rom.write_bytes(SAVE_SRAM_ADDR + 0x0057, bytearray([0x8F, 0x50, 0x09, 0x70]))             #                             sta !received_items_count_sram+$00
     rom.write_bytes(SAVE_SRAM_ADDR + 0x005B, bytearray([0xAF, 0x0F, 0xA0, 0x7F]))             #                             lda !received_items_count+$01
     rom.write_bytes(SAVE_SRAM_ADDR + 0x005F, bytearray([0x8F, 0x51, 0x09, 0x70]))             #                             sta !received_items_count_sram+$01
-    rom.write_bytes(SAVE_SRAM_ADDR + 0x0063, bytearray([0x6B]))                               #                             rtl 
+    rom.write_bytes(SAVE_SRAM_ADDR + 0x0063, bytearray([0xAF, 0x0F, 0xA0, 0x7F]))             #                             lda !goal_item_count
+    rom.write_bytes(SAVE_SRAM_ADDR + 0x0067, bytearray([0x8F, 0x51, 0x09, 0x70]))             #                             sta !goal_item_count_sram
+    rom.write_bytes(SAVE_SRAM_ADDR + 0x006B, bytearray([0x6B]))                               #                             rtl 
 
     INIT_RAM_ADDR = 0x7F0A0
-    rom.write_bytes(INIT_RAM_ADDR + 0x0000, bytearray([0xA9, 0xAA]))                          # init_ram:                   lda #$AA
-    rom.write_bytes(INIT_RAM_ADDR + 0x0002, bytearray([0x8D, 0x00, 0x04]))                    #                             sta $0400
-    rom.write_bytes(INIT_RAM_ADDR + 0x0005, bytearray([0xA9, 0x00]))                          # clear_level_data:           lda #$00
-    rom.write_bytes(INIT_RAM_ADDR + 0x0007, bytearray([0xA2, 0x5F]))                          #                             ldx #$5F
-    rom.write_bytes(INIT_RAM_ADDR + 0x0009, bytearray([0x9F, 0x00, 0xA2, 0x7F]))              # .loop                       sta !level_clears,x
-    rom.write_bytes(INIT_RAM_ADDR + 0x000D, bytearray([0xCA]))                                #                             dex 
-    rom.write_bytes(INIT_RAM_ADDR + 0x000E, bytearray([0x10, 0xF9]))                          #                             bpl .loop
-    rom.write_bytes(INIT_RAM_ADDR + 0x0010, bytearray([0xC2, 0x10]))                          #                             rep #$10
-    rom.write_bytes(INIT_RAM_ADDR + 0x0012, bytearray([0xA2, 0x0B, 0x00]))                    #                             ldx.w #$000B
-    rom.write_bytes(INIT_RAM_ADDR + 0x0015, bytearray([0x9F, 0x10, 0xA0, 0x7F]))              # -                           sta !blocksanity_flags,x
-    rom.write_bytes(INIT_RAM_ADDR + 0x0019, bytearray([0x9D, 0x2F, 0x1F]))                    #                             sta !yoshi_coins_flags,x
-    rom.write_bytes(INIT_RAM_ADDR + 0x001C, bytearray([0x9D, 0xEE, 0x1F]))                    #                             sta !moons_flags,x
-    rom.write_bytes(INIT_RAM_ADDR + 0x001F, bytearray([0x9F, 0x00, 0xA0, 0x7F]))              #                             sta !bonus_block_flags,x
-    rom.write_bytes(INIT_RAM_ADDR + 0x0023, bytearray([0x9D, 0x3C, 0x1F]))                    #                             sta !checkpoints_flags,x
-    rom.write_bytes(INIT_RAM_ADDR + 0x0026, bytearray([0xCA]))                                #                             dex 
-    rom.write_bytes(INIT_RAM_ADDR + 0x0027, bytearray([0x10, 0xEC]))                          #                             bpl -
-    rom.write_bytes(INIT_RAM_ADDR + 0x0029, bytearray([0xA2, 0x45, 0x02]))                    #                             ldx.w #!blocksanity_locs-1
-    rom.write_bytes(INIT_RAM_ADDR + 0x002C, bytearray([0x9F, 0x00, 0xA4, 0x7F]))              # -                           sta !blocksanity_data_flags,x
-    rom.write_bytes(INIT_RAM_ADDR + 0x0030, bytearray([0xCA]))                                #                             dex 
-    rom.write_bytes(INIT_RAM_ADDR + 0x0031, bytearray([0x10, 0xF9]))                          #                             bpl -
-    rom.write_bytes(INIT_RAM_ADDR + 0x0033, bytearray([0xC2, 0x20]))                          #                             rep #$20
-    rom.write_bytes(INIT_RAM_ADDR + 0x0035, bytearray([0xA9, 0x00, 0x00]))                    #                             lda #$0000
-    rom.write_bytes(INIT_RAM_ADDR + 0x0038, bytearray([0xA2, 0x22, 0x00]))                    #                             ldx #$0022
-    rom.write_bytes(INIT_RAM_ADDR + 0x003B, bytearray([0x9F, 0x00, 0xB0, 0x7F]))              # -                           sta !score_sprite_count,x
-    rom.write_bytes(INIT_RAM_ADDR + 0x003F, bytearray([0xCA]))                                #                             dex 
-    rom.write_bytes(INIT_RAM_ADDR + 0x0040, bytearray([0xCA]))                                #                             dex 
-    rom.write_bytes(INIT_RAM_ADDR + 0x0041, bytearray([0x10, 0xF8]))                          #                             bpl -
-    rom.write_bytes(INIT_RAM_ADDR + 0x0043, bytearray([0xE2, 0x20]))                          #                             sep #$20
-    rom.write_bytes(INIT_RAM_ADDR + 0x0045, bytearray([0x8D, 0xFF, 0x1F]))                    #                             sta !special_world_clear_flag
-    rom.write_bytes(INIT_RAM_ADDR + 0x0048, bytearray([0x8F, 0x0E, 0xA0, 0x7F]))              #                             sta !received_items_count+$00
-    rom.write_bytes(INIT_RAM_ADDR + 0x004C, bytearray([0x8F, 0x0F, 0xA0, 0x7F]))              #                             sta !received_items_count+$01
-    rom.write_bytes(INIT_RAM_ADDR + 0x0050, bytearray([0x8D, 0xB4, 0x18]))                    #                             sta !reverse_controls_trap
-    rom.write_bytes(INIT_RAM_ADDR + 0x0053, bytearray([0x8D, 0xB7, 0x18]))                    #                             sta !thwimp_trap
-    rom.write_bytes(INIT_RAM_ADDR + 0x0056, bytearray([0xA9, 0xFF]))                          #                             lda #$FF
-    rom.write_bytes(INIT_RAM_ADDR + 0x0058, bytearray([0x8D, 0x3C, 0x0F]))                    #                             sta !thwimp_index
-    rom.write_bytes(INIT_RAM_ADDR + 0x005B, bytearray([0xE2, 0x10]))                          #                             sep #$10
-    rom.write_bytes(INIT_RAM_ADDR + 0x005D, bytearray([0x22, 0x20, 0xF1, 0x0F]))              #                             jsl clear_tilemap
-    rom.write_bytes(INIT_RAM_ADDR + 0x0061, bytearray([0x5C, 0xC0, 0x93, 0x00]))              #                             jml $0093C0
+    rom.write_bytes(INIT_RAM_ADDR + 0x0000, bytearray([0xA9, 0xAA]))                # init_ram:               lda #$AA
+    rom.write_bytes(INIT_RAM_ADDR + 0x0002, bytearray([0x8D, 0x00, 0x04]))          #                         sta $0400
+    rom.write_bytes(INIT_RAM_ADDR + 0x0005, bytearray([0xA9, 0x00]))                # clear_level_data:       lda #$00
+    rom.write_bytes(INIT_RAM_ADDR + 0x0007, bytearray([0xA2, 0x5F]))                #                         ldx #$5F
+    rom.write_bytes(INIT_RAM_ADDR + 0x0009, bytearray([0x9F, 0x00, 0xA2, 0x7F]))    # .loop                   sta !level_clears,x
+    rom.write_bytes(INIT_RAM_ADDR + 0x000D, bytearray([0xCA]))                      #                         dex 
+    rom.write_bytes(INIT_RAM_ADDR + 0x000E, bytearray([0x10, 0xF9]))                #                         bpl .loop
+    rom.write_bytes(INIT_RAM_ADDR + 0x0010, bytearray([0xC2, 0x10]))                #                         rep #$10
+    rom.write_bytes(INIT_RAM_ADDR + 0x0012, bytearray([0xA2, 0x0B, 0x00]))          #                         ldx.w #$000B
+    rom.write_bytes(INIT_RAM_ADDR + 0x0015, bytearray([0x9F, 0x10, 0xA0, 0x7F]))    # -                       sta !blocksanity_flags,x
+    rom.write_bytes(INIT_RAM_ADDR + 0x0019, bytearray([0x9D, 0x2F, 0x1F]))          #                         sta !yoshi_coins_flags,x
+    rom.write_bytes(INIT_RAM_ADDR + 0x001C, bytearray([0x9D, 0xEE, 0x1F]))          #                         sta !moons_flags,x
+    rom.write_bytes(INIT_RAM_ADDR + 0x001F, bytearray([0x9F, 0x00, 0xA0, 0x7F]))    #                         sta !bonus_block_flags,x
+    rom.write_bytes(INIT_RAM_ADDR + 0x0023, bytearray([0x9D, 0x3C, 0x1F]))          #                         sta !checkpoints_flags,x
+    rom.write_bytes(INIT_RAM_ADDR + 0x0026, bytearray([0xCA]))                      #                         dex 
+    rom.write_bytes(INIT_RAM_ADDR + 0x0027, bytearray([0x10, 0xEC]))                #                         bpl -
+    rom.write_bytes(INIT_RAM_ADDR + 0x0029, bytearray([0xA2, 0x45, 0x02]))          #                         ldx.w #!blocksanity_locs-1
+    rom.write_bytes(INIT_RAM_ADDR + 0x002C, bytearray([0x9F, 0x00, 0xA4, 0x7F]))    # -                       sta !blocksanity_data_flags,x
+    rom.write_bytes(INIT_RAM_ADDR + 0x0030, bytearray([0xCA]))                      #                         dex 
+    rom.write_bytes(INIT_RAM_ADDR + 0x0031, bytearray([0x10, 0xF9]))                #                         bpl -
+    rom.write_bytes(INIT_RAM_ADDR + 0x0033, bytearray([0xA2, 0x22, 0x04]))          #                         ldx #$0422
+    rom.write_bytes(INIT_RAM_ADDR + 0x0036, bytearray([0x9F, 0x00, 0xB0, 0x7F]))    # -                       sta !score_sprite_count,x
+    rom.write_bytes(INIT_RAM_ADDR + 0x003A, bytearray([0xCA]))                      #                         dex 
+    rom.write_bytes(INIT_RAM_ADDR + 0x003B, bytearray([0x10, 0xF9]))                #                         bpl -
+    rom.write_bytes(INIT_RAM_ADDR + 0x003D, bytearray([0x8D, 0xFF, 0x1F]))          #                         sta !special_world_clear_flag
+    rom.write_bytes(INIT_RAM_ADDR + 0x0040, bytearray([0x8F, 0x0E, 0xA0, 0x7F]))    #                         sta !received_items_count+$00
+    rom.write_bytes(INIT_RAM_ADDR + 0x0044, bytearray([0x8F, 0x0F, 0xA0, 0x7F]))    #                         sta !received_items_count+$01
+    rom.write_bytes(INIT_RAM_ADDR + 0x0048, bytearray([0x8F, 0x1E, 0xA0, 0x7F]))    #                         sta !goal_item_count
+    rom.write_bytes(INIT_RAM_ADDR + 0x004C, bytearray([0xA9, 0xFF]))                #                         lda #$FF
+    rom.write_bytes(INIT_RAM_ADDR + 0x004E, bytearray([0x8D, 0x3C, 0x0F]))          #                         sta !thwimp_index
+    rom.write_bytes(INIT_RAM_ADDR + 0x0051, bytearray([0xE2, 0x10]))                #                         sep #$10
+    rom.write_bytes(INIT_RAM_ADDR + 0x0053, bytearray([0x22, 0x20, 0xF1, 0x0F]))    #                         jsl clear_tilemap
+    rom.write_bytes(INIT_RAM_ADDR + 0x0057, bytearray([0x5C, 0xC0, 0x93, 0x00]))    #                         jml $0093C0
 
 def handle_map_indicators(rom):
     rom.write_bytes(0x265EE, bytearray([0x4C, 0x00, 0xA3]))       # org $04E5EE : jmp check_events
@@ -1616,198 +1616,216 @@ def handle_map_indicators(rom):
 def handle_indicators(rom):
     INDICATOR_QUEUE_CODE = 0x86000
     rom.write_bytes(0x022E6, bytearray([0x22, 0x00, 0xE0, 0x10])) # org $00A2E6 : jsl gm14_hijack
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0000, bytearray([0xAD, 0x00, 0x01]))             # gm14_hijack:            lda $0100
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0003, bytearray([0xC9, 0x14]))                   #                             cmp #$14
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0005, bytearray([0xD0, 0x04]))                   #                             bne .invalid
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0007, bytearray([0xA5, 0x71]))                   #                             lda $71
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0009, bytearray([0xF0, 0x04]))                   #                             beq .valid
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x000B, bytearray([0x5C, 0xB1, 0x8A, 0x02]))       # .invalid                jml $028AB1
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x000F, bytearray([0xC2, 0x30]))                   # .valid                  rep #$30
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0011, bytearray([0xAF, 0x04, 0xB0, 0x7F]))       #                             lda !score_sprite_add_1_coin
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0015, bytearray([0xF0, 0x03]))                   #                             beq .no_1_coin
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0017, bytearray([0x20, 0xBE, 0xE0]))             #                             jsr add_1_coin
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x001A, bytearray([0xAF, 0x06, 0xB0, 0x7F]))       # .no_1_coin              lda !score_sprite_add_5_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x001E, bytearray([0xF0, 0x03]))                   #                             beq .no_5_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0020, bytearray([0x20, 0xDC, 0xE0]))             #                             jsr add_5_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0023, bytearray([0xAF, 0x08, 0xB0, 0x7F]))       # .no_5_coins             lda !score_sprite_add_10_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0027, bytearray([0xF0, 0x03]))                   #                             beq .no_10_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0029, bytearray([0x20, 0xFA, 0xE0]))             #                             jsr add_10_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x002C, bytearray([0xAF, 0x0A, 0xB0, 0x7F]))       # .no_10_coins            lda !score_sprite_add_50_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0030, bytearray([0xF0, 0x03]))                   #                             beq .no_50_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0032, bytearray([0x20, 0x18, 0xE1]))             #                             jsr add_50_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0035, bytearray([0xAF, 0x10, 0xB0, 0x7F]))       # .no_50_coins            lda !score_sprite_add_1up
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0039, bytearray([0xF0, 0x03]))                   #                             beq .no_1up
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x003B, bytearray([0x20, 0x36, 0xE1]))             #                             jsr add_1up
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x003E, bytearray([0xAF, 0x0C, 0xB0, 0x7F]))       # .no_1up                 lda !score_sprite_add_yoshi_egg
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0042, bytearray([0xF0, 0x03]))                   #                             beq .no_yoshi_egg
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0044, bytearray([0x20, 0x54, 0xE1]))             #                             jsr add_yoshi_egg
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0047, bytearray([0xAF, 0x0E, 0xB0, 0x7F]))       # .no_yoshi_egg           lda !score_sprite_add_boss_token
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x004B, bytearray([0xF0, 0x03]))                   #                             beq .no_boss_token
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x004D, bytearray([0x20, 0xCC, 0xE1]))             #                             jsr add_boss_token
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0050, bytearray([0xE2, 0x30]))                   # .no_boss_token          sep #$30
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0052, bytearray([0x20, 0x59, 0xE0]))             #                             jsr score_sprite_queue
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0055, bytearray([0x5C, 0xB1, 0x8A, 0x02]))       #                             jml $028AB1
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0059, bytearray([0xAF, 0x20, 0xB0, 0x7F]))       # score_sprite_queue:     lda !score_sprite_queue_delay
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x005D, bytearray([0xF0, 0x06]))                   #                             beq .spawn
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x005F, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0060, bytearray([0x8F, 0x20, 0xB0, 0x7F]))       #                             sta !score_sprite_queue_delay
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0064, bytearray([0x60]))                         #                             rts 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0065, bytearray([0xA9, 0x08]))                   # .spawn                  lda #$08
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0067, bytearray([0x8F, 0x20, 0xB0, 0x7F]))       #                             sta !score_sprite_queue_delay
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x006B, bytearray([0xC2, 0x30]))                   #                             rep #$30
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x006D, bytearray([0xAF, 0x02, 0xB0, 0x7F]))       #                             lda !score_sprite_index
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0071, bytearray([0xCF, 0x00, 0xB0, 0x7F]))       #                             cmp !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0075, bytearray([0xD0, 0x03]))                   #                             bne .check_slots
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0077, bytearray([0xE2, 0x30]))                   #                             sep #$30
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0079, bytearray([0x60]))                         #                             rts 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x007A, bytearray([0xA0, 0x05, 0x00]))             # .check_slots            ldy #$0005
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x007D, bytearray([0xB9, 0xE1, 0x16]))             # ..loop                  lda !score_sprite_num,y
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0080, bytearray([0x29, 0xFF, 0x00]))             #                             and #$00FF
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0083, bytearray([0xF0, 0x06]))                   #                             beq .found_free
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0085, bytearray([0x88]))                         #                             dey 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0086, bytearray([0x10, 0xF5]))                   #                             bpl ..loop
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0088, bytearray([0xE2, 0x30]))                   #                             sep #$30
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x008A, bytearray([0x60]))                         #                             rts 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x008B, bytearray([0xAF, 0x02, 0xB0, 0x7F]))       # .found_free             lda !score_sprite_index
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x008F, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0090, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0091, bytearray([0x8F, 0x02, 0xB0, 0x7F]))       #                             sta !score_sprite_index
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0095, bytearray([0xBF, 0x22, 0xB0, 0x7F]))       #                             lda !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0099, bytearray([0xE2, 0x30]))                   #                             sep #$30
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x009B, bytearray([0x99, 0xE1, 0x16]))             #                             sta !score_sprite_num,y
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x009E, bytearray([0xA5, 0x94]))                   #                             lda $94
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00A0, bytearray([0x99, 0xED, 0x16]))             #                             sta !score_sprite_x_lo,y
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00A3, bytearray([0xA5, 0x95]))                   #                             lda $95
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00A5, bytearray([0x99, 0xF3, 0x16]))             #                             sta !score_sprite_x_hi,y
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00A8, bytearray([0xA5, 0x96]))                   #                             lda $96
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00AA, bytearray([0x99, 0xE7, 0x16]))             #                             sta !score_sprite_y_lo,y
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00AD, bytearray([0xA5, 0x97]))                   #                             lda $97
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00AF, bytearray([0x99, 0xF9, 0x16]))             #                             sta !score_sprite_y_hi,y
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00B2, bytearray([0xA9, 0x30]))                   #                             lda #$30
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00B4, bytearray([0x99, 0xFF, 0x16]))             #                             sta !score_sprite_timer,y
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00B7, bytearray([0xAD, 0xF9, 0x13]))             #                             lda $13F9
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00BA, bytearray([0x99, 0x05, 0x17]))             #                             sta !score_sprite_layer,y
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00BD, bytearray([0x60]))                         #                             rts 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00BE, bytearray([0xAF, 0x04, 0xB0, 0x7F]))       # add_1_coin:             lda !score_sprite_add_1_coin
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00C2, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00C3, bytearray([0x8F, 0x04, 0xB0, 0x7F]))       #                             sta !score_sprite_add_1_coin
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00C7, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00CB, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00CC, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D0, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D1, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D3, bytearray([0xA9, 0x11]))                   #                             lda #$11
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D5, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D9, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00DB, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00DC, bytearray([0xAF, 0x06, 0xB0, 0x7F]))       # add_5_coins:            lda !score_sprite_add_5_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00E0, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00E1, bytearray([0x8F, 0x06, 0xB0, 0x7F]))       #                             sta !score_sprite_add_5_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00E5, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00E9, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00EA, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00EE, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00EF, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00F1, bytearray([0xA9, 0x12]))                   #                             lda #$12
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00F3, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00F7, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00F9, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00FA, bytearray([0xAF, 0x08, 0xB0, 0x7F]))       # add_10_coins:           lda !score_sprite_add_10_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00FE, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00FF, bytearray([0x8F, 0x08, 0xB0, 0x7F]))       #                             sta !score_sprite_add_10_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0103, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0107, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0108, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x010C, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x010D, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x010F, bytearray([0xA9, 0x13]))                   #                             lda #$13
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0111, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0115, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0117, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0118, bytearray([0xAF, 0x0A, 0xB0, 0x7F]))       # add_50_coins:           lda !score_sprite_add_50_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x011C, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x011D, bytearray([0x8F, 0x0A, 0xB0, 0x7F]))       #                             sta !score_sprite_add_50_coins
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0121, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0125, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0126, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x012A, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x012B, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x012D, bytearray([0xA9, 0x14]))                   #                             lda #$14
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x012F, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0133, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0135, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0136, bytearray([0xAF, 0x10, 0xB0, 0x7F]))       # add_1up:                lda !score_sprite_add_1up
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x013A, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x013B, bytearray([0x8F, 0x10, 0xB0, 0x7F]))       #                             sta !score_sprite_add_1up
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x013F, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0143, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0144, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0148, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0149, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x014B, bytearray([0xA9, 0x16]))                   #                             lda #$16
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x014D, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0151, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0153, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0154, bytearray([0xAF, 0x0C, 0xB0, 0x7F]))       # add_yoshi_egg:          lda !score_sprite_add_yoshi_egg
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0158, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0159, bytearray([0x8F, 0x0C, 0xB0, 0x7F]))       #                             sta !score_sprite_add_yoshi_egg
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x015D, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0161, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0162, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0166, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0167, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0169, bytearray([0xA9, 0x15]))                   #                             lda #$15
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x016B, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x016F, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0171, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0172, bytearray([0xAF, 0x12, 0xB0, 0x7F]))       # add_mushroom:           lda !score_sprite_add_mushroom
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0176, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0177, bytearray([0x8F, 0x12, 0xB0, 0x7F]))       #                             sta !score_sprite_add_mushroom
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x017B, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x017F, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0180, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0184, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0185, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0187, bytearray([0xA9, 0x17]))                   #                             lda #$17
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0189, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x018D, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x018F, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0190, bytearray([0xAF, 0x14, 0xB0, 0x7F]))       # add_flower:             lda !score_sprite_add_flower
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0194, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0195, bytearray([0x8F, 0x14, 0xB0, 0x7F]))       #                             sta !score_sprite_add_flower
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0199, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x019D, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x019E, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A2, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A3, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A5, bytearray([0xA9, 0x18]))                   #                             lda #$18
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A7, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01AB, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01AD, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01AE, bytearray([0xAF, 0x16, 0xB0, 0x7F]))       # add_feather:            lda !score_sprite_add_feather
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01B2, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01B3, bytearray([0x8F, 0x16, 0xB0, 0x7F]))       #                             sta !score_sprite_add_feather
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01B7, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01BB, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01BC, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C0, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C1, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C3, bytearray([0xA9, 0x19]))                   #                             lda #$19
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C5, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C9, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01CB, bytearray([0x60]))                         #                             rts
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01CC, bytearray([0xAF, 0x0E, 0xB0, 0x7F]))       # add_boss_token:         lda !score_sprite_add_boss_token
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01D0, bytearray([0x3A]))                         #                             dec 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01D1, bytearray([0x8F, 0x0E, 0xB0, 0x7F]))       #                             sta !score_sprite_add_boss_token
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01D5, bytearray([0xAF, 0x00, 0xB0, 0x7F]))       #                             lda !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01D9, bytearray([0x1A]))                         #                             inc 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01DA, bytearray([0x8F, 0x00, 0xB0, 0x7F]))       #                             sta !score_sprite_count
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01DE, bytearray([0xAA]))                         #                             tax 
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01DF, bytearray([0xE2, 0x20]))                   #                             sep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01E1, bytearray([0xA9, 0x1A]))                   #                             lda #$1A
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01E3, bytearray([0x9F, 0x22, 0xB0, 0x7F]))       #                             sta !score_sprite_queue,x
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01E7, bytearray([0xC2, 0x20]))                   #                             rep #$20
-    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01E9, bytearray([0x60]))                         #                             rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0000, bytearray([0xAD, 0x00, 0x01]))       # gm14_hijack:            lda $0100
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0003, bytearray([0xC9, 0x14]))             #                         cmp #$14
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0005, bytearray([0xD0, 0x04]))             #                         bne .invalid
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0007, bytearray([0xA5, 0x71]))             #                         lda $71
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0009, bytearray([0xF0, 0x04]))             #                         beq .valid
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x000B, bytearray([0x5C, 0xB1, 0x8A, 0x02])) # .invalid                jml $028AB1
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x000F, bytearray([0xC2, 0x30]))             # .valid                  rep #$30
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0011, bytearray([0xAF, 0x04, 0xB0, 0x7F])) #                         lda !score_sprite_add_1_coin
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0015, bytearray([0xF0, 0x03]))             #                         beq .no_1_coin
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0017, bytearray([0x20, 0xC1, 0xE0]))       #                         jsr add_1_coin
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x001A, bytearray([0xAF, 0x06, 0xB0, 0x7F])) # .no_1_coin              lda !score_sprite_add_5_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x001E, bytearray([0xF0, 0x03]))             #                         beq .no_5_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0020, bytearray([0x20, 0xDF, 0xE0]))       #                         jsr add_5_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0023, bytearray([0xAF, 0x08, 0xB0, 0x7F])) # .no_5_coins             lda !score_sprite_add_10_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0027, bytearray([0xF0, 0x03]))             #                         beq .no_10_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0029, bytearray([0x20, 0xFD, 0xE0]))       #                         jsr add_10_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x002C, bytearray([0xAF, 0x0A, 0xB0, 0x7F])) # .no_10_coins            lda !score_sprite_add_15_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0030, bytearray([0xF0, 0x03]))             #                         beq .no_15_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0032, bytearray([0x20, 0x1B, 0xE1]))       #                         jsr add_15_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0035, bytearray([0xAF, 0x10, 0xB0, 0x7F])) # .no_15_coins            lda !score_sprite_add_1up
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0039, bytearray([0xF0, 0x03]))             #                         beq .no_1up
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x003B, bytearray([0x20, 0x39, 0xE1]))       #                         jsr add_1up
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x003E, bytearray([0xAF, 0x0C, 0xB0, 0x7F])) # .no_1up                 lda !score_sprite_add_yoshi_egg
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0042, bytearray([0xF0, 0x03]))             #                         beq .no_yoshi_egg
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0044, bytearray([0x20, 0x57, 0xE1]))       #                         jsr add_yoshi_egg
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0047, bytearray([0xAF, 0x0E, 0xB0, 0x7F])) # .no_yoshi_egg           lda !score_sprite_add_boss_token
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x004B, bytearray([0xF0, 0x03]))             #                         beq .no_boss_token
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x004D, bytearray([0x20, 0xCF, 0xE1]))       #                         jsr add_boss_token
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0050, bytearray([0xE2, 0x30]))             # .no_boss_token          sep #$30
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0052, bytearray([0x20, 0xED, 0xE1]))       #                         jsr goal_sanity_check
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0055, bytearray([0x20, 0x5C, 0xE0]))       #                         jsr score_sprite_queue
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0058, bytearray([0x5C, 0xB1, 0x8A, 0x02])) #                         jml $028AB1
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x005C, bytearray([0xAF, 0x20, 0xB0, 0x7F])) # score_sprite_queue:     lda !score_sprite_queue_delay
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0060, bytearray([0xF0, 0x06]))             #                         beq .spawn
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0062, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0063, bytearray([0x8F, 0x20, 0xB0, 0x7F])) #                         sta !score_sprite_queue_delay
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0067, bytearray([0x60]))                   #                         rts 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0068, bytearray([0xA9, 0x08]))             # .spawn                  lda #$08
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x006A, bytearray([0x8F, 0x20, 0xB0, 0x7F])) #                         sta !score_sprite_queue_delay
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x006E, bytearray([0xC2, 0x30]))             #                         rep #$30
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0070, bytearray([0xAF, 0x02, 0xB0, 0x7F])) #                         lda !score_sprite_index
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0074, bytearray([0xCF, 0x00, 0xB0, 0x7F])) #                         cmp !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0078, bytearray([0xD0, 0x03]))             #                         bne .check_slots
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x007A, bytearray([0xE2, 0x30]))             #                         sep #$30
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x007C, bytearray([0x60]))                   #                         rts 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x007D, bytearray([0xA0, 0x05, 0x00]))       # .check_slots            ldy #$0005
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0080, bytearray([0xB9, 0xE1, 0x16]))       # ..loop                  lda !score_sprite_num,y
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0083, bytearray([0x29, 0xFF, 0x00]))       #                         and #$00FF
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0086, bytearray([0xF0, 0x06]))             #                         beq .found_free
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0088, bytearray([0x88]))                   #                         dey 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0089, bytearray([0x10, 0xF5]))             #                         bpl ..loop
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x008B, bytearray([0xE2, 0x30]))             #                         sep #$30
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x008D, bytearray([0x60]))                   #                         rts 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x008E, bytearray([0xAF, 0x02, 0xB0, 0x7F])) # .found_free             lda !score_sprite_index
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0092, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0093, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0094, bytearray([0x8F, 0x02, 0xB0, 0x7F])) #                         sta !score_sprite_index
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0098, bytearray([0xBF, 0x22, 0xB0, 0x7F])) #                         lda !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x009C, bytearray([0xE2, 0x30]))             #                         sep #$30
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x009E, bytearray([0x99, 0xE1, 0x16]))       #                         sta !score_sprite_num,y
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00A1, bytearray([0xA5, 0x94]))             #                         lda $94
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00A3, bytearray([0x99, 0xED, 0x16]))       #                         sta !score_sprite_x_lo,y
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00A6, bytearray([0xA5, 0x95]))             #                         lda $95
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00A8, bytearray([0x99, 0xF3, 0x16]))       #                         sta !score_sprite_x_hi,y
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00AB, bytearray([0xA5, 0x96]))             #                         lda $96
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00AD, bytearray([0x99, 0xE7, 0x16]))       #                         sta !score_sprite_y_lo,y
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00B0, bytearray([0xA5, 0x97]))             #                         lda $97
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00B2, bytearray([0x99, 0xF9, 0x16]))       #                         sta !score_sprite_y_hi,y
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00B5, bytearray([0xA9, 0x30]))             #                         lda #$30
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00B7, bytearray([0x99, 0xFF, 0x16]))       #                         sta !score_sprite_timer,y
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00BA, bytearray([0xAD, 0xF9, 0x13]))       #                         lda $13F9
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00BD, bytearray([0x99, 0x05, 0x17]))       #                         sta !score_sprite_layer,y
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00C0, bytearray([0x60]))                   #                         rts 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00C1, bytearray([0xAF, 0x04, 0xB0, 0x7F])) # add_1_coin:             lda !score_sprite_add_1_coin
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00C5, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00C6, bytearray([0x8F, 0x04, 0xB0, 0x7F])) #                         sta !score_sprite_add_1_coin
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00CA, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00CE, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00CF, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D3, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D4, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D6, bytearray([0xA9, 0x11]))             #                         lda #$11
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00D8, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00DC, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00DE, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00DF, bytearray([0xAF, 0x06, 0xB0, 0x7F])) # add_5_coins:            lda !score_sprite_add_5_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00E3, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00E4, bytearray([0x8F, 0x06, 0xB0, 0x7F])) #                         sta !score_sprite_add_5_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00E8, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00EC, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00ED, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00F1, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00F2, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00F4, bytearray([0xA9, 0x12]))             #                         lda #$12
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00F6, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00FA, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00FC, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x00FD, bytearray([0xAF, 0x08, 0xB0, 0x7F])) # add_10_coins:           lda !score_sprite_add_10_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0101, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0102, bytearray([0x8F, 0x08, 0xB0, 0x7F])) #                         sta !score_sprite_add_10_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0106, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x010A, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x010B, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x010F, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0110, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0112, bytearray([0xA9, 0x13]))             #                         lda #$13
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0114, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0118, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x011A, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x011B, bytearray([0xAF, 0x0A, 0xB0, 0x7F])) # add_15_coins:           lda !score_sprite_add_15_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x011F, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0120, bytearray([0x8F, 0x0A, 0xB0, 0x7F])) #                         sta !score_sprite_add_15_coins
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0124, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0128, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0129, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x012D, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x012E, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0130, bytearray([0xA9, 0x14]))             #                         lda #$14
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0132, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0136, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0138, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0139, bytearray([0xAF, 0x10, 0xB0, 0x7F])) # add_1up:                lda !score_sprite_add_1up
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x013D, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x013E, bytearray([0x8F, 0x10, 0xB0, 0x7F])) #                         sta !score_sprite_add_1up
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0142, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0146, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0147, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x014B, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x014C, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x014E, bytearray([0xA9, 0x16]))             #                         lda #$16
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0150, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0154, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0156, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0157, bytearray([0xAF, 0x0C, 0xB0, 0x7F])) # add_yoshi_egg:          lda !score_sprite_add_yoshi_egg
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x015B, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x015C, bytearray([0x8F, 0x0C, 0xB0, 0x7F])) #                         sta !score_sprite_add_yoshi_egg
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0160, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0164, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0165, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0169, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x016A, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x016C, bytearray([0xA9, 0x15]))             #                         lda #$15
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x016E, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0172, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0174, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0175, bytearray([0xAF, 0x12, 0xB0, 0x7F])) # add_mushroom:           lda !score_sprite_add_mushroom
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0179, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x017A, bytearray([0x8F, 0x12, 0xB0, 0x7F])) #                         sta !score_sprite_add_mushroom
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x017E, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0182, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0183, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0187, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0188, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x018A, bytearray([0xA9, 0x17]))             #                         lda #$17
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x018C, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0190, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0192, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0193, bytearray([0xAF, 0x14, 0xB0, 0x7F])) # add_flower:             lda !score_sprite_add_flower
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0197, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0198, bytearray([0x8F, 0x14, 0xB0, 0x7F])) #                         sta !score_sprite_add_flower
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x019C, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A0, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A1, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A5, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A6, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01A8, bytearray([0xA9, 0x18]))             #                         lda #$18
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01AA, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01AE, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01B0, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01B1, bytearray([0xAF, 0x16, 0xB0, 0x7F])) # add_feather:            lda !score_sprite_add_feather
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01B5, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01B6, bytearray([0x8F, 0x16, 0xB0, 0x7F])) #                         sta !score_sprite_add_feather
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01BA, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01BE, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01BF, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C3, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C4, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C6, bytearray([0xA9, 0x19]))             #                         lda #$19
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01C8, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01CC, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01CE, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01CF, bytearray([0xAF, 0x0E, 0xB0, 0x7F])) # add_boss_token:         lda !score_sprite_add_boss_token
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01D3, bytearray([0x3A]))                   #                         dec 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01D4, bytearray([0x8F, 0x0E, 0xB0, 0x7F])) #                         sta !score_sprite_add_boss_token
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01D8, bytearray([0xAF, 0x00, 0xB0, 0x7F])) #                         lda !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01DC, bytearray([0x1A]))                   #                         inc 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01DD, bytearray([0x8F, 0x00, 0xB0, 0x7F])) #                         sta !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01E1, bytearray([0xAA]))                   #                         tax 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01E2, bytearray([0xE2, 0x20]))             #                         sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01E4, bytearray([0xA9, 0x1A]))             #                         lda #$1A
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01E6, bytearray([0x9F, 0x22, 0xB0, 0x7F])) #                         sta !score_sprite_queue,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01EA, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01EC, bytearray([0x60]))                   #                         rts
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01ED, bytearray([0xAF, 0xA0, 0xBF, 0x03])) # goal_sanity_check:      lda $03BFA0
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01F1, bytearray([0x29, 0x01]))             #                         and #$01
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01F3, bytearray([0x49, 0x01]))             #                         eor #$01
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01F5, bytearray([0x0A]))                   #                         asl 
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01F6, bytearray([0xC2, 0x20]))             #                         rep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01F8, bytearray([0xBF, 0x0C, 0xB0, 0x7F])) #                         lda !score_sprite_add_yoshi_egg,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01FC, bytearray([0xD0, 0x18]))             #                         bne .return
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x01FE, bytearray([0xAF, 0x02, 0xB0, 0x7F])) # .check_queue            lda !score_sprite_index
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0202, bytearray([0xCF, 0x00, 0xB0, 0x7F])) #                         cmp !score_sprite_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0206, bytearray([0xD0, 0x0E]))             #                         bne .return
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0208, bytearray([0xE2, 0x20]))             # .check_count            sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x020A, bytearray([0xAF, 0x1E, 0xA0, 0x7F])) #                         lda !goal_item_count
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x020E, bytearray([0xDD, 0x24, 0x1F]))       #                         cmp $1F24,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0211, bytearray([0xF0, 0x03]))             #                         beq .return
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0213, bytearray([0x9D, 0x24, 0x1F]))       #                         sta $1F24,x
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0216, bytearray([0xE2, 0x20]))             # .return                 sep #$20
+    rom.write_bytes(INDICATOR_QUEUE_CODE + 0x0218, bytearray([0x60]))                   #                         rts 
 
     # Add code for indicators when receiving items during levels
     INDICATOR_CODE = 0x84000
