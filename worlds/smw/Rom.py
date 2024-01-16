@@ -2082,9 +2082,9 @@ def handle_indicators(rom):
     rom.write_bytes(INDICATOR_CODE + 0x01F8, bytearray([0x1A]))                             #                         db $1A      ; 
     rom.write_bytes(INDICATOR_CODE + 0x01F9, bytearray([0x1A]))                             #                         db $1A      ; 
     rom.write_bytes(INDICATOR_CODE + 0x01FA, bytearray([0x32]))                             # ..plus_props            db $32      ; 1 coin
-    rom.write_bytes(INDICATOR_CODE + 0x01FB, bytearray([0x32]))                             #                         db $32      ; 3 coins
-    rom.write_bytes(INDICATOR_CODE + 0x01FC, bytearray([0x32]))                             #                         db $32      ; 5 coins
-    rom.write_bytes(INDICATOR_CODE + 0x01FD, bytearray([0x32]))                             #                         db $32      ; 10 coins
+    rom.write_bytes(INDICATOR_CODE + 0x01FB, bytearray([0x32]))                             #                         db $32      ; 5 coins
+    rom.write_bytes(INDICATOR_CODE + 0x01FC, bytearray([0x32]))                             #                         db $32      ; 10 coins
+    rom.write_bytes(INDICATOR_CODE + 0x01FD, bytearray([0x32]))                             #                         db $32      ; 50 coins
     rom.write_bytes(INDICATOR_CODE + 0x01FE, bytearray([0x32]))                             #                         db $32      ; yoshi egg
     rom.write_bytes(INDICATOR_CODE + 0x01FF, bytearray([0x32]))                             #                         db $32      ; 1up mushroom
     rom.write_bytes(INDICATOR_CODE + 0x0200, bytearray([0x32]))                             #                         db $32      ; mushroom
@@ -2099,7 +2099,7 @@ def handle_indicators(rom):
     rom.write_bytes(INDICATOR_CODE + 0x0209, bytearray([0x4B, 0x69]))                       # ..num_tile              db $4B,$69  ; 1 coin
     rom.write_bytes(INDICATOR_CODE + 0x020B, bytearray([0x5B, 0x69]))                       #                         db $5B,$69  ; 5 coins
     rom.write_bytes(INDICATOR_CODE + 0x020D, bytearray([0x4B, 0x4A]))                       #                         db $4B,$4A  ; 10 coins
-    rom.write_bytes(INDICATOR_CODE + 0x020F, bytearray([0x4B, 0x5B]))                       #                         db $4B,$5B  ; 15 coins
+    rom.write_bytes(INDICATOR_CODE + 0x020F, bytearray([0x5B, 0x4A]))                       #                         db $4B,$5B  ; 50 coins
     rom.write_bytes(INDICATOR_CODE + 0x0211, bytearray([0x4B, 0x69]))                       #                         db $4B,$69  ; yoshi egg
     rom.write_bytes(INDICATOR_CODE + 0x0213, bytearray([0x4B, 0x69]))                       #                         db $4B,$69  ; 1up mushroom
     rom.write_bytes(INDICATOR_CODE + 0x0215, bytearray([0x4B, 0x69]))                       #                         db $4B,$69  ; mushroom
@@ -2114,7 +2114,7 @@ def handle_indicators(rom):
     rom.write_bytes(INDICATOR_CODE + 0x0227, bytearray([0x34, 0x34]))                       # ..num_props             db $34,$34  ; 1 coin
     rom.write_bytes(INDICATOR_CODE + 0x0229, bytearray([0x34, 0x34]))                       #                         db $34,$34  ; 5 coins
     rom.write_bytes(INDICATOR_CODE + 0x022B, bytearray([0x34, 0x34]))                       #                         db $34,$34  ; 10 coins
-    rom.write_bytes(INDICATOR_CODE + 0x022D, bytearray([0x34, 0x34]))                       #                         db $34,$34  ; 15 coins
+    rom.write_bytes(INDICATOR_CODE + 0x022D, bytearray([0x34, 0x34]))                       #                         db $34,$34  ; 50 coins
     rom.write_bytes(INDICATOR_CODE + 0x022F, bytearray([0x34, 0x34]))                       #                         db $34,$34  ; yoshi egg
     rom.write_bytes(INDICATOR_CODE + 0x0231, bytearray([0x34, 0x34]))                       #                         db $34,$34  ; 1up mushroom
     rom.write_bytes(INDICATOR_CODE + 0x0233, bytearray([0x34, 0x34]))                       #                         db $34,$34  ; mushroom
@@ -2128,9 +2128,9 @@ def handle_indicators(rom):
     rom.write_bytes(INDICATOR_CODE + 0x0243, bytearray([0x34, 0x34]))                       #                         db $34,$34  ;  
     rom.write_bytes(INDICATOR_CODE + 0x0245, bytearray([0x50, 0x58, 0x60, 0x68, 0x70, 0x78]))# ..oam_2                 db $50,$58,$60,$68,$70,$78
     rom.write_bytes(INDICATOR_CODE + 0x024B, bytearray([0x69, 0xC2]))                       # .reward_ptrs            dw .one_coin
-    rom.write_bytes(INDICATOR_CODE + 0x024D, bytearray([0x6D, 0xC2]))                       #                         dw .three_coins
-    rom.write_bytes(INDICATOR_CODE + 0x024F, bytearray([0x71, 0xC2]))                       #                         dw .five_coins
-    rom.write_bytes(INDICATOR_CODE + 0x0251, bytearray([0x75, 0xC2]))                       #                         dw .ten_coins
+    rom.write_bytes(INDICATOR_CODE + 0x024D, bytearray([0x6D, 0xC2]))                       #                         dw .five_coins
+    rom.write_bytes(INDICATOR_CODE + 0x024F, bytearray([0x71, 0xC2]))                       #                         dw .ten_coins
+    rom.write_bytes(INDICATOR_CODE + 0x0251, bytearray([0x75, 0xC2]))                       #                         dw .fifty_coins
     rom.write_bytes(INDICATOR_CODE + 0x0253, bytearray([0x8A, 0xC2]))                       #                         dw .yoshi_egg
     rom.write_bytes(INDICATOR_CODE + 0x0255, bytearray([0xA7, 0xC2]))                       #                         dw .green_mushroom
     rom.write_bytes(INDICATOR_CODE + 0x0257, bytearray([0xAD, 0xC2]))                       #                         dw .mushroom
@@ -2144,11 +2144,11 @@ def handle_indicators(rom):
     rom.write_bytes(INDICATOR_CODE + 0x0267, bytearray([0xCB, 0xC0]))                       #                         dw .handle_movement
     rom.write_bytes(INDICATOR_CODE + 0x0269, bytearray([0xA9, 0x01]))                       # .one_coin               lda #$01
     rom.write_bytes(INDICATOR_CODE + 0x026B, bytearray([0x80, 0x0A]))                       #                         bra .shared_coins
-    rom.write_bytes(INDICATOR_CODE + 0x026D, bytearray([0xA9, 0x05]))                       # .three_coins            lda #$05
+    rom.write_bytes(INDICATOR_CODE + 0x026D, bytearray([0xA9, 0x05]))                       # .five_coins             lda #$05
     rom.write_bytes(INDICATOR_CODE + 0x026F, bytearray([0x80, 0x06]))                       #                         bra .shared_coins
-    rom.write_bytes(INDICATOR_CODE + 0x0271, bytearray([0xA9, 0x0A]))                       # .five_coins             lda #$0A
+    rom.write_bytes(INDICATOR_CODE + 0x0271, bytearray([0xA9, 0x0A]))                       # .ten_coins              lda #$0A
     rom.write_bytes(INDICATOR_CODE + 0x0273, bytearray([0x80, 0x02]))                       #                         bra .shared_coins
-    rom.write_bytes(INDICATOR_CODE + 0x0275, bytearray([0xA9, 0x0F]))                       # .ten_coins              lda #$0F
+    rom.write_bytes(INDICATOR_CODE + 0x0275, bytearray([0xA9, 0x32]))                       # .fifty_coins            lda #$32
     rom.write_bytes(INDICATOR_CODE + 0x0277, bytearray([0x18]))                             # .shared_coins           clc 
     rom.write_bytes(INDICATOR_CODE + 0x0278, bytearray([0x6D, 0xCC, 0x13]))                 #                         adc $13CC
     rom.write_bytes(INDICATOR_CODE + 0x027B, bytearray([0x90, 0x02]))                       #                         bcc +
