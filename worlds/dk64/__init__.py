@@ -8,7 +8,7 @@ import threading
 
 from BaseClasses import Item, MultiWorld, Tutorial, ItemClassification
 from .Items import DK64Item, ItemData, full_item_table, setup_items
-from .Options import dk64_options
+from .Options import GenerateDK64Options, dk64_options
 from .Regions import DK64Location, all_locations, create_regions, connect_regions
 from .Rules import set_rules
 from worlds.AutoWorld import WebWorld, World
@@ -38,7 +38,8 @@ class DK64World(World):
     Play as the whole DK Crew and rescue the Golden Banana hoard from King K. Rool.
     """
     game: str = "Donkey Kong 64"
-    option_definitions = dk64_options
+    #option_definitions = dk64_options
+    option_definitions = GenerateDK64Options()
     topology_present = False
     data_version = 0
 
