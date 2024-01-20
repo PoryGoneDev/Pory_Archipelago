@@ -4,7 +4,7 @@ import typing
 import math
 import threading
 
-sys.path.append('./worlds/dk64/DK64R/')
+# sys.path.append('./worlds/dk64/DK64R/')
 
 from BaseClasses import Item, MultiWorld, Tutorial, ItemClassification
 from .Items import DK64Item, ItemData, full_item_table, setup_items
@@ -13,7 +13,9 @@ from .Regions import DK64Location, all_locations, create_regions, connect_region
 from .Rules import set_rules
 from worlds.AutoWorld import WebWorld, World
 import Patch
-
+from .Logic import LogicVarHolder
+from dk64r.randomizer.Spoiler import Spoiler
+from dk64r.randomizer.Settings import Settings
 
 class DK64Web(WebWorld):
     theme = "jungle"
@@ -44,11 +46,16 @@ class DK64World(World):
     item_name_to_id = {name: data.code for name, data in full_item_table.items()}
     location_name_to_id = all_locations
 
-    web = DK64Web()
+    web = DK64Web()    
+
     
     def __init__(self, multiworld: MultiWorld, player: int):
         self.rom_name_available_event = threading.Event()
         super().__init__(multiworld, player)
+        settings_dict = {}
+        settings = Settings(settings_dict)
+        spoiler = Spoiler(settings)
+        self.logic_holder = LogicVarHolder(spoiler, self)
 
     @classmethod
     def stage_assert_generate(cls, multiworld: MultiWorld):
@@ -76,7 +83,7 @@ class DK64World(World):
         set_rules(self.multiworld, self.player)
 
     def generate_basic(self):
-        connect_regions(self)
+        connect_regions(self, self.logic_holder)
 
         self.multiworld.get_location("Victory", self.player).place_locked_item(DK64Item("Victory", ItemClassification.progression, 0x000000, self.player)) # TEMP
 
