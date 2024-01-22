@@ -70,15 +70,19 @@ class LogicVarHolder:
         self.settings = settings
         self.spoiler = spoiler
         self.world = world
-        # Some restrictions are added to the item placement fill for the sake of reducing indirect errors. We can overlook these restrictions once we know the fill is valid.
+        # We never need to make these assumptions in Archipelago
+        # # Some restrictions are added to the item placement fill for the sake of reducing indirect errors. We can overlook these restrictions once we know the fill is valid.
         self.assumeFillSuccess = False
-        # See CalculateWothPaths method for details on these assumptions
+        # # See CalculateWothPaths method for details on these assumptions
         self.assumeInfiniteGBs = False
-        self.assumeInfiniteCoins = False
         self.assumeAztecEntry = False
         self.assumeLevel4Entry = False
         self.assumeUpperIslesAccess = False
         self.assumeKRoolAccess = False
+
+        # One Archipelago-specific exception - assuming infinite coins shortcuts a few price-related functions that we don't care about
+        # In Archipelago, shops are free cause we're not tackling coin logic yet
+        self.assumeInfiniteCoins = True
 
         self.startkong = self.settings.starting_kong
         # Glitch Logic
@@ -114,6 +118,13 @@ class LogicVarHolder:
         self.lanky = Kongs.lanky in self.settings.starting_kong_list
         self.tiny = Kongs.tiny in self.settings.starting_kong_list
         self.chunky = Kongs.chunky in self.settings.starting_kong_list
+
+        # In Archipelago, we have to assume tag anywhere is on because it would be too complex to parse the world state otherwise
+        self.isdonkey = self.donkey
+        self.isdiddy = self.diddy
+        self.islanky = self.lanky
+        self.istiny = self.tiny
+        self.ischunky = self.chunky
 
         # Right now assuming start with training barrels
         self.vines = self.settings.training_barrels == TrainingBarrels.normal
@@ -275,7 +286,7 @@ class LogicVarHolder:
 
         self.bananaHoard = False
 
-        self.UpdateKongs()
+        # self.UpdateKongs()
 
     def isPriorHelmComplete(self, kong: Kongs):
         """Determine if there is access to the kong's helm room."""
@@ -310,6 +321,13 @@ class LogicVarHolder:
         self.lanky = self.lanky or Items.Lanky in ownedItems or self.startkong == Kongs.lanky
         self.tiny = self.tiny or Items.Tiny in ownedItems or self.startkong == Kongs.tiny
         self.chunky = self.chunky or Items.Chunky in ownedItems or self.startkong == Kongs.chunky
+
+        # In Archipelago, we have to assume tag anywhere is on because it would be too complex to parse the world state otherwise
+        self.isdonkey = self.donkey
+        self.isdiddy = self.diddy
+        self.islanky = self.lanky
+        self.istiny = self.tiny
+        self.ischunky = self.chunky
 
         self.vines = self.vines or Items.Vines in ownedItems
         self.swim = self.swim or Items.Swim in ownedItems
@@ -525,8 +543,8 @@ class LogicVarHolder:
 
     def SetKong(self, kong):
         """Set current kong for logic."""
-        self.kong = kong
-        self.UpdateKongs()
+        # self.kong = kong
+        # self.UpdateKongs()
 
     def GetKongs(self):
         """Return all owned kongs."""
@@ -545,11 +563,11 @@ class LogicVarHolder:
 
     def UpdateKongs(self):
         """Set variables for current kong based on self.kong."""
-        self.isdonkey = self.kong == Kongs.donkey
-        self.isdiddy = self.kong == Kongs.diddy
-        self.islanky = self.kong == Kongs.lanky
-        self.istiny = self.kong == Kongs.tiny
-        self.ischunky = self.kong == Kongs.chunky
+        # self.isdonkey = self.kong == Kongs.donkey
+        # self.isdiddy = self.kong == Kongs.diddy
+        # self.islanky = self.kong == Kongs.lanky
+        # self.istiny = self.kong == Kongs.tiny
+        # self.ischunky = self.kong == Kongs.chunky
 
     def IsKong(self, kong):
         """Check if logic is currently a specific kong."""
@@ -648,14 +666,16 @@ class LogicVarHolder:
 
     def CanFreeDiddy(self):
         """Check if the cage locking Diddy's vanilla location can be opened."""
-        return self.spoiler.LocationList[Locations.DiddyKong].item == Items.NoItem or self.HasGun(self.settings.diddy_freeing_kong)
+        return self.HasGun(self.settings.diddy_freeing_kong)  # In Archipelago, we can't put a Kong in the cage (yet?)
+        # return self.spoiler.LocationList[Locations.DiddyKong].item == Items.NoItem or self.HasGun(self.settings.diddy_freeing_kong)
 
     def CanOpenJapesGates(self):
         """Check if we can pick up the item inside Diddy's cage, thus opening the gates in Japes."""
-        caged_item_id = self.spoiler.LocationList[Locations.JapesDonkeyFreeDiddy].item
+        # In Archipelago, we can't know what item is in this location, but we do know that it will always contain something
+        # caged_item_id = self.spoiler.LocationList[Locations.JapesDonkeyFreeDiddy].item
         # If it's NoItem, then the gates are already open
-        if caged_item_id == Items.NoItem:
-            return True
+        # if caged_item_id == Items.NoItem:
+        #     return True
         # If we can't free Diddy, then we can't access the item so we can't reach the item
         if not self.CanFreeDiddy():
             return False
@@ -664,29 +684,32 @@ class LogicVarHolder:
             return True
         # If we aren't the right kong, we need free trade to be on
         elif self.settings.free_trade_items:
-            # During the fill we can't assume this item is accessible quite yet - this could cause errors with placing items in the back of Japes
-            if caged_item_id is None:
-                return False
-            # If it's not a blueprint, free trade gets us the item
-            if ItemList[caged_item_id].type != Types.Blueprint:
-                return True
-            # But if it is a blueprint, we need to check blueprint access (which checks blueprint free trade)
-            else:
-                return self.BlueprintAccess(ItemList[caged_item_id])
+            return True  # In Archipelago, we can't know what item is in this location. We must assume full FTA, so the rest of this is irrelevant
+            # # During the fill we can't assume this item is accessible quite yet - this could cause errors with placing items in the back of Japes
+            # if caged_item_id is None:
+            #     return False
+            # # If it's not a blueprint, free trade gets us the item
+            # if ItemList[caged_item_id].type != Types.Blueprint:
+            #     return True
+            # # But if it is a blueprint, we need to check blueprint access (which checks blueprint free trade)
+            # else:
+            #     return self.BlueprintAccess(ItemList[caged_item_id])
         # If we failed to hit a successful condition, we failed to reach the caged item
         return False
 
     def CanFreeTiny(self):
         """Check if kong at Tiny location can be freed, requires either chimpy charge or primate punch."""
-        if self.spoiler.LocationList[Locations.TinyKong].item == Items.NoItem:
-            return self.IsKong(self.settings.tiny_freeing_kong) or self.settings.free_trade_items
-        elif self.settings.tiny_freeing_kong == Kongs.diddy:
-            return self.charge and self.isdiddy
-        elif self.settings.tiny_freeing_kong == Kongs.chunky:
-            return self.punch and self.ischunky
-        # Used only as placeholder during fill when kong puzzles are not yet assigned
-        elif self.settings.tiny_freeing_kong == Kongs.any:
-            return True
+        # In Archipelago, we can't put a Kong in the cage (yet?)
+        return self.IsKong(self.settings.tiny_freeing_kong) or self.settings.free_trade_items
+        # if self.spoiler.LocationList[Locations.TinyKong].item == Items.NoItem:
+        #     return self.IsKong(self.settings.tiny_freeing_kong) or self.settings.free_trade_items
+        # elif self.settings.tiny_freeing_kong == Kongs.diddy:
+        #     return self.charge and self.isdiddy
+        # elif self.settings.tiny_freeing_kong == Kongs.chunky:
+        #     return self.punch and self.ischunky
+        # # Used only as placeholder during fill when kong puzzles are not yet assigned
+        # elif self.settings.tiny_freeing_kong == Kongs.any:
+        #     return True
 
     def CanLlamaSpit(self):
         """Check if the Llama spit can be triggered."""
@@ -694,36 +717,22 @@ class LogicVarHolder:
 
     def CanFreeLanky(self):
         """Check if kong at Lanky location can be freed, requires freeing kong to have its gun and instrument."""
-        return (self.HasGun(self.settings.lanky_freeing_kong) or self.spoiler.LocationList[Locations.LankyKong].item == Items.NoItem) and (
-            (self.swim and self.HasInstrument(self.settings.lanky_freeing_kong)) or self.phasewalk or self.CanPhaseswim()
-        )
+        # In Archipelago, we can't put a Kong in the cage (yet?)
+        return (self.swim and self.HasInstrument(self.settings.lanky_freeing_kong)) or self.phasewalk or self.CanPhaseswim()
+        # return (self.HasGun(self.settings.lanky_freeing_kong) or self.spoiler.LocationList[Locations.LankyKong].item == Items.NoItem) and (
+        #     (self.swim and self.HasInstrument(self.settings.lanky_freeing_kong)) or self.phasewalk or self.CanPhaseswim()
+        # )
 
     def CanFreeChunky(self):
-        """Check if kong at Chunky location can be freed."""
-        # If the cage is empty, the item is just lying on the ground
-        if self.spoiler.LocationList[Locations.ChunkyKong].item == Items.NoItem:
-            return self.IsKong(self.settings.chunky_freeing_kong) or self.settings.free_trade_items
-        # Otherwise you need the right slam level (usually 1)
-        else:
-            return self.CanSlamSwitch(Levels.FranticFactory, 1) and self.IsKong(self.settings.chunky_freeing_kong)
-
-    def LevelEntered(self, level):
-        """Check whether a level, or any level above it, has been entered."""
-        if Events.CastleEntered in self.Events:
-            return True
-        elif Events.CavesEntered in self.Events and level <= Levels.CrystalCaves:
-            return True
-        elif Events.ForestEntered in self.Events and level <= Levels.FungiForest:
-            return True
-        elif Events.GalleonEntered in self.Events and level <= Levels.GloomyGalleon:
-            return True
-        elif Events.FactoryEntered in self.Events and level <= Levels.FranticFactory:
-            return True
-        elif Events.AztecEntered in self.Events and level <= Levels.AngryAztec:
-            return True
-        elif Events.JapesEntered in self.Events and level <= Levels.JungleJapes:
-            return True
-        return False
+        """Check if kong at Chunky location can be freed.""" 
+        # In Archipelago, we can't put a Kong in the cage (yet?)
+        return self.IsKong(self.settings.chunky_freeing_kong) or self.settings.free_trade_items
+        # # If the cage is empty, the item is just lying on the ground
+        # if self.spoiler.LocationList[Locations.ChunkyKong].item == Items.NoItem:
+        #     return self.IsKong(self.settings.chunky_freeing_kong) or self.settings.free_trade_items
+        # # Otherwise you need the right slam level (usually 1)
+        # else:
+        #     return self.CanSlamSwitch(Levels.FranticFactory, 1) and self.IsKong(self.settings.chunky_freeing_kong)
 
     def AddCollectible(self, collectible, level):
         """Add a collectible."""
@@ -750,38 +759,36 @@ class LogicVarHolder:
 
     def PurchaseShopItem(self, location_id):
         """Purchase from this location and subtract price from logical coin counts."""
-        location = self.spoiler.LocationList[location_id]
-        price = GetPriceAtLocation(self.settings, location_id, location, self.Slam, self.AmmoBelts, self.InstUpgrades)
-        if price is None:  # This shouldn't happen but it's probably harmless
-            return  # TODO: solve this
-        # If shared move, take the price from all kongs EVEN IF THEY AREN'T FREED YET
-        if location.kong == Kongs.any:
-            for kong in range(0, 5):
-                self.Coins[kong] -= price
-                self.SpentCoins[kong] += price
-            return
-        # If kong specific move, just that kong paid for it
-        else:
-            self.Coins[location.kong] -= price
-            self.SpentCoins[location.kong] += price
-            return
-
-    def HasAccess(self, region, kong):
-        """Check if a certain kong has access to a certain region.
-
-        Usually the region's own HasAccess function is used, but this is necessary for checking access for other regions in logic files.
-        """
-        return self.spoiler.RegionList[region].HasAccess(kong)
+        # In Archipelago, all shops are free - we're not touching coin logic with a 12000000 ft pole
+        return
+        # location = self.spoiler.LocationList[location_id]
+        # price = GetPriceAtLocation(self.settings, location_id, location, self.Slam, self.AmmoBelts, self.InstUpgrades)
+        # if price is None:  # This shouldn't happen but it's probably harmless
+        #     return  # TODO: solve this
+        # # If shared move, take the price from all kongs EVEN IF THEY AREN'T FREED YET
+        # if location.kong == Kongs.any:
+        #     for kong in range(0, 5):
+        #         self.Coins[kong] -= price
+        #         self.SpentCoins[kong] += price
+        #     return
+        # # If kong specific move, just that kong paid for it
+        # else:
+        #     self.Coins[location.kong] -= price
+        #     self.SpentCoins[location.kong] += price
+        #     return
 
     def TimeAccess(self, region, time):
         """Check if a certain region has the given time of day access for current kong."""
-        if time == Time.Day:
-            return self.spoiler.RegionList[region].dayAccess[self.kong]
-        elif time == Time.Night:
-            return self.spoiler.RegionList[region].nightAccess[self.kong]
-        # Not sure when this'd be used
-        else:  # if time == Time.Both
-            return self.spoiler.RegionList[region].dayAccess[self.kong] or self.spoiler.RegionList[region].nightAccess[self.kong]
+        # In Archipelago, we're always using the Dusk setting so it is both day and night simultaneously
+        # In addition, this method is only ever called when checking the current region, which implies you already have access to the region.
+        return True
+        # if time == Time.Day:
+        #     return self.spoiler.RegionList[region].dayAccess[self.kong]
+        # elif time == Time.Night:
+        #     return self.spoiler.RegionList[region].nightAccess[self.kong]
+        # # Not sure when this'd be used
+        # else:  # if time == Time.Both
+        #     return self.spoiler.RegionList[region].dayAccess[self.kong] or self.spoiler.RegionList[region].nightAccess[self.kong]
 
     def BlueprintAccess(self, item):
         """Check if we are the correct kong for this blueprint item."""
@@ -838,22 +845,24 @@ class LogicVarHolder:
 
     def HasEnoughKongs(self, level, forPreviousLevel=False):
         """Check if kongs are required for progression, do we have enough to reach the given level."""
-        # If your kongs are not progression (LZR, no logic, etc.) or it's *complex* level order, these requirements don't apply
-        if self.settings.kongs_for_progression and not self.settings.hard_level_progression:
-            levelIndex = 8
-            if level != Levels.HideoutHelm:
-                # Figure out where this level fits in the progression
-                levelIndex = GetShuffledLevelIndex(level)
-                if forPreviousLevel:
-                    levelIndex = levelIndex - 1
-            # Must have sufficient kongs freed to make forward progress for first 5 levels
-            if levelIndex < 5:
-                return len(self.GetKongs()) > levelIndex
-            else:
-                # Expect to have all the kongs by level 6
-                return len(self.GetKongs()) == 5
-        else:
-            return True
+        # In Archipelago, there's no concept of "before level X" due to the multiworld nature. Because of that there's no point in checking for Kong count.
+        return True
+        # # If your kongs are not progression (LZR, no logic, etc.) or it's *complex* level order, these requirements don't apply
+        # if self.settings.kongs_for_progression and not self.settings.hard_level_progression:
+        #     levelIndex = 8
+        #     if level != Levels.HideoutHelm:
+        #         # Figure out where this level fits in the progression
+        #         levelIndex = GetShuffledLevelIndex(level)
+        #         if forPreviousLevel:
+        #             levelIndex = levelIndex - 1
+        #     # Must have sufficient kongs freed to make forward progress for first 5 levels
+        #     if levelIndex < 5:
+        #         return len(self.GetKongs()) > levelIndex
+        #     else:
+        #         # Expect to have all the kongs by level 6
+        #         return len(self.GetKongs()) == 5
+        # else:
+        #     return True
 
     def IsBossBeatable(self, level):
         """Return true if the boss for a given level is beatable according to boss location rando and boss kong rando."""
@@ -871,65 +880,68 @@ class LogicVarHolder:
             hasRequiredMoves = self.barrels
         elif bossFight == Maps.CastleBoss and self.IsLavaWater():
             hasRequiredMoves = self.Melons >= 3
-        # In simple level order, there are a couple very specific cases we have to account for in order to prevent boss fill failures
-        level_order_matters = not self.settings.hard_level_progression and self.settings.shuffle_loading_zones in (ShuffleLoadingZones.none, ShuffleLoadingZones.levels)
-        if level_order_matters and not self.assumeFillSuccess:  # These conditions only matter on fill, not on playthrough
-            order_of_level = 7  # Guaranteed to be 1-7 here
-            for level_order in self.settings.level_order:
-                if self.settings.level_order[level_order] == level:
-                    order_of_level = level_order
-            if order_of_level == 4 and not self.barrels:  # Prevent Barrels on boss 3
-                return False
-            if order_of_level == 7 and (not self.hunkyChunky or (not self.twirl and not self.HardBossesEnabled())):  # Prevent Hunky on boss 7, and also Twirl on non-hard bosses
-                return False
+        # Archipelago doesn't have to worry about fixing T&S values or place bosses, so this chunk is irrelevant
+        # # In simple level order, there are a couple very specific cases we have to account for in order to prevent boss fill failures
+        # level_order_matters = not self.settings.hard_level_progression and self.settings.shuffle_loading_zones in (ShuffleLoadingZones.none, ShuffleLoadingZones.levels)
+        # if level_order_matters and not self.assumeFillSuccess:  # These conditions only matter on fill, not on playthrough
+        #     order_of_level = 7  # Guaranteed to be 1-7 here
+        #     for level_order in self.settings.level_order:
+        #         if self.settings.level_order[level_order] == level:
+        #             order_of_level = level_order
+        #     if order_of_level == 4 and not self.barrels:  # Prevent Barrels on boss 3
+        #         return False
+        #     if order_of_level == 7 and (not self.hunkyChunky or (not self.twirl and not self.HardBossesEnabled())):  # Prevent Hunky on boss 7, and also Twirl on non-hard bosses
+        #         return False
         return self.IsKong(requiredKong) and hasRequiredMoves
 
     def HasFillRequirementsForLevel(self, level):
         """Check if we meet the fill's move requirements for the given level."""
-        # These requirements are only relevant for fill purposes - once we know the fill is valid, we can ignore these requirements
-        if self.assumeFillSuccess:
-            return True
-        # Additionally, these restrictions only apply to simple level order, as these are the only seeds progressing levels in 1-7 order
-        level_order_matters = not self.settings.hard_level_progression and self.settings.shuffle_loading_zones in (ShuffleLoadingZones.none, ShuffleLoadingZones.levels)
-        if level_order_matters:
-            # Levels have some special requirements depending on where they fall in the level order
-            order_of_level = 8  # If order_of_level remains unchanged in the coming loop, then the level is Helm which is always 8th
-            order_of_aztec = 0
-            for level_order in self.settings.level_order:
-                if self.settings.level_order[level_order] == level:
-                    order_of_level = level_order
-                if self.settings.level_order[level_order] == Levels.AngryAztec:
-                    order_of_aztec = level_order
-            # You need to have vines or twirl before you can enter Aztec or any level beyond it
-            if order_of_level >= order_of_aztec and not (self.vines or (self.istiny and self.twirl)):
-                return False
-            if order_of_level >= 4:
-                # Require the following moves by level 4:
-                # - Swim so you can get into Lobby 4. This prevents logic from skipping this level for T&S requirements, preventing 0'd T&S.
-                # - Barrels so there will always be an eligible boss fill given the available moves at any level.
-                # - Vines for gameplay reasons. Needing vines for Helm is a frequent bottleneck and this eases the hunt for it.
-                if not self.swim or not self.barrels or not self.vines:
-                    return False
-                # Require one of twirl or hunky chunky by level 7 to prevent non-hard-boss fill failures
-                if not self.HardBossesEnabled() and order_of_level >= 7 and not (self.twirl or self.hunkyChunky):
-                    return False
-                # Require both hunky chunky and twirl (or hard bosses) before Helm to prevent boss fill failures
-                if order_of_level > 7 and not (self.hunkyChunky and (self.twirl or self.HardBossesEnabled())):
-                    return False
-            # Make sure we have access to all prior required keys before entering the next level - this prevents keys from being placed in levels beyond what they unlock
-            if order_of_level > 1 and not self.JapesKey:
-                return False
-            elif order_of_level > 2 and not self.AztecKey:
-                return False
-            elif order_of_level > 4 and (not self.FactoryKey or not self.GalleonKey):
-                return False
-            elif order_of_level > 5 and not self.ForestKey:
-                return False
-            elif order_of_level > 7 and (not self.CavesKey or not self.CastleKey):
-                return False
+        # In Archipelago, there's no concept of "before level X" due to the multiworld nature. Because of that there's no point in checking for item ownership "before level X".
+        return True
+        # # These requirements are only relevant for fill purposes - once we know the fill is valid, we can ignore these requirements
+        # if self.assumeFillSuccess:
+        #     return True
+        # # Additionally, these restrictions only apply to simple level order, as these are the only seeds progressing levels in 1-7 order
+        # level_order_matters = not self.settings.hard_level_progression and self.settings.shuffle_loading_zones in (ShuffleLoadingZones.none, ShuffleLoadingZones.levels)
+        # if level_order_matters:
+        #     # Levels have some special requirements depending on where they fall in the level order
+        #     order_of_level = 8  # If order_of_level remains unchanged in the coming loop, then the level is Helm which is always 8th
+        #     order_of_aztec = 0
+        #     for level_order in self.settings.level_order:
+        #         if self.settings.level_order[level_order] == level:
+        #             order_of_level = level_order
+        #         if self.settings.level_order[level_order] == Levels.AngryAztec:
+        #             order_of_aztec = level_order
+        #     # You need to have vines or twirl before you can enter Aztec or any level beyond it
+        #     if order_of_level >= order_of_aztec and not (self.vines or (self.istiny and self.twirl)):
+        #         return False
+        #     if order_of_level >= 4:
+        #         # Require the following moves by level 4:
+        #         # - Swim so you can get into Lobby 4. This prevents logic from skipping this level for T&S requirements, preventing 0'd T&S.
+        #         # - Barrels so there will always be an eligible boss fill given the available moves at any level.
+        #         # - Vines for gameplay reasons. Needing vines for Helm is a frequent bottleneck and this eases the hunt for it.
+        #         if not self.swim or not self.barrels or not self.vines:
+        #             return False
+        #         # Require one of twirl or hunky chunky by level 7 to prevent non-hard-boss fill failures
+        #         if not self.HardBossesEnabled() and order_of_level >= 7 and not (self.twirl or self.hunkyChunky):
+        #             return False
+        #         # Require both hunky chunky and twirl (or hard bosses) before Helm to prevent boss fill failures
+        #         if order_of_level > 7 and not (self.hunkyChunky and (self.twirl or self.HardBossesEnabled())):
+        #             return False
+        #     # Make sure we have access to all prior required keys before entering the next level - this prevents keys from being placed in levels beyond what they unlock
+        #     if order_of_level > 1 and not self.JapesKey:
+        #         return False
+        #     elif order_of_level > 2 and not self.AztecKey:
+        #         return False
+        #     elif order_of_level > 4 and (not self.FactoryKey or not self.GalleonKey):
+        #         return False
+        #     elif order_of_level > 5 and not self.ForestKey:
+        #         return False
+        #     elif order_of_level > 7 and (not self.CavesKey or not self.CastleKey):
+        #         return False
 
-        # If we have the moves, ensure we have enough kongs as well
-        return self.HasEnoughKongs(level, forPreviousLevel=True)
+        # # If we have the moves, ensure we have enough kongs as well
+        # return self.HasEnoughKongs(level, forPreviousLevel=True)
 
     def IsLevelEnterable(self, level):
         """Check if level entry requirement is met."""
@@ -990,132 +1002,3 @@ class LogicVarHolder:
         is_correct_kong = self.istiny or self.settings.free_trade_items
         required_level_order = max(2, min(ceil(self.settings.rareware_gb_fairies / 2), 5))  # At least level 2 to give space for fairy placements, at most level 5 to allow shenanigans
         return have_enough_fairies and is_correct_kong and self.HasFillRequirementsForLevel(self.settings.level_order[required_level_order])
-
-    def BanItems(self, items):
-        """Prevent an item from being picked up by the logic."""
-        self.banned_items = items
-        # Also remove logical ownership of each item - this covers cases where you start with the move flag (not the training barrels, just raw start with like the camera/shockwave setting)
-        for item in items:
-            if item == Items.Vines:
-                self.vines = False
-            elif item == Items.Swim:
-                self.swim = False
-            elif item == Items.Barrels:
-                self.barrels = False
-            elif item == Items.Oranges:
-                self.oranges = False
-            elif item == Items.BaboonBlast:
-                self.blast = False
-            elif item == Items.StrongKong:
-                self.strongKong = False
-            elif item == Items.GorillaGrab:
-                self.grab = False
-            elif item == Items.ChimpyCharge:
-                self.charge = False
-            elif item == Items.RocketbarrelBoost:
-                self.jetpack = False
-            elif item == Items.SimianSpring:
-                self.spring = False
-            elif item == Items.Orangstand:
-                self.handstand = False
-            elif item == Items.BaboonBalloon:
-                self.balloon = False
-            elif item == Items.OrangstandSprint:
-                self.sprint = False
-            elif item == Items.MiniMonkey:
-                self.mini = False
-            elif item == Items.PonyTailTwirl:
-                self.twirl = False
-            elif item == Items.Monkeyport:
-                self.monkeyport = False
-            elif item == Items.HunkyChunky:
-                self.hunkyChunky = False
-            elif item == Items.PrimatePunch:
-                self.punch = False
-            elif item == Items.GorillaGone:
-                self.gorillaGone = False
-            elif item == Items.Coconut:
-                self.coconut = False
-            elif item == Items.Peanut:
-                self.peanut = False
-            elif item == Items.Grape:
-                self.grape = False
-            elif item == Items.Feather:
-                self.feather = False
-            elif item == Items.Pineapple:
-                self.pineapple = False
-            elif item == Items.HomingAmmo:
-                self.homing = False
-            elif item == Items.SniperSight:
-                self.scope = False
-            elif item == Items.Bongos:
-                self.bongos = False
-            elif item == Items.Guitar:
-                self.guitar = False
-            elif item == Items.Trombone:
-                self.trombone = False
-            elif item == Items.Saxophone:
-                self.saxophone = False
-            elif item == Items.Triangle:
-                self.triangle = False
-            elif item == Items.CameraAndShockwave:
-                self.camera = False
-                self.shockwave = False
-            elif item == Items.Camera:
-                self.camera = False
-            elif item == Items.Shockwave:
-                self.shockwave = False
-            elif item == Items.ProgressiveSlam:
-                self.Slam = STARTING_SLAM
-                # Banned slams are also handled with care in Update() specially
-
-    def HasAllItems(self):
-        """Return if you have all progression items."""
-        # You may now own the banned item
-        self.latest_owned_items.extend(self.banned_items)
-        self.banned_items = []
-        self.Update(self.latest_owned_items)
-        # If you didn't beat the game, you obviously don't have all the progression items - this covers the possible need for camera and each key
-        if not self.WinConditionMet():
-            return False
-        # Otherwise return true if you have all major moves
-        return (
-            self.donkey
-            and self.diddy
-            and self.lanky
-            and self.tiny
-            and self.chunky
-            and self.vines
-            and self.swim
-            and self.barrels
-            and self.oranges
-            and self.blast
-            and self.strongKong
-            and self.grab
-            and self.charge
-            and self.jetpack
-            and self.spring
-            and self.handstand
-            and self.balloon
-            and self.sprint
-            and self.mini
-            and self.twirl
-            and self.monkeyport
-            and self.hunkyChunky
-            and self.punch
-            and self.gorillaGone
-            and self.superDuperSlam
-            and self.coconut
-            and self.peanut
-            and self.grape
-            and self.feather
-            and self.pineapple
-            and self.homing
-            and self.scope
-            and self.shockwave
-            and self.bongos
-            and self.guitar
-            and self.trombone
-            and self.saxophone
-            and self.triangle
-        )
