@@ -2234,8 +2234,8 @@ def handle_traps(rom):
     rom.write_bytes(TRAPS_CODE + 0x0073, bytearray([0x89, 0x30]))               #                         bit #$30
     rom.write_bytes(TRAPS_CODE + 0x0075, bytearray([0xF0, 0x04]))               #                         beq ..no_swap_hold
     rom.write_bytes(TRAPS_CODE + 0x0077, bytearray([0x49, 0x30]))               #                         eor #$30
-    rom.write_bytes(TRAPS_CODE + 0x0079, bytearray([0x85, 0x15]))               #                         sta $15
-    rom.write_bytes(TRAPS_CODE + 0x007B, bytearray([0xA5, 0x17]))               # ..no_swap_hold          lda $17
+    rom.write_bytes(TRAPS_CODE + 0x0079, bytearray([0x85, 0x17]))               #                         sta $17
+    rom.write_bytes(TRAPS_CODE + 0x007B, bytearray([0xA5, 0x18]))               # ..no_swap_hold          lda $18
     rom.write_bytes(TRAPS_CODE + 0x007D, bytearray([0x89, 0x30]))               #                         bit #$30
     rom.write_bytes(TRAPS_CODE + 0x007F, bytearray([0xF0, 0x04]))               #                         beq ..no_swap_press
     rom.write_bytes(TRAPS_CODE + 0x0081, bytearray([0x49, 0x30]))               #                         eor #$30
