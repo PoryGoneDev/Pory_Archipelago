@@ -1,5 +1,7 @@
 """Contains the class which holds logic variables, and the master copy of regions."""
 from math import ceil
+from typing import List
+from BaseClasses import CollectionState
 
 import dk64r.randomizer.CollectibleLogicFiles.AngryAztec
 import dk64r.randomizer.CollectibleLogicFiles.CreepyCastle
@@ -48,10 +50,10 @@ from dk64r.randomizer.Enums.Time import Time
 from dk64r.randomizer.Enums.Types import Types
 from dk64r.randomizer.Lists.Item import ItemList
 from dk64r.randomizer.Enums.Maps import Maps
-from dk64r.randomizer.Lists.ShufflableExit import GetShuffledLevelIndex
 from dk64r.randomizer.Lists.Warps import BananaportVanilla
 from dk64r.randomizer.Patching.Lib import IsItemSelected
-from dk64r.randomizer.Prices import AnyKongCanBuy, CanBuy, GetPriceAtLocation
+from dk64r.randomizer.Prices import AnyKongCanBuy, CanBuy
+from worlds.dk64.Items import DK64Item
 
 STARTING_SLAM = 0  # Currently we're assuming you always start with 1 slam
 
@@ -307,6 +309,18 @@ class LogicVarHolder:
         """Update coin total."""
         for x in range(5):
             self.Coins[x] = (self.RegularCoins[x] + (5 * self.RainbowCoins)) - self.SpentCoins[x]
+
+    def UpdateFromArchipelagoItems(self, collectionState: CollectionState, archItems: List[DK64Item]):
+        """Update logic variables based on the DK64Items found by Archipelago."""
+        self.Reset()
+        ownedItems = []
+        for item_name, item_count in collectionState.prog_items[self.world.player].items():
+            corresponding_item = [item for item in ItemList.values() if item.name == item_name]
+            for i in range(item_count):
+                ownedItems.append(corresponding_item)
+        for item in archItems:
+            ownedItems.append(item.dk64_id)
+        self.Update(ownedItems)
 
     def Update(self, ownedItems):
         """Update logic variables based on owned items."""

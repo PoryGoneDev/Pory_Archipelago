@@ -73,14 +73,14 @@ class DK64World(World):
         pass
 
     def create_regions(self) -> None:
-        create_regions(self.multiworld, self.player)
+        create_regions(self.multiworld, self.player, self.logic_holder)
 
     def create_items(self) -> None:
         itempool: typing.List[DK64Item] = setup_items(self)
         self.multiworld.itempool += itempool
 
     def set_rules(self):
-        set_rules(self.multiworld, self.player)
+        set_rules(self.multiworld, self.player, self.logic_holder)
 
     def generate_basic(self):
         connect_regions(self, self.logic_holder)
