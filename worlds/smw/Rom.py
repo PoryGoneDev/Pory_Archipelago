@@ -44,7 +44,7 @@ item_rom_data = {
     0xBC000F: [0x1F27, 0x1,  0x1C], # Green Switch Palace
     0xBC0010: [0x1F2A, 0x1,  0x1C], # Red Switch Palace
     0xBC0011: [0x1F29, 0x1,  0x1C], # Blue Switch Palace
-    0xBC001B: [0x1FFF, 0x80, 0x39]  # Special Zone Clear
+    0xBC001B: [0x1F1E, 0x80, 0x39]  # Special Zone Clear
 }
 
 trap_rom_data = {
@@ -979,9 +979,9 @@ def handle_ram(rom):
     #rom.write_bytes(INIT_SRAM_ADDR + 0x0056, bytearray([0x8F, 0x0E, 0xA0, 0x7F]))   #                         sta !received_items_count+$00
     #rom.write_bytes(INIT_SRAM_ADDR + 0x005A, bytearray([0xAF, 0x51, 0x09, 0x70]))   #                         lda !received_items_count_sram+$01
     #rom.write_bytes(INIT_SRAM_ADDR + 0x005E, bytearray([0x8F, 0x0F, 0xA0, 0x7F]))   #                         sta !received_items_count+$01
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0052, bytearray([0xEA] * 0x10))              # Ugly, will apply be better when we port everything to a Base Patch
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0062, bytearray([0xAF, 0x52, 0x09, 0x70]))   #                         lda !special_world_clear_sram
-    rom.write_bytes(INIT_SRAM_ADDR + 0x0066, bytearray([0x8D, 0xFF, 0x1F]))         #                         sta !special_world_clear_flag
+    rom.write_bytes(INIT_SRAM_ADDR + 0x0052, bytearray([0xEA] * 0x17))              # Ugly, will apply be better when we port everything to a Base Patch
+    #rom.write_bytes(INIT_SRAM_ADDR + 0x0062, bytearray([0xAF, 0x52, 0x09, 0x70]))   #                         lda !special_world_clear_sram
+    #rom.write_bytes(INIT_SRAM_ADDR + 0x0066, bytearray([0x8D, 0xFF, 0x1F]))         #                         sta !special_world_clear_flag
     rom.write_bytes(INIT_SRAM_ADDR + 0x0069, bytearray([0xAF, 0x54, 0x09, 0x70]))   #                         lda !goal_item_count_sram
     rom.write_bytes(INIT_SRAM_ADDR + 0x006D, bytearray([0x8F, 0x1E, 0xA0, 0x7F]))   #                         sta !goal_item_count
     rom.write_bytes(INIT_SRAM_ADDR + 0x0071, bytearray([0x28]))                     #                         plp 
@@ -1039,13 +1039,13 @@ def handle_ram(rom):
     rom.write_bytes(SAVE_SRAM_ADDR + 0x0047, bytearray([0xCA]))                               #                             dex 
     rom.write_bytes(SAVE_SRAM_ADDR + 0x0048, bytearray([0x10, 0xF5]))                         #                             bpl -
     rom.write_bytes(SAVE_SRAM_ADDR + 0x004A, bytearray([0xE2, 0x10]))                         #                             sep #$10
-    rom.write_bytes(SAVE_SRAM_ADDR + 0x004C, bytearray([0xAD, 0xFF, 0x1F]))                   #                             lda !special_world_clear_flag
-    rom.write_bytes(SAVE_SRAM_ADDR + 0x004F, bytearray([0x8F, 0x52, 0x09, 0x70]))             #                             sta !special_world_clear_sram
+    #rom.write_bytes(SAVE_SRAM_ADDR + 0x004C, bytearray([0xAD, 0xFF, 0x1F]))                   #                             lda !special_world_clear_flag
+    #rom.write_bytes(SAVE_SRAM_ADDR + 0x004F, bytearray([0x8F, 0x52, 0x09, 0x70]))             #                             sta !special_world_clear_sram
     #rom.write_bytes(SAVE_SRAM_ADDR + 0x0053, bytearray([0xAF, 0x0E, 0xA0, 0x7F]))             #                             lda !received_items_count+$00
     #rom.write_bytes(SAVE_SRAM_ADDR + 0x0057, bytearray([0x8F, 0x50, 0x09, 0x70]))             #                             sta !received_items_count_sram+$00
     #rom.write_bytes(SAVE_SRAM_ADDR + 0x005B, bytearray([0xAF, 0x0F, 0xA0, 0x7F]))             #                             lda !received_items_count+$01
     #rom.write_bytes(SAVE_SRAM_ADDR + 0x005F, bytearray([0x8F, 0x51, 0x09, 0x70]))             #                             sta !received_items_count_sram+$01
-    rom.write_bytes(SAVE_SRAM_ADDR + 0x0053, bytearray([0xEA] * 0x10))                        # Ugly, will apply be better when we port everything to a Base Patch
+    rom.write_bytes(SAVE_SRAM_ADDR + 0x004C, bytearray([0xEA] * 0x17))                        # Ugly, will apply be better when we port everything to a Base Patch
     rom.write_bytes(SAVE_SRAM_ADDR + 0x0063, bytearray([0xAF, 0x0F, 0xA0, 0x7F]))             #                             lda !goal_item_count
     rom.write_bytes(SAVE_SRAM_ADDR + 0x0067, bytearray([0x8F, 0x51, 0x09, 0x70]))             #                             sta !goal_item_count_sram
     rom.write_bytes(SAVE_SRAM_ADDR + 0x006B, bytearray([0x6B]))                               #                             rtl 
@@ -1075,7 +1075,8 @@ def handle_ram(rom):
     rom.write_bytes(INIT_RAM_ADDR + 0x0036, bytearray([0x9F, 0x00, 0xB0, 0x7F]))    # -                       sta !score_sprite_count,x
     rom.write_bytes(INIT_RAM_ADDR + 0x003A, bytearray([0xCA]))                      #                         dex 
     rom.write_bytes(INIT_RAM_ADDR + 0x003B, bytearray([0x10, 0xF9]))                #                         bpl -
-    rom.write_bytes(INIT_RAM_ADDR + 0x003D, bytearray([0x8D, 0xFF, 0x1F]))          #                         sta !special_world_clear_flag
+    #rom.write_bytes(INIT_RAM_ADDR + 0x003D, bytearray([0x8D, 0xFF, 0x1F]))          #                         sta !special_world_clear_flag
+    rom.write_bytes(INIT_RAM_ADDR + 0x003D, bytearray([0xEA, 0xEA, 0xEA]))          #                         sta !special_world_clear_flag
     rom.write_bytes(INIT_RAM_ADDR + 0x0040, bytearray([0x8F, 0x0E, 0xA0, 0x7F]))    #                         sta !received_items_count+$00
     rom.write_bytes(INIT_RAM_ADDR + 0x0044, bytearray([0x8F, 0x0F, 0xA0, 0x7F]))    #                         sta !received_items_count+$01
     rom.write_bytes(INIT_RAM_ADDR + 0x0048, bytearray([0x8F, 0x1E, 0xA0, 0x7F]))    #                         sta !goal_item_count
@@ -1422,7 +1423,7 @@ def handle_map_indicators(rom):
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x00DD, bytearray([0x98]))                           #                             tya 
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x00DE, bytearray([0x8F, 0x26, 0xA1, 0x7F]))         #                             sta !ow_tilemap_switches+$06
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x00E2, bytearray([0xA0, 0x5E]))                     # .handle_special_world_clear:    ldy.b #!icon_not_obtained
-    rom.write_bytes(BUILD_TILEMAP_ADDR + 0x00E4, bytearray([0xAD, 0xFF, 0x1F]))               #                             lda !special_world_clear_flag
+    rom.write_bytes(BUILD_TILEMAP_ADDR + 0x00E4, bytearray([0xAD, 0x1E, 0x1F]))               #                             lda !special_world_clear_flag
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x00E7, bytearray([0xF0, 0x02]))                     #                             beq $02
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x00E9, bytearray([0xA0, 0x3F]))                     #                             ldy.b #!icon_obtained
     rom.write_bytes(BUILD_TILEMAP_ADDR + 0x00EB, bytearray([0x98]))                           #                             tya 
@@ -3065,11 +3066,11 @@ def patch_rom(world: World, rom, player, active_level_dict):
     handle_uncompressed_player_gfx(rom)
     
     # Handle Special Zone Clear flag
-    rom.write_bytes(0x02A74, bytearray([0xFF, 0x1F]))
-    rom.write_bytes(0x09826, bytearray([0xFF, 0x1F]))
-    rom.write_bytes(0x0B9CD, bytearray([0xFF, 0x1F]))
-    rom.write_bytes(0x12986, bytearray([0xFF, 0x1F]))
-    rom.write_bytes(0x62E0F, bytearray([0xFF, 0x1F]))
+    rom.write_bytes(0x02A74, bytearray([0x1E, 0x1F]))
+    rom.write_bytes(0x09826, bytearray([0x1E, 0x1F]))
+    rom.write_bytes(0x0B9CD, bytearray([0x1E, 0x1F]))
+    rom.write_bytes(0x12986, bytearray([0x1E, 0x1F]))
+    rom.write_bytes(0x62E0F, bytearray([0x1E, 0x1F]))
 
     handle_indicators(rom)
     handle_map_indicators(rom)
