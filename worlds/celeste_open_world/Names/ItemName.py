@@ -1,10 +1,16 @@
 # Collectables
-strawberry = "Strawberry"
-raspberry = "Raspberry"
+strawberry     = "Strawberry"
+raspberry      = "Raspberry"
+blue_raspberry = "Blue Raspberry"
+blueberry      = "Blueberry"
+blackberry     = "Blackberry"
+boysenberry    = "Boysenberry"
+bananaberry    = "Banana"
+cranberry      = "Cranberry"
 
 # Goal Items
 house_keys = "Granny's House Keys"
-victory = "Victory"
+victory    = "Victory"
 
 # Traps
 bald_trap        = "Bald Trap"

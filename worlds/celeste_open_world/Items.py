@@ -93,8 +93,17 @@ class CelesteItemData(NamedTuple):
 
 
 collectable_item_data_table: dict[str, CelesteItemData] = {
-    ItemName.strawberry: CelesteItemData(celeste_base_id + 0x0, ItemClassification.progression_skip_balancing),
-    ItemName.raspberry:  CelesteItemData(celeste_base_id + 0x1, ItemClassification.filler),
+    ItemName.strawberry:     CelesteItemData(celeste_base_id + 0x0, ItemClassification.progression_skip_balancing),
+}
+
+filler_item_data_table: dict[str, CelesteItemData] = {
+    ItemName.raspberry:      CelesteItemData(celeste_base_id + 0x1, ItemClassification.filler),
+    ItemName.blue_raspberry: CelesteItemData(celeste_base_id + 0x2, ItemClassification.filler),
+    ItemName.blueberry:      CelesteItemData(celeste_base_id + 0x3, ItemClassification.filler),
+    ItemName.blackberry:     CelesteItemData(celeste_base_id + 0x4, ItemClassification.filler),
+    ItemName.boysenberry:    CelesteItemData(celeste_base_id + 0x5, ItemClassification.filler),
+    ItemName.bananaberry:    CelesteItemData(celeste_base_id + 0x6, ItemClassification.filler),
+    ItemName.cranberry:      CelesteItemData(celeste_base_id + 0x7, ItemClassification.filler),
 }
 
 goal_item_data_table: dict[str, CelesteItemData] = {
@@ -228,6 +237,7 @@ def add_gem_to_table(id: int, name: str):
 
 def generate_item_data_table() -> dict[str, CelesteItemData]:
     return {**collectable_item_data_table,
+            **filler_item_data_table,
             **goal_item_data_table,
             **trap_item_data_table,
             **checkpoint_item_data_table,
@@ -244,7 +254,7 @@ def generate_item_table() -> dict[str, int]:
 
 def generate_item_groups() -> dict[str, list[str]]:
     item_groups: dict[str, list[str]] = {
-        "Collectables":   list(collectable_item_data_table.keys()),
+        "Filler":         list(filler_item_data_table.keys()),
         "Traps":          list(trap_item_data_table.keys()),
         "Checkpoints":    list(checkpoint_item_data_table.keys()),
         "Keys":           list(key_item_data_table.keys()),

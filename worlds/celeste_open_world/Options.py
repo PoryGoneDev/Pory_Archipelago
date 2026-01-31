@@ -152,6 +152,12 @@ class JunkFillPercentage(Range):
     range_end = 100
     default = 50
 
+class ReduceRaspberries(Toggle):
+    """
+    Reduces the number of Raspberries in the item pool
+    """
+    display_name = "Reduce Rapsberries"
+
 class TrapFillPercentage(Range):
     """
     Replace a percentage of junk items in the item pool with random traps
@@ -395,6 +401,7 @@ celeste_option_groups = [
     ]),
     OptionGroup("Junk and Traps", [
         JunkFillPercentage,
+        ReduceRaspberries,
         TrapFillPercentage,
         TrapExpirationAction,
         TrapExpirationAmount,
@@ -490,6 +497,7 @@ class CelesteOptions(PerGameCommonOptions):
     strawberries_required_percentage: StrawberriesRequiredPercentage
 
     junk_fill_percentage: JunkFillPercentage
+    reduce_raspberries: ReduceRaspberries
     trap_fill_percentage: TrapFillPercentage
     trap_expiration_action: TrapExpirationAction
     trap_expiration_amount: TrapExpirationAmount

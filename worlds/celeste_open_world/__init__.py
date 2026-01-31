@@ -7,7 +7,7 @@ from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
 
 from .Items import CelesteItem, generate_item_table, generate_item_data_table, generate_item_groups, level_item_lists, level_cassette_items,\
-                                cassette_item_data_table, crystal_heart_item_data_table, trap_item_data_table
+                                filler_item_data_table, cassette_item_data_table, crystal_heart_item_data_table, trap_item_data_table
 from .Locations import CelesteLocation, location_data_table, generate_location_groups, checkpoint_location_data_table, location_id_offsets
 from .Names import ItemName
 from .Options import CelesteOptions, celeste_option_groups, resolve_options
@@ -42,7 +42,7 @@ class CelesteOpenWorld(World):
     options_dataclass = CelesteOptions
     options: CelesteOptions
 
-    apworld_version = 10005
+    apworld_version = 10100
 
     level_data: dict[str, Level] = load_logic_data()
 
@@ -233,7 +233,10 @@ class CelesteOpenWorld(World):
         trap_count = 0 if (len(trap_weights) == 0) else math.ceil(total_filler_count * (self.options.trap_fill_percentage.value / 100.0))
         total_filler_count -= trap_count
 
-        item_pool += [self.create_item(ItemName.raspberry) for _ in range(total_filler_count)]
+        if self.options.reduce_raspberries:
+            item_pool += [self.create_item(self.random.choice(list(filler_item_data_table.keys()))) for _ in range(total_filler_count)]
+        else:
+            item_pool += [self.create_item(ItemName.raspberry) for _ in range(total_filler_count)]
 
         trap_pool = []
         for i in range(trap_count):
