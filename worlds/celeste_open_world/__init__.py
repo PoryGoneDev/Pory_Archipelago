@@ -171,6 +171,40 @@ class CelesteOpenWorld(World):
         # Interactables
         item_pool += [self.create_item(item_name) for item_name in sorted(self.active_items)]
 
+        # Movement
+        # TODO: Handle Collect for the Cardinal Options to give diagonals for logic
+        if self.options.dash_shuffle.value == 0:
+            self.multiworld.push_precollected(self.create_item(ItemName.dash))
+        elif self.options.dash_shuffle.value == 1:
+            item_pool.append(self.create_item(ItemName.dash))
+        elif self.options.dash_shuffle.value in [2, 3]:
+            item_pool.append(self.create_item(ItemName.u_dash))
+            item_pool.append(self.create_item(ItemName.r_dash))
+            item_pool.append(self.create_item(ItemName.d_dash))
+            item_pool.append(self.create_item(ItemName.l_dash))
+        elif self.options.dash_shuffle.value == 4:
+            item_pool.append(self.create_item(ItemName.u_dash))
+            item_pool.append(self.create_item(ItemName.ur_dash))
+            item_pool.append(self.create_item(ItemName.r_dash))
+            item_pool.append(self.create_item(ItemName.dr_dash))
+            item_pool.append(self.create_item(ItemName.d_dash))
+            item_pool.append(self.create_item(ItemName.dl_dash))
+            item_pool.append(self.create_item(ItemName.l_dash))
+            item_pool.append(self.create_item(ItemName.ul_dash))
+
+        if self.options.climb_shuffle.value == 0:
+            self.multiworld.push_precollected(self.create_item(ItemName.climb))
+        elif self.options.climb_shuffle.value == 1:
+            item_pool.append(self.create_item(ItemName.climb))
+        elif self.options.climb_shuffle.value == 2:
+            item_pool.append(self.create_item(ItemName.r_climb))
+            item_pool.append(self.create_item(ItemName.l_climb))
+
+        if self.options.crouch_shuffle:
+            item_pool.append(self.create_item(ItemName.crouch))
+        else:
+            self.multiworld.push_precollected(self.create_item(ItemName.crouch))
+
         # Strawberries
         real_total_strawberries: int = min(self.options.total_strawberries.value, location_count - goal_area_location_count - len(item_pool))
         self.strawberries_required = int(real_total_strawberries * (self.options.strawberries_required_percentage / 100))
@@ -248,7 +282,10 @@ class CelesteOpenWorld(World):
         self.multiworld.itempool += item_pool
 
     def get_filler_item_name(self) -> str:
-        return ItemName.raspberry
+        if self.options.reduce_raspberries:
+            return self.random.choice(list(filler_item_data_table.keys()))
+        else:
+            return ItemName.raspberry
 
 
     def set_rules(self) -> None:
@@ -258,7 +295,7 @@ class CelesteOpenWorld(World):
     def fill_slot_data(self):
         return {
             "apworld_version": self.apworld_version,
-            "min_mod_version": 10000,
+            "min_mod_version": 10100,
 
             "death_link": self.options.death_link.value,
             "death_link_amnesty": self.options.death_link_amnesty.value,
@@ -268,6 +305,10 @@ class CelesteOpenWorld(World):
             "goal_area": self.goal_area,
             "lock_goal_area": self.options.lock_goal_area.value,
             "strawberries_required": self.strawberries_required,
+
+            "dash_shuffle": self.options.dash_shuffle.value,
+            "climb_shuffle": self.options.climb_shuffle.value,
+            "crouch_shuffle": self.options.crouch_shuffle.value,
 
             "checkpointsanity": self.options.checkpointsanity.value,
             "binosanity": self.options.binosanity.value,

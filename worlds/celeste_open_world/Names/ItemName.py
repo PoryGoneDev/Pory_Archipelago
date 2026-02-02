@@ -29,13 +29,19 @@ zoom_trap        = "Zoom Trap"
 # Movement
 dash    = "Dash"
 u_dash  = "Up Dash"
-r_dash  = "Right Dash"
-d_dash  = "Down Dash"
-l_dash  = "Left Dash"
 ur_dash = "Up-Right Dash"
+r_dash  = "Right Dash"
 dr_dash = "Down-Right Dash"
+d_dash  = "Down Dash"
 dl_dash = "Down-Left Dash"
+l_dash  = "Left Dash"
 ul_dash = "Up-Left Dash"
+
+climb   = "Climb"
+r_climb = "Right Climb"
+l_climb = "Left Climb"
+
+crouch = "Crouch"
 
 # Interactables
 springs              = "Springs"

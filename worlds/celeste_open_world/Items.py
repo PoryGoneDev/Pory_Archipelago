@@ -106,6 +106,24 @@ filler_item_data_table: dict[str, CelesteItemData] = {
     ItemName.cranberry:      CelesteItemData(celeste_base_id + 0x7, ItemClassification.filler),
 }
 
+movement_item_data_table: dict[str, CelesteItemData] = {
+    ItemName.dash:    CelesteItemData(celeste_base_id + 0x80, ItemClassification.progression),
+    ItemName.u_dash:  CelesteItemData(celeste_base_id + 0x81, ItemClassification.progression),
+    ItemName.ur_dash: CelesteItemData(celeste_base_id + 0x82, ItemClassification.progression),
+    ItemName.r_dash:  CelesteItemData(celeste_base_id + 0x83, ItemClassification.progression),
+    ItemName.dr_dash: CelesteItemData(celeste_base_id + 0x84, ItemClassification.progression),
+    ItemName.d_dash:  CelesteItemData(celeste_base_id + 0x85, ItemClassification.progression),
+    ItemName.dl_dash: CelesteItemData(celeste_base_id + 0x86, ItemClassification.progression),
+    ItemName.l_dash:  CelesteItemData(celeste_base_id + 0x87, ItemClassification.progression),
+    ItemName.ul_dash: CelesteItemData(celeste_base_id + 0x88, ItemClassification.progression),
+
+    ItemName.climb:   CelesteItemData(celeste_base_id + 0x89, ItemClassification.progression),
+    ItemName.r_climb: CelesteItemData(celeste_base_id + 0x8A, ItemClassification.progression),
+    ItemName.l_climb: CelesteItemData(celeste_base_id + 0x8B, ItemClassification.progression),
+
+    ItemName.crouch: CelesteItemData(celeste_base_id + 0x8C, ItemClassification.progression),
+}
+
 goal_item_data_table: dict[str, CelesteItemData] = {
     ItemName.house_keys: CelesteItemData(celeste_base_id + 0x10, ItemClassification.progression_skip_balancing),
 }
@@ -238,6 +256,7 @@ def add_gem_to_table(id: int, name: str):
 def generate_item_data_table() -> dict[str, CelesteItemData]:
     return {**collectable_item_data_table,
             **filler_item_data_table,
+            **movement_item_data_table,
             **goal_item_data_table,
             **trap_item_data_table,
             **checkpoint_item_data_table,
@@ -254,6 +273,9 @@ def generate_item_table() -> dict[str, int]:
 
 def generate_item_groups() -> dict[str, list[str]]:
     item_groups: dict[str, list[str]] = {
+        "Movement":       list(movement_item_data_table.keys()),
+        "Dashes":         [ItemName.dash, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ItemName.d_dash, ItemName.dl_dash, ItemName.l_dash, ItemName.ul_dash],
+        "Climbs":         [ItemName.climb, ItemName.r_climb, ItemName.l_climb],
         "Filler":         list(filler_item_data_table.keys()),
         "Traps":          list(trap_item_data_table.keys()),
         "Checkpoints":    list(checkpoint_item_data_table.keys()),

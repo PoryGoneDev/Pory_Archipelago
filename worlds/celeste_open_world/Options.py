@@ -71,6 +71,51 @@ class StrawberriesRequiredPercentage(Range):
     default = 80
 
 
+class DashShuffle(Choice):
+    """
+    Whether the ability to dash is shuffled into the item pool, and in what manner
+
+    None: Dashing is not shuffled
+
+    Unified: A single `Dash` item exists, which gives you all 8 directions of dash
+
+    Cardinal Loose: Dash items exist for the four cardinal directions (up, right, down, left) exist, and receiving one allows you to dash in the adjacent diagonal directions as well
+
+    Cardinal Restrictive: Dash items exist for the four cardinal directions exist, but you must receive both cardinal directions to be able to dash in the diagonal direction between them
+
+    Octal: Separate dash items exist for all 8 dash directions
+    """
+    display_name = "Dash Shuffle"
+    option_none = 0
+    option_unified = 1
+    option_cardinal_loose = 2
+    option_cardinal_restrictive = 3
+    option_octal = 4
+    default = 0
+
+class ClimbShuffle(Choice):
+    """
+    Whether the ability to climb is shuffled into the item pool, and in what manner
+
+    None: Climbing is not shuffled
+
+    Unified: A single `Climb` item exists, which gives allows you to climb to the left and right
+
+    Split: Separate items exist to enable the ability to climb to the left and to the right
+    """
+    display_name = "Climb Shuffle"
+    option_none = 0
+    option_unified = 1
+    option_split = 2
+    default = 0
+
+class CrouchShuffle(Toggle):
+    """
+    Whether the ability to crouch is shuffled into the item pool
+    """
+    display_name = "Crouch Shuffle"
+
+
 class Checkpointsanity(Toggle):
     """
     Determines whether Checkpoints will be shuffled into the item pool
@@ -386,6 +431,11 @@ celeste_option_groups = [
         TotalStrawberries,
         StrawberriesRequiredPercentage,
     ]),
+    OptionGroup("Movement Options", [
+        DashShuffle,
+        ClimbShuffle,
+        CrouchShuffle,
+    ]),
     OptionGroup("Location Options", [
         Checkpointsanity,
         Binosanity,
@@ -495,6 +545,10 @@ class CelesteOptions(PerGameCommonOptions):
     goal_area_checkpointsanity: GoalAreaCheckpointsanity
     total_strawberries: TotalStrawberries
     strawberries_required_percentage: StrawberriesRequiredPercentage
+
+    dash_shuffle: DashShuffle
+    climb_shuffle: ClimbShuffle
+    crouch_shuffle: CrouchShuffle
 
     junk_fill_percentage: JunkFillPercentage
     reduce_raspberries: ReduceRaspberries
