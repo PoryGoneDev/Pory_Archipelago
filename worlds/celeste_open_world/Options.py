@@ -14,6 +14,14 @@ class DeathLinkAmnesty(Range):
     range_end = 30
     default = 10
 
+class DeathLinkReceiptStyle(Choice):
+    """
+    What happens when you receive a deathlink
+    """
+    display_name = "DeathLink Receipt Style"
+    option_death = 0
+    option_restart_chapter = 1
+
 class TrapLink(Toggle):
     """
     Whether your received traps are linked to other players
@@ -538,6 +546,7 @@ def resolve_options(world: World):
 class CelesteOptions(PerGameCommonOptions):
     death_link: DeathLink
     death_link_amnesty: DeathLinkAmnesty
+    death_link_receipt_style: DeathLinkReceiptStyle
     trap_link: TrapLink
 
     goal_area: GoalArea

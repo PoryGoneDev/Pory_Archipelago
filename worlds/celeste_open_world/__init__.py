@@ -299,6 +299,7 @@ class CelesteOpenWorld(World):
 
             "death_link": self.options.death_link.value,
             "death_link_amnesty": self.options.death_link_amnesty.value,
+            "death_link_receipt_style": self.options.death_link_receipt_style.value,
             "trap_link": self.options.trap_link.value,
 
             "active_levels": self.active_levels,
