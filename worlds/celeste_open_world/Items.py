@@ -141,6 +141,7 @@ trap_item_data_table: dict[str, CelesteItemData] = {
     ItemName.laughter_trap:    CelesteItemData(celeste_base_id + 0x2A, ItemClassification.trap),
     ItemName.hiccup_trap:      CelesteItemData(celeste_base_id + 0x2B, ItemClassification.trap),
     ItemName.zoom_trap:        CelesteItemData(celeste_base_id + 0x2C, ItemClassification.trap),
+    ItemName.tiny_trap:        CelesteItemData(celeste_base_id + 0x2D, ItemClassification.trap),
 }
 
 checkpoint_item_data_table: dict[str, CelesteItemData] = {}

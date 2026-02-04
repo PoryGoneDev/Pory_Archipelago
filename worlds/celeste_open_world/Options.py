@@ -321,6 +321,12 @@ class ZoomTrapWeight(BaseTrapWeight):
     """
     display_name = "Zoom Trap Weight"
 
+class TinyTrapWeight(BaseTrapWeight):
+    """
+    Likelihood of a receiving a trap which causes Maddy to be Tiny
+    """
+    display_name = "Tiny Trap Weight"
+
 
 class MusicShuffle(Choice):
     """
@@ -475,6 +481,7 @@ celeste_option_groups = [
         LaughterTrapWeight,
         HiccupTrapWeight,
         ZoomTrapWeight,
+        TinyTrapWeight,
     ]),
     OptionGroup("Aesthetic Options", [
         MusicShuffle,
@@ -576,6 +583,7 @@ class CelesteOptions(PerGameCommonOptions):
     laughter_trap_weight: LaughterTrapWeight
     hiccup_trap_weight: HiccupTrapWeight
     zoom_trap_weight: ZoomTrapWeight
+    tiny_trap_weight: TinyTrapWeight
 
     checkpointsanity: Checkpointsanity
     binosanity: Binosanity

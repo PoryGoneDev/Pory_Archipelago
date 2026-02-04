@@ -25,6 +25,7 @@ screen_flip_trap = "Screen Flip Trap"
 laughter_trap    = "Laughter Trap"
 hiccup_trap      = "Hiccup Trap"
 zoom_trap        = "Zoom Trap"
+tiny_trap        = "Tiny Trap"
 
 # Movement
 dash    = "Dash"

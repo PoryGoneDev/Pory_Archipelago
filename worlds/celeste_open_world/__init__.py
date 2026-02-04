@@ -240,6 +240,7 @@ class CelesteOpenWorld(World):
         trap_weights += ([ItemName.laughter_trap] * self.options.laughter_trap_weight.value)
         trap_weights += ([ItemName.hiccup_trap] * self.options.hiccup_trap_weight.value)
         trap_weights += ([ItemName.zoom_trap] * self.options.zoom_trap_weight.value)
+        trap_weights += ([ItemName.tiny_trap] * self.options.tiny_trap_weight.value)
 
         total_filler_count: int = (location_count - len(item_pool))
 
@@ -362,6 +363,7 @@ class CelesteOpenWorld(World):
         trap_data[0x2A] = self.options.laughter_trap_weight.value
         trap_data[0x2B] = self.options.hiccup_trap_weight.value
         trap_data[0x2C] = self.options.zoom_trap_weight.value
+        trap_data[0x2D] = self.options.tiny_trap_weight.value
 
         return trap_data
 
