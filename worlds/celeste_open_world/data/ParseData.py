@@ -8,6 +8,7 @@ if __name__ == "__main__":
     all_room_connections: list[str] = []
     all_rooms: list[str] = []
     all_levels: list[str] = []
+    all_level_items: list[str] = []
 
 
     data_file = open('CelesteLevelData.json')
@@ -19,8 +20,14 @@ if __name__ == "__main__":
         level_str = (f"    \"{level['name']}\": Level(\"{level['name']}\", "
                      f"\"{level['display_name']}\", "
                      f"rooms_by_level[\"{level['name']}\"], "
-                     f"room_cons_by_level[\"{level['name']}\"]),"
+                     f"room_cons_by_level[\"{level['name']}\"], "
+                     f"set(["
                     )
+
+        for item in level["items"]:
+            level_str += f"ItemName.{item}, "
+
+        level_str += f"])),"
 
         all_levels.append(level_str)
 

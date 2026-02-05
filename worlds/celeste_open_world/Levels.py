@@ -182,12 +182,14 @@ class Level:
     display_name: str
     rooms: list[Room]
     room_connections: list[RoomConnection]
+    items: list[str]
 
-    def __init__(self, name: str, display_name: str, rooms: list[Room], room_connections: list[RoomConnection]):
+    def __init__(self, name: str, display_name: str, rooms: list[Room], room_connections: list[RoomConnection], items: set[str]):
         self.name = name
         self.display_name = display_name
         self.rooms = rooms.copy()
         self.room_connections = room_connections.copy()
+        self.items = items.copy()
 
 
 def load_logic_data() -> dict[str, Level]:

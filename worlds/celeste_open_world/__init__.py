@@ -6,7 +6,7 @@ from BaseClasses import ItemClassification, Location, MultiWorld, Region, Tutori
 from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
 
-from .Items import CelesteItem, generate_item_table, generate_item_data_table, generate_item_groups, level_item_lists, level_cassette_items,\
+from .Items import CelesteItem, generate_item_table, generate_item_data_table, generate_item_groups, level_cassette_items,\
                                 filler_item_data_table, cassette_item_data_table, crystal_heart_item_data_table, trap_item_data_table
 from .Locations import CelesteLocation, location_data_table, generate_location_groups, checkpoint_location_data_table, location_id_offsets
 from .Names import ItemName
@@ -95,7 +95,7 @@ class CelesteOpenWorld(World):
 
         self.active_items = set()
         for level in self.active_levels:
-            self.active_items.update(level_item_lists[level])
+            self.active_items.update(self.level_data[level].items)
 
 
     def create_regions(self) -> None:

@@ -3,6 +3,7 @@
         {
             "name": "0a",
             "display_name": "Prologue",
+            "items": [],
             "rooms": [
                 {
                     "name": "-1",
@@ -330,6 +331,7 @@
         {
             "name": "1a",
             "display_name": "Forsaken City A",
+            "items": [ "springs", "traffic_blocks", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "1",
@@ -2487,6 +2489,7 @@
         {
             "name": "1b",
             "display_name": "Forsaken City B",
+            "items": [ "springs", "traffic_blocks", "dash_refills", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "00",
@@ -3212,6 +3215,7 @@
         {
             "name": "1c",
             "display_name": "Forsaken City C",
+            "items": [ "traffic_blocks", "dash_refills", "coins" ],
             "rooms": [
                 {
                     "name": "00",
@@ -3362,6 +3366,7 @@
         {
             "name": "2a",
             "display_name": "Old Site A",
+            "items": [ "springs", "dream_blocks", "traffic_blocks", "strawberry_seeds", "dash_refills", "coins" ],
             "rooms": [
                 {
                     "name": "start",
@@ -6017,6 +6022,7 @@
         {
             "name": "2b",
             "display_name": "Old Site B",
+            "items": [ "springs", "dream_blocks", "dash_refills", "coins", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "start",
@@ -6777,6 +6783,7 @@
         {
             "name": "2c",
             "display_name": "Old Site C",
+            "items": [ "springs", "dream_blocks", "dash_refills", "coins" ],
             "rooms": [
                 {
                     "name": "00",
@@ -6914,6 +6921,7 @@
         {
             "name": "3a",
             "display_name": "Celestial Resort A",
+            "items": [ "springs", "moving_platforms", "sinking_platforms", "dash_refills", "coins", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "s0",
@@ -10898,6 +10906,7 @@
         {
             "name": "3b",
             "display_name": "Celestial Resort B",
+            "items": [ "springs", "dash_refills", "sinking_platforms", "coins", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "00",
@@ -11964,6 +11973,7 @@
         {
             "name": "3c",
             "display_name": "Celestial Resort C",
+            "items": [ "dash_refills", "sinking_platforms", "coins" ],
             "rooms": [
                 {
                     "name": "00",
@@ -12101,6 +12111,7 @@
         {
             "name": "4a",
             "display_name": "Golden Ridge A",
+            "items": [ "blue_clouds", "blue_boosters", "moving_platforms", "coins", "strawberry_seeds", "springs", "move_blocks", "pink_clouds", "white_block", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00",
@@ -14661,6 +14672,7 @@
         {
             "name": "4b",
             "display_name": "Golden Ridge B",
+            "items": [ "blue_boosters", "moving_platforms", "move_blocks", "springs", "coins", "blue_clouds", "pink_clouds", "dash_refills", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00",
@@ -15547,6 +15559,7 @@
         {
             "name": "4c",
             "display_name": "Golden Ridge C",
+            "items": [ "blue_boosters", "move_blocks", "dash_refills", "pink_clouds" ],
             "rooms": [
                 {
                     "name": "00",
@@ -15692,6 +15705,7 @@
         {
             "name": "5a",
             "display_name": "Mirror Temple A",
+            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills", "coins", "springs", "torches", "seekers", "theo_crystal", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00b",
@@ -20632,6 +20646,7 @@
         {
             "name": "5b",
             "display_name": "Mirror Temple B",
+            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills", "coins", "springs", "torches", "seekers", "theo_crystal", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "start",
@@ -21865,6 +21880,7 @@
         {
             "name": "5c",
             "display_name": "Mirror Temple C",
+            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills" ],
             "rooms": [
                 {
                     "name": "00",
@@ -22007,6 +22023,7 @@
         {
             "name": "6a",
             "display_name": "Reflection A",
+            "items": [ "feathers", "kevin_blocks", "dash_refills", "bumpers", "springs", "coins", "badeline_boosters", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "00",
@@ -24979,6 +24996,7 @@
         {
             "name": "6b",
             "display_name": "Reflection B",
+            "items": [ "feathers", "kevin_blocks", "dash_refills", "bumpers", "coins", "springs", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00",
@@ -26119,6 +26137,7 @@
         {
             "name": "6c",
             "display_name": "Reflection C",
+            "items": [ "feathers", "kevin_blocks", "dash_refills", "bumpers" ],
             "rooms": [
                 {
                     "name": "00",
@@ -26257,6 +26276,7 @@
         {
             "name": "7a",
             "display_name": "The Summit A",
+            "items": [ "springs", "dash_refills", "badeline_boosters", "traffic_blocks", "coins", "dream_blocks", "sinking_platforms", "blue_boosters", "blue_clouds", "pink_clouds", "move_blocks", "moving_platforms", "swap_blocks", "red_boosters", "dash_switches", "feathers", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00",
@@ -31771,6 +31791,7 @@
         {
             "name": "7b",
             "display_name": "The Summit B",
+            "items": [ "springs", "dash_refills", "badeline_boosters", "traffic_blocks", "coins", "dream_blocks", "moving_platforms", "blue_boosters", "blue_clouds", "pink_clouds", "move_blocks", "swap_blocks", "red_boosters", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00",
@@ -32921,6 +32942,7 @@
         {
             "name": "7c",
             "display_name": "The Summit C",
+            "items": [ "springs", "dash_refills", "badeline_boosters", "coins", "pink_clouds" ],
             "rooms": [
                 {
                     "name": "01",
@@ -33061,6 +33083,7 @@
         {
             "name": "8a",
             "display_name": "Epilogue",
+            "items": [],
             "rooms": [
                 {
                     "name": "outside",
@@ -33158,6 +33181,7 @@
         {
             "name": "9a",
             "display_name": "Core A",
+            "items": [ "springs", "dash_refills", "fire_ice_balls", "bumpers", "core_toggles", "core_blocks", "coins", "badeline_boosters", "feathers", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "00",
@@ -34972,6 +34996,7 @@
         {
             "name": "9b",
             "display_name": "Core B",
+            "items": [ "springs", "dash_refills", "fire_ice_balls", "bumpers", "core_toggles", "core_blocks", "coins", "badeline_boosters", "dream_blocks", "moving_platforms", "blue_clouds", "swap_blocks", "kevin_blocks", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "00",
@@ -35907,6 +35932,7 @@
         {
             "name": "9c",
             "display_name": "Core C",
+            "items": [ "dash_refills", "bumpers", "core_toggles", "core_blocks", "traffic_blocks", "dream_blocks", "pink_clouds", "swap_blocks", "kevin_blocks" ],
             "rooms": [
                 {
                     "name": "intro",
@@ -36092,6 +36118,7 @@
         {
             "name": "10a",
             "display_name": "Farewell",
+            "items": [ "blue_clouds", "badeline_boosters", "dash_refills", "double_dash_refills", "swap_blocks", "springs", "pufferfish", "coins", "dream_blocks", "jellyfish", "red_boosters", "dash_switches", "move_blocks", "breaker_boxes", "traffic_blocks" ],
             "rooms": [
                 {
                     "name": "intro-00-past",
@@ -38299,6 +38326,7 @@
         {
             "name": "10b",
             "display_name": "Farewell",
+            "items": [ "dream_blocks", "badeline_boosters", "bird", "dash_refills", "double_dash_refills", "kevin_blocks", "coins", "traffic_blocks", "move_blocks", "blue_boosters", "springs", "feathers", "swap_blocks", "red_boosters", "core_blocks", "fire_ice_balls", "kevin_blocks", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "breaker_boxes", "pufferfish", "jellyfish" ],
             "rooms": [
                 {
                     "name": "f-door",
@@ -41162,6 +41190,7 @@
         {
             "name": "10c",
             "display_name": "Farewell",
+            "items": [ "badeline_boosters", "double_dash_refills", "springs", "pufferfish", "jellyfish" ],
             "rooms": [
                 {
                     "name": "end-golden",
