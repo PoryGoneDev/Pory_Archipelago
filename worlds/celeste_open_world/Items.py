@@ -1,6 +1,7 @@
 from typing import NamedTuple, Optional
 
 from BaseClasses import Item, ItemClassification
+from .Levels import level_id_to_name
 from .Names import ItemName
 
 
@@ -108,50 +109,50 @@ key_item_data_table: dict[str, CelesteItemData] = {}
 gem_item_data_table: dict[str, CelesteItemData] = {}
 
 interactable_item_data_table: dict[str, CelesteItemData] = {
-    ItemName.springs:              CelesteItemData(celeste_base_id + 0x2000 + 0x00, ItemClassification.progression),
-    ItemName.traffic_blocks:       CelesteItemData(celeste_base_id + 0x2000 + 0x01, ItemClassification.progression),
-    ItemName.pink_cassette_blocks: CelesteItemData(celeste_base_id + 0x2000 + 0x02, ItemClassification.progression),
-    ItemName.blue_cassette_blocks: CelesteItemData(celeste_base_id + 0x2000 + 0x03, ItemClassification.progression),
+    ItemName.springs:              CelesteItemData(celeste_interactable_id + 0x00, ItemClassification.progression),
+    ItemName.traffic_blocks:       CelesteItemData(celeste_interactable_id + 0x01, ItemClassification.progression),
+    ItemName.pink_cassette_blocks: CelesteItemData(celeste_interactable_id + 0x02, ItemClassification.progression),
+    ItemName.blue_cassette_blocks: CelesteItemData(celeste_interactable_id + 0x03, ItemClassification.progression),
 
-    ItemName.dream_blocks:     CelesteItemData(celeste_base_id + 0x2000 + 0x04, ItemClassification.progression),
-    ItemName.coins:            CelesteItemData(celeste_base_id + 0x2000 + 0x05, ItemClassification.progression),
-    ItemName.strawberry_seeds: CelesteItemData(celeste_base_id + 0x2000 + 0x1F, ItemClassification.progression),
+    ItemName.dream_blocks:     CelesteItemData(celeste_interactable_id + 0x04, ItemClassification.progression),
+    ItemName.coins:            CelesteItemData(celeste_interactable_id + 0x05, ItemClassification.progression),
+    ItemName.strawberry_seeds: CelesteItemData(celeste_interactable_id + 0x1F, ItemClassification.progression),
 
-    ItemName.sinking_platforms: CelesteItemData(celeste_base_id + 0x2000 + 0x20, ItemClassification.progression),
+    ItemName.sinking_platforms: CelesteItemData(celeste_interactable_id + 0x20, ItemClassification.progression),
 
-    ItemName.moving_platforms: CelesteItemData(celeste_base_id + 0x2000 + 0x06, ItemClassification.progression),
-    ItemName.blue_boosters:    CelesteItemData(celeste_base_id + 0x2000 + 0x07, ItemClassification.progression),
-    ItemName.blue_clouds:      CelesteItemData(celeste_base_id + 0x2000 + 0x08, ItemClassification.progression),
-    ItemName.move_blocks:      CelesteItemData(celeste_base_id + 0x2000 + 0x09, ItemClassification.progression),
-    ItemName.white_block:      CelesteItemData(celeste_base_id + 0x2000 + 0x21, ItemClassification.progression),
+    ItemName.moving_platforms: CelesteItemData(celeste_interactable_id + 0x06, ItemClassification.progression),
+    ItemName.blue_boosters:    CelesteItemData(celeste_interactable_id + 0x07, ItemClassification.progression),
+    ItemName.blue_clouds:      CelesteItemData(celeste_interactable_id + 0x08, ItemClassification.progression),
+    ItemName.move_blocks:      CelesteItemData(celeste_interactable_id + 0x09, ItemClassification.progression),
+    ItemName.white_block:      CelesteItemData(celeste_interactable_id + 0x21, ItemClassification.progression),
 
-    ItemName.swap_blocks:  CelesteItemData(celeste_base_id + 0x2000 + 0x0A, ItemClassification.progression),
-    ItemName.red_boosters: CelesteItemData(celeste_base_id + 0x2000 + 0x0B, ItemClassification.progression),
-    ItemName.torches:      CelesteItemData(celeste_base_id + 0x2000 + 0x22, ItemClassification.useful),
-    ItemName.theo_crystal: CelesteItemData(celeste_base_id + 0x2000 + 0x0C, ItemClassification.progression),
+    ItemName.swap_blocks:  CelesteItemData(celeste_interactable_id + 0x0A, ItemClassification.progression),
+    ItemName.red_boosters: CelesteItemData(celeste_interactable_id + 0x0B, ItemClassification.progression),
+    ItemName.torches:      CelesteItemData(celeste_interactable_id + 0x22, ItemClassification.useful),
+    ItemName.theo_crystal: CelesteItemData(celeste_interactable_id + 0x0C, ItemClassification.progression),
 
-    ItemName.feathers:     CelesteItemData(celeste_base_id + 0x2000 + 0x0D, ItemClassification.progression),
-    ItemName.bumpers:      CelesteItemData(celeste_base_id + 0x2000 + 0x0E, ItemClassification.progression),
-    ItemName.kevin_blocks: CelesteItemData(celeste_base_id + 0x2000 + 0x0F, ItemClassification.progression),
+    ItemName.feathers:     CelesteItemData(celeste_interactable_id + 0x0D, ItemClassification.progression),
+    ItemName.bumpers:      CelesteItemData(celeste_interactable_id + 0x0E, ItemClassification.progression),
+    ItemName.kevin_blocks: CelesteItemData(celeste_interactable_id + 0x0F, ItemClassification.progression),
 
-    ItemName.pink_clouds:       CelesteItemData(celeste_base_id + 0x2000 + 0x10, ItemClassification.progression),
-    ItemName.badeline_boosters: CelesteItemData(celeste_base_id + 0x2000 + 0x11, ItemClassification.progression),
+    ItemName.pink_clouds:       CelesteItemData(celeste_interactable_id + 0x10, ItemClassification.progression),
+    ItemName.badeline_boosters: CelesteItemData(celeste_interactable_id + 0x11, ItemClassification.progression),
 
-    ItemName.fire_ice_balls: CelesteItemData(celeste_base_id + 0x2000 + 0x12, ItemClassification.progression),
-    ItemName.core_toggles:   CelesteItemData(celeste_base_id + 0x2000 + 0x13, ItemClassification.progression),
-    ItemName.core_blocks:    CelesteItemData(celeste_base_id + 0x2000 + 0x14, ItemClassification.progression),
+    ItemName.fire_ice_balls: CelesteItemData(celeste_interactable_id + 0x12, ItemClassification.progression),
+    ItemName.core_toggles:   CelesteItemData(celeste_interactable_id + 0x13, ItemClassification.progression),
+    ItemName.core_blocks:    CelesteItemData(celeste_interactable_id + 0x14, ItemClassification.progression),
 
-    ItemName.pufferfish:             CelesteItemData(celeste_base_id + 0x2000 + 0x15, ItemClassification.progression),
-    ItemName.jellyfish:              CelesteItemData(celeste_base_id + 0x2000 + 0x16, ItemClassification.progression),
-    ItemName.breaker_boxes:          CelesteItemData(celeste_base_id + 0x2000 + 0x17, ItemClassification.progression),
-    ItemName.dash_refills:           CelesteItemData(celeste_base_id + 0x2000 + 0x18, ItemClassification.progression),
-    ItemName.double_dash_refills:    CelesteItemData(celeste_base_id + 0x2000 + 0x19, ItemClassification.progression),
-    ItemName.yellow_cassette_blocks: CelesteItemData(celeste_base_id + 0x2000 + 0x1A, ItemClassification.progression),
-    ItemName.green_cassette_blocks:  CelesteItemData(celeste_base_id + 0x2000 + 0x1B, ItemClassification.progression),
-    ItemName.bird:                   CelesteItemData(celeste_base_id + 0x2000 + 0x23, ItemClassification.progression),
+    ItemName.pufferfish:             CelesteItemData(celeste_interactable_id + 0x15, ItemClassification.progression),
+    ItemName.jellyfish:              CelesteItemData(celeste_interactable_id + 0x16, ItemClassification.progression),
+    ItemName.breaker_boxes:          CelesteItemData(celeste_interactable_id + 0x17, ItemClassification.progression),
+    ItemName.dash_refills:           CelesteItemData(celeste_interactable_id + 0x18, ItemClassification.progression),
+    ItemName.double_dash_refills:    CelesteItemData(celeste_interactable_id + 0x19, ItemClassification.progression),
+    ItemName.yellow_cassette_blocks: CelesteItemData(celeste_interactable_id + 0x1A, ItemClassification.progression),
+    ItemName.green_cassette_blocks:  CelesteItemData(celeste_interactable_id + 0x1B, ItemClassification.progression),
+    ItemName.bird:                   CelesteItemData(celeste_interactable_id + 0x23, ItemClassification.progression),
 
-    ItemName.dash_switches: CelesteItemData(celeste_base_id + 0x2000 + 0x1C, ItemClassification.progression),
-    ItemName.seekers:       CelesteItemData(celeste_base_id + 0x2000 + 0x1D, ItemClassification.progression),
+    ItemName.dash_switches: CelesteItemData(celeste_interactable_id + 0x1C, ItemClassification.progression),
+    ItemName.seekers:       CelesteItemData(celeste_interactable_id + 0x1D, ItemClassification.progression),
 }
 
 cassette_item_data_table: dict[str, CelesteItemData] = {
@@ -185,22 +186,22 @@ cassette_item_data_table: dict[str, CelesteItemData] = {
 }
 
 crystal_heart_item_data_table: dict[str, CelesteItemData] = {
-    ItemName.crystal_heart_1:  CelesteItemData(celeste_base_id + 0x3000 + 0x00, ItemClassification.filler),
-    ItemName.crystal_heart_2:  CelesteItemData(celeste_base_id + 0x3000 + 0x01, ItemClassification.filler),
-    ItemName.crystal_heart_3:  CelesteItemData(celeste_base_id + 0x3000 + 0x02, ItemClassification.filler),
-    ItemName.crystal_heart_4:  CelesteItemData(celeste_base_id + 0x3000 + 0x03, ItemClassification.filler),
-    ItemName.crystal_heart_5:  CelesteItemData(celeste_base_id + 0x3000 + 0x04, ItemClassification.filler),
-    ItemName.crystal_heart_6:  CelesteItemData(celeste_base_id + 0x3000 + 0x05, ItemClassification.filler),
-    ItemName.crystal_heart_7:  CelesteItemData(celeste_base_id + 0x3000 + 0x06, ItemClassification.filler),
-    ItemName.crystal_heart_8:  CelesteItemData(celeste_base_id + 0x3000 + 0x07, ItemClassification.filler),
-    ItemName.crystal_heart_9:  CelesteItemData(celeste_base_id + 0x3000 + 0x08, ItemClassification.filler),
-    ItemName.crystal_heart_10: CelesteItemData(celeste_base_id + 0x3000 + 0x09, ItemClassification.filler),
-    ItemName.crystal_heart_11: CelesteItemData(celeste_base_id + 0x3000 + 0x0A, ItemClassification.filler),
-    ItemName.crystal_heart_12: CelesteItemData(celeste_base_id + 0x3000 + 0x0B, ItemClassification.filler),
-    ItemName.crystal_heart_13: CelesteItemData(celeste_base_id + 0x3000 + 0x0C, ItemClassification.filler),
-    ItemName.crystal_heart_14: CelesteItemData(celeste_base_id + 0x3000 + 0x0D, ItemClassification.filler),
-    ItemName.crystal_heart_15: CelesteItemData(celeste_base_id + 0x3000 + 0x0E, ItemClassification.filler),
-    ItemName.crystal_heart_16: CelesteItemData(celeste_base_id + 0x3000 + 0x0F, ItemClassification.filler),
+    ItemName.crystal_heart_1:  CelesteItemData(celeste_crystal_heart_id + 0x00, ItemClassification.filler),
+    ItemName.crystal_heart_2:  CelesteItemData(celeste_crystal_heart_id + 0x01, ItemClassification.filler),
+    ItemName.crystal_heart_3:  CelesteItemData(celeste_crystal_heart_id + 0x02, ItemClassification.filler),
+    ItemName.crystal_heart_4:  CelesteItemData(celeste_crystal_heart_id + 0x03, ItemClassification.filler),
+    ItemName.crystal_heart_5:  CelesteItemData(celeste_crystal_heart_id + 0x04, ItemClassification.filler),
+    ItemName.crystal_heart_6:  CelesteItemData(celeste_crystal_heart_id + 0x05, ItemClassification.filler),
+    ItemName.crystal_heart_7:  CelesteItemData(celeste_crystal_heart_id + 0x06, ItemClassification.filler),
+    ItemName.crystal_heart_8:  CelesteItemData(celeste_crystal_heart_id + 0x07, ItemClassification.filler),
+    ItemName.crystal_heart_9:  CelesteItemData(celeste_crystal_heart_id + 0x08, ItemClassification.filler),
+    ItemName.crystal_heart_10: CelesteItemData(celeste_crystal_heart_id + 0x09, ItemClassification.filler),
+    ItemName.crystal_heart_11: CelesteItemData(celeste_crystal_heart_id + 0x0A, ItemClassification.filler),
+    ItemName.crystal_heart_12: CelesteItemData(celeste_crystal_heart_id + 0x0B, ItemClassification.filler),
+    ItemName.crystal_heart_13: CelesteItemData(celeste_crystal_heart_id + 0x0C, ItemClassification.filler),
+    ItemName.crystal_heart_14: CelesteItemData(celeste_crystal_heart_id + 0x0D, ItemClassification.filler),
+    ItemName.crystal_heart_15: CelesteItemData(celeste_crystal_heart_id + 0x0E, ItemClassification.filler),
+    ItemName.crystal_heart_16: CelesteItemData(celeste_crystal_heart_id + 0x0F, ItemClassification.filler),
 }
 
 def add_checkpoint_to_table(id: int, name: str):
@@ -211,6 +212,46 @@ def add_key_to_table(id: int, name: str):
 
 def add_gem_to_table(id: int, name: str):
     gem_item_data_table[name] = CelesteItemData(id, ItemClassification.progression)
+
+def add_interactable_to_table(name: str, level: str = None, side: str = None):
+    shared_id: int = interactable_item_data_table[name].code
+    shared_type: ItemClassification = interactable_item_data_table[name].type
+
+    if level == None:
+        base_id_offset: int = 0x3000  # 0xCA15000 base
+
+        side_id_offset: int = 0x000
+        if side == "b":
+            side_id_offset = 0x100
+        elif side == "c":
+            side_id_offset = 0x200
+
+        full_id = shared_id + base_id_offset + side_id_offset
+
+        interactable_item_data_table[side.upper() + "-Side " + name] = CelesteItemData(full_id, shared_type)
+    elif side == None:
+        base_id_offset: int = 0x4000  # 0xCA16000 base
+
+        level_id_offset: int = 0x40 * int(level)
+
+        full_id = shared_id + base_id_offset + level_id_offset
+
+        interactable_item_data_table[level_id_to_name[level] + " " + name] = CelesteItemData(full_id, shared_type)
+    else:
+        base_id_offset: int = 0x5000  # 0xCA17000 base
+
+        side_id_offset: int = 0x00
+        if side == "b":
+            side_id_offset = 0x40
+        elif side == "c":
+            side_id_offset = 0x80
+
+        level_id_offset: int = 0x100 * int(level)
+
+        full_id = shared_id + base_id_offset + level_id_offset + side_id_offset
+
+        interactable_item_data_table[level_id_to_name[level] + " " + side.upper() + " " + name] = CelesteItemData(full_id, shared_type)
+
 
 def generate_item_data_table() -> dict[str, CelesteItemData]:
     return {**collectable_item_data_table,

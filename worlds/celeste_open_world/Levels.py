@@ -41,6 +41,20 @@ goal_area_to_location_name: dict[str, str] = {
     "10c": "Farewell - Golden Strawberry",
 }
 
+level_id_to_name: dict[str, str] = {
+    "0": "Prologue",
+    "1": "Forsaken City",
+    "2": "Old Site",
+    "3": "Celestial Resort",
+    "4": "Golden Ridge",
+    "5": "Mirror Temple",
+    "6": "Reflection",
+    "7": "The Summit",
+    "8": "Epilogue",
+    "9": "Core",
+    "10": "Farewell",
+}
+
 
 class LocationType(IntEnum):
     strawberry = 0

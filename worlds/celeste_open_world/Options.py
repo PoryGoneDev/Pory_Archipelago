@@ -79,51 +79,6 @@ class StrawberriesRequiredPercentage(Range):
     default = 80
 
 
-class DashShuffle(Choice):
-    """
-    Whether the ability to dash is shuffled into the item pool, and in what manner
-
-    None: Dashing is not shuffled
-
-    Unified: A single `Dash` item exists, which gives you all 8 directions of dash
-
-    Cardinal Loose: Dash items exist for the four cardinal directions (up, right, down, left) exist, and receiving one allows you to dash in the adjacent diagonal directions as well
-
-    Cardinal Restrictive: Dash items exist for the four cardinal directions exist, but you must receive both cardinal directions to be able to dash in the diagonal direction between them
-
-    Octal: Separate dash items exist for all 8 dash directions
-    """
-    display_name = "Dash Shuffle"
-    option_none = 0
-    option_unified = 1
-    option_cardinal_loose = 2
-    option_cardinal_restrictive = 3
-    option_octal = 4
-    default = 0
-
-class ClimbShuffle(Choice):
-    """
-    Whether the ability to climb is shuffled into the item pool, and in what manner
-
-    None: Climbing is not shuffled
-
-    Unified: A single `Climb` item exists, which gives allows you to climb to the left and right
-
-    Split: Separate items exist to enable the ability to climb to the left and to the right
-    """
-    display_name = "Climb Shuffle"
-    option_none = 0
-    option_unified = 1
-    option_split = 2
-    default = 0
-
-class CrouchShuffle(Toggle):
-    """
-    Whether the ability to crouch is shuffled into the item pool
-    """
-    display_name = "Crouch Shuffle"
-
-
 class Checkpointsanity(Toggle):
     """
     Determines whether Checkpoints will be shuffled into the item pool
@@ -194,6 +149,71 @@ class IncludeCSides(Toggle):
     Determines whether the C-Side Levels will be included
     """
     display_name = "Include C-Sides"
+
+
+class DashShuffle(Choice):
+    """
+    Whether the ability to dash is shuffled into the item pool, and in what manner
+
+    None: Dashing is not shuffled
+
+    Unified: A single `Dash` item exists, which gives you all 8 directions of dash
+
+    Cardinal Loose: Dash items exist for the four cardinal directions (up, right, down, left) exist, and receiving one allows you to dash in the adjacent diagonal directions as well
+
+    Cardinal Restrictive: Dash items exist for the four cardinal directions exist, but you must receive both cardinal directions to be able to dash in the diagonal direction between them
+
+    Octal: Separate dash items exist for all 8 dash directions
+    """
+    display_name = "Dash Shuffle"
+    option_none = 0
+    option_unified = 1
+    option_cardinal_loose = 2
+    option_cardinal_restrictive = 3
+    option_octal = 4
+    default = 0
+
+class ClimbShuffle(Choice):
+    """
+    Whether the ability to climb is shuffled into the item pool, and in what manner
+
+    None: Climbing is not shuffled
+
+    Unified: A single `Climb` item exists, which gives allows you to climb to the left and right
+
+    Split: Separate items exist to enable the ability to climb to the left and to the right
+    """
+    display_name = "Climb Shuffle"
+    option_none = 0
+    option_unified = 1
+    option_split = 2
+    default = 0
+
+class CrouchShuffle(Toggle):
+    """
+    Whether the ability to crouch is shuffled into the item pool
+    """
+    display_name = "Crouch Shuffle"
+
+
+class SplitInteractables(Choice):
+    """
+    Whether there are separate interactable items per-level
+
+    None: There is one item per interactable, which allows its use everywhere
+
+    Per Level: There is one item per interactable for each level, which allows its use in any side of that level
+
+    Per Side: There is one item per interactable for each side, which allows its use in that side of any level
+
+    Per Level And Side: There is one item per interactable for each combination of level and side, which allows its use in that side of that level
+    """
+    display_name = "Split Interactables"
+    option_none = 0
+    option_per_level = 1
+    option_per_side = 2
+    option_per_level_and_side = 3
+    default = 0
 
 
 class JunkFillPercentage(Range):
@@ -445,11 +465,6 @@ celeste_option_groups = [
         TotalStrawberries,
         StrawberriesRequiredPercentage,
     ]),
-    OptionGroup("Movement Options", [
-        DashShuffle,
-        ClimbShuffle,
-        CrouchShuffle,
-    ]),
     OptionGroup("Location Options", [
         Checkpointsanity,
         Binosanity,
@@ -462,6 +477,14 @@ celeste_option_groups = [
         IncludeFarewell,
         IncludeBSides,
         IncludeCSides,
+    ]),
+    OptionGroup("Movement Options", [
+        DashShuffle,
+        ClimbShuffle,
+        CrouchShuffle,
+    ]),
+    OptionGroup("Item Options", [
+        SplitInteractables,
     ]),
     OptionGroup("Junk and Traps", [
         JunkFillPercentage,
@@ -565,6 +588,8 @@ class CelesteOptions(PerGameCommonOptions):
     dash_shuffle: DashShuffle
     climb_shuffle: ClimbShuffle
     crouch_shuffle: CrouchShuffle
+
+    split_interactables: SplitInteractables
 
     junk_fill_percentage: JunkFillPercentage
     reduce_raspberries: ReduceRaspberries

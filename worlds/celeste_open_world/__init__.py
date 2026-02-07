@@ -11,7 +11,7 @@ from .Items import CelesteItem, generate_item_table, generate_item_data_table, g
 from .Locations import CelesteLocation, location_data_table, generate_location_groups, checkpoint_location_data_table, location_id_offsets
 from .Names import ItemName
 from .Options import CelesteOptions, celeste_option_groups, resolve_options
-from .Levels import Level, LocationType, load_logic_data, goal_area_option_to_name, goal_area_option_to_display_name, goal_area_to_location_name
+from .Levels import Level, LocationType, load_logic_data, goal_area_option_to_name, goal_area_option_to_display_name, goal_area_to_location_name, level_id_to_name
 
 
 class CelesteOpenWebWorld(WebWorld):
@@ -95,7 +95,27 @@ class CelesteOpenWorld(World):
 
         self.active_items = set()
         for level in self.active_levels:
-            self.active_items.update(self.level_data[level].items)
+            if self.options.split_interactables.value == 0:
+                # None
+                self.active_items.update(self.level_data[level].items)
+            elif self.options.split_interactables.value == 1:
+                # Per-Level
+                for item in self.level_data[level].items:
+                    self.active_items.add(level_id_to_name[level[:-1]] + " " + item)
+            elif self.options.split_interactables.value == 2:
+                # Per Side
+                for item in self.level_data[level].items:
+                    if level[:-1] != "10":
+                        self.active_items.add(level[-1].upper() + "-Side " + item)
+                    else:
+                        self.active_items.add("A-Side " + item)
+            elif self.options.split_interactables.value == 3:
+                # Per Level and Side
+                for item in self.level_data[level].items:
+                    if level[:-1] != "10":
+                        self.active_items.add(level_id_to_name[level[:-1]] + " " + level[-1].upper() + " " + item)
+                    else:
+                        self.active_items.add(level_id_to_name[level[:-1]] + " " + item)
 
 
     def create_regions(self) -> None:
@@ -205,6 +225,11 @@ class CelesteOpenWorld(World):
         else:
             self.multiworld.push_precollected(self.create_item(ItemName.crouch))
 
+        overfill_amount: int = len(item_pool) - location_count
+        self.random.shuffle(item_pool)
+        for i in range(overfill_amount):
+            self.multiworld.push_precollected(item_pool.pop())
+
         # Strawberries
         real_total_strawberries: int = min(self.options.total_strawberries.value, location_count - goal_area_location_count - len(item_pool))
         self.strawberries_required = int(real_total_strawberries * (self.options.strawberries_required_percentage / 100))
@@ -311,6 +336,8 @@ class CelesteOpenWorld(World):
             "dash_shuffle": self.options.dash_shuffle.value,
             "climb_shuffle": self.options.climb_shuffle.value,
             "crouch_shuffle": self.options.crouch_shuffle.value,
+
+            "split_interactables": self.options.split_interactables.value,
 
             "checkpointsanity": self.options.checkpointsanity.value,
             "binosanity": self.options.binosanity.value,

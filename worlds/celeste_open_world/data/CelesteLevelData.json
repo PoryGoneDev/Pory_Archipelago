@@ -331,7 +331,7 @@
         {
             "name": "1a",
             "display_name": "Forsaken City A",
-            "items": [ "springs", "traffic_blocks", "pink_cassette_blocks", "blue_cassette_blocks" ],
+            "items": [ "springs", "traffic_blocks", "dash_refills", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "1",
@@ -3366,7 +3366,7 @@
         {
             "name": "2a",
             "display_name": "Old Site A",
-            "items": [ "springs", "dream_blocks", "traffic_blocks", "strawberry_seeds", "dash_refills", "coins" ],
+            "items": [ "springs", "dream_blocks", "traffic_blocks", "strawberry_seeds", "dash_refills", "coins", "blue_cassette_blocks", "pink_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "start",
@@ -10906,7 +10906,7 @@
         {
             "name": "3b",
             "display_name": "Celestial Resort B",
-            "items": [ "springs", "dash_refills", "sinking_platforms", "coins", "pink_cassette_blocks", "blue_cassette_blocks" ],
+            "items": [ "springs", "dash_refills", "moving_platforms", "sinking_platforms", "coins", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "00",
@@ -12111,7 +12111,7 @@
         {
             "name": "4a",
             "display_name": "Golden Ridge A",
-            "items": [ "blue_clouds", "blue_boosters", "moving_platforms", "coins", "strawberry_seeds", "springs", "move_blocks", "pink_clouds", "white_block", "pink_cassette_blocks", "blue_cassette_blocks" ],
+            "items": [ "blue_clouds", "blue_boosters", "moving_platforms", "coins", "strawberry_seeds", "springs", "move_blocks", "dash_refills", "pink_clouds", "white_block", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00",
@@ -15705,7 +15705,7 @@
         {
             "name": "5a",
             "display_name": "Mirror Temple A",
-            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills", "coins", "springs", "torches", "seekers", "theo_crystal", "pink_cassette_blocks", "blue_cassette_blocks" ],
+            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills", "coins", "springs", "torches", "seekers", "theo_crystal", "strawberry_seeds", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00b",
@@ -26276,7 +26276,7 @@
         {
             "name": "7a",
             "display_name": "The Summit A",
-            "items": [ "springs", "dash_refills", "badeline_boosters", "traffic_blocks", "coins", "dream_blocks", "sinking_platforms", "blue_boosters", "blue_clouds", "pink_clouds", "move_blocks", "moving_platforms", "swap_blocks", "red_boosters", "dash_switches", "feathers", "pink_cassette_blocks", "blue_cassette_blocks" ],
+            "items": [ "springs", "dash_refills", "badeline_boosters", "traffic_blocks", "coins", "dream_blocks", "sinking_platforms", "blue_boosters", "blue_clouds", "strawberry_seeds", "pink_clouds", "move_blocks", "moving_platforms", "swap_blocks", "red_boosters", "dash_switches", "feathers", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00",
@@ -34996,7 +34996,7 @@
         {
             "name": "9b",
             "display_name": "Core B",
-            "items": [ "springs", "dash_refills", "fire_ice_balls", "bumpers", "core_toggles", "core_blocks", "coins", "badeline_boosters", "dream_blocks", "moving_platforms", "blue_clouds", "swap_blocks", "kevin_blocks", "pink_cassette_blocks", "blue_cassette_blocks" ],
+            "items": [ "springs", "dash_refills", "traffic_blocks", "fire_ice_balls", "bumpers", "core_toggles", "core_blocks", "coins", "badeline_boosters", "dream_blocks", "moving_platforms", "blue_clouds", "swap_blocks", "kevin_blocks", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "00",
@@ -36051,7 +36051,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "springs", "traffic_blocks", "dash_refills", "core_toggles", "dream_blocks", "bumpers", "pink_clouds", "swap_blocks", "kevin_blocks", "core_blocks" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "core_toggles", "dream_blocks", "bumpers", "pink_clouds", "swap_blocks", "kevin_blocks", "core_blocks" ] ]
                                 }
                             ],
                             "locations": [
