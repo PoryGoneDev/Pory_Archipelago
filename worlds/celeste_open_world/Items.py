@@ -39,7 +39,11 @@ level_cassette_items: dict[str, str] = {
 celeste_base_id: int = 0xCA10000
 celeste_cassette_id: int = celeste_base_id + 0x1000
 celeste_interactable_id: int = celeste_base_id + 0x2000
+celeste_car_id: int = celeste_base_id + 0x2A00
 celeste_crystal_heart_id: int = celeste_base_id + 0x3000
+celeste_checkpoint_id: int = celeste_base_id + 0x4000
+celeste_key_id: int = celeste_base_id + 0x6000
+celeste_gem_id: int = celeste_base_id + 0x6A00
 
 
 class CelesteItem(Item):
@@ -218,7 +222,7 @@ def add_interactable_to_table(name: str, level: str = None, side: str = None):
     shared_type: ItemClassification = interactable_item_data_table[name].type
 
     if level == None:
-        base_id_offset: int = 0x3000  # 0xCA15000 base
+        base_id_offset: int = 0x5000  # 0xCA17000 base
 
         side_id_offset: int = 0x000
         if side == "b":
@@ -230,7 +234,7 @@ def add_interactable_to_table(name: str, level: str = None, side: str = None):
 
         interactable_item_data_table[side.upper() + "-Side " + name] = CelesteItemData(full_id, shared_type)
     elif side == None:
-        base_id_offset: int = 0x4000  # 0xCA16000 base
+        base_id_offset: int = 0x6000  # 0xCA18000 base
 
         level_id_offset: int = 0x40 * int(level)
 
@@ -238,7 +242,7 @@ def add_interactable_to_table(name: str, level: str = None, side: str = None):
 
         interactable_item_data_table[level_id_to_name[level] + " " + name] = CelesteItemData(full_id, shared_type)
     else:
-        base_id_offset: int = 0x5000  # 0xCA17000 base
+        base_id_offset: int = 0x7000  # 0xCA19000 base
 
         side_id_offset: int = 0x00
         if side == "b":

@@ -7,7 +7,7 @@ from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
 
 from .Items import CelesteItem, generate_item_table, generate_item_data_table, generate_item_groups, level_cassette_items,\
-                                filler_item_data_table, cassette_item_data_table, crystal_heart_item_data_table, trap_item_data_table
+                                interactable_item_data_table, filler_item_data_table, cassette_item_data_table, crystal_heart_item_data_table, trap_item_data_table
 from .Locations import CelesteLocation, location_data_table, generate_location_groups, checkpoint_location_data_table, location_id_offsets
 from .Names import ItemName
 from .Options import CelesteOptions, celeste_option_groups, resolve_options
@@ -338,6 +338,7 @@ class CelesteOpenWorld(World):
             "crouch_shuffle": self.options.crouch_shuffle.value,
 
             "split_interactables": self.options.split_interactables.value,
+            "existent_interactables": [data.code for name, data in interactable_item_data_table.items() if name in self.active_items],
 
             "checkpointsanity": self.options.checkpointsanity.value,
             "binosanity": self.options.binosanity.value,
