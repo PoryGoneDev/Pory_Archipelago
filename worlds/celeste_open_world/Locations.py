@@ -1,7 +1,7 @@
 from typing import NamedTuple, Optional, TYPE_CHECKING
 
 from BaseClasses import Location, Region
-from worlds.generic.Rules import set_rule
+from rule_builder.rules import Has, HasAll, Or
 
 from .Levels import Level, LocationType, level_id_to_name
 from .Names import ItemName
@@ -215,34 +215,24 @@ def create_regions_and_locations(world: CelesteOpenWorld):
                     if len(level_location.possible_access) == 1:
                         only_access = convert_item_list(world, level, level_location.possible_access[0])
                         if len(only_access) == 1:
-                            only_item = only_access[0]
-                            def location_rule_func(state, only_item=only_item):
-                                return state.has(only_item, world.player)
-                            location_rule = location_rule_func
+                            location_rule = Has(only_access[0])
                         else:
-                            def location_rule_func(state, only_access=only_access.copy()):
-                                return state.has_all(only_access, world.player)
-                            location_rule = location_rule_func
+                            location_rule = HasAll(*only_access)
                     elif len(level_location.possible_access) > 0:
                         possible_access = convert_item_list_list(world, level, level_location.possible_access)
-                        def location_rule_func(state, possible_access=possible_access.copy()):
-                            for sublist in possible_access:
-                                if state.has_all(sublist, world.player):
-                                    return True
-                            return False
-                        location_rule = location_rule_func
+                        location_rule = Or(*[HasAll(*sublist) for sublist in possible_access])
 
                     if level_location.loc_type == LocationType.clutter:
                         world.active_clutter_names.append(level_location.display_name)
                         location = CelesteLocation(world.player, level_location.display_name, None, region)
                         if location_rule is not None:
-                            set_rule(location, location_rule)
+                            world.set_rule(location, location_rule)
                         region.locations.append(location)
                         continue
 
                     location = CelesteLocation(world.player, level_location.display_name, world.location_name_to_id[level_location.display_name], region)
                     if location_rule is not None:
-                        set_rule(location, location_rule)
+                        world.set_rule(location, location_rule)
                     region.locations.append(location)
 
             for pre_region in room.regions:
@@ -252,23 +242,12 @@ def create_regions_and_locations(world: CelesteOpenWorld):
                     if len(connection.possible_access) == 1:
                         only_access = convert_item_list(world, level, connection.possible_access[0])
                         if len(only_access) == 1:
-                            only_item = only_access[0]
-                            def connection_rule_func(state, only_item=only_item):
-                                return state.has(only_item, world.player)
-                            connection_rule = connection_rule_func
+                            connection_rule = Has(only_access[0])
                         else:
-                            def connection_rule_func(state, only_access=only_access.copy()):
-                                return state.has_all(only_access, world.player)
-                            connection_rule = connection_rule_func
+                            connection_rule = HasAll(*only_access)
                     elif len(connection.possible_access) > 0:
                         possible_access = convert_item_list_list(world, level, connection.possible_access)
-                        def connection_rule_func(state, possible_access=possible_access.copy()):
-                            for sublist in possible_access:
-                                if state.has_all(sublist, world.player):
-                                    return True
-                            return False
-
-                        connection_rule = connection_rule_func
+                        connection_rule = Or(*[HasAll(*sublist) for sublist in possible_access])
 
                     if connection_rule is None:
                         region.add_exits([connection.destination_name])

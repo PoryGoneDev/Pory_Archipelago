@@ -3,6 +3,7 @@ import math
 from typing import TextIO
 
 from BaseClasses import ItemClassification, Location, MultiWorld, Region, Tutorial
+from rule_builder.rules import Has, And
 from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
 
@@ -236,13 +237,13 @@ class CelesteOpenWorld(World):
 
         menu_region = self.get_region("Menu")
         if getattr(self, "goal_start_region", None):
-            menu_region.add_exits([self.goal_start_region], {self.goal_start_region: lambda state: state.has(ItemName.strawberry, self.player, self.strawberries_required)})
+            menu_region.add_exits([self.goal_start_region], {self.goal_start_region: Has(ItemName.strawberry, count=self.strawberries_required)})
         if getattr(self, "goal_checkpoint_names", None):
             for region_name, location_name in self.goal_checkpoint_names.items():
-                checkpoint_rule = lambda state, location_name=location_name: state.has(location_name, self.player) and state.has(ItemName.strawberry, self.player, self.strawberries_required)
+                checkpoint_rule = And(Has(location_name), Has(ItemName.strawberry, count=self.strawberries_required))
                 menu_region.add_exits([region_name], {region_name: checkpoint_rule})
 
-        menu_region.add_exits([self.epilogue_start_region], {self.epilogue_start_region: lambda state: (state.has(ItemName.strawberry, self.player, self.strawberries_required) and state.has(ItemName.house_keys, self.player))})
+        menu_region.add_exits([self.epilogue_start_region], {self.epilogue_start_region: And(Has(ItemName.house_keys), Has(ItemName.strawberry, count=self.strawberries_required))})
 
         item_pool += [self.create_item(ItemName.strawberry) for _ in range(self.strawberries_required)]
 
@@ -315,7 +316,7 @@ class CelesteOpenWorld(World):
 
 
     def set_rules(self) -> None:
-        self.multiworld.completion_condition[self.player] = lambda state: state.has(ItemName.victory, self.player)
+        self.set_completion_rule(Has(ItemName.victory))
 
 
     def fill_slot_data(self):
