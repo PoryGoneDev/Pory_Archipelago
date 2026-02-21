@@ -5418,13 +5418,13 @@
                             "name": "north-west",
                             "direction": "left",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "west",
                             "direction": "left",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "east",
@@ -14337,7 +14337,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "blue_clouds", "pink_clouds", "blue_boosters", "move_blocks", "dash_refills", "springs", "coins" ] ]
+                                    "rule": [ [ "blue_clouds", "pink_clouds", "blue_boosters", "move_blocks", "moving_platforms", "dash_refills", "springs", "coins" ] ]
                                 }
                             ]
                         }
@@ -16999,7 +16999,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "red_boosters" ] ]
+                                    "rule": []
                                 }
                             ]
                         }
@@ -17591,7 +17591,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "red_boosters" ] ]
+                                    "rule": []
                                 }
                             ]
                         }
@@ -19967,7 +19967,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "red_boosters", "swap_blocks", "dash_switches", "Entrance Key", "Depths Key", "Search Key 1", "Search Key 2", "seekers", "coins", "theo_crystal" ] ]
+                                    "rule": [ [ "red_boosters", "swap_blocks", "dash_switches", "dash_refills", "Entrance Key", "Depths Key", "Search Key 1", "Search Key 2", "seekers", "coins", "theo_crystal" ] ]
                                 }
                             ]
                         }
@@ -23496,7 +23496,7 @@
                             "name": "west",
                             "direction": "left",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "top",
@@ -25268,7 +25268,7 @@
                             "name": "west",
                             "direction": "left",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "east",
@@ -37264,13 +37264,13 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": [ [ "breaker_boxes" ] ]
+                                    "rule": [ [ "breaker_boxes", "double_dash_refills", "dash_switches" ] ]
                                 },
                                 {
                                     "name": "key_2",
                                     "display_name": "Power Source Key 2",
                                     "type": "key",
-                                    "rule": [ [ "breaker_boxes", "double_dash_refills", "jellyfish" ] ]
+                                    "rule": [ [ "breaker_boxes", "double_dash_refills", "dash_switches", "jellyfish" ] ]
                                 }
                             ]
                         }
