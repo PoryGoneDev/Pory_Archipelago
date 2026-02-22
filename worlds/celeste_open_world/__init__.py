@@ -1,8 +1,9 @@
 from copy import deepcopy
 import math
-from typing import TextIO
+from typing import TextIO, Optional
 
 from BaseClasses import ItemClassification, Location, MultiWorld, Region, Tutorial
+from Options import Option
 from rule_builder.rules import Has, And
 from Utils import visualize_regions
 from worlds.AutoWorld import WebWorld, World
@@ -52,6 +53,8 @@ class CelesteOpenWorld(World):
     item_name_to_id: dict[str, int] = generate_item_table()
     item_name_groups: dict[str, list[str]] = generate_item_groups()
 
+    ut_can_gen_without_yaml = True
+
 
     # Instance Data
     madeline_one_dash_hair_color: int
@@ -68,6 +71,8 @@ class CelesteOpenWorld(World):
             raise RuntimeError(f"Invalid player_name {self.player_name} for game {self.game}. Name must be ascii.")
 
         resolve_options(self)
+
+        self.handle_re_gen_passthrough()
 
         self.goal_area: str = goal_area_option_to_name[self.options.goal_area.value]
 
@@ -413,6 +418,23 @@ class CelesteOpenWorld(World):
             musiclist_s = musiclist_o.copy()
 
             return dict(zip(musiclist_o, musiclist_s))
+
+    def handle_re_gen_passthrough(self):
+        from .Levels import goal_area_to_option_name
+
+        re_gen_passthrough = getattr(self.multiworld, "re_gen_passthrough", {})
+
+        if re_gen_passthrough and self.game in re_gen_passthrough:
+            slot_data: dict[str, Any] = re_gen_passthrough[self.game]
+            slot_options: dict[str, Any] = slot_data.get("options", {})
+
+            for key, value in slot_data.items():
+                if key == "goal_area":
+                    value = goal_area_to_option_name[value]
+
+                opt: Optional[Option] = getattr(self.options, key, None)
+                if opt is not None:
+                    setattr(self.options, key, opt.from_any(value))
 
 
     # Useful Debugging tools, kept around for later.

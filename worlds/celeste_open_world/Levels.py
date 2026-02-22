@@ -41,6 +41,18 @@ goal_area_to_location_name: dict[str, str] = {
     "10c": "Farewell - Golden Strawberry",
 }
 
+goal_area_to_option_name: dict[str, str] = {
+    "7a": "the_summit_a",
+    "7b": "the_summit_b",
+    "7c": "the_summit_c",
+    "9a": "core_a",
+    "9b": "core_b",
+    "9c": "core_c",
+    "10a": "empty_space",
+    "10b": "farewell",
+    "10c": "farewell_golden",
+}
+
 level_id_to_name: dict[str, str] = {
     "0": "Prologue",
     "1": "Forsaken City",
