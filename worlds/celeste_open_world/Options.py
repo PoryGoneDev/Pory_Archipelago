@@ -35,6 +35,8 @@ class TrapLink(Toggle):
 class GoalArea(Choice):
     """
     What Area must be cleared to gain access to the Epilogue and complete the game
+
+    Poetry Slam requires receiving all 16 Crystal Heart items and assembling the poem in the correct order
     """
     display_name = "Goal Area"
     option_the_summit_a = 0
@@ -46,6 +48,7 @@ class GoalArea(Choice):
     option_empty_space = 6
     option_farewell = 7
     option_farewell_golden = 8
+    option_poetry_slam = 9
     default = 0
 
 class LockGoalArea(DefaultOnToggle):

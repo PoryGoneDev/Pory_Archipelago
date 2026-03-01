@@ -92,7 +92,8 @@ class CelesteOpenWorld(World):
             if self.options.include_core:
                 self.active_levels.add("9c")
 
-        self.active_levels.add(self.goal_area)
+        if self.goal_area != "poetry":
+            self.active_levels.add(self.goal_area)
         if self.goal_area == "10c":
             self.active_levels.add("10a")
             self.active_levels.add("10b")
@@ -133,7 +134,9 @@ class CelesteOpenWorld(World):
     def create_item(self, name: str, force_useful: bool = False) -> CelesteItem:
         item_data_table = generate_item_data_table()
 
-        if name == ItemName.strawberry and force_useful:
+        if self.options.goal_area.value == 9 and "Crystal Heart" in name:
+            return CelesteItem(name, ItemClassification.progression_skip_balancing, item_data_table[name].code, self.player)
+        elif name == ItemName.strawberry and force_useful:
             return CelesteItem(name, ItemClassification.useful, item_data_table[name].code, self.player)
         elif name in item_data_table:
             return CelesteItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
@@ -156,6 +159,12 @@ class CelesteOpenWorld(World):
         victory_loc: Location = self.get_location(ItemName.victory)
         victory_loc.place_locked_item(self.create_item(ItemName.victory))
 
+        # Crystal Hearts (for Poetry Slam)
+        if self.options.goal_area.value == 9:
+            for name in crystal_heart_item_data_table.keys():
+                if name not in self.multiworld.precollected_items[self.player]:
+                    item_pool.append(self.create_item(name))
+
         # Checkpoints
         for item_name in self.active_checkpoint_names:
             if self.options.checkpointsanity:
@@ -163,7 +172,7 @@ class CelesteOpenWorld(World):
                     checkpoint_loc: Location = self.get_location(item_name)
                     checkpoint_loc.place_locked_item(self.create_item(item_name))
                     location_count -= 1
-                else:
+                elif item_name not in self.multiworld.precollected_items[self.player]:
                     item_pool.append(self.create_item(item_name))
             else:
                 checkpoint_loc: Location = self.get_location(item_name)
@@ -172,7 +181,7 @@ class CelesteOpenWorld(World):
 
         # Keys
         if self.options.keysanity:
-            item_pool += [self.create_item(item_name) for item_name in self.active_key_names]
+            item_pool += [self.create_item(item_name) for item_name in self.active_key_names if item_name not in self.multiworld.precollected_items[self.player]]
         else:
             for item_name in self.active_key_names:
                 key_loc: Location = self.get_location(item_name)
@@ -181,7 +190,7 @@ class CelesteOpenWorld(World):
 
         # Summit Gems
         if self.options.gemsanity:
-            item_pool += [self.create_item(item_name) for item_name in self.active_gem_names]
+            item_pool += [self.create_item(item_name) for item_name in self.active_gem_names if item_name not in self.multiworld.precollected_items[self.player]]
         else:
             for item_name in self.active_gem_names:
                 gem_loc: Location = self.get_location(item_name)
@@ -195,39 +204,40 @@ class CelesteOpenWorld(World):
             location_count -= 1
 
         # Interactables
-        item_pool += [self.create_item(item_name) for item_name in sorted(self.active_items)]
+        item_pool += [self.create_item(item_name) for item_name in sorted(self.active_items) if item_name not in self.multiworld.precollected_items[self.player]]
 
         # Movement
         # TODO: Handle Collect for the Cardinal Options to give diagonals for logic
         if self.options.dash_shuffle.value == 0:
             self.multiworld.push_precollected(self.create_item(ItemName.dash))
         elif self.options.dash_shuffle.value == 1:
-            item_pool.append(self.create_item(ItemName.dash))
+            if ItemName.dash not in self.multiworld.precollected_items[self.player]:
+                item_pool.append(self.create_item(ItemName.dash))
         elif self.options.dash_shuffle.value in [2, 3]:
-            item_pool.append(self.create_item(ItemName.u_dash))
-            item_pool.append(self.create_item(ItemName.r_dash))
-            item_pool.append(self.create_item(ItemName.d_dash))
-            item_pool.append(self.create_item(ItemName.l_dash))
+            dash_item_names: list[str] = [ItemName.u_dash, ItemName.r_dash, ItemName.d_dash, ItemName.l_dash]
+            for name in dash_item_names:
+                if name not in self.multiworld.precollected_items[self.player]:
+                    item_pool.append(self.create_item(name))
         elif self.options.dash_shuffle.value == 4:
-            item_pool.append(self.create_item(ItemName.u_dash))
-            item_pool.append(self.create_item(ItemName.ur_dash))
-            item_pool.append(self.create_item(ItemName.r_dash))
-            item_pool.append(self.create_item(ItemName.dr_dash))
-            item_pool.append(self.create_item(ItemName.d_dash))
-            item_pool.append(self.create_item(ItemName.dl_dash))
-            item_pool.append(self.create_item(ItemName.l_dash))
-            item_pool.append(self.create_item(ItemName.ul_dash))
+            dash_item_names: list[str] = [ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ItemName.d_dash, ItemName.dl_dash, ItemName.l_dash, ItemName.ul_dash]
+            for name in dash_item_names:
+                if name not in self.multiworld.precollected_items[self.player]:
+                    item_pool.append(self.create_item(name))
 
         if self.options.climb_shuffle.value == 0:
             self.multiworld.push_precollected(self.create_item(ItemName.climb))
         elif self.options.climb_shuffle.value == 1:
-            item_pool.append(self.create_item(ItemName.climb))
+            if ItemName.climb not in self.multiworld.precollected_items[self.player]:
+                item_pool.append(self.create_item(ItemName.climb))
         elif self.options.climb_shuffle.value == 2:
-            item_pool.append(self.create_item(ItemName.r_climb))
-            item_pool.append(self.create_item(ItemName.l_climb))
+            climb_item_names: list[str] = [ItemName.r_climb, ItemName.l_climb]
+            for name in climb_item_names:
+                if name not in self.multiworld.precollected_items[self.player]:
+                    item_pool.append(self.create_item(name))
 
         if self.options.crouch_shuffle:
-            item_pool.append(self.create_item(ItemName.crouch))
+            if ItemName.crouch not in self.multiworld.precollected_items[self.player]:
+                item_pool.append(self.create_item(ItemName.crouch))
         else:
             self.multiworld.push_precollected(self.create_item(ItemName.crouch))
 
@@ -282,7 +292,7 @@ class CelesteOpenWorld(World):
             for level_name in shuffled_active_levels:
                 if level_name == "10b" or level_name == "10c":
                     continue
-                if level_name not in self.multiworld.precollected_items[self.player]:
+                if level_cassette_items[level_name] not in self.multiworld.precollected_items[self.player]:
                     if total_filler_count > 0:
                         item_pool.append(self.create_item(level_cassette_items[level_name]))
                         total_filler_count -= 1
@@ -290,11 +300,12 @@ class CelesteOpenWorld(World):
                         self.multiworld.push_precollected(self.create_item(level_cassette_items[level_name]))
 
         # Crystal Hearts
-        for name in crystal_heart_item_data_table.keys():
-            if total_filler_count > 0:
-                if name not in self.multiworld.precollected_items[self.player]:
-                    item_pool.append(self.create_item(name))
-                    total_filler_count -= 1
+        if self.options.goal_area.value != 9:
+            for name in crystal_heart_item_data_table.keys():
+                if total_filler_count > 0:
+                    if name not in self.multiworld.precollected_items[self.player]:
+                        item_pool.append(self.create_item(name))
+                        total_filler_count -= 1
 
         trap_count = 0 if (len(trap_weights) == 0) else math.ceil(total_filler_count * (self.options.trap_fill_percentage.value / 100.0))
         total_filler_count -= trap_count

@@ -48,6 +48,8 @@ def generate_location_table() -> dict[str, int]:
     level_data: dict[str, Level] = load_logic_data()
     location_table = {}
 
+    location_table["Poetry Slam"] = celeste_base_id - 1
+
     location_counts: dict[LocationType, int] = {
         LocationType.strawberry:        0,
         LocationType.golden_strawberry: 0,
@@ -170,6 +172,12 @@ def create_regions_and_locations(world: CelesteOpenWorld):
     menu_region = Region("Menu", world.player, world.multiworld)
     world.multiworld.regions.append(menu_region)
 
+    if world.options.goal_area.value == 9:
+        from .Items import crystal_heart_item_data_table
+        poetry_location = CelesteLocation(world.player, "Poetry Slam", world.location_name_to_id["Poetry Slam"], menu_region)
+        world.set_rule(poetry_location, HasAll(*(crystal_heart_item_data_table.keys())))
+        menu_region.locations.append(poetry_location)
+
     world.active_checkpoint_names: list[str] = []
     world.goal_checkpoint_names: dict[str, str] = dict()
     world.active_key_names: list[str] = []
@@ -266,7 +274,7 @@ def create_regions_and_locations(world: CelesteOpenWorld):
                 else:
                     checkpoint_location_name = level.display_name + " - " + room.checkpoint
                     world.active_checkpoint_names.append(checkpoint_location_name)
-                    checkpoint_rule = lambda state, checkpoint_location_name=checkpoint_location_name: state.has(checkpoint_location_name, world.player)
+                    checkpoint_rule = Has(checkpoint_location_name)
                     room_region.add_locations({
                         checkpoint_location_name: world.location_name_to_id[checkpoint_location_name]
                     }, CelesteLocation)

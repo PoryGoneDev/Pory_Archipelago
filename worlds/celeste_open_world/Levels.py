@@ -14,6 +14,7 @@ goal_area_option_to_name: dict[int, str] = {
     6: "10a",
     7: "10b",
     8: "10c",
+    9: "poetry",
 }
 
 
@@ -27,6 +28,7 @@ goal_area_option_to_display_name: dict[int, str] = {
     6: "Farewell",
     7: "Farewell",
     8: "Farewell",
+    9: "Poetry Slam",
 }
 
 goal_area_to_location_name: dict[str, str] = {
@@ -39,6 +41,7 @@ goal_area_to_location_name: dict[str, str] = {
     "10a": "Farewell - Crystal Heart?",
     "10b": "Farewell - Level Clear",
     "10c": "Farewell - Golden Strawberry",
+    "poetry": "Poetry Slam",
 }
 
 goal_area_to_option_name: dict[str, str] = {
@@ -51,6 +54,7 @@ goal_area_to_option_name: dict[str, str] = {
     "10a": "empty_space",
     "10b": "farewell",
     "10c": "farewell_golden",
+    "poetry": "poetry_slam",
 }
 
 level_id_to_name: dict[str, str] = {
