@@ -2,7 +2,7 @@ from copy import deepcopy
 import math
 from typing import TextIO, Optional
 
-from BaseClasses import ItemClassification, Location, MultiWorld, Region, Tutorial
+from BaseClasses import CollectionState, ItemClassification, Location, MultiWorld, Region, Tutorial
 from Options import Option
 from rule_builder.rules import Has, And
 from Utils import visualize_regions
@@ -131,6 +131,119 @@ class CelesteOpenWorld(World):
         create_regions_and_locations(self)
 
 
+    def collect(self, state: CollectionState, item: CelesteItem) -> bool:
+        change = super().collect(state, item)
+        if change:
+            if item.name == ItemName.dash:
+                state.prog_items[self.player][ItemName.u_dash] += 1
+                state.prog_items[self.player][ItemName.ur_dash] += 1
+                state.prog_items[self.player][ItemName.r_dash] += 1
+                state.prog_items[self.player][ItemName.dr_dash] += 1
+                state.prog_items[self.player][ItemName.d_dash] += 1
+                state.prog_items[self.player][ItemName.dl_dash] += 1
+                state.prog_items[self.player][ItemName.l_dash] += 1
+                state.prog_items[self.player][ItemName.ul_dash] += 1
+
+            if self.options.dash_shuffle.value == 2:
+                # Cardinal Loose
+                if item.name == ItemName.u_dash:
+                    state.prog_items[self.player][ItemName.ur_dash] += 1
+                    state.prog_items[self.player][ItemName.ul_dash] += 1
+                elif item.name == ItemName.d_dash:
+                    state.prog_items[self.player][ItemName.dr_dash] += 1
+                    state.prog_items[self.player][ItemName.dl_dash] += 1
+                elif item.name == ItemName.r_dash:
+                    state.prog_items[self.player][ItemName.ur_dash] += 1
+                    state.prog_items[self.player][ItemName.dr_dash] += 1
+                elif item.name == ItemName.l_dash:
+                    state.prog_items[self.player][ItemName.ul_dash] += 1
+                    state.prog_items[self.player][ItemName.dl_dash] += 1
+            elif self.options.dash_shuffle.value == 3:
+                # Cardinal Restrictive
+                if item.name == ItemName.u_dash:
+                    if state.prog_items[self.player][ItemName.r_dash] > 0:
+                        state.prog_items[self.player][ItemName.ur_dash] += 1
+                    if state.prog_items[self.player][ItemName.l_dash] > 0:
+                        state.prog_items[self.player][ItemName.ul_dash] += 1
+                elif item.name == ItemName.d_dash:
+                    if state.prog_items[self.player][ItemName.r_dash] > 0:
+                        state.prog_items[self.player][ItemName.dr_dash] += 1
+                    if state.prog_items[self.player][ItemName.l_dash] > 0:
+                        state.prog_items[self.player][ItemName.dl_dash] += 1
+                elif item.name == ItemName.r_dash:
+                    if state.prog_items[self.player][ItemName.u_dash] > 0:
+                        state.prog_items[self.player][ItemName.ur_dash] += 1
+                    if state.prog_items[self.player][ItemName.d_dash] > 0:
+                        state.prog_items[self.player][ItemName.dr_dash] += 1
+                elif item.name == ItemName.l_dash:
+                    if state.prog_items[self.player][ItemName.u_dash] > 0:
+                        state.prog_items[self.player][ItemName.ul_dash] += 1
+                    if state.prog_items[self.player][ItemName.d_dash] > 0:
+                        state.prog_items[self.player][ItemName.dl_dash] += 1
+
+            if item.name == ItemName.climb:
+                state.prog_items[self.player][ItemName.r_climb] += 1
+                state.prog_items[self.player][ItemName.l_climb] += 1
+
+        return change
+
+    def remove(self, state: CollectionState, item: CelesteItem) -> bool:
+        change = super().remove(state, item)
+        if change:
+            if item.name == ItemName.dash:
+                state.prog_items[self.player][ItemName.u_dash] -= 1
+                state.prog_items[self.player][ItemName.ur_dash] -= 1
+                state.prog_items[self.player][ItemName.r_dash] -= 1
+                state.prog_items[self.player][ItemName.dr_dash] -= 1
+                state.prog_items[self.player][ItemName.d_dash] -= 1
+                state.prog_items[self.player][ItemName.dl_dash] -= 1
+                state.prog_items[self.player][ItemName.l_dash] -= 1
+                state.prog_items[self.player][ItemName.ul_dash] -= 1
+
+            if self.options.dash_shuffle.value == 2:
+                # Cardinal Loose
+                if item.name == ItemName.u_dash:
+                    state.prog_items[self.player][ItemName.ur_dash] -= 1
+                    state.prog_items[self.player][ItemName.ul_dash] -= 1
+                elif item.name == ItemName.d_dash:
+                    state.prog_items[self.player][ItemName.dr_dash] -= 1
+                    state.prog_items[self.player][ItemName.dl_dash] -= 1
+                elif item.name == ItemName.r_dash:
+                    state.prog_items[self.player][ItemName.ur_dash] -= 1
+                    state.prog_items[self.player][ItemName.dr_dash] -= 1
+                elif item.name == ItemName.l_dash:
+                    state.prog_items[self.player][ItemName.ul_dash] += 1
+                    state.prog_items[self.player][ItemName.dl_dash] += 1
+            elif self.options.dash_shuffle.value == 3:
+                # Cardinal Restrictive
+                if item.name == ItemName.u_dash:
+                    if state.prog_items[self.player][ItemName.r_dash] > 0:
+                        state.prog_items[self.player][ItemName.ur_dash] -= 1
+                    if state.prog_items[self.player][ItemName.l_dash] > 0:
+                        state.prog_items[self.player][ItemName.ul_dash] -= 1
+                elif item.name == ItemName.d_dash:
+                    if state.prog_items[self.player][ItemName.r_dash] > 0:
+                        state.prog_items[self.player][ItemName.dr_dash] -= 1
+                    if state.prog_items[self.player][ItemName.l_dash] > 0:
+                        state.prog_items[self.player][ItemName.dl_dash] -= 1
+                elif item.name == ItemName.r_dash:
+                    if state.prog_items[self.player][ItemName.u_dash] > 0:
+                        state.prog_items[self.player][ItemName.ur_dash] -= 1
+                    if state.prog_items[self.player][ItemName.d_dash] > 0:
+                        state.prog_items[self.player][ItemName.dr_dash] -= 1
+                elif item.name == ItemName.l_dash:
+                    if state.prog_items[self.player][ItemName.u_dash] > 0:
+                        state.prog_items[self.player][ItemName.ul_dash] -= 1
+                    if state.prog_items[self.player][ItemName.d_dash] > 0:
+                        state.prog_items[self.player][ItemName.dl_dash] -= 1
+
+            if item.name == ItemName.climb:
+                state.prog_items[self.player][ItemName.r_climb] -= 1
+                state.prog_items[self.player][ItemName.l_climb] -= 1
+
+        return change
+
+
     def create_item(self, name: str, force_useful: bool = False) -> CelesteItem:
         item_data_table = generate_item_data_table()
 
@@ -207,7 +320,6 @@ class CelesteOpenWorld(World):
         item_pool += [self.create_item(item_name) for item_name in sorted(self.active_items) if item_name not in self.multiworld.precollected_items[self.player]]
 
         # Movement
-        # TODO: Handle Collect for the Cardinal Options to give diagonals for logic
         if self.options.dash_shuffle.value == 0:
             self.multiworld.push_precollected(self.create_item(ItemName.dash))
         elif self.options.dash_shuffle.value == 1:
