@@ -31,6 +31,21 @@ class TrapLink(Toggle):
     """
     display_name = "Trap Link"
 
+class LogicDifficulty(Choice):
+    """
+    What level of movement, tricks, and skips the logic will expect you to do
+
+    Developer Intended: The logic for a room only requires movement that the developers would expect a first-time player to know in that room
+
+    Vanilla Movement: The logic for a room could require any movement or tricks learned anywhere in the vanilla game
+
+    Assist Mode: The logic expects you to use invincibility, infinite dashes, and infinite stamina
+    """
+    display_name = "Logic Difficulty"
+    option_developer_intended = 0
+    option_vanilla_movement = 1
+    option_assist_mode = 2
+
 
 class GoalArea(Choice):
     """
@@ -522,6 +537,10 @@ celeste_option_groups = [
 
 
 def resolve_options(world: World):
+    # Disable Climb Shuffle on Developer Intended Logic
+    if world.options.logic_difficulty.value == 0:
+        world.options.climb_shuffle.value = 0
+
     # One Dash Hair
     if isinstance(world.options.madeline_one_dash_hair_color.value, str):
         try:
@@ -581,6 +600,7 @@ class CelesteOptions(PerGameCommonOptions):
     death_link_amnesty: DeathLinkAmnesty
     death_link_receipt_style: DeathLinkReceiptStyle
     trap_link: TrapLink
+    logic_difficulty: LogicDifficulty
 
     goal_area: GoalArea
     lock_goal_area: LockGoalArea
