@@ -1,5 +1,31 @@
 if __name__ == "__main__":
+    import itertools
     import json
+
+
+    def get_full_access_string(possible_access_str: str, multi_dashes: list[list[str]]) -> str:
+        output: str = ""
+
+        if len(multi_dashes) == 0:
+            output += f"[{possible_access_str}], "
+        else:
+            combinations = itertools.product(*multi_dashes)
+
+            filtered_combinations: set[frozenset[str]] = set()
+            for comb in combinations:
+                comb_set = frozenset(comb)
+                filtered_combinations.add(comb_set)
+
+            for filtered_comb in sorted(filtered_combinations):
+                output += f"["
+                if len(possible_access_str) > 0:
+                    output += possible_access_str
+                for dash_str in filtered_comb:
+                    output += f"ItemName.{dash_str}_dash, "
+                output += f"], "
+
+        return output
+
 
     all_doors: list[str] = []
     all_region_connections: list[str] = []
@@ -75,15 +101,19 @@ if __name__ == "__main__":
                                         f"LocationType.{location['type']}, ["
                                        )
 
+                        #for rule_key in ['rule', 'vanilla_rule', 'assist_rule']:
                         if "rule" in location:
                             for possible_access in location['rule']:
-                                location_str += f"["
+                                multi_dashes: list[list[str]] = []
+                                possible_access_str = ""
                                 for item in possible_access:
-                                    if "Key" in item or "Gem" in item:
-                                        location_str += f"\"{level['display_name']} - {item}\", "
+                                    if "any_dash_" in item:
+                                        multi_dashes.append(list(item[9:].split("_")))
+                                    elif "Key" in item or "Gem" in item:
+                                        possible_access_str += f"\"{level['display_name']} - {item}\", "
                                     else:
-                                        location_str += f"ItemName.{item}, "
-                                location_str += f"], "
+                                        possible_access_str += f"ItemName.{item}, "
+                                location_str += get_full_access_string(possible_access_str, multi_dashes)
                         elif "rules" in location:
                             raise Exception(f"Location {location_full_name} uses 'rules' instead of 'rule")
 
@@ -99,13 +129,16 @@ if __name__ == "__main__":
                     reg_con_str = f"    \"{reg_con_full_name}\": RegionConnection(\"{region_full_name}\", \"{dest_region_full_name}\", ["
 
                     for possible_access in reg_con['rule']:
-                        reg_con_str += f"["
+                        multi_dashes: list[list[str]] = []
+                        possible_access_str = ""
                         for item in possible_access:
-                            if "Key" in item or "Gem" in item:
-                                reg_con_str += f"\"{level['display_name']} - {item}\", "
+                            if "any_dash_" in item:
+                                multi_dashes.append(list(item[9:].split("_")))
+                            elif "Key" in item or "Gem" in item:
+                                possible_access_str += f"\"{level['display_name']} - {item}\", "
                             else:
-                                reg_con_str += f"ItemName.{item}, "
-                        reg_con_str += f"], "
+                                possible_access_str += f"ItemName.{item}, "
+                        reg_con_str += get_full_access_string(possible_access_str, multi_dashes)
 
                     reg_con_str += "]),"
 
