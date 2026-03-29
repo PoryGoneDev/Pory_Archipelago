@@ -11,16 +11,17 @@ if __name__ == "__main__":
         else:
             combinations = itertools.product(*multi_dashes)
 
-            filtered_combinations: set[frozenset[str]] = set()
+            filtered_combinations: set[frozenset[str]] = list()
             for comb in combinations:
-                comb_set = frozenset(comb)
-                filtered_combinations.add(comb_set)
+                comb_set = sorted(list(set(comb)))
+                if comb_set not in filtered_combinations:
+                    filtered_combinations.append(comb_set)
 
             for filtered_comb in sorted(filtered_combinations):
                 output += f"["
                 if len(possible_access_str) > 0:
                     output += possible_access_str
-                for dash_str in sorted(filtered_comb):
+                for dash_str in filtered_comb:
                     output += f"ItemName.{dash_str}_dash, "
                 output += f"], "
 

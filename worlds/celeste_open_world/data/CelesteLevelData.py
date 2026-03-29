@@ -2603,7 +2603,7 @@ all_region_connections: dict[str, RegionConnection] = {
     "1a_1_main---1a_1_east": RegionConnection("1a_1_main", "1a_1_east", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "1a_1_east---1a_1_main": RegionConnection("1a_1_east", "1a_1_main", []),
 
-    "1a_2_west---1a_2_east": RegionConnection("1a_2_west", "1a_2_east", [[ItemName.ur_dash, ], [ItemName.r_dash, ], ]),
+    "1a_2_west---1a_2_east": RegionConnection("1a_2_west", "1a_2_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "1a_2_east---1a_2_west": RegionConnection("1a_2_east", "1a_2_west", []),
 
     "1a_3_west---1a_3_east": RegionConnection("1a_3_west", "1a_3_east", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
@@ -2628,7 +2628,7 @@ all_region_connections: dict[str, RegionConnection] = {
     "1a_5_center---1a_5_bottom": RegionConnection("1a_5_center", "1a_5_bottom", []),
     "1a_5_center---1a_5_south-east": RegionConnection("1a_5_center", "1a_5_south-east", []),
     "1a_5_south-east---1a_5_north-east": RegionConnection("1a_5_south-east", "1a_5_north-east", [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
-    "1a_5_south-east---1a_5_center": RegionConnection("1a_5_south-east", "1a_5_center", [[ItemName.ul_dash, ], [ItemName.u_dash, ], ]),
+    "1a_5_south-east---1a_5_center": RegionConnection("1a_5_south-east", "1a_5_center", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "1a_5_north-east---1a_5_center": RegionConnection("1a_5_north-east", "1a_5_center", []),
     "1a_5_north-east---1a_5_top": RegionConnection("1a_5_north-east", "1a_5_top", []),
     "1a_5_top---1a_5_north-east": RegionConnection("1a_5_top", "1a_5_north-east", []),
@@ -2650,23 +2650,23 @@ all_region_connections: dict[str, RegionConnection] = {
     "1a_6zb_main---1a_6zb_east": RegionConnection("1a_6zb_main", "1a_6zb_east", [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "1a_6zb_east---1a_6zb_main": RegionConnection("1a_6zb_east", "1a_6zb_main", []),
 
-    "1a_7zb_west---1a_7zb_east": RegionConnection("1a_7zb_west", "1a_7zb_east", [[ItemName.dash_refills, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.r_dash, ], ]),
+    "1a_7zb_west---1a_7zb_east": RegionConnection("1a_7zb_west", "1a_7zb_east", [[ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ]),
     "1a_7zb_east---1a_7zb_west": RegionConnection("1a_7zb_east", "1a_7zb_west", [[ItemName.springs, ItemName.dash_refills, ItemName.l_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
-    "1a_6a_west---1a_6a_east": RegionConnection("1a_6a_west", "1a_6a_east", [[ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], ]),
+    "1a_6a_west---1a_6a_east": RegionConnection("1a_6a_west", "1a_6a_east", [[ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "1a_6a_east---1a_6a_west": RegionConnection("1a_6a_east", "1a_6a_west", []),
 
-    "1a_6b_south-west---1a_6b_north-west": RegionConnection("1a_6b_south-west", "1a_6b_north-west", [[ItemName.traffic_blocks, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], [ItemName.traffic_blocks, ItemName.u_dash, ], ]),
+    "1a_6b_south-west---1a_6b_north-west": RegionConnection("1a_6b_south-west", "1a_6b_north-west", [[ItemName.traffic_blocks, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], ]),
     "1a_6b_south-west---1a_6b_north-east": RegionConnection("1a_6b_south-west", "1a_6b_north-east", [[ItemName.traffic_blocks, ], ]),
     "1a_6b_north-west---1a_6b_south-west": RegionConnection("1a_6b_north-west", "1a_6b_south-west", []),
     "1a_6b_north-west---1a_6b_north-east": RegionConnection("1a_6b_north-west", "1a_6b_north-east", []),
-    "1a_6b_north-east---1a_6b_south-west": RegionConnection("1a_6b_north-east", "1a_6b_south-west", [[ItemName.ul_dash, ], [ItemName.u_dash, ], ]),
+    "1a_6b_north-east---1a_6b_south-west": RegionConnection("1a_6b_north-east", "1a_6b_south-west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
 
     "1a_s0_west---1a_s0_east": RegionConnection("1a_s0_west", "1a_s0_east", []),
     "1a_s0_east---1a_s0_west": RegionConnection("1a_s0_east", "1a_s0_west", [[ItemName.traffic_blocks, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.ur_dash, ], ]),
 
 
-    "1a_6c_south-west---1a_6c_north-west": RegionConnection("1a_6c_south-west", "1a_6c_north-west", [[ItemName.l_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.l_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.u_dash, ItemName.ul_dash, ], ]),
+    "1a_6c_south-west---1a_6c_north-west": RegionConnection("1a_6c_south-west", "1a_6c_north-west", [[ItemName.dl_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.l_dash, ItemName.u_dash, ], [ItemName.l_dash, ItemName.ul_dash, ], [ItemName.u_dash, ItemName.ul_dash, ], [ItemName.ul_dash, ], ]),
     "1a_6c_south-west---1a_6c_north-east": RegionConnection("1a_6c_south-west", "1a_6c_north-east", [[ItemName.springs, ], ]),
     "1a_6c_north-west---1a_6c_south-west": RegionConnection("1a_6c_north-west", "1a_6c_south-west", []),
     "1a_6c_north-east---1a_6c_south-west": RegionConnection("1a_6c_north-east", "1a_6c_south-west", []),
@@ -2674,8 +2674,8 @@ all_region_connections: dict[str, RegionConnection] = {
     "1a_7_west---1a_7_east": RegionConnection("1a_7_west", "1a_7_east", []),
     "1a_7_east---1a_7_west": RegionConnection("1a_7_east", "1a_7_west", []),
 
-    "1a_7z_bottom---1a_7z_top": RegionConnection("1a_7z_bottom", "1a_7z_top", [[ItemName.ul_dash, ], [ItemName.u_dash, ], ]),
-    "1a_7z_top---1a_7z_bottom": RegionConnection("1a_7z_top", "1a_7z_bottom", [[ItemName.ur_dash, ], [ItemName.r_dash, ], ]),
+    "1a_7z_bottom---1a_7z_top": RegionConnection("1a_7z_bottom", "1a_7z_top", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
+    "1a_7z_top---1a_7z_bottom": RegionConnection("1a_7z_top", "1a_7z_bottom", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
 
     "1a_8z_bottom---1a_8z_top": RegionConnection("1a_8z_bottom", "1a_8z_top", [[ItemName.traffic_blocks, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "1a_8z_top---1a_8z_bottom": RegionConnection("1a_8z_top", "1a_8z_bottom", []),
@@ -2684,15 +2684,15 @@ all_region_connections: dict[str, RegionConnection] = {
     "1a_8zb_east---1a_8zb_west": RegionConnection("1a_8zb_east", "1a_8zb_west", [[ItemName.cannot_access, ], ]),
 
     "1a_8_south-west---1a_8_south": RegionConnection("1a_8_south-west", "1a_8_south", [[ItemName.r_dash, ItemName.u_dash, ], [ItemName.r_dash, ItemName.ur_dash, ], ]),
-    "1a_8_south-west---1a_8_north": RegionConnection("1a_8_south-west", "1a_8_north", [[ItemName.u_dash, ItemName.r_dash, ], [ItemName.ur_dash, ItemName.ul_dash, ], [ItemName.ur_dash, ItemName.u_dash, ], ]),
+    "1a_8_south-west---1a_8_north": RegionConnection("1a_8_south-west", "1a_8_north", [[ItemName.u_dash, ItemName.r_dash, ], [ItemName.ur_dash, ItemName.u_dash, ], [ItemName.ur_dash, ItemName.ul_dash, ], ]),
     "1a_8_south-west---1a_8_north-east": RegionConnection("1a_8_south-west", "1a_8_north-east", [[ItemName.u_dash, ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "1a_8_west---1a_8_south-west": RegionConnection("1a_8_west", "1a_8_south-west", []),
     "1a_8_south-east---1a_8_north": RegionConnection("1a_8_south-east", "1a_8_north", [[ItemName.u_dash, ], ]),
-    "1a_8_south-east---1a_8_north-east": RegionConnection("1a_8_south-east", "1a_8_north-east", [[ItemName.u_dash, ItemName.ur_dash, ], [ItemName.u_dash, ItemName.r_dash, ], [ItemName.springs, ItemName.ur_dash, ], [ItemName.springs, ItemName.r_dash, ], ]),
+    "1a_8_south-east---1a_8_north-east": RegionConnection("1a_8_south-east", "1a_8_north-east", [[ItemName.u_dash, ItemName.r_dash, ], [ItemName.u_dash, ItemName.ur_dash, ], [ItemName.springs, ItemName.r_dash, ], [ItemName.springs, ItemName.ur_dash, ], ]),
     "1a_8_south-east---1a_8_south": RegionConnection("1a_8_south-east", "1a_8_south", [[ItemName.springs, ItemName.r_dash, ], [ItemName.u_dash, ItemName.r_dash, ], ]),
-    "1a_8_north---1a_8_north-east": RegionConnection("1a_8_north", "1a_8_north-east", [[ItemName.ur_dash, ], [ItemName.r_dash, ], ]),
+    "1a_8_north---1a_8_north-east": RegionConnection("1a_8_north", "1a_8_north-east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "1a_8_north---1a_8_south": RegionConnection("1a_8_north", "1a_8_south", [[ItemName.r_dash, ], ]),
-    "1a_8_north-east---1a_8_north": RegionConnection("1a_8_north-east", "1a_8_north", [[ItemName.l_dash, ], [ItemName.ul_dash, ], [ItemName.u_dash, ], ]),
+    "1a_8_north-east---1a_8_north": RegionConnection("1a_8_north-east", "1a_8_north", [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "1a_8_north-east---1a_8_south": RegionConnection("1a_8_north-east", "1a_8_south", [[ItemName.r_dash, ], ]),
 
     "1a_7a_east---1a_7a_west": RegionConnection("1a_7a_east", "1a_7a_west", []),
@@ -2700,7 +2700,7 @@ all_region_connections: dict[str, RegionConnection] = {
 
 
     "1a_8b_east---1a_8b_west": RegionConnection("1a_8b_east", "1a_8b_west", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
-    "1a_8b_west---1a_8b_east": RegionConnection("1a_8b_west", "1a_8b_east", [[ItemName.traffic_blocks, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.r_dash, ], ]),
+    "1a_8b_west---1a_8b_east": RegionConnection("1a_8b_west", "1a_8b_east", [[ItemName.traffic_blocks, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.ur_dash, ], ]),
 
     "1a_9_east---1a_9_west": RegionConnection("1a_9_east", "1a_9_west", [[ItemName.cannot_access, ], ]),
     "1a_9_west---1a_9_east": RegionConnection("1a_9_west", "1a_9_east", [[ItemName.traffic_blocks, ], ]),
@@ -2708,7 +2708,7 @@ all_region_connections: dict[str, RegionConnection] = {
     "1a_9b_east---1a_9b_north-east": RegionConnection("1a_9b_east", "1a_9b_north-east", [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "1a_9b_north-east---1a_9b_east": RegionConnection("1a_9b_north-east", "1a_9b_east", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "1a_9b_north-east---1a_9b_west": RegionConnection("1a_9b_north-east", "1a_9b_west", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
-    "1a_9b_south-west---1a_9b_west": RegionConnection("1a_9b_south-west", "1a_9b_west", [[ItemName.ul_dash, ], [ItemName.u_dash, ], ]),
+    "1a_9b_south-west---1a_9b_west": RegionConnection("1a_9b_south-west", "1a_9b_west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "1a_9b_west---1a_9b_south-west": RegionConnection("1a_9b_west", "1a_9b_south-west", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
     "1a_9b_west---1a_9b_east": RegionConnection("1a_9b_west", "1a_9b_east", [[ItemName.traffic_blocks, ], ]),
     "1a_9b_west---1a_9b_north-west": RegionConnection("1a_9b_west", "1a_9b_north-west", [[ItemName.traffic_blocks, ], ]),
@@ -2721,29 +2721,29 @@ all_region_connections: dict[str, RegionConnection] = {
     "1a_10_north-west---1a_10_south-east": RegionConnection("1a_10_north-west", "1a_10_south-east", []),
     "1a_10_north-east---1a_10_south-east": RegionConnection("1a_10_north-east", "1a_10_south-east", []),
 
-    "1a_10z_west---1a_10z_east": RegionConnection("1a_10z_west", "1a_10z_east", [[ItemName.ur_dash, ], [ItemName.r_dash, ], ]),
-    "1a_10z_east---1a_10z_west": RegionConnection("1a_10z_east", "1a_10z_west", [[ItemName.springs, ItemName.l_dash, ], [ItemName.springs, ItemName.ul_dash, ], [ItemName.springs, ItemName.u_dash, ], ]),
+    "1a_10z_west---1a_10z_east": RegionConnection("1a_10z_west", "1a_10z_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
+    "1a_10z_east---1a_10z_west": RegionConnection("1a_10z_east", "1a_10z_west", [[ItemName.springs, ItemName.l_dash, ], [ItemName.springs, ItemName.u_dash, ], [ItemName.springs, ItemName.ul_dash, ], ]),
 
 
-    "1a_11_south-east---1a_11_north": RegionConnection("1a_11_south-east", "1a_11_north", [[ItemName.traffic_blocks, ItemName.ul_dash, ], [ItemName.traffic_blocks, ItemName.u_dash, ], ]),
+    "1a_11_south-east---1a_11_north": RegionConnection("1a_11_south-east", "1a_11_north", [[ItemName.traffic_blocks, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], ]),
     "1a_11_south-west---1a_11_south": RegionConnection("1a_11_south-west", "1a_11_south", [[ItemName.traffic_blocks, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], ]),
     "1a_11_south-west---1a_11_west": RegionConnection("1a_11_south-west", "1a_11_west", [[ItemName.traffic_blocks, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], ]),
-    "1a_11_north---1a_11_south-east": RegionConnection("1a_11_north", "1a_11_south-east", [[ItemName.ur_dash, ], [ItemName.r_dash, ], ]),
+    "1a_11_north---1a_11_south-east": RegionConnection("1a_11_north", "1a_11_south-east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "1a_11_west---1a_11_south-west": RegionConnection("1a_11_west", "1a_11_south-west", [[ItemName.traffic_blocks, ], ]),
     "1a_11_south---1a_11_south-west": RegionConnection("1a_11_south", "1a_11_south-west", [[ItemName.cannot_access, ], ]),
 
 
-    "1a_10a_bottom---1a_10a_top": RegionConnection("1a_10a_bottom", "1a_10a_top", [[ItemName.dash_refills, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.u_dash, ], ]),
+    "1a_10a_bottom---1a_10a_top": RegionConnection("1a_10a_bottom", "1a_10a_top", [[ItemName.dash_refills, ItemName.u_dash, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.ul_dash, ], ]),
     "1a_10a_top---1a_10a_bottom": RegionConnection("1a_10a_top", "1a_10a_bottom", [[ItemName.cannot_access, ], ]),
 
     "1a_12_south-west---1a_12_north-west": RegionConnection("1a_12_south-west", "1a_12_north-west", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "1a_12_north-west---1a_12_south-west": RegionConnection("1a_12_north-west", "1a_12_south-west", []),
     "1a_12_north-west---1a_12_north-west-door": RegionConnection("1a_12_north-west", "1a_12_north-west-door", []),
-    "1a_12_north-west---1a_12_east": RegionConnection("1a_12_north-west", "1a_12_east", [[ItemName.ur_dash, ], [ItemName.r_dash, ], ]),
+    "1a_12_north-west---1a_12_east": RegionConnection("1a_12_north-west", "1a_12_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "1a_12_north-west-door---1a_12_north-west": RegionConnection("1a_12_north-west-door", "1a_12_north-west", []),
 
 
-    "1a_12a_bottom---1a_12a_top": RegionConnection("1a_12a_bottom", "1a_12a_top", [[ItemName.traffic_blocks, ItemName.springs, ItemName.l_dash, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.l_dash, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.r_dash, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ], ]),
+    "1a_12a_bottom---1a_12a_top": RegionConnection("1a_12a_bottom", "1a_12a_top", [[ItemName.traffic_blocks, ItemName.springs, ItemName.l_dash, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.l_dash, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.r_dash, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.springs, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "1a_12a_top---1a_12a_bottom": RegionConnection("1a_12a_top", "1a_12a_bottom", []),
 
     "1a_end_south---1a_end_main": RegionConnection("1a_end_south", "1a_end_main", []),
@@ -2773,15 +2773,15 @@ all_region_connections: dict[str, RegionConnection] = {
     "1b_05b_west---1b_05b_east": RegionConnection("1b_05b_west", "1b_05b_east", [[ItemName.springs, ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
     "1b_05b_east---1b_05b_west": RegionConnection("1b_05b_east", "1b_05b_west", [[ItemName.cannot_access, ], ]),
 
-    "1b_06_west---1b_06_east": RegionConnection("1b_06_west", "1b_06_east", [[ItemName.springs, ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
+    "1b_06_west---1b_06_east": RegionConnection("1b_06_west", "1b_06_east", [[ItemName.springs, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "1b_06_east---1b_06_west": RegionConnection("1b_06_east", "1b_06_west", [[ItemName.cannot_access, ], ]),
 
-    "1b_07_bottom---1b_07_top": RegionConnection("1b_07_bottom", "1b_07_top", [[ItemName.traffic_blocks, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], [ItemName.traffic_blocks, ItemName.u_dash, ], ]),
+    "1b_07_bottom---1b_07_top": RegionConnection("1b_07_bottom", "1b_07_top", [[ItemName.traffic_blocks, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], ]),
     "1b_07_top---1b_07_bottom": RegionConnection("1b_07_top", "1b_07_bottom", []),
 
     "1b_08_west---1b_08_east": RegionConnection("1b_08_west", "1b_08_east", [[ItemName.traffic_blocks, ItemName.u_dash, ], ]),
 
-    "1b_08b_west---1b_08b_east": RegionConnection("1b_08b_west", "1b_08b_east", [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
+    "1b_08b_west---1b_08b_east": RegionConnection("1b_08b_west", "1b_08b_east", [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.ur_dash, ], ]),
     "1b_08b_east---1b_08b_west": RegionConnection("1b_08b_east", "1b_08b_west", [[ItemName.cannot_access, ], ]),
 
     "1b_09_west---1b_09_east": RegionConnection("1b_09_west", "1b_09_east", [[ItemName.traffic_blocks, ItemName.u_dash, ], ]),
@@ -2792,15 +2792,15 @@ all_region_connections: dict[str, RegionConnection] = {
     "1b_11_bottom---1b_11_top": RegionConnection("1b_11_bottom", "1b_11_top", [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ], ]),
     "1b_11_top---1b_11_bottom": RegionConnection("1b_11_top", "1b_11_bottom", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
 
-    "1b_end_west---1b_end_goal": RegionConnection("1b_end_west", "1b_end_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], ]),
+    "1b_end_west---1b_end_goal": RegionConnection("1b_end_west", "1b_end_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
-    "1c_00_west---1c_00_east": RegionConnection("1c_00_west", "1c_00_east", [[ItemName.traffic_blocks, ItemName.dash_refills, ], ]),
+    "1c_00_west---1c_00_east": RegionConnection("1c_00_west", "1c_00_east", [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
     "1c_00_east---1c_00_west": RegionConnection("1c_00_east", "1c_00_west", [[ItemName.cannot_access, ], ]),
 
-    "1c_01_west---1c_01_east": RegionConnection("1c_01_west", "1c_01_east", [[ItemName.traffic_blocks, ], ]),
+    "1c_01_west---1c_01_east": RegionConnection("1c_01_west", "1c_01_east", [[ItemName.traffic_blocks, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.ur_dash, ], ]),
     "1c_01_east---1c_01_west": RegionConnection("1c_01_east", "1c_01_west", []),
 
-    "1c_02_west---1c_02_goal": RegionConnection("1c_02_west", "1c_02_goal", [[ItemName.coins, ItemName.traffic_blocks, ], ]),
+    "1c_02_west---1c_02_goal": RegionConnection("1c_02_west", "1c_02_goal", [[ItemName.coins, ItemName.traffic_blocks, ItemName.u_dash, ItemName.r_dash, ], ]),
 
     "2a_start_main---2a_start_east": RegionConnection("2a_start_main", "2a_start_east", []),
     "2a_start_top---2a_start_east": RegionConnection("2a_start_top", "2a_start_east", []),
@@ -4984,22 +4984,22 @@ all_locations: dict[str, LevelLocation] = {
     "0a_-1_car": LevelLocation("0a_-1_car", "Prologue - Car", "0a_-1_main", LocationType.car, []),
     "0a_3_clear": LevelLocation("0a_3_clear", "Prologue - Level Clear", "0a_3_east", LocationType.level_clear, []),
 
-    "1a_2_strawberry": LevelLocation("1a_2_strawberry", "Forsaken City A - Room 2 Strawberry", "1a_2_west", LocationType.strawberry, [[ItemName.springs, ItemName.ul_dash, ], [ItemName.springs, ItemName.u_dash, ], ]),
-    "1a_3_strawberry": LevelLocation("1a_3_strawberry", "Forsaken City A - Room 3 Strawberry", "1a_3_east", LocationType.strawberry, [[ItemName.ul_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "1a_2_strawberry": LevelLocation("1a_2_strawberry", "Forsaken City A - Room 2 Strawberry", "1a_2_west", LocationType.strawberry, [[ItemName.springs, ItemName.u_dash, ], [ItemName.springs, ItemName.ul_dash, ], ]),
+    "1a_3_strawberry": LevelLocation("1a_3_strawberry", "Forsaken City A - Room 3 Strawberry", "1a_3_east", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "1a_3b_strawberry": LevelLocation("1a_3b_strawberry", "Forsaken City A - Room 3b Strawberry", "1a_3b_top", LocationType.strawberry, []),
     "1a_5_strawberry": LevelLocation("1a_5_strawberry", "Forsaken City A - Room 5 Strawberry", "1a_5_north-west", LocationType.strawberry, []),
-    "1a_5z_strawberry": LevelLocation("1a_5z_strawberry", "Forsaken City A - Room 5z Strawberry", "1a_5z_east", LocationType.strawberry, [[ItemName.ur_dash, ], [ItemName.r_dash, ], ]),
+    "1a_5z_strawberry": LevelLocation("1a_5z_strawberry", "Forsaken City A - Room 5z Strawberry", "1a_5z_east", LocationType.strawberry, [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "1a_5a_strawberry": LevelLocation("1a_5a_strawberry", "Forsaken City A - Room 5a Strawberry", "1a_5a_west", LocationType.strawberry, [[ItemName.traffic_blocks, ], ]),
     "1a_6_strawberry": LevelLocation("1a_6_strawberry", "Forsaken City A - Room 6 Strawberry", "1a_6_east", LocationType.strawberry, [[ItemName.dr_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "1a_7zb_strawberry": LevelLocation("1a_7zb_strawberry", "Forsaken City A - Room 7zb Strawberry", "1a_7zb_west", LocationType.strawberry, []),
-    "1a_s1_strawberry": LevelLocation("1a_s1_strawberry", "Forsaken City A - Room s1 Strawberry", "1a_s1_east", LocationType.strawberry, [[ItemName.ul_dash, ], [ItemName.u_dash, ], ]),
+    "1a_s1_strawberry": LevelLocation("1a_s1_strawberry", "Forsaken City A - Room s1 Strawberry", "1a_s1_east", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "1a_s1_crystal_heart": LevelLocation("1a_s1_crystal_heart", "Forsaken City A - Crystal Heart", "1a_s1_east", LocationType.crystal_heart, [[ItemName.u_dash, ItemName.l_dash, ItemName.dr_dash, ItemName.ur_dash, ItemName.ul_dash, ], ]),
     "1a_7z_strawberry": LevelLocation("1a_7z_strawberry", "Forsaken City A - Room 7z Strawberry", "1a_7z_bottom", LocationType.strawberry, [[ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "1a_8zb_strawberry": LevelLocation("1a_8zb_strawberry", "Forsaken City A - Room 8zb Strawberry", "1a_8zb_west", LocationType.strawberry, [[ItemName.dash_refills, ItemName.r_dash, ItemName.ur_dash, ], ]),
     "1a_7a_strawberry": LevelLocation("1a_7a_strawberry", "Forsaken City A - Room 7a Strawberry", "1a_7a_east", LocationType.strawberry, []),
     "1a_9z_strawberry": LevelLocation("1a_9z_strawberry", "Forsaken City A - Room 9z Strawberry", "1a_9z_east", LocationType.strawberry, [[ItemName.traffic_blocks, ], ]),
-    "1a_8b_strawberry": LevelLocation("1a_8b_strawberry", "Forsaken City A - Room 8b Strawberry", "1a_8b_east", LocationType.strawberry, [[ItemName.traffic_blocks, ItemName.ur_dash, ], [ItemName.traffic_blocks, ItemName.r_dash, ], ]),
-    "1a_9_strawberry": LevelLocation("1a_9_strawberry", "Forsaken City A - Room 9 Strawberry", "1a_9_west", LocationType.strawberry, [[ItemName.traffic_blocks, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], [ItemName.traffic_blocks, ItemName.u_dash, ], ]),
+    "1a_8b_strawberry": LevelLocation("1a_8b_strawberry", "Forsaken City A - Room 8b Strawberry", "1a_8b_east", LocationType.strawberry, [[ItemName.traffic_blocks, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.ur_dash, ], ]),
+    "1a_9_strawberry": LevelLocation("1a_9_strawberry", "Forsaken City A - Room 9 Strawberry", "1a_9_west", LocationType.strawberry, [[ItemName.traffic_blocks, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.u_dash, ], [ItemName.traffic_blocks, ItemName.ul_dash, ], ]),
     "1a_9b_strawberry": LevelLocation("1a_9b_strawberry", "Forsaken City A - Room 9b Strawberry", "1a_9b_east", LocationType.strawberry, [[ItemName.u_dash, ], ]),
     "1a_9c_strawberry": LevelLocation("1a_9c_strawberry", "Forsaken City A - Room 9c Strawberry", "1a_9c_west", LocationType.strawberry, [[ItemName.traffic_blocks, ItemName.springs, ], ]),
     "1a_10zb_strawberry": LevelLocation("1a_10zb_strawberry", "Forsaken City A - Room 10zb Strawberry", "1a_10zb_east", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
@@ -5018,7 +5018,7 @@ all_locations: dict[str, LevelLocation] = {
     "1c_01_binoculars": LevelLocation("1c_01_binoculars", "Forsaken City C - Room 01 Binoculars", "1c_01_west", LocationType.binoculars, []),
     "1c_02_binoculars": LevelLocation("1c_02_binoculars", "Forsaken City C - Room 02 Binoculars", "1c_02_west", LocationType.binoculars, []),
     "1c_02_clear": LevelLocation("1c_02_clear", "Forsaken City C - Level Clear", "1c_02_goal", LocationType.level_clear, []),
-    "1c_02_golden": LevelLocation("1c_02_golden", "Forsaken City C - Golden Strawberry", "1c_02_goal", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.coins, ], ]),
+    "1c_02_golden": LevelLocation("1c_02_golden", "Forsaken City C - Golden Strawberry", "1c_02_goal", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.coins, ItemName.u_dash, ItemName.r_dash, ], ]),
 
     "2a_s2_crystal_heart": LevelLocation("2a_s2_crystal_heart", "Old Site A - Crystal Heart", "2a_s2_bottom", LocationType.crystal_heart, []),
     "2a_1_strawberry": LevelLocation("2a_1_strawberry", "Old Site A - Room 1 Strawberry", "2a_1_north-west", LocationType.strawberry, [[ItemName.dream_blocks, ], ]),

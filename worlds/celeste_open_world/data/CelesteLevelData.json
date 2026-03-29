@@ -3282,7 +3282,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "traffic_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "u_dash", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -3315,7 +3315,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "traffic_blocks" ] ]
+                                    "rule": [ [ "traffic_blocks", "any_dash_ur_r" ] ]
                                 }
                             ],
                             "locations": [
@@ -3362,7 +3362,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "coins", "traffic_blocks" ] ]
+                                    "rule": [ [ "coins", "traffic_blocks", "u_dash", "r_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -3388,7 +3388,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "traffic_blocks", "dash_refills", "coins" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "coins", "u_dash", "r_dash" ] ]
                                 }
                             ]
                         }
