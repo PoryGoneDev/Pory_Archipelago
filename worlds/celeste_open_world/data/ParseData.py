@@ -20,7 +20,7 @@ if __name__ == "__main__":
                 output += f"["
                 if len(possible_access_str) > 0:
                     output += possible_access_str
-                for dash_str in filtered_comb:
+                for dash_str in sorted(filtered_comb):
                     output += f"ItemName.{dash_str}_dash, "
                 output += f"], "
 
