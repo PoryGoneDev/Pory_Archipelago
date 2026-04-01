@@ -11,7 +11,7 @@ if __name__ == "__main__":
         else:
             combinations = itertools.product(*multi_dashes)
 
-            filtered_combinations: set[frozenset[str]] = list()
+            filtered_combinations: list[list[str]] = list()
             for comb in combinations:
                 comb_set = sorted(list(set(comb)))
                 if comb_set not in filtered_combinations:

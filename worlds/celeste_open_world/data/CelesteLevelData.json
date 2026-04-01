@@ -3459,7 +3459,10 @@
                                 },
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [
+                                        [ "u_dash" ],
+                                        [ "ur_dash", "ul_dash" ]
+                                    ]
                                 }
                             ]
                         }
@@ -3489,7 +3492,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [ [ "u_dash" ] ]
                                 }
                             ]
                         },
@@ -3528,7 +3531,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [ [ "u_dash" ] ]
                                 }
                             ]
                         },
@@ -3570,7 +3573,7 @@
                                     "name": "crystal_heart",
                                     "display_name": "Crystal Heart",
                                     "type": "crystal_heart",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_dr_r_ur_u_ul_l_dl" ] ]
                                 }
                             ]
                         }
@@ -3603,7 +3606,7 @@
                             "connections": [
                                 {
                                     "dest": "north-east",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "ul_dash", "ur_dash" ] ]
                                 },
                                 {
                                     "dest": "south-west",
@@ -3611,7 +3614,7 @@
                                 },
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -3629,11 +3632,11 @@
                             "connections": [
                                 {
                                     "dest": "south-east",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "dl_dash" ] ]
                                 },
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "dl_dash" ] ]
                                 }
                             ]
                         }
@@ -3709,7 +3712,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "ul_dash", "any_dash_r_ur" ] ]
                                 }
                             ]
                         }
@@ -3751,7 +3754,7 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ],
                             "locations": [
@@ -3759,7 +3762,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "d_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -3776,7 +3779,7 @@
                                 },
                                 {
                                     "dest": "north-east",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_r_dr" ] ]
                                 }
                             ]
                         },
@@ -3785,7 +3788,7 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
                                 },
                                 {
                                     "dest": "south-west",
@@ -3802,15 +3805,11 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "d_dash" ] ]
                                 },
                                 {
                                     "dest": "south-east",
                                     "rule": []
-                                },
-                                {
-                                    "dest": "south-east",
-                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         },
@@ -3819,7 +3818,7 @@
                             "connections": [
                                 {
                                     "dest": "south-west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -3832,6 +3831,19 @@
                                 },
                                 {
                                     "dest": "east",
+                                    "rule": [ [ "any_dash_u_ur" ] ]
+                                },
+                                {
+                                    "dest": "south-east-door",
+                                    "rule": [ [ "any_dash_ur_r_dr" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "south-east-door",
+                            "connections": [
+                                {
+                                    "dest": "south-east",
                                     "rule": []
                                 }
                             ]
@@ -3841,7 +3853,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "l_dash" ] ]
                                 },
                                 {
                                     "dest": "south-east",
@@ -3854,7 +3866,7 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -3891,7 +3903,7 @@
                             "closes_behind": false
                         },
                         {
-                            "name": "south-east",
+                            "name": "south-east-door",
                             "direction": "right",
                             "blocked": true,
                             "closes_behind": false
@@ -3920,7 +3932,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ul", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -3959,7 +3971,7 @@
                             "connections": [
                                 {
                                     "dest": "south-east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -4012,7 +4024,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -4021,7 +4033,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_dl_d_dr" ] ]
                                 }
                             ],
                             "locations": [
@@ -4111,7 +4123,7 @@
                                     "name": "strawberry_2",
                                     "display_name": "Strawberry 2",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         }
@@ -4150,7 +4162,7 @@
                                     "name": "cassette",
                                     "display_name": "Cassette",
                                     "type": "cassette",
-                                    "rule": [ [ "dream_blocks", "pink_cassette_blocks", "blue_cassette_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "pink_cassette_blocks", "blue_cassette_blocks", "r_dash", "l_dash" ] ]
                                 }
                             ]
                         }
@@ -4175,6 +4187,15 @@
                                 {
                                     "dest": "south-east",
                                     "rule": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "south-east",
+                            "connections": [
+                                {
+                                    "dest": "south-west",
+                                    "rule": [ [ "any_dash_dl_d_dr" ] ]
                                 },
                                 {
                                     "dest": "north-east",
@@ -4186,20 +4207,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks", "strawberry_seeds" ] ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "south-east",
-                            "connections": [
-                                {
-                                    "dest": "south-west",
-                                    "rule": []
-                                },
-                                {
-                                    "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "dream_blocks", "strawberry_seeds", "ur_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -4299,7 +4307,7 @@
                                 },
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "d_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -4307,7 +4315,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "traffic_blocks", "dream_blocks" ] ]
+                                    "rule": [ [ "traffic_blocks", "dream_blocks", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -4325,7 +4333,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "u_dash" ] ]
                                 }
                             ]
                         }
@@ -4364,7 +4372,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "r_dash", "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -4388,7 +4396,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "ur_dash", "dr_dash", "u_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -4397,7 +4405,7 @@
                             "connections": [
                                 {
                                     "dest": "bottom",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "r_dash", "ul_dash", "d_dash", "dl_dash" ] ]
                                 }
                             ]
                         }
@@ -4427,7 +4435,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -4436,7 +4444,7 @@
                             "connections": [
                                 {
                                     "dest": "bottom",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
                         }
@@ -4462,11 +4470,37 @@
                     "name": "4",
                     "regions": [
                         {
-                            "name": "bottom",
+                            "name": "south-east",
                             "connections": [
                                 {
-                                    "dest": "top",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "dest": "south-west",
+                                    "rule": [ [ "dream_blocks", "any_dash_l_ul" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "south-west",
+                            "connections": [
+                                {
+                                    "dest": "south-east",
+                                    "rule": [ [ "dream_blocks", "any_dash_r_dr" ] ]
+                                },
+                                {
+                                    "dest": "north-east",
+                                    "rule": [ [ "dream_blocks", "any_dash_r_ur" ] ]
+                                },
+                                {
+                                    "dest": "north-west",
+                                    "rule": [ [ "dream_blocks", "u_dash", "l_dash" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "north-east",
+                            "connections": [
+                                {
+                                    "dest": "south-west",
+                                    "rule": [ [ "dream_blocks", "any_dash_l_dl" ] ]
                                 }
                             ],
                             "locations": [
@@ -4474,29 +4508,29 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": []
                                 }
                             ]
                         },
                         {
-                            "name": "top",
+                            "name": "north-west",
                             "connections": [
                                 {
-                                    "dest": "bottom",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "dest": "south-west",
+                                    "rule": [ [ "dream_blocks", "r_dash", "d_dash" ] ]
                                 }
                             ]
                         }
                     ],
                     "doors": [
                         {
-                            "name": "bottom",
+                            "name": "south-east",
                             "direction": "down",
                             "blocked": false,
                             "closes_behind": true
                         },
                         {
-                            "name": "top",
+                            "name": "north-west",
                             "direction": "up",
                             "blocked": false,
                             "closes_behind": false
@@ -4512,8 +4546,21 @@
                             "name": "bottom",
                             "connections": [
                                 {
+                                    "dest": "center",
+                                    "rule": [ [ "dream_blocks", "u_dash" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "center",
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                },
+                                {
                                     "dest": "top",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_r_ur" ] ]
                                 }
                             ],
                             "locations": [
@@ -4521,7 +4568,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -4529,8 +4576,8 @@
                             "name": "top",
                             "connections": [
                                 {
-                                    "dest": "bottom",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "dest": "center",
+                                    "rule": [ [ "dream_blocks", "l_dash" ] ]
                                 }
                             ]
                         }
@@ -4560,7 +4607,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dream_blocks", "coins" ] ]
+                                    "rule": [ [ "dream_blocks", "coins", "l_dash", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -4599,7 +4646,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dream_blocks", "coins" ] ]
+                                    "rule": [ [ "dream_blocks", "coins", "ul_dash", "u_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -4638,7 +4685,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ur_dr" ] ]
                                 }
                             ],
                             "locations": [
@@ -4646,7 +4693,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": []
                                 }
                             ]
                         },
@@ -4685,7 +4732,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_r_ur" ] ]
                                 }
                             ]
                         },
@@ -4693,12 +4740,25 @@
                             "name": "north",
                             "connections": [
                                 {
+                                    "dest": "north-door",
+                                    "rule": [ [ "any_dash_u_ul" ] ]
+                                },
+                                {
                                     "dest": "south",
                                     "rule": [ [ "dream_blocks" ] ]
                                 },
                                 {
                                     "dest": "west",
                                     "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "north-door",
+                            "connections": [
+                                {
+                                    "dest": "north",
+                                    "rule": []
                                 }
                             ]
                         },
@@ -4717,6 +4777,10 @@
                                 {
                                     "dest": "south-east",
                                     "rule": [ [ "coins" ] ]
+                                },
+                                {
+                                    "dest": "north",
+                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ],
                             "locations": [
@@ -4724,7 +4788,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": []
                                 }
                             ]
                         },
@@ -4741,7 +4805,7 @@
                             "closes_behind": false
                         },
                         {
-                            "name": "north",
+                            "name": "north-door",
                             "direction": "up",
                             "blocked": false,
                             "closes_behind": false
@@ -4817,7 +4881,7 @@
                             "connections": [
                                 {
                                     "dest": "bottom",
-                                    "rule": [ [ "dream_blocks", "dash_refills", "coins" ] ]
+                                    "rule": [ [ "dream_blocks", "dash_refills", "coins", "l_dash", "any_dash_ur_r" ] ]
                                 }
                             ],
                             "locations": [
@@ -4887,7 +4951,7 @@
                             "name": "north-west",
                             "direction": "up",
                             "blocked": false,
-                            "closes_behind": false
+                            "closes_behind": true
                         },
                         {
                             "name": "south-west",
@@ -4952,7 +5016,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ]
                                 }
                             ]
                         },
@@ -4961,15 +5025,15 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ]
                                 },
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "d_dash" ] ]
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ]
                                 }
                             ]
                         },
@@ -4978,7 +5042,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -4987,7 +5051,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
                         },
@@ -5047,7 +5111,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "u_dash", "any_dash_r_dr", "any_dash_l_dl" ] ]
                                 }
                             ]
                         }
@@ -5079,7 +5143,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "ur_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -5168,6 +5232,14 @@
                                     "dest": "west",
                                     "rule": []
                                 }
+                            ],
+                            "locations": [
+                                {
+                                    "name": "golden",
+                                    "display_name": "Golden Strawberry",
+                                    "type": "golden_strawberry",
+                                    "rule": [ [ "dream_blocks", "coins", "dash_refills", "ul_dash", "ur_dash", "d_dash", "u_dash", "dr_dash", "l_dash" ] ]
+                                }
                             ]
                         }
                     ],
@@ -5222,7 +5294,10 @@
                                 },
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [
+                                        [ "u_dash" ],
+                                        [ "ul_dash", "ur_dash" ]
+                                    ]
                                 }
                             ]
                         }
@@ -5258,7 +5333,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -5320,6 +5395,15 @@
                                 },
                                 {
                                     "dest": "north-east",
+                                    "rule": [ [ "any_dash_u_ur" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "north-north-east",
+                            "connections": [
+                                {
+                                    "dest": "north-east",
                                     "rule": []
                                 }
                             ]
@@ -5330,6 +5414,10 @@
                                 {
                                     "dest": "west",
                                     "rule": []
+                                },
+                                {
+                                    "dest": "north-north-east",
+                                    "rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -5357,6 +5445,12 @@
                             "closes_behind": false
                         },
                         {
+                            "name": "north-north-east",
+                            "direction": "right",
+                            "blocked": false,
+                            "closes_behind": false
+                        },
+                        {
                             "name": "east",
                             "direction": "right",
                             "blocked": false,
@@ -5374,6 +5468,19 @@
                             "connections": [
                                 {
                                     "dest": "north-east",
+                                    "rule": []
+                                },
+                                {
+                                    "dest": "north-north-west",
+                                    "rule": [ [ "any_dash_u_ul" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "north-north-west",
+                            "connections": [
+                                {
+                                    "dest": "north-west",
                                     "rule": []
                                 }
                             ]
@@ -5409,6 +5516,12 @@
                     "doors": [
                         {
                             "name": "north-west",
+                            "direction": "left",
+                            "blocked": false,
+                            "closes_behind": false
+                        },
+                        {
+                            "name": "north-north-west",
                             "direction": "left",
                             "blocked": false,
                             "closes_behind": false
@@ -5540,7 +5653,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "any_dash_u_ul" ] ]
                                 },
                                 {
                                     "dest": "east",
@@ -5640,7 +5753,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -5721,12 +5834,6 @@
                                     "display_name": "Level Clear",
                                     "type": "level_clear",
                                     "rule": []
-                                },
-                                {
-                                    "name": "golden",
-                                    "display_name": "Golden Strawberry",
-                                    "type": "golden_strawberry",
-                                    "rule": [ [ "dream_blocks", "coins", "dash_refills" ] ]
                                 }
                             ]
                         }
@@ -5824,7 +5931,7 @@
                 },
                 {
                     "source_room": "d0",
-                    "source_door": "south-east",
+                    "source_door": "south-east-door",
                     "dest_room": "d7",
                     "dest_door": "west"
                 },
@@ -5892,11 +5999,11 @@
                     "source_room": "3",
                     "source_door": "top",
                     "dest_room": "4",
-                    "dest_door": "bottom"
+                    "dest_door": "south-east"
                 },
                 {
                     "source_room": "4",
-                    "source_door": "top",
+                    "source_door": "north-west",
                     "dest_room": "5",
                     "dest_door": "bottom"
                 },
@@ -5926,7 +6033,7 @@
                 },
                 {
                     "source_room": "9",
-                    "source_door": "north",
+                    "source_door": "north-door",
                     "dest_room": "9b",
                     "dest_door": "east"
                 },
@@ -6025,6 +6132,12 @@
                     "source_door": "north-east",
                     "dest_room": "end_2",
                     "dest_door": "north-west"
+                },
+                {
+                    "source_room": "end_1",
+                    "source_door": "north-north-east",
+                    "dest_room": "end_2",
+                    "dest_door": "north-north-west"
                 },
                 {
                     "source_room": "end_2",
