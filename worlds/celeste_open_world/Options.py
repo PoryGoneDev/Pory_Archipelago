@@ -139,6 +139,15 @@ class IncludeGoldens(Toggle):
     """
     display_name = "Include Goldens"
 
+class GoldenAmnesty(Range):
+    """
+    How many deaths it takes to restart a level with a Golden Strawberry
+    """
+    display_name = "Golden Amnesty"
+    range_start = 1
+    range_end = 30
+    default = 1
+
 
 class IncludeCore(Toggle):
     """
@@ -491,6 +500,7 @@ celeste_option_groups = [
         Carsanity,
         Roomsanity,
         IncludeGoldens,
+        GoldenAmnesty,
         IncludeCore,
         IncludeFarewell,
         IncludeBSides,
@@ -640,6 +650,7 @@ class CelesteOptions(PerGameCommonOptions):
     carsanity: Carsanity
     roomsanity: Roomsanity
     include_goldens: IncludeGoldens
+    golden_amnesty: GoldenAmnesty
     include_core: IncludeCore
     include_farewell: IncludeFarewell
     include_b_sides: IncludeBSides

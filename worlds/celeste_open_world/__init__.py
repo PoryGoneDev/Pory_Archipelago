@@ -477,6 +477,7 @@ class CelesteOpenWorld(World):
             "carsanity": self.options.carsanity.value,
             "roomsanity": self.options.roomsanity.value,
             "include_goldens": self.options.include_goldens.value,
+            "golden_amnesty": self.options.golden_amnesty.value,
 
             "include_core": self.options.include_core.value,
             "include_farewell": self.options.include_farewell.value,
