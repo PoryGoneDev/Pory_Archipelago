@@ -382,7 +382,7 @@ all_doors: dict[str, Door] = {
     "2b_06_west": Door("2b_06_west", "2b_06", DoorDirection.down, False, True),
     "2b_06_east": Door("2b_06_east", "2b_06", DoorDirection.right, False, False),
 
-    "2b_07_bottom": Door("2b_07_bottom", "2b_07", DoorDirection.left, False, False),
+    "2b_07_bottom": Door("2b_07_bottom", "2b_07", DoorDirection.left, False, True),
     "2b_07_top": Door("2b_07_top", "2b_07", DoorDirection.up, False, False),
 
     "2b_08b_west": Door("2b_08b_west", "2b_08b", DoorDirection.down, False, True),
@@ -2994,48 +2994,48 @@ all_region_connections: dict[str, RegionConnection] = {
     "2b_start_west---2b_start_east": RegionConnection("2b_start_west", "2b_start_east", []),
     "2b_start_east---2b_start_west": RegionConnection("2b_start_east", "2b_start_west", []),
 
-    "2b_00_west---2b_00_east": RegionConnection("2b_00_west", "2b_00_east", [[ItemName.dream_blocks, ], ]),
-    "2b_00_east---2b_00_west": RegionConnection("2b_00_east", "2b_00_west", [[ItemName.dream_blocks, ], ]),
+    "2b_00_west---2b_00_east": RegionConnection("2b_00_west", "2b_00_east", [[ItemName.dream_blocks, ItemName.u_dash, ItemName.r_dash, ], ]),
+    "2b_00_east---2b_00_west": RegionConnection("2b_00_east", "2b_00_west", [[ItemName.dream_blocks, ItemName.l_dash, ItemName.u_dash, ], ]),
 
-    "2b_01_west---2b_01_east": RegionConnection("2b_01_west", "2b_01_east", [[ItemName.dream_blocks, ], ]),
-    "2b_01_east---2b_01_west": RegionConnection("2b_01_east", "2b_01_west", [[ItemName.dream_blocks, ], ]),
+    "2b_01_west---2b_01_east": RegionConnection("2b_01_west", "2b_01_east", [[ItemName.dream_blocks, ItemName.r_dash, ItemName.u_dash, ], ]),
+    "2b_01_east---2b_01_west": RegionConnection("2b_01_east", "2b_01_west", [[ItemName.cannot_access, ], ]),
 
-    "2b_01b_west---2b_01b_east": RegionConnection("2b_01b_west", "2b_01b_east", [[ItemName.dream_blocks, ], ]),
+    "2b_01b_west---2b_01b_east": RegionConnection("2b_01b_west", "2b_01b_east", [[ItemName.dream_blocks, ItemName.r_dash, ], ]),
     "2b_01b_east---2b_01b_west": RegionConnection("2b_01b_east", "2b_01b_west", [[ItemName.cannot_access, ], ]),
 
-    "2b_02b_west---2b_02b_east": RegionConnection("2b_02b_west", "2b_02b_east", [[ItemName.dream_blocks, ItemName.dash_refills, ], ]),
+    "2b_02b_west---2b_02b_east": RegionConnection("2b_02b_west", "2b_02b_east", [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], ]),
     "2b_02b_east---2b_02b_west": RegionConnection("2b_02b_east", "2b_02b_west", [[ItemName.cannot_access, ], ]),
 
-    "2b_02_west---2b_02_east": RegionConnection("2b_02_west", "2b_02_east", [[ItemName.dream_blocks, ItemName.dash_refills, ], ]),
+    "2b_02_west---2b_02_east": RegionConnection("2b_02_west", "2b_02_east", [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], ]),
     "2b_02_east---2b_02_west": RegionConnection("2b_02_east", "2b_02_west", [[ItemName.cannot_access, ], ]),
 
-    "2b_03_west---2b_03_east": RegionConnection("2b_03_west", "2b_03_east", [[ItemName.dream_blocks, ItemName.coins, ], ]),
+    "2b_03_west---2b_03_east": RegionConnection("2b_03_west", "2b_03_east", [[ItemName.dream_blocks, ItemName.coins, ItemName.u_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ], ]),
     "2b_03_east---2b_03_west": RegionConnection("2b_03_east", "2b_03_west", [[ItemName.cannot_access, ], ]),
 
-    "2b_04_bottom---2b_04_top": RegionConnection("2b_04_bottom", "2b_04_top", [[ItemName.dream_blocks, ItemName.dash_refills, ], ]),
+    "2b_04_bottom---2b_04_top": RegionConnection("2b_04_bottom", "2b_04_top", [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ], [ItemName.dream_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.ur_dash, ], ]),
     "2b_04_top---2b_04_bottom": RegionConnection("2b_04_top", "2b_04_bottom", [[ItemName.cannot_access, ], ]),
 
-    "2b_05_bottom---2b_05_top": RegionConnection("2b_05_bottom", "2b_05_top", [[ItemName.dream_blocks, ItemName.dash_refills, ], ]),
+    "2b_05_bottom---2b_05_top": RegionConnection("2b_05_bottom", "2b_05_top", [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.l_dash, ItemName.u_dash, ItemName.r_dash, ], ]),
     "2b_05_top---2b_05_bottom": RegionConnection("2b_05_top", "2b_05_bottom", [[ItemName.cannot_access, ], ]),
 
-    "2b_06_west---2b_06_east": RegionConnection("2b_06_west", "2b_06_east", [[ItemName.dream_blocks, ItemName.coins, ], ]),
+    "2b_06_west---2b_06_east": RegionConnection("2b_06_west", "2b_06_east", [[ItemName.dream_blocks, ItemName.coins, ItemName.ur_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ], ]),
     "2b_06_east---2b_06_west": RegionConnection("2b_06_east", "2b_06_west", [[ItemName.cannot_access, ], ]),
 
-    "2b_07_bottom---2b_07_top": RegionConnection("2b_07_bottom", "2b_07_top", [[ItemName.dream_blocks, ItemName.coins, ], ]),
+    "2b_07_bottom---2b_07_top": RegionConnection("2b_07_bottom", "2b_07_top", [[ItemName.dream_blocks, ItemName.coins, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ], ]),
     "2b_07_top---2b_07_bottom": RegionConnection("2b_07_top", "2b_07_bottom", [[ItemName.cannot_access, ], ]),
 
-    "2b_08b_west---2b_08b_east": RegionConnection("2b_08b_west", "2b_08b_east", [[ItemName.dream_blocks, ItemName.springs, ], ]),
+    "2b_08b_west---2b_08b_east": RegionConnection("2b_08b_west", "2b_08b_east", [[ItemName.dream_blocks, ItemName.springs, ItemName.u_dash, ItemName.r_dash, ItemName.d_dash, ], ]),
     "2b_08b_east---2b_08b_west": RegionConnection("2b_08b_east", "2b_08b_west", [[ItemName.cannot_access, ], ]),
 
-    "2b_08_west---2b_08_east": RegionConnection("2b_08_west", "2b_08_east", [[ItemName.dream_blocks, ItemName.dash_refills, ], ]),
+    "2b_08_west---2b_08_east": RegionConnection("2b_08_west", "2b_08_east", [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ItemName.d_dash, ItemName.ur_dash, ItemName.dr_dash, ItemName.ul_dash, ], ]),
 
-    "2b_09_west---2b_09_east": RegionConnection("2b_09_west", "2b_09_east", [[ItemName.dream_blocks, ], ]),
+    "2b_09_west---2b_09_east": RegionConnection("2b_09_west", "2b_09_east", [[ItemName.dream_blocks, ItemName.u_dash, ItemName.ur_dash, ItemName.ul_dash, ItemName.r_dash, ], ]),
 
-    "2b_10_west---2b_10_east": RegionConnection("2b_10_west", "2b_10_east", [[ItemName.dream_blocks, ItemName.coins, ], ]),
+    "2b_10_west---2b_10_east": RegionConnection("2b_10_west", "2b_10_east", [[ItemName.dream_blocks, ItemName.coins, ItemName.u_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "2b_11_bottom---2b_11_top": RegionConnection("2b_11_bottom", "2b_11_top", [[ItemName.springs, ItemName.dream_blocks, ItemName.dash_refills, ItemName.coins, ], ]),
+    "2b_11_bottom---2b_11_top": RegionConnection("2b_11_bottom", "2b_11_top", [[ItemName.springs, ItemName.dream_blocks, ItemName.dash_refills, ItemName.coins, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ], ]),
 
-    "2b_end_west---2b_end_goal": RegionConnection("2b_end_west", "2b_end_goal", [[ItemName.blue_cassette_blocks, ItemName.dash_refills, ], ]),
+    "2b_end_west---2b_end_goal": RegionConnection("2b_end_west", "2b_end_goal", [[ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ], ]),
 
     "2c_00_west---2c_00_east": RegionConnection("2c_00_west", "2c_00_east", [[ItemName.dream_blocks, ], ]),
     "2c_00_east---2c_00_west": RegionConnection("2c_00_east", "2c_00_west", [[ItemName.dream_blocks, ], ]),
@@ -4610,7 +4610,7 @@ all_region_connections: dict[str, RegionConnection] = {
     "9a_b-03_west---9a_b-03_east": RegionConnection("9a_b-03_west", "9a_b-03_east", [[ItemName.core_blocks, ], ]),
     "9a_b-03_east---9a_b-03_west": RegionConnection("9a_b-03_east", "9a_b-03_west", [[ItemName.core_blocks, ], ]),
 
-    "9a_b-04_north-west---9a_b-04_east": RegionConnection("9a_b-04_north-west", "9a_b-04_east", [[ItemName.core_toggles, ], ]),
+    "9a_b-04_north-west---9a_b-04_west": RegionConnection("9a_b-04_north-west", "9a_b-04_west", [[ItemName.core_toggles, ], ]),
     "9a_b-04_west---9a_b-04_east": RegionConnection("9a_b-04_west", "9a_b-04_east", [[ItemName.core_blocks, ItemName.core_toggles, ], ]),
 
     "9a_b-05_east---9a_b-05_west": RegionConnection("9a_b-05_east", "9a_b-05_west", [[ItemName.fire_ice_balls, ItemName.core_toggles, ItemName.dash_refills, ItemName.coins, ], ]),
@@ -5062,7 +5062,7 @@ all_locations: dict[str, LevelLocation] = {
     "2b_10_binoculars": LevelLocation("2b_10_binoculars", "Old Site B - Room 10 Binoculars", "2b_10_west", LocationType.binoculars, []),
     "2b_11_binoculars": LevelLocation("2b_11_binoculars", "Old Site B - Room 11 Binoculars", "2b_11_bottom", LocationType.binoculars, []),
     "2b_end_clear": LevelLocation("2b_end_clear", "Old Site B - Level Clear", "2b_end_goal", LocationType.level_clear, []),
-    "2b_end_golden": LevelLocation("2b_end_golden", "Old Site B - Golden Strawberry", "2b_end_goal", LocationType.golden_strawberry, [[ItemName.springs, ItemName.dream_blocks, ItemName.dash_refills, ItemName.coins, ItemName.blue_cassette_blocks, ], ]),
+    "2b_end_golden": LevelLocation("2b_end_golden", "Old Site B - Golden Strawberry", "2b_end_goal", LocationType.golden_strawberry, [[ItemName.springs, ItemName.dream_blocks, ItemName.dash_refills, ItemName.coins, ItemName.blue_cassette_blocks, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ItemName.d_dash, ItemName.l_dash, ItemName.ul_dash, ], ]),
 
     "2c_02_binoculars": LevelLocation("2c_02_binoculars", "Old Site C - Room 02 Binoculars", "2c_02_west", LocationType.binoculars, []),
     "2c_02_clear": LevelLocation("2c_02_clear", "Old Site C - Level Clear", "2c_02_goal", LocationType.level_clear, []),
