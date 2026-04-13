@@ -6963,7 +6963,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -6972,7 +6972,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "l_dash" ] ]
                                 }
                             ]
                         }
@@ -6996,7 +6996,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dream_blocks", "coins" ] ]
+                                    "rule": [ [ "dream_blocks", "coins", "u_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -7030,7 +7030,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "coins", "dream_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "coins", "dream_blocks", "dash_refills", "r_dash", "l_dash", "u_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -7056,7 +7056,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "dream_blocks", "dash_refills", "coins" ] ]
+                                    "rule": [ [ "dream_blocks", "dash_refills", "coins", "r_dash", "l_dash", "u_dash", "ul_dash" ] ]
                                 }
                             ]
                         }
@@ -7138,7 +7138,7 @@
                                 },
                                 {
                                     "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "u_dash" ] ]
                                 }
                             ]
                         },
@@ -7217,7 +7217,10 @@
                                     "name": "strawberry_2",
                                     "display_name": "Strawberry 2",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [
+                                        [ "u_dash" ],
+                                        [ "ur_dash", "ul_dash" ]
+                                    ]
                                 }
                             ]
                         },
@@ -7274,7 +7277,7 @@
                                     "name": "key_1",
                                     "display_name": "Front Door Key",
                                     "type": "key",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur", "any_dash_dl_l_ul_u" ] ]
                                 }
                             ]
                         },
@@ -7370,7 +7373,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -7379,7 +7382,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ul" ] ]
                                 }
                             ],
                             "locations": [
@@ -7387,7 +7390,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ul" ] ]
                                 }
                             ]
                         }
@@ -7418,8 +7421,8 @@
                                 {
                                     "dest": "main",
                                     "rule": [
-                                        [ "sinking_platforms" ],
-                                        [ "dash_refills" ]
+                                        [ "sinking_platforms", "any_dash_ur_r" ],
+                                        [ "dash_refills", "any_dash_ur_r" ]
                                     ]
                                 }
                             ]
@@ -7429,11 +7432,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ]
                                 },
                                 {
                                     "dest": "main",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -7442,7 +7445,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "u_dash" ] ]
                                 },
                                 {
                                     "dest": "east",
@@ -7508,7 +7511,7 @@
                                     "name": "hallway_key_1",
                                     "display_name": "Hallway Key 1",
                                     "type": "key",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_l_ul" ] ]
                                 }
                             ]
                         },
@@ -7570,7 +7573,7 @@
                                 },
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -7642,7 +7645,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ],
                             "locations": [
@@ -7650,7 +7653,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_l_ul_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -7713,7 +7716,7 @@
                             "connections": [
                                 {
                                     "dest": "south-east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -7722,7 +7725,7 @@
                             "connections": [
                                 {
                                     "dest": "south-west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "l_dash" ] ]
                                 },
                                 {
                                     "dest": "north-east",
@@ -7772,6 +7775,10 @@
                                 {
                                     "dest": "south-east",
                                     "rule": []
+                                },
+                                {
+                                    "dest": "north-east",
+                                    "rule": [ [ "dash_refills", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -7784,7 +7791,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "ul_dash" ] ]
                                 }
                             ]
                         }
@@ -7820,7 +7827,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "sinking_platforms" ] ]
+                                    "rule": [ [ "sinking_platforms", "u_dash" ] ]
+                                },
+                                {
+                                    "dest": "top",
+                                    "rule": [ [ "sinking_platforms", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -7835,12 +7846,7 @@
                         },
                         {
                             "name": "east",
-                            "connections": [
-                                {
-                                    "dest": "top",
-                                    "rule": []
-                                }
-                            ]
+                            "connections": []
                         }
                     ],
                     "doors": [
@@ -7881,7 +7887,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_l_ul", "ur_dash" ] ]
                                 }
                             ]
                         }
@@ -7911,7 +7917,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "moving_platforms" ] ]
+                                    "rule": [ [ "dash_refills", "moving_platforms", "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -7920,7 +7926,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "moving_platforms" ] ]
+                                    "rule": [ [ "dash_refills", "moving_platforms", "any_dash_u_ul" ] ]
                                 }
                             ]
                         }
@@ -7992,7 +7998,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "Hallway Key 2", "dash_refills" ] ]
+                                    "rule": [ [ "Hallway Key 2", "dash_refills", "any_dash_ur_r" ] ]
                                 },
                                 {
                                     "dest": "top",
@@ -8014,7 +8020,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "Hallway Key 2", "dash_refills" ] ]
+                                    "rule": [ [ "Hallway Key 2", "dash_refills", "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -8132,6 +8138,14 @@
                                     "dest": "east",
                                     "rule": []
                                 }
+                            ],
+                            "locations": [
+                                {
+                                    "name": "strawberry",
+                                    "display_name": "Strawberry",
+                                    "type": "strawberry",
+                                    "rule": [ [ "any_dash_u_ur" ] ]
+                                }
                             ]
                         },
                         {
@@ -8139,15 +8153,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
-                                }
-                            ],
-                            "locations": [
-                                {
-                                    "name": "strawberry",
-                                    "display_name": "Strawberry",
-                                    "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ul" ] ]
                                 }
                             ]
                         }
@@ -8177,7 +8183,20 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
+                                    "rule": [ [ "any_dash_u_ul" ] ]
+                                },
+                                {
+                                    "dest": "center",
                                     "rule": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "center",
+                            "connections": [
+                                {
+                                    "dest": "south-west",
+                                    "rule": [ [ "ul_dash" ] ]
                                 },
                                 {
                                     "dest": "south-east",
@@ -8189,7 +8208,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "ul_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -8206,11 +8225,24 @@
                             "name": "south-east",
                             "connections": [
                                 {
-                                    "dest": "south-west",
+                                    "dest": "center",
                                     "rule": []
                                 },
                                 {
                                     "dest": "east",
+                                    "rule": []
+                                },
+                                {
+                                    "dest": "south-east-door",
+                                    "rule": [ [ "any_dash_dl_d_dr" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "south-east-door",
+                            "connections": [
+                                {
+                                    "dest": "south-east",
                                     "rule": []
                                 }
                             ]
@@ -8239,7 +8271,7 @@
                             "closes_behind": false
                         },
                         {
-                            "name": "south-east",
+                            "name": "south-east-door",
                             "direction": "down",
                             "blocked": true,
                             "closes_behind": false
@@ -8265,7 +8297,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_l", "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         }
@@ -8289,7 +8321,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "coins", "moving_platforms", "springs" ] ]
+                                    "rule": [ [ "coins", "moving_platforms", "springs", "any_dash_u_ur_ul" ] ]
                                 }
                             ]
                         },
@@ -8327,7 +8359,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "sinking_platforms", "coins" ] ]
+                                    "rule": [ [ "sinking_platforms", "coins", "u_dash", "l_dash" ] ]
                                 }
                             ]
                         }
@@ -8436,7 +8468,10 @@
                                 },
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "Huge Mess Key" ] ]
+                                    "rule": [
+                                        [ "Huge Mess Key", "springs" ],
+                                        [ "Huge Mess Key", "any_dash_u_ul" ]
+                                    ]
                                 },
                                 {
                                     "dest": "south-west",
@@ -8464,11 +8499,11 @@
                                 },
                                 {
                                     "dest": "north-east-top",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_r_ur_u" ] ]
                                 },
                                 {
                                     "dest": "north",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_l_ul_u" ] ]
                                 }
                             ],
                             "locations": [
@@ -8632,7 +8667,7 @@
                                     "name": "brown_clutter",
                                     "display_name": "Brown Clutter",
                                     "type": "clutter",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_dr_d_dl" ] ]
                                 }
                             ]
                         },
@@ -8672,13 +8707,13 @@
                             "name": "north-east-top",
                             "direction": "up",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "north-east-right",
                             "direction": "right",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         }
                     ],
                     "checkpoint": "",
@@ -8706,7 +8741,7 @@
                             "name": "west",
                             "direction": "left",
                             "blocked": false,
-                            "closes_behind": false
+                            "closes_behind": true
                         },
                         {
                             "name": "south",
@@ -8787,7 +8822,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_l_ul", "any_dash_r_ur" ] ]
                                 }
                             ]
                         }
@@ -8811,7 +8846,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -8820,7 +8855,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -8850,7 +8885,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "sinking_platforms" ] ]
+                                    "rule": [ [ "sinking_platforms", "any_dash_l_ul", "any_dash_r_ur" ] ]
                                 }
                             ]
                         },
@@ -8936,7 +8971,7 @@
                             "connections": [
                                 {
                                     "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_l" ] ]
                                 }
                             ]
                         },
@@ -8945,7 +8980,7 @@
                             "connections": [
                                 {
                                     "dest": "south-east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -9090,7 +9125,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -9129,7 +9164,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -9172,7 +9207,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ]
                                 }
                             ],
                             "locations": [
@@ -9180,7 +9215,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "l_dash", "ul_dash" ] ]
                                 }
                             ]
                         }
@@ -9219,7 +9254,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "green_clutter" ] ]
                                 }
                             ],
                             "locations": [
@@ -9227,7 +9262,7 @@
                                     "name": "green_clutter",
                                     "display_name": "Green Clutter",
                                     "type": "clutter",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_dr_d_dl" ] ]
                                 }
                             ]
                         },
@@ -9266,7 +9301,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -9283,12 +9318,8 @@
                             "name": "east",
                             "connections": [
                                 {
-                                    "dest": "west",
-                                    "rule": []
-                                },
-                                {
                                     "dest": "north-east",
-                                    "rule": [ [ "pink_clutter" ] ]
+                                    "rule": [ [ "pink_clutter", "any_dash_u_ul" ] ]
                                 }
                             ]
                         },
@@ -9339,7 +9370,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -9348,7 +9379,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -9386,7 +9417,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -9395,7 +9426,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ul" ] ]
                                 }
                             ]
                         }
@@ -9425,7 +9456,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "u_dash" ] ]
                                 },
                                 {
                                     "dest": "south-west",
@@ -9478,7 +9509,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "l_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -9486,7 +9517,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_l_ul_ur_r" ] ]
                                 }
                             ]
                         },
@@ -9495,7 +9526,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "r_dash" ] ]
                                 }
                             ]
                         }
@@ -9525,7 +9556,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "pink_clutter" ] ]
                                 }
                             ]
                         },
@@ -9543,7 +9574,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "pink_clutter" ] ]
+                                },
+                                {
+                                    "dest": "north-east",
+                                    "rule": [ [ "u_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -9551,7 +9586,7 @@
                                     "name": "pink_clutter",
                                     "display_name": "Pink Clutter",
                                     "type": "clutter",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_dr_d_dl" ] ]
                                 }
                             ]
                         }
@@ -9573,7 +9608,7 @@
                             "name": "east",
                             "direction": "right",
                             "blocked": false,
-                            "closes_behind": false
+                            "closes_behind": true
                         }
                     ],
                     "checkpoint": "",
@@ -9658,14 +9693,6 @@
                                     "dest": "east",
                                     "rule": []
                                 }
-                            ],
-                            "locations": [
-                                {
-                                    "name": "strawberry",
-                                    "display_name": "Strawberry",
-                                    "type": "strawberry",
-                                    "rule": []
-                                }
                             ]
                         },
                         {
@@ -9673,6 +9700,14 @@
                             "connections": [
                                 {
                                     "dest": "west",
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
+                                }
+                            ],
+                            "locations": [
+                                {
+                                    "name": "strawberry",
+                                    "display_name": "Strawberry",
+                                    "type": "strawberry",
                                     "rule": []
                                 }
                             ]
@@ -9741,7 +9776,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "coins" ] ]
+                                    "rule": [ [ "dash_refills", "coins", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         }
@@ -9757,7 +9792,7 @@
                             "name": "east",
                             "direction": "right",
                             "blocked": false,
-                            "closes_behind": false
+                            "closes_behind": true
                         }
                     ],
                     "checkpoint": "",
@@ -9775,7 +9810,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "u_dash", "l_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -9783,7 +9818,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "u_dash", "l_dash", "r_dash" ] ]
                                 }
                             ]
                         }
@@ -9799,7 +9834,7 @@
                             "name": "east",
                             "direction": "right",
                             "blocked": false,
-                            "closes_behind": false
+                            "closes_behind": true
                         }
                     ],
                     "checkpoint": "",
@@ -9812,7 +9847,7 @@
                             "name": "west",
                             "connections": [
                                 {
-                                    "dest": "west",
+                                    "dest": "south-west",
                                     "rule": []
                                 }
                             ]
@@ -9840,7 +9875,7 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ul_l" ] ]
                                 }
                             ]
                         }
@@ -9886,7 +9921,7 @@
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -9912,7 +9947,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "u_dash" ] ]
                                 }
                             ]
                         }
@@ -9965,7 +10000,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "sinking_platforms" ] ]
+                                    "rule": [ [ "sinking_platforms", "any_dash_ul_l" ] ]
                                 },
                                 {
                                     "dest": "south-east",
@@ -10093,7 +10128,7 @@
                                     "name": "cassette",
                                     "display_name": "Cassette",
                                     "type": "cassette",
-                                    "rule": [ [ "pink_cassette_blocks", "blue_cassette_blocks" ] ]
+                                    "rule": [ [ "pink_cassette_blocks", "blue_cassette_blocks", "u_dash" ] ]
                                 }
                             ]
                         }
@@ -10132,7 +10167,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "l_dash", "ul_dash" ] ]
                                 }
                             ]
                         }
@@ -10171,7 +10206,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         }
@@ -10240,7 +10275,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -10313,7 +10348,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs", "coins", "dash_refills" ] ]
+                                    "rule": [ [ "springs", "coins", "dash_refills", "ur_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -10321,7 +10356,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -10355,7 +10390,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_r_ur" ] ]
                                 }
                             ]
                         },
@@ -10364,7 +10399,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -10394,7 +10429,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -10428,7 +10463,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -10437,7 +10472,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "ul_dash" ] ]
                                 }
                             ]
                         }
@@ -10467,7 +10502,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ],
                             "locations": [
@@ -10475,13 +10510,13 @@
                                     "name": "strawberry_1",
                                     "display_name": "Strawberry 1",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_r_l" ] ]
                                 },
                                 {
                                     "name": "strawberry_2",
                                     "display_name": "Strawberry 2",
                                     "type": "strawberry",
-                                    "rule": []
+                                    "rule": [ [ "r_dash" ] ]
                                 }
                             ]
                         },
@@ -10490,7 +10525,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         }
@@ -10543,7 +10578,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "Presidential Suite Key", "sinking_platforms", "dash_refills", "brown_clutter", "green_clutter", "pink_clutter", "coins", "moving_platforms", "springs" ] ]
+                                    "rule": [ [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "Presidential Suite Key", "sinking_platforms", "dash_refills", "brown_clutter", "green_clutter", "pink_clutter", "coins", "moving_platforms", "springs", "ur_dash", "l_dash", "ul_dash", "u_dash", "r_dash" ] ]
                                 }
                             ]
                         }
@@ -10731,7 +10766,7 @@
                 },
                 {
                     "source_room": "06-c",
-                    "source_door": "south-east",
+                    "source_door": "south-east-door",
                     "dest_room": "07-b",
                     "dest_door": "top"
                 },

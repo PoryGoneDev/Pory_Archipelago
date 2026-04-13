@@ -483,7 +483,7 @@ all_doors: dict[str, Door] = {
 
     "3a_06-c_south-west": Door("3a_06-c_south-west", "3a_06-c", DoorDirection.down, False, True),
     "3a_06-c_north-west": Door("3a_06-c_north-west", "3a_06-c", DoorDirection.left, False, False),
-    "3a_06-c_south-east": Door("3a_06-c_south-east", "3a_06-c", DoorDirection.down, True, False),
+    "3a_06-c_south-east-door": Door("3a_06-c_south-east-door", "3a_06-c", DoorDirection.down, True, False),
     "3a_06-c_east": Door("3a_06-c_east", "3a_06-c", DoorDirection.right, False, False),
 
     "3a_05-c_east": Door("3a_05-c_east", "3a_05-c", DoorDirection.right, False, False),
@@ -510,10 +510,10 @@ all_doors: dict[str, Door] = {
 
     "3a_10-x_west": Door("3a_10-x_west", "3a_10-x", DoorDirection.up, False, False),
     "3a_10-x_south-east": Door("3a_10-x_south-east", "3a_10-x", DoorDirection.down, False, True),
-    "3a_10-x_north-east-top": Door("3a_10-x_north-east-top", "3a_10-x", DoorDirection.up, False, True),
-    "3a_10-x_north-east-right": Door("3a_10-x_north-east-right", "3a_10-x", DoorDirection.right, False, True),
+    "3a_10-x_north-east-top": Door("3a_10-x_north-east-top", "3a_10-x", DoorDirection.up, False, False),
+    "3a_10-x_north-east-right": Door("3a_10-x_north-east-right", "3a_10-x", DoorDirection.right, False, False),
 
-    "3a_11-x_west": Door("3a_11-x_west", "3a_11-x", DoorDirection.left, False, False),
+    "3a_11-x_west": Door("3a_11-x_west", "3a_11-x", DoorDirection.left, False, True),
     "3a_11-x_south": Door("3a_11-x_south", "3a_11-x", DoorDirection.down, False, False),
 
     "3a_11-y_west": Door("3a_11-y_west", "3a_11-y", DoorDirection.up, False, False),
@@ -573,7 +573,7 @@ all_doors: dict[str, Door] = {
 
     "3a_12-x_west": Door("3a_12-x_west", "3a_12-x", DoorDirection.up, False, False),
     "3a_12-x_north-east": Door("3a_12-x_north-east", "3a_12-x", DoorDirection.up, False, False),
-    "3a_12-x_east": Door("3a_12-x_east", "3a_12-x", DoorDirection.right, False, False),
+    "3a_12-x_east": Door("3a_12-x_east", "3a_12-x", DoorDirection.right, False, True),
 
     "3a_11-a_west": Door("3a_11-a_west", "3a_11-a", DoorDirection.left, False, False),
     "3a_11-a_south": Door("3a_11-a_south", "3a_11-a", DoorDirection.down, False, True),
@@ -587,10 +587,10 @@ all_doors: dict[str, Door] = {
     "3a_09-d_top": Door("3a_09-d_top", "3a_09-d", DoorDirection.left, False, False),
 
     "3a_08-d_west": Door("3a_08-d_west", "3a_08-d", DoorDirection.left, False, False),
-    "3a_08-d_east": Door("3a_08-d_east", "3a_08-d", DoorDirection.right, False, False),
+    "3a_08-d_east": Door("3a_08-d_east", "3a_08-d", DoorDirection.right, False, True),
 
     "3a_06-d_west": Door("3a_06-d_west", "3a_06-d", DoorDirection.left, False, False),
-    "3a_06-d_east": Door("3a_06-d_east", "3a_06-d", DoorDirection.right, False, False),
+    "3a_06-d_east": Door("3a_06-d_east", "3a_06-d", DoorDirection.right, False, True),
 
     "3a_04-d_west": Door("3a_04-d_west", "3a_04-d", DoorDirection.left, False, False),
     "3a_04-d_south-west": Door("3a_04-d_south-west", "3a_04-d", DoorDirection.down, False, False),
@@ -3037,18 +3037,18 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "2b_end_west---2b_end_goal": RegionConnection("2b_end_west", "2b_end_goal", [[ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ], ]),
 
-    "2c_00_west---2c_00_east": RegionConnection("2c_00_west", "2c_00_east", [[ItemName.dream_blocks, ], ]),
-    "2c_00_east---2c_00_west": RegionConnection("2c_00_east", "2c_00_west", [[ItemName.dream_blocks, ], ]),
+    "2c_00_west---2c_00_east": RegionConnection("2c_00_west", "2c_00_east", [[ItemName.dream_blocks, ItemName.r_dash, ], ]),
+    "2c_00_east---2c_00_west": RegionConnection("2c_00_east", "2c_00_west", [[ItemName.dream_blocks, ItemName.l_dash, ], ]),
 
-    "2c_01_west---2c_01_east": RegionConnection("2c_01_west", "2c_01_east", [[ItemName.dream_blocks, ItemName.coins, ], ]),
+    "2c_01_west---2c_01_east": RegionConnection("2c_01_west", "2c_01_east", [[ItemName.dream_blocks, ItemName.coins, ItemName.u_dash, ItemName.ul_dash, ], ]),
 
-    "2c_02_west---2c_02_goal": RegionConnection("2c_02_west", "2c_02_goal", [[ItemName.coins, ItemName.dream_blocks, ItemName.dash_refills, ], ]),
+    "2c_02_west---2c_02_goal": RegionConnection("2c_02_west", "2c_02_goal", [[ItemName.coins, ItemName.dream_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ], ]),
 
     "3a_s0_main---3a_s0_east": RegionConnection("3a_s0_main", "3a_s0_east", []),
     "3a_s0_east---3a_s0_main": RegionConnection("3a_s0_east", "3a_s0_main", []),
 
     "3a_s1_west---3a_s1_east": RegionConnection("3a_s1_west", "3a_s1_east", []),
-    "3a_s1_west---3a_s1_north-east": RegionConnection("3a_s1_west", "3a_s1_north-east", []),
+    "3a_s1_west---3a_s1_north-east": RegionConnection("3a_s1_west", "3a_s1_north-east", [[ItemName.u_dash, ], ]),
     "3a_s1_east---3a_s1_west": RegionConnection("3a_s1_east", "3a_s1_west", []),
     "3a_s1_north-east---3a_s1_west": RegionConnection("3a_s1_north-east", "3a_s1_west", []),
 
@@ -3063,13 +3063,13 @@ all_region_connections: dict[str, RegionConnection] = {
     "3a_0x-a_west---3a_0x-a_east": RegionConnection("3a_0x-a_west", "3a_0x-a_east", []),
     "3a_0x-a_east---3a_0x-a_west": RegionConnection("3a_0x-a_east", "3a_0x-a_west", []),
 
-    "3a_00-a_west---3a_00-a_east": RegionConnection("3a_00-a_west", "3a_00-a_east", []),
-    "3a_00-a_east---3a_00-a_west": RegionConnection("3a_00-a_east", "3a_00-a_west", []),
+    "3a_00-a_west---3a_00-a_east": RegionConnection("3a_00-a_west", "3a_00-a_east", [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_00-a_east---3a_00-a_west": RegionConnection("3a_00-a_east", "3a_00-a_west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
 
-    "3a_02-a_west---3a_02-a_main": RegionConnection("3a_02-a_west", "3a_02-a_main", [[ItemName.sinking_platforms, ], [ItemName.dash_refills, ], ]),
-    "3a_02-a_top---3a_02-a_west": RegionConnection("3a_02-a_top", "3a_02-a_west", [[ItemName.dash_refills, ], ]),
-    "3a_02-a_top---3a_02-a_main": RegionConnection("3a_02-a_top", "3a_02-a_main", [[ItemName.dash_refills, ], ]),
-    "3a_02-a_main---3a_02-a_top": RegionConnection("3a_02-a_main", "3a_02-a_top", [[ItemName.dash_refills, ], ]),
+    "3a_02-a_west---3a_02-a_main": RegionConnection("3a_02-a_west", "3a_02-a_main", [[ItemName.sinking_platforms, ItemName.r_dash, ], [ItemName.sinking_platforms, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ]),
+    "3a_02-a_top---3a_02-a_west": RegionConnection("3a_02-a_top", "3a_02-a_west", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ]),
+    "3a_02-a_top---3a_02-a_main": RegionConnection("3a_02-a_top", "3a_02-a_main", [[ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ]),
+    "3a_02-a_main---3a_02-a_top": RegionConnection("3a_02-a_main", "3a_02-a_top", [[ItemName.dash_refills, ItemName.u_dash, ], ]),
     "3a_02-a_main---3a_02-a_east": RegionConnection("3a_02-a_main", "3a_02-a_east", [["Celestial Resort A - Hallway Key 1", ], ]),
     "3a_02-a_east---3a_02-a_main": RegionConnection("3a_02-a_east", "3a_02-a_main", []),
 
@@ -3079,56 +3079,61 @@ all_region_connections: dict[str, RegionConnection] = {
     "3a_01-b_west---3a_01-b_east": RegionConnection("3a_01-b_west", "3a_01-b_east", []),
     "3a_01-b_north-west---3a_01-b_west": RegionConnection("3a_01-b_north-west", "3a_01-b_west", []),
     "3a_01-b_east---3a_01-b_west": RegionConnection("3a_01-b_east", "3a_01-b_west", []),
-    "3a_01-b_east---3a_01-b_north-west": RegionConnection("3a_01-b_east", "3a_01-b_north-west", [[ItemName.springs, ], ]),
+    "3a_01-b_east---3a_01-b_north-west": RegionConnection("3a_01-b_east", "3a_01-b_north-west", [[ItemName.springs, ItemName.l_dash, ], [ItemName.springs, ItemName.ul_dash, ], ]),
 
     "3a_00-b_south-west---3a_00-b_south-east": RegionConnection("3a_00-b_south-west", "3a_00-b_south-east", []),
     "3a_00-b_south-east---3a_00-b_south-west": RegionConnection("3a_00-b_south-east", "3a_00-b_south-west", []),
     "3a_00-b_west---3a_00-b_north-west": RegionConnection("3a_00-b_west", "3a_00-b_north-west", []),
     "3a_00-b_north-west---3a_00-b_west": RegionConnection("3a_00-b_north-west", "3a_00-b_west", []),
-    "3a_00-b_east---3a_00-b_north": RegionConnection("3a_00-b_east", "3a_00-b_north", []),
+    "3a_00-b_east---3a_00-b_north": RegionConnection("3a_00-b_east", "3a_00-b_north", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "3a_00-b_north---3a_00-b_east": RegionConnection("3a_00-b_north", "3a_00-b_east", []),
 
-    "3a_00-c_south-west---3a_00-c_south-east": RegionConnection("3a_00-c_south-west", "3a_00-c_south-east", [[ItemName.dash_refills, ], ]),
-    "3a_00-c_south-east---3a_00-c_south-west": RegionConnection("3a_00-c_south-east", "3a_00-c_south-west", [[ItemName.dash_refills, ], ]),
+    "3a_00-c_south-west---3a_00-c_south-east": RegionConnection("3a_00-c_south-west", "3a_00-c_south-east", [[ItemName.dash_refills, ItemName.r_dash, ], ]),
+    "3a_00-c_south-east---3a_00-c_south-west": RegionConnection("3a_00-c_south-east", "3a_00-c_south-west", [[ItemName.dash_refills, ItemName.l_dash, ], ]),
     "3a_00-c_south-east---3a_00-c_north-east": RegionConnection("3a_00-c_south-east", "3a_00-c_north-east", []),
     "3a_00-c_north-east---3a_00-c_south-east": RegionConnection("3a_00-c_north-east", "3a_00-c_south-east", []),
 
     "3a_0x-b_west---3a_0x-b_south-east": RegionConnection("3a_0x-b_west", "3a_0x-b_south-east", []),
-    "3a_0x-b_north-east---3a_0x-b_west": RegionConnection("3a_0x-b_north-east", "3a_0x-b_west", [[ItemName.dash_refills, ], ]),
+    "3a_0x-b_west---3a_0x-b_north-east": RegionConnection("3a_0x-b_west", "3a_0x-b_north-east", [[ItemName.dash_refills, ItemName.ur_dash, ], ]),
+    "3a_0x-b_north-east---3a_0x-b_west": RegionConnection("3a_0x-b_north-east", "3a_0x-b_west", [[ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
-    "3a_03-a_west---3a_03-a_east": RegionConnection("3a_03-a_west", "3a_03-a_east", [[ItemName.sinking_platforms, ], ]),
+    "3a_03-a_west---3a_03-a_east": RegionConnection("3a_03-a_west", "3a_03-a_east", [[ItemName.sinking_platforms, ItemName.u_dash, ], ]),
+    "3a_03-a_west---3a_03-a_top": RegionConnection("3a_03-a_west", "3a_03-a_top", [[ItemName.sinking_platforms, ItemName.u_dash, ], ]),
     "3a_03-a_top---3a_03-a_east": RegionConnection("3a_03-a_top", "3a_03-a_east", []),
-    "3a_03-a_east---3a_03-a_top": RegionConnection("3a_03-a_east", "3a_03-a_top", []),
 
 
-    "3a_05-a_west---3a_05-a_east": RegionConnection("3a_05-a_west", "3a_05-a_east", [[ItemName.dash_refills, ItemName.moving_platforms, ], ]),
-    "3a_05-a_east---3a_05-a_west": RegionConnection("3a_05-a_east", "3a_05-a_west", [[ItemName.dash_refills, ItemName.moving_platforms, ], ]),
+    "3a_05-a_west---3a_05-a_east": RegionConnection("3a_05-a_west", "3a_05-a_east", [[ItemName.dash_refills, ItemName.moving_platforms, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.moving_platforms, ItemName.ur_dash, ], ]),
+    "3a_05-a_east---3a_05-a_west": RegionConnection("3a_05-a_east", "3a_05-a_west", [[ItemName.dash_refills, ItemName.moving_platforms, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.moving_platforms, ItemName.ul_dash, ], ]),
 
     "3a_06-a_west---3a_06-a_east": RegionConnection("3a_06-a_west", "3a_06-a_east", []),
 
-    "3a_07-a_west---3a_07-a_east": RegionConnection("3a_07-a_west", "3a_07-a_east", [["Celestial Resort A - Hallway Key 2", ItemName.dash_refills, ], ]),
+    "3a_07-a_west---3a_07-a_east": RegionConnection("3a_07-a_west", "3a_07-a_east", [["Celestial Resort A - Hallway Key 2", ItemName.dash_refills, ItemName.r_dash, ], ["Celestial Resort A - Hallway Key 2", ItemName.dash_refills, ItemName.ur_dash, ], ]),
     "3a_07-a_west---3a_07-a_top": RegionConnection("3a_07-a_west", "3a_07-a_top", []),
     "3a_07-a_top---3a_07-a_west": RegionConnection("3a_07-a_top", "3a_07-a_west", []),
-    "3a_07-a_east---3a_07-a_west": RegionConnection("3a_07-a_east", "3a_07-a_west", [["Celestial Resort A - Hallway Key 2", ItemName.dash_refills, ], ]),
+    "3a_07-a_east---3a_07-a_west": RegionConnection("3a_07-a_east", "3a_07-a_west", [["Celestial Resort A - Hallway Key 2", ItemName.dash_refills, ItemName.l_dash, ], ["Celestial Resort A - Hallway Key 2", ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
     "3a_07-b_bottom---3a_07-b_west": RegionConnection("3a_07-b_bottom", "3a_07-b_west", []),
     "3a_07-b_west---3a_07-b_bottom": RegionConnection("3a_07-b_west", "3a_07-b_bottom", []),
     "3a_07-b_east---3a_07-b_bottom": RegionConnection("3a_07-b_east", "3a_07-b_bottom", []),
 
     "3a_06-b_west---3a_06-b_east": RegionConnection("3a_06-b_west", "3a_06-b_east", []),
-    "3a_06-b_east---3a_06-b_west": RegionConnection("3a_06-b_east", "3a_06-b_west", []),
+    "3a_06-b_east---3a_06-b_west": RegionConnection("3a_06-b_east", "3a_06-b_west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
 
-    "3a_06-c_south-west---3a_06-c_north-west": RegionConnection("3a_06-c_south-west", "3a_06-c_north-west", []),
-    "3a_06-c_south-west---3a_06-c_south-east": RegionConnection("3a_06-c_south-west", "3a_06-c_south-east", []),
+    "3a_06-c_south-west---3a_06-c_north-west": RegionConnection("3a_06-c_south-west", "3a_06-c_north-west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
+    "3a_06-c_south-west---3a_06-c_center": RegionConnection("3a_06-c_south-west", "3a_06-c_center", []),
+    "3a_06-c_center---3a_06-c_south-west": RegionConnection("3a_06-c_center", "3a_06-c_south-west", [[ItemName.ul_dash, ], ]),
+    "3a_06-c_center---3a_06-c_south-east": RegionConnection("3a_06-c_center", "3a_06-c_south-east", []),
     "3a_06-c_north-west---3a_06-c_south-west": RegionConnection("3a_06-c_north-west", "3a_06-c_south-west", []),
-    "3a_06-c_south-east---3a_06-c_south-west": RegionConnection("3a_06-c_south-east", "3a_06-c_south-west", []),
+    "3a_06-c_south-east---3a_06-c_center": RegionConnection("3a_06-c_south-east", "3a_06-c_center", []),
     "3a_06-c_south-east---3a_06-c_east": RegionConnection("3a_06-c_south-east", "3a_06-c_east", []),
+    "3a_06-c_south-east---3a_06-c_south-east-door": RegionConnection("3a_06-c_south-east", "3a_06-c_south-east-door", [[ItemName.d_dash, ], [ItemName.dl_dash, ], [ItemName.dr_dash, ], ]),
+    "3a_06-c_south-east-door---3a_06-c_south-east": RegionConnection("3a_06-c_south-east-door", "3a_06-c_south-east", []),
     "3a_06-c_east---3a_06-c_south-east": RegionConnection("3a_06-c_east", "3a_06-c_south-east", []),
 
 
-    "3a_08-c_west---3a_08-c_east": RegionConnection("3a_08-c_west", "3a_08-c_east", [[ItemName.coins, ItemName.moving_platforms, ItemName.springs, ], ]),
+    "3a_08-c_west---3a_08-c_east": RegionConnection("3a_08-c_west", "3a_08-c_east", [[ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.u_dash, ], [ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.ul_dash, ], [ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.ur_dash, ], ]),
 
-    "3a_08-b_east---3a_08-b_west": RegionConnection("3a_08-b_east", "3a_08-b_west", [[ItemName.sinking_platforms, ItemName.coins, ], ]),
+    "3a_08-b_east---3a_08-b_west": RegionConnection("3a_08-b_east", "3a_08-b_west", [[ItemName.sinking_platforms, ItemName.coins, ItemName.u_dash, ItemName.l_dash, ], ]),
 
     "3a_08-a_west---3a_08-a_east": RegionConnection("3a_08-a_west", "3a_08-a_east", []),
     "3a_08-a_west---3a_08-a_bottom": RegionConnection("3a_08-a_west", "3a_08-a_bottom", [[ItemName.brown_clutter, ], [ItemName.green_clutter, ], [ItemName.pink_clutter, ], ]),
@@ -3137,14 +3142,14 @@ all_region_connections: dict[str, RegionConnection] = {
     "3a_09-b_west---3a_09-b_center": RegionConnection("3a_09-b_west", "3a_09-b_center", []),
     "3a_09-b_north-west---3a_09-b_center": RegionConnection("3a_09-b_north-west", "3a_09-b_center", [["Celestial Resort A - Huge Mess Key", ], ]),
     "3a_09-b_center---3a_09-b_west": RegionConnection("3a_09-b_center", "3a_09-b_west", []),
-    "3a_09-b_center---3a_09-b_north-west": RegionConnection("3a_09-b_center", "3a_09-b_north-west", [["Celestial Resort A - Huge Mess Key", ], ]),
+    "3a_09-b_center---3a_09-b_north-west": RegionConnection("3a_09-b_center", "3a_09-b_north-west", [["Celestial Resort A - Huge Mess Key", ItemName.springs, ], ["Celestial Resort A - Huge Mess Key", ItemName.u_dash, ], ["Celestial Resort A - Huge Mess Key", ItemName.ul_dash, ], ]),
     "3a_09-b_center---3a_09-b_south-west": RegionConnection("3a_09-b_center", "3a_09-b_south-west", [[ItemName.brown_clutter, ], [ItemName.green_clutter, ], [ItemName.pink_clutter, ], ]),
     "3a_09-b_center---3a_09-b_south": RegionConnection("3a_09-b_center", "3a_09-b_south", []),
     "3a_09-b_center---3a_09-b_south-east": RegionConnection("3a_09-b_center", "3a_09-b_south-east", []),
     "3a_09-b_center---3a_09-b_east": RegionConnection("3a_09-b_center", "3a_09-b_east", []),
     "3a_09-b_center---3a_09-b_north-east-right": RegionConnection("3a_09-b_center", "3a_09-b_north-east-right", []),
-    "3a_09-b_center---3a_09-b_north-east-top": RegionConnection("3a_09-b_center", "3a_09-b_north-east-top", []),
-    "3a_09-b_center---3a_09-b_north": RegionConnection("3a_09-b_center", "3a_09-b_north", []),
+    "3a_09-b_center---3a_09-b_north-east-top": RegionConnection("3a_09-b_center", "3a_09-b_north-east-top", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_09-b_center---3a_09-b_north": RegionConnection("3a_09-b_center", "3a_09-b_north", [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "3a_09-b_south-west---3a_09-b_center": RegionConnection("3a_09-b_south-west", "3a_09-b_center", [[ItemName.brown_clutter, ], [ItemName.green_clutter, ], [ItemName.pink_clutter, ], ]),
     "3a_09-b_south---3a_09-b_center": RegionConnection("3a_09-b_south", "3a_09-b_center", []),
     "3a_09-b_south-east---3a_09-b_center": RegionConnection("3a_09-b_south-east", "3a_09-b_center", []),
@@ -3166,17 +3171,17 @@ all_region_connections: dict[str, RegionConnection] = {
     "3a_11-y_south---3a_11-y_east": RegionConnection("3a_11-y_south", "3a_11-y_east", []),
 
 
-    "3a_11-z_west---3a_11-z_east": RegionConnection("3a_11-z_west", "3a_11-z_east", [[ItemName.dash_refills, ], ]),
-    "3a_11-z_east---3a_11-z_west": RegionConnection("3a_11-z_east", "3a_11-z_west", [[ItemName.dash_refills, ], ]),
+    "3a_11-z_west---3a_11-z_east": RegionConnection("3a_11-z_west", "3a_11-z_east", [[ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ]),
+    "3a_11-z_east---3a_11-z_west": RegionConnection("3a_11-z_east", "3a_11-z_west", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
-    "3a_10-z_bottom---3a_10-z_top": RegionConnection("3a_10-z_bottom", "3a_10-z_top", [[ItemName.sinking_platforms, ], ]),
+    "3a_10-z_bottom---3a_10-z_top": RegionConnection("3a_10-z_bottom", "3a_10-z_top", [[ItemName.sinking_platforms, ItemName.l_dash, ItemName.r_dash, ], [ItemName.sinking_platforms, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.sinking_platforms, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.sinking_platforms, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "3a_10-z_top---3a_10-z_bottom": RegionConnection("3a_10-z_top", "3a_10-z_bottom", []),
 
     "3a_10-y_bottom---3a_10-y_top": RegionConnection("3a_10-y_bottom", "3a_10-y_top", []),
     "3a_10-y_top---3a_10-y_bottom": RegionConnection("3a_10-y_top", "3a_10-y_bottom", []),
 
-    "3a_10-c_south-east---3a_10-c_north-east": RegionConnection("3a_10-c_south-east", "3a_10-c_north-east", []),
-    "3a_10-c_north-east---3a_10-c_south-east": RegionConnection("3a_10-c_north-east", "3a_10-c_south-east", []),
+    "3a_10-c_south-east---3a_10-c_north-east": RegionConnection("3a_10-c_south-east", "3a_10-c_north-east", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
+    "3a_10-c_north-east---3a_10-c_south-east": RegionConnection("3a_10-c_north-east", "3a_10-c_south-east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "3a_10-c_north-west---3a_10-c_south-west": RegionConnection("3a_10-c_north-west", "3a_10-c_south-west", []),
     "3a_10-c_south-west---3a_10-c_north-west": RegionConnection("3a_10-c_south-west", "3a_10-c_north-west", []),
 
@@ -3188,37 +3193,37 @@ all_region_connections: dict[str, RegionConnection] = {
     "3a_12-c_west---3a_12-c_top": RegionConnection("3a_12-c_west", "3a_12-c_top", []),
     "3a_12-c_top---3a_12-c_west": RegionConnection("3a_12-c_top", "3a_12-c_west", []),
 
-    "3a_12-d_bottom---3a_12-d_top": RegionConnection("3a_12-d_bottom", "3a_12-d_top", []),
+    "3a_12-d_bottom---3a_12-d_top": RegionConnection("3a_12-d_bottom", "3a_12-d_top", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
 
     "3a_11-d_west---3a_11-d_east": RegionConnection("3a_11-d_west", "3a_11-d_east", [[ItemName.cannot_access, ], ]),
-    "3a_11-d_east---3a_11-d_west": RegionConnection("3a_11-d_east", "3a_11-d_west", [[ItemName.dash_refills, ], ]),
+    "3a_11-d_east---3a_11-d_west": RegionConnection("3a_11-d_east", "3a_11-d_west", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
     "3a_10-d_west---3a_10-d_main": RegionConnection("3a_10-d_west", "3a_10-d_main", [[ItemName.green_clutter, ], ]),
-    "3a_10-d_main---3a_10-d_west": RegionConnection("3a_10-d_main", "3a_10-d_west", []),
+    "3a_10-d_main---3a_10-d_west": RegionConnection("3a_10-d_main", "3a_10-d_west", [[ItemName.green_clutter, ], ]),
     "3a_10-d_east---3a_10-d_main": RegionConnection("3a_10-d_east", "3a_10-d_main", []),
 
-    "3a_11-b_west---3a_11-b_east": RegionConnection("3a_11-b_west", "3a_11-b_east", []),
+    "3a_11-b_west---3a_11-b_east": RegionConnection("3a_11-b_west", "3a_11-b_east", [[ItemName.ur_dash, ], ]),
     "3a_11-b_north-west---3a_11-b_west": RegionConnection("3a_11-b_north-west", "3a_11-b_west", []),
-    "3a_11-b_east---3a_11-b_west": RegionConnection("3a_11-b_east", "3a_11-b_west", []),
-    "3a_11-b_east---3a_11-b_north-east": RegionConnection("3a_11-b_east", "3a_11-b_north-east", [[ItemName.pink_clutter, ], ]),
+    "3a_11-b_east---3a_11-b_north-east": RegionConnection("3a_11-b_east", "3a_11-b_north-east", [[ItemName.pink_clutter, ItemName.u_dash, ], [ItemName.pink_clutter, ItemName.ul_dash, ], ]),
     "3a_11-b_north-east---3a_11-b_east": RegionConnection("3a_11-b_north-east", "3a_11-b_east", [[ItemName.pink_clutter, ], ]),
 
-    "3a_12-b_west---3a_12-b_east": RegionConnection("3a_12-b_west", "3a_12-b_east", []),
-    "3a_12-b_east---3a_12-b_west": RegionConnection("3a_12-b_east", "3a_12-b_west", []),
+    "3a_12-b_west---3a_12-b_east": RegionConnection("3a_12-b_west", "3a_12-b_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_12-b_east---3a_12-b_west": RegionConnection("3a_12-b_east", "3a_12-b_west", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
 
     "3a_13-b_top---3a_13-b_bottom": RegionConnection("3a_13-b_top", "3a_13-b_bottom", []),
-    "3a_13-b_bottom---3a_13-b_top": RegionConnection("3a_13-b_bottom", "3a_13-b_top", []),
+    "3a_13-b_bottom---3a_13-b_top": RegionConnection("3a_13-b_bottom", "3a_13-b_top", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
 
-    "3a_13-a_west---3a_13-a_east": RegionConnection("3a_13-a_west", "3a_13-a_east", []),
+    "3a_13-a_west---3a_13-a_east": RegionConnection("3a_13-a_west", "3a_13-a_east", [[ItemName.u_dash, ], ]),
     "3a_13-a_west---3a_13-a_south-west": RegionConnection("3a_13-a_west", "3a_13-a_south-west", [[ItemName.pink_clutter, ], ]),
     "3a_13-a_south-west---3a_13-a_west": RegionConnection("3a_13-a_south-west", "3a_13-a_west", [[ItemName.pink_clutter, ], ]),
 
-    "3a_13-x_west---3a_13-x_east": RegionConnection("3a_13-x_west", "3a_13-x_east", []),
-    "3a_13-x_east---3a_13-x_west": RegionConnection("3a_13-x_east", "3a_13-x_west", []),
+    "3a_13-x_west---3a_13-x_east": RegionConnection("3a_13-x_west", "3a_13-x_east", [[ItemName.l_dash, ], ]),
+    "3a_13-x_east---3a_13-x_west": RegionConnection("3a_13-x_east", "3a_13-x_west", [[ItemName.r_dash, ], ]),
 
-    "3a_12-x_west---3a_12-x_east": RegionConnection("3a_12-x_west", "3a_12-x_east", []),
+    "3a_12-x_west---3a_12-x_east": RegionConnection("3a_12-x_west", "3a_12-x_east", [[ItemName.pink_clutter, ], ]),
     "3a_12-x_north-east---3a_12-x_east": RegionConnection("3a_12-x_north-east", "3a_12-x_east", []),
-    "3a_12-x_east---3a_12-x_west": RegionConnection("3a_12-x_east", "3a_12-x_west", []),
+    "3a_12-x_east---3a_12-x_west": RegionConnection("3a_12-x_east", "3a_12-x_west", [[ItemName.pink_clutter, ], ]),
+    "3a_12-x_east---3a_12-x_north-east": RegionConnection("3a_12-x_east", "3a_12-x_north-east", [[ItemName.u_dash, ], ]),
 
     "3a_11-a_west---3a_11-a_south": RegionConnection("3a_11-a_west", "3a_11-a_south", []),
     "3a_11-a_south---3a_11-a_west": RegionConnection("3a_11-a_south", "3a_11-a_west", []),
@@ -3226,26 +3231,26 @@ all_region_connections: dict[str, RegionConnection] = {
     "3a_11-a_south-east-right---3a_11-a_south-east-bottom": RegionConnection("3a_11-a_south-east-right", "3a_11-a_south-east-bottom", [[ItemName.pink_clutter, ], ]),
 
     "3a_08-x_west---3a_08-x_east": RegionConnection("3a_08-x_west", "3a_08-x_east", []),
-    "3a_08-x_east---3a_08-x_west": RegionConnection("3a_08-x_east", "3a_08-x_west", []),
+    "3a_08-x_east---3a_08-x_west": RegionConnection("3a_08-x_east", "3a_08-x_west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
 
     "3a_09-d_bottom---3a_09-d_top": RegionConnection("3a_09-d_bottom", "3a_09-d_top", []),
 
-    "3a_08-d_east---3a_08-d_west": RegionConnection("3a_08-d_east", "3a_08-d_west", [[ItemName.dash_refills, ItemName.coins, ], ]),
+    "3a_08-d_east---3a_08-d_west": RegionConnection("3a_08-d_east", "3a_08-d_west", [[ItemName.dash_refills, ItemName.coins, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.coins, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.coins, ItemName.ur_dash, ], ]),
 
-    "3a_06-d_east---3a_06-d_west": RegionConnection("3a_06-d_east", "3a_06-d_west", [[ItemName.dash_refills, ], ]),
+    "3a_06-d_east---3a_06-d_west": RegionConnection("3a_06-d_east", "3a_06-d_west", [[ItemName.dash_refills, ItemName.u_dash, ItemName.l_dash, ], ]),
 
-    "3a_04-d_west---3a_04-d_west": RegionConnection("3a_04-d_west", "3a_04-d_west", []),
+    "3a_04-d_west---3a_04-d_south-west": RegionConnection("3a_04-d_west", "3a_04-d_south-west", []),
     "3a_04-d_south-west---3a_04-d_west": RegionConnection("3a_04-d_south-west", "3a_04-d_west", []),
     "3a_04-d_south---3a_04-d_south-west": RegionConnection("3a_04-d_south", "3a_04-d_south-west", [[ItemName.cannot_access, ], ]),
-    "3a_04-d_east---3a_04-d_south": RegionConnection("3a_04-d_east", "3a_04-d_south", [[ItemName.dash_refills, ], ]),
+    "3a_04-d_east---3a_04-d_south": RegionConnection("3a_04-d_east", "3a_04-d_south", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
     "3a_04-c_west---3a_04-c_north-west": RegionConnection("3a_04-c_west", "3a_04-c_north-west", [["Celestial Resort A - Presidential Suite Key", ], ]),
-    "3a_04-c_west---3a_04-c_east": RegionConnection("3a_04-c_west", "3a_04-c_east", []),
+    "3a_04-c_west---3a_04-c_east": RegionConnection("3a_04-c_west", "3a_04-c_east", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "3a_04-c_north-west---3a_04-c_west": RegionConnection("3a_04-c_north-west", "3a_04-c_west", [["Celestial Resort A - Presidential Suite Key", ], ]),
     "3a_04-c_east---3a_04-c_west": RegionConnection("3a_04-c_east", "3a_04-c_west", []),
 
     "3a_02-c_west---3a_02-c_east": RegionConnection("3a_02-c_west", "3a_02-c_east", []),
-    "3a_02-c_east---3a_02-c_west": RegionConnection("3a_02-c_east", "3a_02-c_west", [[ItemName.sinking_platforms, ], ]),
+    "3a_02-c_east---3a_02-c_west": RegionConnection("3a_02-c_east", "3a_02-c_west", [[ItemName.sinking_platforms, ItemName.l_dash, ], [ItemName.sinking_platforms, ItemName.ul_dash, ], ]),
     "3a_02-c_east---3a_02-c_south-east": RegionConnection("3a_02-c_east", "3a_02-c_south-east", []),
     "3a_02-c_south-east---3a_02-c_east": RegionConnection("3a_02-c_south-east", "3a_02-c_east", []),
 
@@ -3256,31 +3261,31 @@ all_region_connections: dict[str, RegionConnection] = {
 
 
     "3a_02-d_west---3a_02-d_east": RegionConnection("3a_02-d_west", "3a_02-d_east", [[ItemName.cannot_access, ], ]),
-    "3a_02-d_east---3a_02-d_west": RegionConnection("3a_02-d_east", "3a_02-d_west", [[ItemName.dash_refills, ], ]),
+    "3a_02-d_east---3a_02-d_west": RegionConnection("3a_02-d_east", "3a_02-d_west", [[ItemName.dash_refills, ItemName.l_dash, ItemName.ul_dash, ], ]),
 
     "3a_00-d_west---3a_00-d_east": RegionConnection("3a_00-d_west", "3a_00-d_east", []),
-    "3a_00-d_east---3a_00-d_west": RegionConnection("3a_00-d_east", "3a_00-d_west", []),
+    "3a_00-d_east---3a_00-d_west": RegionConnection("3a_00-d_east", "3a_00-d_west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
 
     "3a_roof00_west---3a_roof00_east": RegionConnection("3a_roof00_west", "3a_roof00_east", []),
     "3a_roof00_east---3a_roof00_west": RegionConnection("3a_roof00_east", "3a_roof00_west", []),
 
-    "3a_roof01_west---3a_roof01_east": RegionConnection("3a_roof01_west", "3a_roof01_east", [[ItemName.springs, ], ]),
+    "3a_roof01_west---3a_roof01_east": RegionConnection("3a_roof01_west", "3a_roof01_east", [[ItemName.springs, ItemName.ur_dash, ], ]),
 
     "3a_roof02_west---3a_roof02_east": RegionConnection("3a_roof02_west", "3a_roof02_east", []),
     "3a_roof02_east---3a_roof02_west": RegionConnection("3a_roof02_east", "3a_roof02_west", []),
 
-    "3a_roof03_west---3a_roof03_east": RegionConnection("3a_roof03_west", "3a_roof03_east", [[ItemName.springs, ItemName.coins, ItemName.dash_refills, ], ]),
+    "3a_roof03_west---3a_roof03_east": RegionConnection("3a_roof03_west", "3a_roof03_east", [[ItemName.springs, ItemName.coins, ItemName.dash_refills, ItemName.ur_dash, ], ]),
 
-    "3a_roof04_west---3a_roof04_east": RegionConnection("3a_roof04_west", "3a_roof04_east", []),
-    "3a_roof04_east---3a_roof04_west": RegionConnection("3a_roof04_east", "3a_roof04_west", []),
+    "3a_roof04_west---3a_roof04_east": RegionConnection("3a_roof04_west", "3a_roof04_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_roof04_east---3a_roof04_west": RegionConnection("3a_roof04_east", "3a_roof04_west", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
 
-    "3a_roof05_west---3a_roof05_east": RegionConnection("3a_roof05_west", "3a_roof05_east", [[ItemName.springs, ], ]),
+    "3a_roof05_west---3a_roof05_east": RegionConnection("3a_roof05_west", "3a_roof05_east", [[ItemName.springs, ItemName.r_dash, ], ]),
 
-    "3a_roof06b_west---3a_roof06b_east": RegionConnection("3a_roof06b_west", "3a_roof06b_east", [[ItemName.dash_refills, ], ]),
-    "3a_roof06b_east---3a_roof06b_west": RegionConnection("3a_roof06b_east", "3a_roof06b_west", [[ItemName.dash_refills, ], ]),
+    "3a_roof06b_west---3a_roof06b_east": RegionConnection("3a_roof06b_west", "3a_roof06b_east", [[ItemName.dash_refills, ItemName.ur_dash, ], ]),
+    "3a_roof06b_east---3a_roof06b_west": RegionConnection("3a_roof06b_east", "3a_roof06b_west", [[ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
-    "3a_roof06_west---3a_roof06_east": RegionConnection("3a_roof06_west", "3a_roof06_east", []),
-    "3a_roof06_east---3a_roof06_west": RegionConnection("3a_roof06_east", "3a_roof06_west", []),
+    "3a_roof06_west---3a_roof06_east": RegionConnection("3a_roof06_west", "3a_roof06_east", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_roof06_east---3a_roof06_west": RegionConnection("3a_roof06_east", "3a_roof06_west", [[ItemName.cannot_access, ], ]),
 
     "3a_roof07_west---3a_roof07_main": RegionConnection("3a_roof07_west", "3a_roof07_main", []),
     "3a_roof07_main---3a_roof07_west": RegionConnection("3a_roof07_main", "3a_roof07_west", []),
@@ -5066,45 +5071,45 @@ all_locations: dict[str, LevelLocation] = {
 
     "2c_02_binoculars": LevelLocation("2c_02_binoculars", "Old Site C - Room 02 Binoculars", "2c_02_west", LocationType.binoculars, []),
     "2c_02_clear": LevelLocation("2c_02_clear", "Old Site C - Level Clear", "2c_02_goal", LocationType.level_clear, []),
-    "2c_02_golden": LevelLocation("2c_02_golden", "Old Site C - Golden Strawberry", "2c_02_goal", LocationType.golden_strawberry, [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.coins, ], ]),
+    "2c_02_golden": LevelLocation("2c_02_golden", "Old Site C - Golden Strawberry", "2c_02_goal", LocationType.golden_strawberry, [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.coins, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ], ]),
 
     "3a_s2_strawberry_1": LevelLocation("3a_s2_strawberry_1", "Celestial Resort A - Room s2 Strawberry 1", "3a_s2_west", LocationType.strawberry, []),
-    "3a_s2_strawberry_2": LevelLocation("3a_s2_strawberry_2", "Celestial Resort A - Room s2 Strawberry 2", "3a_s2_north-west", LocationType.strawberry, []),
-    "3a_s3_key_1": LevelLocation("3a_s3_key_1", "Celestial Resort A - Front Door Key", "3a_s3_west", LocationType.key, []),
+    "3a_s2_strawberry_2": LevelLocation("3a_s2_strawberry_2", "Celestial Resort A - Room s2 Strawberry 2", "3a_s2_north-west", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ur_dash, ItemName.ul_dash, ], ]),
+    "3a_s3_key_1": LevelLocation("3a_s3_key_1", "Celestial Resort A - Front Door Key", "3a_s3_west", LocationType.key, [[ItemName.dl_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.l_dash, ItemName.u_dash, ], [ItemName.l_dash, ItemName.ur_dash, ], [ItemName.u_dash, ], [ItemName.u_dash, ItemName.ul_dash, ], [ItemName.u_dash, ItemName.ur_dash, ], [ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "3a_s3_strawberry": LevelLocation("3a_s3_strawberry", "Celestial Resort A - Room s3 Strawberry", "3a_s3_north", LocationType.strawberry, []),
-    "3a_00-a_strawberry": LevelLocation("3a_00-a_strawberry", "Celestial Resort A - Room 00-a Strawberry", "3a_00-a_east", LocationType.strawberry, []),
-    "3a_02-b_hallway_key_1": LevelLocation("3a_02-b_hallway_key_1", "Celestial Resort A - Hallway Key 1", "3a_02-b_east", LocationType.key, []),
-    "3a_00-b_strawberry": LevelLocation("3a_00-b_strawberry", "Celestial Resort A - Room 00-b Strawberry", "3a_00-b_east", LocationType.strawberry, []),
-    "3a_04-b_strawberry": LevelLocation("3a_04-b_strawberry", "Celestial Resort A - Room 04-b Strawberry", "3a_04-b_east", LocationType.strawberry, [[ItemName.dash_refills, ], ]),
+    "3a_00-a_strawberry": LevelLocation("3a_00-a_strawberry", "Celestial Resort A - Room 00-a Strawberry", "3a_00-a_east", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
+    "3a_02-b_hallway_key_1": LevelLocation("3a_02-b_hallway_key_1", "Celestial Resort A - Hallway Key 1", "3a_02-b_east", LocationType.key, [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
+    "3a_00-b_strawberry": LevelLocation("3a_00-b_strawberry", "Celestial Resort A - Room 00-b Strawberry", "3a_00-b_east", LocationType.strawberry, [[ItemName.l_dash, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_04-b_strawberry": LevelLocation("3a_04-b_strawberry", "Celestial Resort A - Room 04-b Strawberry", "3a_04-b_east", LocationType.strawberry, [[ItemName.dash_refills, ItemName.ur_dash, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ItemName.ul_dash, ], ]),
     "3a_06-a_strawberry": LevelLocation("3a_06-a_strawberry", "Celestial Resort A - Room 06-a Strawberry", "3a_06-a_west", LocationType.strawberry, []),
     "3a_07-b_strawberry": LevelLocation("3a_07-b_strawberry", "Celestial Resort A - Room 07-b Strawberry", "3a_07-b_top", LocationType.strawberry, []),
     "3a_07-b_key_2": LevelLocation("3a_07-b_key_2", "Celestial Resort A - Hallway Key 2", "3a_07-b_east", LocationType.key, []),
-    "3a_06-b_strawberry": LevelLocation("3a_06-b_strawberry", "Celestial Resort A - Room 06-b Strawberry", "3a_06-b_east", LocationType.strawberry, []),
-    "3a_06-c_strawberry": LevelLocation("3a_06-c_strawberry", "Celestial Resort A - Room 06-c Strawberry", "3a_06-c_south-west", LocationType.strawberry, []),
-    "3a_05-c_strawberry": LevelLocation("3a_05-c_strawberry", "Celestial Resort A - Room 05-c Strawberry", "3a_05-c_east", LocationType.strawberry, []),
+    "3a_06-b_strawberry": LevelLocation("3a_06-b_strawberry", "Celestial Resort A - Room 06-b Strawberry", "3a_06-b_west", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_06-c_strawberry": LevelLocation("3a_06-c_strawberry", "Celestial Resort A - Room 06-c Strawberry", "3a_06-c_center", LocationType.strawberry, [[ItemName.ul_dash, ItemName.l_dash, ], ]),
+    "3a_05-c_strawberry": LevelLocation("3a_05-c_strawberry", "Celestial Resort A - Room 05-c Strawberry", "3a_05-c_east", LocationType.strawberry, [[ItemName.l_dash, ItemName.r_dash, ], [ItemName.l_dash, ItemName.u_dash, ], [ItemName.l_dash, ItemName.ur_dash, ], [ItemName.r_dash, ItemName.ul_dash, ], [ItemName.u_dash, ItemName.ul_dash, ], [ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "3a_09-b_key_4": LevelLocation("3a_09-b_key_4", "Celestial Resort A - Huge Mess Key", "3a_09-b_center", LocationType.key, [[ItemName.brown_clutter, ItemName.green_clutter, ItemName.pink_clutter, ], ]),
-    "3a_10-x_brown_clutter": LevelLocation("3a_10-x_brown_clutter", "Celestial Resort A - Brown Clutter", "3a_10-x_south-east", LocationType.clutter, []),
-    "3a_12-y_strawberry": LevelLocation("3a_12-y_strawberry", "Celestial Resort A - Room 12-y Strawberry", "3a_12-y_west", LocationType.strawberry, []),
+    "3a_10-x_brown_clutter": LevelLocation("3a_10-x_brown_clutter", "Celestial Resort A - Brown Clutter", "3a_10-x_south-east", LocationType.clutter, [[ItemName.d_dash, ], [ItemName.dl_dash, ], [ItemName.dr_dash, ], ]),
+    "3a_12-y_strawberry": LevelLocation("3a_12-y_strawberry", "Celestial Resort A - Room 12-y Strawberry", "3a_12-y_west", LocationType.strawberry, [[ItemName.l_dash, ItemName.r_dash, ], [ItemName.l_dash, ItemName.ur_dash, ], [ItemName.r_dash, ItemName.ul_dash, ], [ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "3a_10-y_strawberry": LevelLocation("3a_10-y_strawberry", "Celestial Resort A - Room 10-y Strawberry", "3a_10-y_bottom", LocationType.strawberry, []),
     "3a_11-c_crystal_heart": LevelLocation("3a_11-c_crystal_heart", "Celestial Resort A - Crystal Heart", "3a_11-c_south-east", LocationType.crystal_heart, []),
-    "3a_12-c_strawberry": LevelLocation("3a_12-c_strawberry", "Celestial Resort A - Room 12-c Strawberry", "3a_12-c_west", LocationType.strawberry, []),
-    "3a_11-d_strawberry": LevelLocation("3a_11-d_strawberry", "Celestial Resort A - Room 11-d Strawberry", "3a_11-d_east", LocationType.strawberry, [[ItemName.dash_refills, ], ]),
-    "3a_10-d_green_clutter": LevelLocation("3a_10-d_green_clutter", "Celestial Resort A - Green Clutter", "3a_10-d_main", LocationType.clutter, []),
-    "3a_13-b_strawberry": LevelLocation("3a_13-b_strawberry", "Celestial Resort A - Room 13-b Strawberry", "3a_13-b_top", LocationType.strawberry, []),
-    "3a_13-x_strawberry": LevelLocation("3a_13-x_strawberry", "Celestial Resort A - Room 13-x Strawberry", "3a_13-x_west", LocationType.strawberry, []),
-    "3a_12-x_pink_clutter": LevelLocation("3a_12-x_pink_clutter", "Celestial Resort A - Pink Clutter", "3a_12-x_east", LocationType.clutter, []),
-    "3a_08-x_strawberry": LevelLocation("3a_08-x_strawberry", "Celestial Resort A - Room 08-x Strawberry", "3a_08-x_west", LocationType.strawberry, []),
-    "3a_06-d_strawberry": LevelLocation("3a_06-d_strawberry", "Celestial Resort A - Room 06-d Strawberry", "3a_06-d_east", LocationType.strawberry, []),
-    "3a_04-c_strawberry": LevelLocation("3a_04-c_strawberry", "Celestial Resort A - Room 04-c Strawberry", "3a_04-c_east", LocationType.strawberry, []),
+    "3a_12-c_strawberry": LevelLocation("3a_12-c_strawberry", "Celestial Resort A - Room 12-c Strawberry", "3a_12-c_west", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_11-d_strawberry": LevelLocation("3a_11-d_strawberry", "Celestial Resort A - Room 11-d Strawberry", "3a_11-d_east", LocationType.strawberry, [[ItemName.dash_refills, ItemName.l_dash, ItemName.ul_dash, ], ]),
+    "3a_10-d_green_clutter": LevelLocation("3a_10-d_green_clutter", "Celestial Resort A - Green Clutter", "3a_10-d_main", LocationType.clutter, [[ItemName.d_dash, ], [ItemName.dl_dash, ], [ItemName.dr_dash, ], ]),
+    "3a_13-b_strawberry": LevelLocation("3a_13-b_strawberry", "Celestial Resort A - Room 13-b Strawberry", "3a_13-b_top", LocationType.strawberry, [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_13-x_strawberry": LevelLocation("3a_13-x_strawberry", "Celestial Resort A - Room 13-x Strawberry", "3a_13-x_west", LocationType.strawberry, [[ItemName.l_dash, ], [ItemName.r_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_12-x_pink_clutter": LevelLocation("3a_12-x_pink_clutter", "Celestial Resort A - Pink Clutter", "3a_12-x_east", LocationType.clutter, [[ItemName.d_dash, ], [ItemName.dl_dash, ], [ItemName.dr_dash, ], ]),
+    "3a_08-x_strawberry": LevelLocation("3a_08-x_strawberry", "Celestial Resort A - Room 08-x Strawberry", "3a_08-x_east", LocationType.strawberry, []),
+    "3a_06-d_strawberry": LevelLocation("3a_06-d_strawberry", "Celestial Resort A - Room 06-d Strawberry", "3a_06-d_east", LocationType.strawberry, [[ItemName.u_dash, ItemName.l_dash, ItemName.r_dash, ], ]),
+    "3a_04-c_strawberry": LevelLocation("3a_04-c_strawberry", "Celestial Resort A - Room 04-c Strawberry", "3a_04-c_east", LocationType.strawberry, [[ItemName.u_dash, ], ]),
     "3a_02-c_key_5": LevelLocation("3a_02-c_key_5", "Celestial Resort A - Presidential Suite Key", "3a_02-c_west", LocationType.key, []),
     "3a_03-b_strawberry_1": LevelLocation("3a_03-b_strawberry_1", "Celestial Resort A - Room 03-b Strawberry 1", "3a_03-b_west", LocationType.strawberry, []),
     "3a_03-b_strawberry_2": LevelLocation("3a_03-b_strawberry_2", "Celestial Resort A - Room 03-b Strawberry 2", "3a_03-b_west", LocationType.strawberry, [[ItemName.dash_refills, ], ]),
-    "3a_01-c_cassette": LevelLocation("3a_01-c_cassette", "Celestial Resort A - Cassette", "3a_01-c_east", LocationType.cassette, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ], ]),
-    "3a_roof03_strawberry": LevelLocation("3a_roof03_strawberry", "Celestial Resort A - Room roof03 Strawberry", "3a_roof03_west", LocationType.strawberry, []),
-    "3a_roof06_strawberry_1": LevelLocation("3a_roof06_strawberry_1", "Celestial Resort A - Room roof06 Strawberry 1", "3a_roof06_west", LocationType.strawberry, []),
-    "3a_roof06_strawberry_2": LevelLocation("3a_roof06_strawberry_2", "Celestial Resort A - Room roof06 Strawberry 2", "3a_roof06_west", LocationType.strawberry, []),
+    "3a_01-c_cassette": LevelLocation("3a_01-c_cassette", "Celestial Resort A - Cassette", "3a_01-c_east", LocationType.cassette, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.u_dash, ], ]),
+    "3a_roof03_strawberry": LevelLocation("3a_roof03_strawberry", "Celestial Resort A - Room roof03 Strawberry", "3a_roof03_west", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "3a_roof06_strawberry_1": LevelLocation("3a_roof06_strawberry_1", "Celestial Resort A - Room roof06 Strawberry 1", "3a_roof06_west", LocationType.strawberry, [[ItemName.l_dash, ], [ItemName.r_dash, ], ]),
+    "3a_roof06_strawberry_2": LevelLocation("3a_roof06_strawberry_2", "Celestial Resort A - Room roof06 Strawberry 2", "3a_roof06_west", LocationType.strawberry, [[ItemName.r_dash, ], ]),
     "3a_roof07_clear": LevelLocation("3a_roof07_clear", "Celestial Resort A - Level Clear", "3a_roof07_main", LocationType.level_clear, []),
-    "3a_roof07_golden": LevelLocation("3a_roof07_golden", "Celestial Resort A - Golden Strawberry", "3a_roof07_main", LocationType.golden_strawberry, [["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", "Celestial Resort A - Presidential Suite Key", ItemName.sinking_platforms, ItemName.dash_refills, ItemName.brown_clutter, ItemName.green_clutter, ItemName.pink_clutter, ItemName.coins, ItemName.moving_platforms, ItemName.springs, ], ]),
+    "3a_roof07_golden": LevelLocation("3a_roof07_golden", "Celestial Resort A - Golden Strawberry", "3a_roof07_main", LocationType.golden_strawberry, [["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", "Celestial Resort A - Presidential Suite Key", ItemName.sinking_platforms, ItemName.dash_refills, ItemName.brown_clutter, ItemName.green_clutter, ItemName.pink_clutter, ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.ur_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.u_dash, ItemName.r_dash, ], ]),
 
     "3b_back_binoculars": LevelLocation("3b_back_binoculars", "Celestial Resort B - Room back Binoculars", "3b_back_east", LocationType.binoculars, []),
     "3b_12_binoculars": LevelLocation("3b_12_binoculars", "Celestial Resort B - Room 12 Binoculars", "3b_12_west", LocationType.binoculars, []),
@@ -5904,8 +5909,10 @@ all_regions: dict[str, PreRegion] = {
     "3a_06-b_east": PreRegion("3a_06-b_east", "3a_06-b", connections_by_region["3a_06-b_east"], locations_by_region["3a_06-b_east"]),
 
     "3a_06-c_south-west": PreRegion("3a_06-c_south-west", "3a_06-c", connections_by_region["3a_06-c_south-west"], locations_by_region["3a_06-c_south-west"]),
+    "3a_06-c_center": PreRegion("3a_06-c_center", "3a_06-c", connections_by_region["3a_06-c_center"], locations_by_region["3a_06-c_center"]),
     "3a_06-c_north-west": PreRegion("3a_06-c_north-west", "3a_06-c", connections_by_region["3a_06-c_north-west"], locations_by_region["3a_06-c_north-west"]),
     "3a_06-c_south-east": PreRegion("3a_06-c_south-east", "3a_06-c", connections_by_region["3a_06-c_south-east"], locations_by_region["3a_06-c_south-east"]),
+    "3a_06-c_south-east-door": PreRegion("3a_06-c_south-east-door", "3a_06-c", connections_by_region["3a_06-c_south-east-door"], locations_by_region["3a_06-c_south-east-door"]),
     "3a_06-c_east": PreRegion("3a_06-c_east", "3a_06-c", connections_by_region["3a_06-c_east"], locations_by_region["3a_06-c_east"]),
 
     "3a_05-c_east": PreRegion("3a_05-c_east", "3a_05-c", connections_by_region["3a_05-c_east"], locations_by_region["3a_05-c_east"]),
@@ -8225,7 +8232,7 @@ all_room_connections: dict[str, RoomConnection] = {
     "3a_06-b_west---3a_06-c_south-west": RoomConnection("3a", all_doors["3a_06-b_west"], all_doors["3a_06-c_south-west"]),
     "3a_06-c_north-west---3a_05-c_east": RoomConnection("3a", all_doors["3a_06-c_north-west"], all_doors["3a_05-c_east"]),
     "3a_06-c_east---3a_08-c_west": RoomConnection("3a", all_doors["3a_06-c_east"], all_doors["3a_08-c_west"]),
-    "3a_06-c_south-east---3a_07-b_top": RoomConnection("3a", all_doors["3a_06-c_south-east"], all_doors["3a_07-b_top"]),
+    "3a_06-c_south-east-door---3a_07-b_top": RoomConnection("3a", all_doors["3a_06-c_south-east-door"], all_doors["3a_07-b_top"]),
     "3a_08-c_east---3a_08-b_east": RoomConnection("3a", all_doors["3a_08-c_east"], all_doors["3a_08-b_east"]),
     "3a_08-b_west---3a_07-b_east": RoomConnection("3a", all_doors["3a_08-b_west"], all_doors["3a_07-b_east"]),
     "3a_08-a_bottom---3a_08-x_west": RoomConnection("3a", all_doors["3a_08-a_bottom"], all_doors["3a_08-x_west"]),
