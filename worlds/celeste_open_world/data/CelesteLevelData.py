@@ -3563,12 +3563,12 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "4b_end_west---4b_end_goal": RegionConnection("4b_end_west", "4b_end_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
-    "4c_00_west---4c_00_east": RegionConnection("4c_00_west", "4c_00_east", [[ItemName.blue_boosters, ], ]),
+    "4c_00_west---4c_00_east": RegionConnection("4c_00_west", "4c_00_east", [[ItemName.blue_boosters, ItemName.r_dash, ], [ItemName.blue_boosters, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.ur_dash, ], ]),
 
-    "4c_01_west---4c_01_east": RegionConnection("4c_01_west", "4c_01_east", [[ItemName.move_blocks, ItemName.dash_refills, ], ]),
+    "4c_01_west---4c_01_east": RegionConnection("4c_01_west", "4c_01_east", [[ItemName.move_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
     "4c_01_east---4c_01_west": RegionConnection("4c_01_east", "4c_01_west", [[ItemName.cannot_access, ], ]),
 
-    "4c_02_west---4c_02_goal": RegionConnection("4c_02_west", "4c_02_goal", [[ItemName.pink_clouds, ItemName.blue_boosters, ItemName.move_blocks, ], ]),
+    "4c_02_west---4c_02_goal": RegionConnection("4c_02_west", "4c_02_goal", [[ItemName.pink_clouds, ItemName.blue_boosters, ItemName.move_blocks, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
     "5a_a-00b_west---5a_a-00b_east": RegionConnection("5a_a-00b_west", "5a_a-00b_east", []),
     "5a_a-00b_east---5a_a-00b_west": RegionConnection("5a_a-00b_east", "5a_a-00b_west", []),
@@ -5168,9 +5168,9 @@ all_locations: dict[str, LevelLocation] = {
     "4b_end_golden": LevelLocation("4b_end_golden", "Golden Ridge B - Golden Strawberry", "4b_end_goal", LocationType.golden_strawberry, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.moving_platforms, ItemName.blue_boosters, ItemName.blue_clouds, ItemName.pink_clouds, ItemName.move_blocks, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.crouch, ], ]),
 
     "4c_01_binoculars": LevelLocation("4c_01_binoculars", "Golden Ridge C - Room 01 Binoculars", "4c_01_west", LocationType.binoculars, []),
-    "4c_02_binoculars": LevelLocation("4c_02_binoculars", "Golden Ridge C - Room 02 Binoculars", "4c_02_west", LocationType.binoculars, []),
+    "4c_02_binoculars": LevelLocation("4c_02_binoculars", "Golden Ridge C - Room 02 Binoculars", "4c_02_west", LocationType.binoculars, [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "4c_02_clear": LevelLocation("4c_02_clear", "Golden Ridge C - Level Clear", "4c_02_goal", LocationType.level_clear, []),
-    "4c_02_golden": LevelLocation("4c_02_golden", "Golden Ridge C - Golden Strawberry", "4c_02_goal", LocationType.golden_strawberry, [[ItemName.pink_clouds, ItemName.blue_boosters, ItemName.move_blocks, ItemName.dash_refills, ], ]),
+    "4c_02_golden": LevelLocation("4c_02_golden", "Golden Ridge C - Golden Strawberry", "4c_02_goal", LocationType.golden_strawberry, [[ItemName.pink_clouds, ItemName.blue_boosters, ItemName.move_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
     "5a_a-00x_strawberry": LevelLocation("5a_a-00x_strawberry", "Mirror Temple A - Room a-00x Strawberry", "5a_a-00x_east", LocationType.strawberry, []),
     "5a_a-01_strawberry_1": LevelLocation("5a_a-01_strawberry_1", "Mirror Temple A - Room a-01 Strawberry 1", "5a_a-01_center", LocationType.strawberry, [[ItemName.red_boosters, ], ]),

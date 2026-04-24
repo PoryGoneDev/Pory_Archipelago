@@ -15810,7 +15810,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "blue_boosters" ] ]
+                                    "rule": [ [ "blue_boosters", "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -15838,7 +15838,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "move_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "move_blocks", "dash_refills", "u_dash", "ur_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -15885,7 +15885,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "pink_clouds", "blue_boosters", "move_blocks" ] ]
+                                    "rule": [ [ "pink_clouds", "blue_boosters", "move_blocks", "u_dash", "ur_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -15893,7 +15893,7 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ul" ] ]
                                 }
                             ]
                         },
@@ -15911,7 +15911,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "pink_clouds", "blue_boosters", "move_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "pink_clouds", "blue_boosters", "move_blocks", "dash_refills", "u_dash", "ur_dash" ] ]
                                 }
                             ]
                         }
