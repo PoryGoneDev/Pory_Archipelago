@@ -1184,7 +1184,7 @@ all_doors: dict[str, Door] = {
     "5a_d-15_north-west": Door("5a_d-15_north-west", "5a_d-15", DoorDirection.left, False, False),
     "5a_d-15_west": Door("5a_d-15_west", "5a_d-15", DoorDirection.left, False, False),
     "5a_d-15_south-west": Door("5a_d-15_south-west", "5a_d-15", DoorDirection.left, False, False),
-    "5a_d-15_south": Door("5a_d-15_south", "5a_d-15", DoorDirection.down, False, False),
+    "5a_d-15_south": Door("5a_d-15_south", "5a_d-15", DoorDirection.down, False, True),
     "5a_d-15_south-east": Door("5a_d-15_south-east", "5a_d-15", DoorDirection.down, False, False),
 
     "5a_d-13_west": Door("5a_d-13_west", "5a_d-13", DoorDirection.up, False, False),
@@ -3574,23 +3574,23 @@ all_region_connections: dict[str, RegionConnection] = {
     "5a_a-00b_east---5a_a-00b_west": RegionConnection("5a_a-00b_east", "5a_a-00b_west", []),
 
 
-    "5a_a-00d_west---5a_a-00d_east": RegionConnection("5a_a-00d_west", "5a_a-00d_east", []),
-    "5a_a-00d_east---5a_a-00d_west": RegionConnection("5a_a-00d_east", "5a_a-00d_west", []),
+    "5a_a-00d_west---5a_a-00d_east": RegionConnection("5a_a-00d_west", "5a_a-00d_east", [[ItemName.crouch, ], ]),
+    "5a_a-00d_east---5a_a-00d_west": RegionConnection("5a_a-00d_east", "5a_a-00d_west", [[ItemName.crouch, ], ]),
 
     "5a_a-00c_west---5a_a-00c_east": RegionConnection("5a_a-00c_west", "5a_a-00c_east", []),
     "5a_a-00c_east---5a_a-00c_west": RegionConnection("5a_a-00c_east", "5a_a-00c_west", []),
 
     "5a_a-00_west---5a_a-00_east": RegionConnection("5a_a-00_west", "5a_a-00_east", [[ItemName.red_boosters, ItemName.dash_switches, ], ]),
 
-    "5a_a-01_west---5a_a-01_center": RegionConnection("5a_a-01_west", "5a_a-01_center", []),
+    "5a_a-01_west---5a_a-01_center": RegionConnection("5a_a-01_west", "5a_a-01_center", [[ItemName.red_boosters, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "5a_a-01_center---5a_a-01_west": RegionConnection("5a_a-01_center", "5a_a-01_west", []),
     "5a_a-01_center---5a_a-01_east": RegionConnection("5a_a-01_center", "5a_a-01_east", []),
     "5a_a-01_center---5a_a-01_south-west": RegionConnection("5a_a-01_center", "5a_a-01_south-west", [[ItemName.swap_blocks, ], ]),
     "5a_a-01_center---5a_a-01_south-east": RegionConnection("5a_a-01_center", "5a_a-01_south-east", [[ItemName.swap_blocks, ], ]),
-    "5a_a-01_center---5a_a-01_north": RegionConnection("5a_a-01_center", "5a_a-01_north", [[ItemName.red_boosters, ], ]),
-    "5a_a-01_east---5a_a-01_center": RegionConnection("5a_a-01_east", "5a_a-01_center", []),
-    "5a_a-01_south-west---5a_a-01_center": RegionConnection("5a_a-01_south-west", "5a_a-01_center", []),
-    "5a_a-01_south-east---5a_a-01_center": RegionConnection("5a_a-01_south-east", "5a_a-01_center", []),
+    "5a_a-01_center---5a_a-01_north": RegionConnection("5a_a-01_center", "5a_a-01_north", [[ItemName.red_boosters, ItemName.l_dash, ], [ItemName.red_boosters, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ], ]),
+    "5a_a-01_east---5a_a-01_center": RegionConnection("5a_a-01_east", "5a_a-01_center", [[ItemName.red_boosters, ], [ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
+    "5a_a-01_south-west---5a_a-01_west": RegionConnection("5a_a-01_south-west", "5a_a-01_west", [[ItemName.red_boosters, ], [ItemName.swap_blocks, ItemName.d_dash, ], [ItemName.swap_blocks, ItemName.dl_dash, ], [ItemName.swap_blocks, ItemName.dr_dash, ], [ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.r_dash, ], [ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.ur_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_a-01_south-east---5a_a-01_east": RegionConnection("5a_a-01_south-east", "5a_a-01_east", [[ItemName.red_boosters, ], [ItemName.swap_blocks, ItemName.d_dash, ], [ItemName.swap_blocks, ItemName.dl_dash, ], [ItemName.swap_blocks, ItemName.dr_dash, ], [ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.r_dash, ], [ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.ur_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "5a_a-01_north---5a_a-01_center": RegionConnection("5a_a-01_north", "5a_a-01_center", []),
 
     "5a_a-02_west---5a_a-02_north": RegionConnection("5a_a-02_west", "5a_a-02_north", []),
@@ -3609,56 +3609,55 @@ all_region_connections: dict[str, RegionConnection] = {
     "5a_a-05_north-west---5a_a-05_center": RegionConnection("5a_a-05_north-west", "5a_a-05_center", []),
     "5a_a-05_center---5a_a-05_north-west": RegionConnection("5a_a-05_center", "5a_a-05_north-west", []),
     "5a_a-05_center---5a_a-05_north-east": RegionConnection("5a_a-05_center", "5a_a-05_north-east", []),
-    "5a_a-05_center---5a_a-05_south-west": RegionConnection("5a_a-05_center", "5a_a-05_south-west", [[ItemName.swap_blocks, ], ]),
-    "5a_a-05_center---5a_a-05_south-east": RegionConnection("5a_a-05_center", "5a_a-05_south-east", [[ItemName.swap_blocks, ], ]),
+    "5a_a-05_center---5a_a-05_south-west": RegionConnection("5a_a-05_center", "5a_a-05_south-west", [[ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.ul_dash, ], ]),
+    "5a_a-05_center---5a_a-05_south-east": RegionConnection("5a_a-05_center", "5a_a-05_south-east", [[ItemName.swap_blocks, ItemName.ur_dash, ], ]),
     "5a_a-05_north-east---5a_a-05_center": RegionConnection("5a_a-05_north-east", "5a_a-05_center", []),
-    "5a_a-05_south-west---5a_a-05_center": RegionConnection("5a_a-05_south-west", "5a_a-05_center", [[ItemName.dash_switches, ], ]),
-    "5a_a-05_south-east---5a_a-05_center": RegionConnection("5a_a-05_south-east", "5a_a-05_center", [[ItemName.dash_switches, ], ]),
+    "5a_a-05_south-west---5a_a-05_center": RegionConnection("5a_a-05_south-west", "5a_a-05_center", [[ItemName.dash_switches, ItemName.u_dash, ], [ItemName.dash_switches, ItemName.ul_dash, ], [ItemName.dash_switches, ItemName.ur_dash, ], ]),
+    "5a_a-05_south-east---5a_a-05_center": RegionConnection("5a_a-05_south-east", "5a_a-05_center", [[ItemName.dash_switches, ItemName.u_dash, ], [ItemName.dash_switches, ItemName.ul_dash, ], [ItemName.dash_switches, ItemName.ur_dash, ], ]),
 
 
 
     "5a_a-08_west---5a_a-08_center": RegionConnection("5a_a-08_west", "5a_a-08_center", []),
     "5a_a-08_center---5a_a-08_west": RegionConnection("5a_a-08_center", "5a_a-08_west", []),
-    "5a_a-08_center---5a_a-08_north-east": RegionConnection("5a_a-08_center", "5a_a-08_north-east", [[ItemName.red_boosters, ItemName.swap_blocks, ], ]),
+    "5a_a-08_center---5a_a-08_north-east": RegionConnection("5a_a-08_center", "5a_a-08_north-east", [[ItemName.red_boosters, ItemName.swap_blocks, ItemName.crouch, ItemName.dl_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.crouch, ItemName.l_dash, ], ]),
     "5a_a-08_center---5a_a-08_south": RegionConnection("5a_a-08_center", "5a_a-08_south", []),
     "5a_a-08_center---5a_a-08_north": RegionConnection("5a_a-08_center", "5a_a-08_north", [[ItemName.swap_blocks, ], ]),
     "5a_a-08_east---5a_a-08_south-east": RegionConnection("5a_a-08_east", "5a_a-08_south-east", []),
     "5a_a-08_south---5a_a-08_center": RegionConnection("5a_a-08_south", "5a_a-08_center", []),
-    "5a_a-08_south-east---5a_a-08_center": RegionConnection("5a_a-08_south-east", "5a_a-08_center", [[ItemName.dash_switches, ], ]),
+    "5a_a-08_south-east---5a_a-08_center": RegionConnection("5a_a-08_south-east", "5a_a-08_center", [[ItemName.dash_switches, ItemName.d_dash, ], [ItemName.dash_switches, ItemName.dl_dash, ], [ItemName.dash_switches, ItemName.dr_dash, ], ]),
     "5a_a-08_south-east---5a_a-08_east": RegionConnection("5a_a-08_south-east", "5a_a-08_east", []),
-    "5a_a-08_north-east---5a_a-08_center": RegionConnection("5a_a-08_north-east", "5a_a-08_center", []),
     "5a_a-08_north---5a_a-08_center": RegionConnection("5a_a-08_north", "5a_a-08_center", []),
 
-    "5a_a-10_west---5a_a-10_east": RegionConnection("5a_a-10_west", "5a_a-10_east", [[ItemName.swap_blocks, ], ]),
-    "5a_a-10_east---5a_a-10_west": RegionConnection("5a_a-10_east", "5a_a-10_west", [[ItemName.swap_blocks, ], ]),
+    "5a_a-10_west---5a_a-10_east": RegionConnection("5a_a-10_west", "5a_a-10_east", [[ItemName.swap_blocks, ItemName.d_dash, ItemName.crouch, ], ]),
+    "5a_a-10_east---5a_a-10_west": RegionConnection("5a_a-10_east", "5a_a-10_west", [[ItemName.swap_blocks, ItemName.crouch, ItemName.dl_dash, ], [ItemName.swap_blocks, ItemName.crouch, ItemName.l_dash, ], ]),
 
-    "5a_a-09_west---5a_a-09_east": RegionConnection("5a_a-09_west", "5a_a-09_east", [[ItemName.red_boosters, ], ]),
+    "5a_a-09_west---5a_a-09_east": RegionConnection("5a_a-09_west", "5a_a-09_east", [[ItemName.red_boosters, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.ur_dash, ], ]),
     "5a_a-09_east---5a_a-09_west": RegionConnection("5a_a-09_east", "5a_a-09_west", [[ItemName.red_boosters, ], ]),
 
 
-    "5a_a-12_north-west---5a_a-12_west": RegionConnection("5a_a-12_north-west", "5a_a-12_west", [[ItemName.red_boosters, ], ]),
-    "5a_a-12_south-west---5a_a-12_east": RegionConnection("5a_a-12_south-west", "5a_a-12_east", [[ItemName.red_boosters, ItemName.dash_switches, ], ]),
+    "5a_a-12_north-west---5a_a-12_west": RegionConnection("5a_a-12_north-west", "5a_a-12_west", [[ItemName.red_boosters, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.ur_dash, ], ]),
+    "5a_a-12_south-west---5a_a-12_east": RegionConnection("5a_a-12_south-west", "5a_a-12_east", [[ItemName.red_boosters, ItemName.dash_switches, ItemName.d_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.dash_switches, ItemName.d_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.dash_switches, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.dash_switches, ItemName.dr_dash, ItemName.ur_dash, ], ]),
 
 
 
     "5a_a-13_west---5a_a-13_east": RegionConnection("5a_a-13_west", "5a_a-13_east", [["Mirror Temple A - Entrance Key", ], ]),
     "5a_a-13_east---5a_a-13_west": RegionConnection("5a_a-13_east", "5a_a-13_west", [["Mirror Temple A - Entrance Key", ], ]),
 
-    "5a_b-00_west---5a_b-00_east": RegionConnection("5a_b-00_west", "5a_b-00_east", [[ItemName.dash_switches, ], ]),
-    "5a_b-00_west---5a_b-00_north-west": RegionConnection("5a_b-00_west", "5a_b-00_north-west", []),
+    "5a_b-00_west---5a_b-00_east": RegionConnection("5a_b-00_west", "5a_b-00_east", [[ItemName.dash_switches, ItemName.crouch, ItemName.d_dash, ], [ItemName.dash_switches, ItemName.crouch, ItemName.dl_dash, ], [ItemName.dash_switches, ItemName.crouch, ItemName.dr_dash, ], ]),
+    "5a_b-00_west---5a_b-00_north-west": RegionConnection("5a_b-00_west", "5a_b-00_north-west", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "5a_b-00_north-west---5a_b-00_west": RegionConnection("5a_b-00_north-west", "5a_b-00_west", []),
 
 
     "5a_b-01_south-west---5a_b-01_center": RegionConnection("5a_b-01_south-west", "5a_b-01_center", []),
     "5a_b-01_center---5a_b-01_south-west": RegionConnection("5a_b-01_center", "5a_b-01_south-west", []),
-    "5a_b-01_center---5a_b-01_west": RegionConnection("5a_b-01_center", "5a_b-01_west", [[ItemName.swap_blocks, ], ]),
+    "5a_b-01_center---5a_b-01_west": RegionConnection("5a_b-01_center", "5a_b-01_west", [[ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.ul_dash, ], ]),
     "5a_b-01_center---5a_b-01_north-west": RegionConnection("5a_b-01_center", "5a_b-01_north-west", []),
-    "5a_b-01_center---5a_b-01_north": RegionConnection("5a_b-01_center", "5a_b-01_north", []),
+    "5a_b-01_center---5a_b-01_north": RegionConnection("5a_b-01_center", "5a_b-01_north", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "5a_b-01_center---5a_b-01_north-east": RegionConnection("5a_b-01_center", "5a_b-01_north-east", []),
-    "5a_b-01_center---5a_b-01_east": RegionConnection("5a_b-01_center", "5a_b-01_east", [[ItemName.swap_blocks, ], ]),
+    "5a_b-01_center---5a_b-01_east": RegionConnection("5a_b-01_center", "5a_b-01_east", [[ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "5a_b-01_center---5a_b-01_south-east": RegionConnection("5a_b-01_center", "5a_b-01_south-east", []),
     "5a_b-01_center---5a_b-01_south": RegionConnection("5a_b-01_center", "5a_b-01_south", []),
-    "5a_b-01_west---5a_b-01_center": RegionConnection("5a_b-01_west", "5a_b-01_center", [[ItemName.swap_blocks, ], ]),
+    "5a_b-01_west---5a_b-01_center": RegionConnection("5a_b-01_west", "5a_b-01_center", [[ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.r_dash, ], ]),
     "5a_b-01_north-west---5a_b-01_center": RegionConnection("5a_b-01_north-west", "5a_b-01_center", []),
     "5a_b-01_north---5a_b-01_center": RegionConnection("5a_b-01_north", "5a_b-01_center", []),
     "5a_b-01_north-east---5a_b-01_center": RegionConnection("5a_b-01_north-east", "5a_b-01_center", []),
@@ -3666,24 +3665,23 @@ all_region_connections: dict[str, RegionConnection] = {
     "5a_b-01_south-east---5a_b-01_center": RegionConnection("5a_b-01_south-east", "5a_b-01_center", []),
     "5a_b-01_south---5a_b-01_center": RegionConnection("5a_b-01_south", "5a_b-01_center", []),
 
-    "5a_b-01c_west---5a_b-01c_east": RegionConnection("5a_b-01c_west", "5a_b-01c_east", [[ItemName.swap_blocks, ], ]),
+    "5a_b-01c_west---5a_b-01c_east": RegionConnection("5a_b-01c_west", "5a_b-01c_east", [[ItemName.swap_blocks, ItemName.d_dash, ], [ItemName.swap_blocks, ItemName.r_dash, ], ]),
     "5a_b-01c_east---5a_b-01c_west": RegionConnection("5a_b-01c_east", "5a_b-01c_west", [[ItemName.cannot_access, ], ]),
 
     "5a_b-20_north-west---5a_b-20_west": RegionConnection("5a_b-20_north-west", "5a_b-20_west", []),
-    "5a_b-20_west---5a_b-20_north-west": RegionConnection("5a_b-20_west", "5a_b-20_north-west", []),
+    "5a_b-20_west---5a_b-20_north-west": RegionConnection("5a_b-20_west", "5a_b-20_north-west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "5a_b-20_west---5a_b-20_south-west": RegionConnection("5a_b-20_west", "5a_b-20_south-west", []),
     "5a_b-20_south-west---5a_b-20_west": RegionConnection("5a_b-20_south-west", "5a_b-20_west", []),
 
 
     "5a_b-01b_west---5a_b-01b_east": RegionConnection("5a_b-01b_west", "5a_b-01b_east", [[ItemName.swap_blocks, ], ]),
-    "5a_b-01b_east---5a_b-01b_west": RegionConnection("5a_b-01b_east", "5a_b-01b_west", [[ItemName.swap_blocks, ], ]),
+    "5a_b-01b_east---5a_b-01b_west": RegionConnection("5a_b-01b_east", "5a_b-01b_west", [[ItemName.swap_blocks, ItemName.dl_dash, ], [ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.ul_dash, ], ]),
 
     "5a_b-02_center---5a_b-02_west": RegionConnection("5a_b-02_center", "5a_b-02_west", []),
-    "5a_b-02_center---5a_b-02_north-west": RegionConnection("5a_b-02_center", "5a_b-02_north-west", [[ItemName.red_boosters, ], ]),
-    "5a_b-02_center---5a_b-02_north": RegionConnection("5a_b-02_center", "5a_b-02_north", [[ItemName.red_boosters, ], ]),
+    "5a_b-02_center---5a_b-02_north-west": RegionConnection("5a_b-02_center", "5a_b-02_north-west", [[ItemName.red_boosters, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
+    "5a_b-02_center---5a_b-02_north": RegionConnection("5a_b-02_center", "5a_b-02_north", [[ItemName.red_boosters, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.ur_dash, ], ]),
     "5a_b-02_center---5a_b-02_north-east": RegionConnection("5a_b-02_center", "5a_b-02_north-east", [[ItemName.red_boosters, ], ]),
     "5a_b-02_center---5a_b-02_east-upper": RegionConnection("5a_b-02_center", "5a_b-02_east-upper", []),
-    "5a_b-02_center---5a_b-02_east-lower": RegionConnection("5a_b-02_center", "5a_b-02_east-lower", [[ItemName.red_boosters, ], ]),
     "5a_b-02_center---5a_b-02_south-east": RegionConnection("5a_b-02_center", "5a_b-02_south-east", []),
     "5a_b-02_center---5a_b-02_south": RegionConnection("5a_b-02_center", "5a_b-02_south", []),
     "5a_b-02_west---5a_b-02_center": RegionConnection("5a_b-02_west", "5a_b-02_center", []),
@@ -3691,28 +3689,29 @@ all_region_connections: dict[str, RegionConnection] = {
     "5a_b-02_north---5a_b-02_center": RegionConnection("5a_b-02_north", "5a_b-02_center", []),
     "5a_b-02_north-east---5a_b-02_center": RegionConnection("5a_b-02_north-east", "5a_b-02_center", []),
     "5a_b-02_east-upper---5a_b-02_center": RegionConnection("5a_b-02_east-upper", "5a_b-02_center", []),
-    "5a_b-02_east-lower---5a_b-02_center": RegionConnection("5a_b-02_east-lower", "5a_b-02_center", []),
-    "5a_b-02_south-east---5a_b-02_center": RegionConnection("5a_b-02_south-east", "5a_b-02_center", []),
-    "5a_b-02_south---5a_b-02_center": RegionConnection("5a_b-02_south", "5a_b-02_center", []),
+    "5a_b-02_east-lower---5a_b-02_center": RegionConnection("5a_b-02_east-lower", "5a_b-02_center", [[ItemName.red_boosters, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_b-02_south-east---5a_b-02_center": RegionConnection("5a_b-02_south-east", "5a_b-02_center", [[ItemName.red_boosters, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_b-02_south-east---5a_b-02_east-lower": RegionConnection("5a_b-02_south-east", "5a_b-02_east-lower", [[ItemName.red_boosters, ], ]),
+    "5a_b-02_south---5a_b-02_center": RegionConnection("5a_b-02_south", "5a_b-02_center", [[ItemName.red_boosters, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
 
 
 
     "5a_b-04_west---5a_b-04_south": RegionConnection("5a_b-04_west", "5a_b-04_south", []),
-    "5a_b-04_east---5a_b-04_south": RegionConnection("5a_b-04_east", "5a_b-04_south", []),
+    "5a_b-04_east---5a_b-04_south": RegionConnection("5a_b-04_east", "5a_b-04_south", [[ItemName.l_dash, ], ]),
     "5a_b-04_south---5a_b-04_west": RegionConnection("5a_b-04_south", "5a_b-04_west", []),
 
-    "5a_b-07_north---5a_b-07_south": RegionConnection("5a_b-07_north", "5a_b-07_south", []),
-    "5a_b-07_south---5a_b-07_north": RegionConnection("5a_b-07_south", "5a_b-07_north", [[ItemName.dash_refills, ], ]),
+    "5a_b-07_north---5a_b-07_south": RegionConnection("5a_b-07_north", "5a_b-07_south", [[ItemName.r_dash, ], ]),
+    "5a_b-07_south---5a_b-07_north": RegionConnection("5a_b-07_south", "5a_b-07_north", [[ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "5a_b-08_west---5a_b-08_east": RegionConnection("5a_b-08_west", "5a_b-08_east", [[ItemName.dash_refills, ], ]),
+    "5a_b-08_west---5a_b-08_east": RegionConnection("5a_b-08_west", "5a_b-08_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
     "5a_b-08_east---5a_b-08_west": RegionConnection("5a_b-08_east", "5a_b-08_west", [[ItemName.cannot_access, ], ]),
 
-    "5a_b-09_north---5a_b-09_south": RegionConnection("5a_b-09_north", "5a_b-09_south", [[ItemName.red_boosters, ItemName.dash_switches, ], ]),
+    "5a_b-09_north---5a_b-09_south": RegionConnection("5a_b-09_north", "5a_b-09_south", [[ItemName.red_boosters, ItemName.dash_switches, ItemName.d_dash, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.dash_switches, ItemName.d_dash, ItemName.ur_dash, ], ]),
     "5a_b-09_south---5a_b-09_north": RegionConnection("5a_b-09_south", "5a_b-09_north", [[ItemName.cannot_access, ], ]),
 
 
     "5a_b-11_north-west---5a_b-11_west": RegionConnection("5a_b-11_north-west", "5a_b-11_west", []),
-    "5a_b-11_north-west---5a_b-11_east": RegionConnection("5a_b-11_north-west", "5a_b-11_east", [[ItemName.dash_switches, ], ]),
+    "5a_b-11_north-west---5a_b-11_east": RegionConnection("5a_b-11_north-west", "5a_b-11_east", [[ItemName.dash_switches, ItemName.u_dash, ], [ItemName.dash_switches, ItemName.ul_dash, ], [ItemName.dash_switches, ItemName.ur_dash, ], ]),
     "5a_b-11_west---5a_b-11_south-west": RegionConnection("5a_b-11_west", "5a_b-11_south-west", []),
     "5a_b-11_south-west---5a_b-11_west": RegionConnection("5a_b-11_south-west", "5a_b-11_west", []),
     "5a_b-11_south-west---5a_b-11_south-east": RegionConnection("5a_b-11_south-west", "5a_b-11_south-east", []),
@@ -3722,29 +3721,29 @@ all_region_connections: dict[str, RegionConnection] = {
     "5a_b-12_west---5a_b-12_east": RegionConnection("5a_b-12_west", "5a_b-12_east", []),
     "5a_b-12_east---5a_b-12_west": RegionConnection("5a_b-12_east", "5a_b-12_west", []),
 
-    "5a_b-13_west---5a_b-13_north-east": RegionConnection("5a_b-13_west", "5a_b-13_north-east", [[ItemName.swap_blocks, ], ]),
-    "5a_b-13_west---5a_b-13_east": RegionConnection("5a_b-13_west", "5a_b-13_east", [[ItemName.dash_switches, ItemName.swap_blocks, ], ]),
+    "5a_b-13_west---5a_b-13_north-east": RegionConnection("5a_b-13_west", "5a_b-13_north-east", [[ItemName.swap_blocks, ItemName.u_dash, ], ]),
+    "5a_b-13_west---5a_b-13_east": RegionConnection("5a_b-13_west", "5a_b-13_east", [[ItemName.dash_switches, ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.dash_switches, ItemName.swap_blocks, ItemName.ur_dash, ItemName.ul_dash, ], ]),
     "5a_b-13_north-east---5a_b-13_west": RegionConnection("5a_b-13_north-east", "5a_b-13_west", []),
 
     "5a_b-17_west---5a_b-17_east": RegionConnection("5a_b-17_west", "5a_b-17_east", []),
     "5a_b-17_east---5a_b-17_west": RegionConnection("5a_b-17_east", "5a_b-17_west", []),
 
 
-    "5a_b-06_west---5a_b-06_north-east": RegionConnection("5a_b-06_west", "5a_b-06_north-east", [[ItemName.red_boosters, ], ]),
+    "5a_b-06_west---5a_b-06_north-east": RegionConnection("5a_b-06_west", "5a_b-06_north-east", [[ItemName.red_boosters, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.ur_dash, ], ]),
     "5a_b-06_west---5a_b-06_east": RegionConnection("5a_b-06_west", "5a_b-06_east", [[ItemName.red_boosters, "Mirror Temple A - Depths Key", ], ]),
     "5a_b-06_east---5a_b-06_west": RegionConnection("5a_b-06_east", "5a_b-06_west", [[ItemName.red_boosters, "Mirror Temple A - Depths Key", ], ]),
 
     "5a_b-19_west---5a_b-19_north-west": RegionConnection("5a_b-19_west", "5a_b-19_north-west", []),
-    "5a_b-19_west---5a_b-19_east": RegionConnection("5a_b-19_west", "5a_b-19_east", [[ItemName.red_boosters, ItemName.dash_refills, ], ]),
+    "5a_b-19_west---5a_b-19_east": RegionConnection("5a_b-19_west", "5a_b-19_east", [[ItemName.red_boosters, ItemName.dash_refills, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.dash_refills, ItemName.ur_dash, ], ]),
     "5a_b-19_north-west---5a_b-19_west": RegionConnection("5a_b-19_north-west", "5a_b-19_west", []),
 
-    "5a_b-14_west---5a_b-14_north": RegionConnection("5a_b-14_west", "5a_b-14_north", []),
-    "5a_b-14_west---5a_b-14_south": RegionConnection("5a_b-14_west", "5a_b-14_south", [["Mirror Temple A - Depths Key", ], ]),
-    "5a_b-14_south---5a_b-14_west": RegionConnection("5a_b-14_south", "5a_b-14_west", [["Mirror Temple A - Depths Key", ], ]),
+    "5a_b-14_west---5a_b-14_north": RegionConnection("5a_b-14_west", "5a_b-14_north", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_b-14_west---5a_b-14_south": RegionConnection("5a_b-14_west", "5a_b-14_south", [["Mirror Temple A - Depths Key", ItemName.d_dash, ], ["Mirror Temple A - Depths Key", ItemName.dl_dash, ], ["Mirror Temple A - Depths Key", ItemName.dr_dash, ], ]),
+    "5a_b-14_south---5a_b-14_west": RegionConnection("5a_b-14_south", "5a_b-14_west", [["Mirror Temple A - Depths Key", ItemName.u_dash, ], ["Mirror Temple A - Depths Key", ItemName.ul_dash, ], ["Mirror Temple A - Depths Key", ItemName.ur_dash, ], ]),
     "5a_b-14_north---5a_b-14_west": RegionConnection("5a_b-14_north", "5a_b-14_west", []),
 
 
-    "5a_b-16_bottom---5a_b-16_mirror": RegionConnection("5a_b-16_bottom", "5a_b-16_mirror", [[ItemName.red_boosters, ItemName.dash_switches, ], ]),
+    "5a_b-16_bottom---5a_b-16_mirror": RegionConnection("5a_b-16_bottom", "5a_b-16_mirror", [[ItemName.red_boosters, ItemName.dash_switches, ItemName.d_dash, ], [ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ], [ItemName.red_boosters, ItemName.dash_switches, ItemName.dr_dash, ], ]),
 
     "5a_void_east---5a_void_west": RegionConnection("5a_void_east", "5a_void_west", []),
     "5a_void_west---5a_void_east": RegionConnection("5a_void_west", "5a_void_east", []),
@@ -3754,11 +3753,11 @@ all_region_connections: dict[str, RegionConnection] = {
     "5a_c-01_west---5a_c-01_east": RegionConnection("5a_c-01_west", "5a_c-01_east", []),
     "5a_c-01_east---5a_c-01_west": RegionConnection("5a_c-01_east", "5a_c-01_west", []),
 
-    "5a_c-01b_west---5a_c-01b_east": RegionConnection("5a_c-01b_west", "5a_c-01b_east", [[ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ], ]),
+    "5a_c-01b_west---5a_c-01b_east": RegionConnection("5a_c-01b_west", "5a_c-01b_east", [[ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.l_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.dash_switches, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
-    "5a_c-01c_west---5a_c-01c_east": RegionConnection("5a_c-01c_west", "5a_c-01c_east", [[ItemName.swap_blocks, ItemName.red_boosters, ], ]),
+    "5a_c-01c_west---5a_c-01c_east": RegionConnection("5a_c-01c_west", "5a_c-01c_east", [[ItemName.swap_blocks, ItemName.red_boosters, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.red_boosters, ItemName.r_dash, ], ]),
 
-    "5a_c-08b_west---5a_c-08b_east": RegionConnection("5a_c-08b_west", "5a_c-08b_east", [[ItemName.dash_switches, ], ]),
+    "5a_c-08b_west---5a_c-08b_east": RegionConnection("5a_c-08b_west", "5a_c-08b_east", [[ItemName.dash_switches, ItemName.u_dash, ], [ItemName.dash_switches, ItemName.ul_dash, ], [ItemName.dash_switches, ItemName.ur_dash, ], ]),
 
     "5a_c-08_west---5a_c-08_east": RegionConnection("5a_c-08_west", "5a_c-08_east", []),
 
@@ -3773,9 +3772,9 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "5a_c-09_west---5a_c-09_east": RegionConnection("5a_c-09_west", "5a_c-09_east", [[ItemName.coins, ], ]),
 
-    "5a_c-13_west---5a_c-13_east": RegionConnection("5a_c-13_west", "5a_c-13_east", [[ItemName.coins, ], ]),
+    "5a_c-13_west---5a_c-13_east": RegionConnection("5a_c-13_west", "5a_c-13_east", [[ItemName.coins, ItemName.seekers, ], [ItemName.coins, ItemName.springs, ItemName.ul_dash, ], [ItemName.coins, ItemName.u_dash, ], [ItemName.coins, ItemName.ur_dash, ], ]),
 
-    "5a_d-00_south---5a_d-00_north": RegionConnection("5a_d-00_south", "5a_d-00_north", [[ItemName.red_boosters, ], ]),
+    "5a_d-00_south---5a_d-00_north": RegionConnection("5a_d-00_south", "5a_d-00_north", [[ItemName.red_boosters, ItemName.l_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ], ]),
     "5a_d-00_east---5a_d-00_west": RegionConnection("5a_d-00_east", "5a_d-00_west", [[ItemName.red_boosters, ], ]),
 
     "5a_d-01_south---5a_d-01_center": RegionConnection("5a_d-01_south", "5a_d-01_center", []),
@@ -3783,20 +3782,20 @@ all_region_connections: dict[str, RegionConnection] = {
     "5a_d-01_center---5a_d-01_south-east-down": RegionConnection("5a_d-01_center", "5a_d-01_south-east-down", []),
     "5a_d-01_center---5a_d-01_west": RegionConnection("5a_d-01_center", "5a_d-01_west", []),
     "5a_d-01_center---5a_d-01_east": RegionConnection("5a_d-01_center", "5a_d-01_east", []),
-    "5a_d-01_center---5a_d-01_north-west": RegionConnection("5a_d-01_center", "5a_d-01_north-west", []),
-    "5a_d-01_center---5a_d-01_north-east": RegionConnection("5a_d-01_center", "5a_d-01_north-east", []),
+    "5a_d-01_center---5a_d-01_north-west": RegionConnection("5a_d-01_center", "5a_d-01_north-west", [[ItemName.seekers, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_d-01_center---5a_d-01_north-east": RegionConnection("5a_d-01_center", "5a_d-01_north-east", [[ItemName.seekers, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "5a_d-01_south-west-left---5a_d-01_south-west-down": RegionConnection("5a_d-01_south-west-left", "5a_d-01_south-west-down", []),
-    "5a_d-01_south-west-down---5a_d-01_center": RegionConnection("5a_d-01_south-west-down", "5a_d-01_center", []),
+    "5a_d-01_south-west-down---5a_d-01_center": RegionConnection("5a_d-01_south-west-down", "5a_d-01_center", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], [ItemName.dash_switches, ItemName.d_dash, ], [ItemName.dash_switches, ItemName.dl_dash, ], [ItemName.dash_switches, ItemName.dr_dash, ], ]),
     "5a_d-01_south-west-down---5a_d-01_south-west-left": RegionConnection("5a_d-01_south-west-down", "5a_d-01_south-west-left", []),
     "5a_d-01_south-east-right---5a_d-01_south-east-down": RegionConnection("5a_d-01_south-east-right", "5a_d-01_south-east-down", []),
-    "5a_d-01_south-east-down---5a_d-01_center": RegionConnection("5a_d-01_south-east-down", "5a_d-01_center", []),
+    "5a_d-01_south-east-down---5a_d-01_center": RegionConnection("5a_d-01_south-east-down", "5a_d-01_center", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.dash_switches, ItemName.d_dash, ], [ItemName.dash_switches, ItemName.dl_dash, ], [ItemName.dash_switches, ItemName.dr_dash, ], ]),
     "5a_d-01_south-east-down---5a_d-01_south-east-right": RegionConnection("5a_d-01_south-east-down", "5a_d-01_south-east-right", [[ItemName.seekers, ], ]),
     "5a_d-01_west---5a_d-01_center": RegionConnection("5a_d-01_west", "5a_d-01_center", []),
     "5a_d-01_east---5a_d-01_center": RegionConnection("5a_d-01_east", "5a_d-01_center", []),
     "5a_d-01_north-west---5a_d-01_center": RegionConnection("5a_d-01_north-west", "5a_d-01_center", []),
     "5a_d-01_north-east---5a_d-01_center": RegionConnection("5a_d-01_north-east", "5a_d-01_center", []),
 
-    "5a_d-09_east---5a_d-09_west": RegionConnection("5a_d-09_east", "5a_d-09_west", [[ItemName.red_boosters, ItemName.dash_refills, ItemName.swap_blocks, ], ]),
+    "5a_d-09_east---5a_d-09_west": RegionConnection("5a_d-09_east", "5a_d-09_west", [[ItemName.red_boosters, ItemName.dash_refills, ItemName.swap_blocks, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.dash_refills, ItemName.swap_blocks, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.dash_refills, ItemName.swap_blocks, ItemName.l_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.dash_refills, ItemName.swap_blocks, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.dash_refills, ItemName.swap_blocks, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.dash_refills, ItemName.swap_blocks, ItemName.l_dash, ItemName.ur_dash, ], ]),
 
     "5a_d-04_east---5a_d-04_west": RegionConnection("5a_d-04_east", "5a_d-04_west", [[ItemName.red_boosters, "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ], ]),
     "5a_d-04_east---5a_d-04_south-east": RegionConnection("5a_d-04_east", "5a_d-04_south-east", []),
@@ -3804,44 +3803,46 @@ all_region_connections: dict[str, RegionConnection] = {
     "5a_d-04_south-west-right---5a_d-04_east": RegionConnection("5a_d-04_south-west-right", "5a_d-04_east", []),
     "5a_d-04_north---5a_d-04_east": RegionConnection("5a_d-04_north", "5a_d-04_east", []),
 
-    "5a_d-05_north---5a_d-05_west": RegionConnection("5a_d-05_north", "5a_d-05_west", [[ItemName.red_boosters, ItemName.swap_blocks, ], ]),
+    "5a_d-05_north---5a_d-05_west": RegionConnection("5a_d-05_north", "5a_d-05_west", [[ItemName.red_boosters, ItemName.swap_blocks, ItemName.dl_dash, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.l_dash, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.l_dash, ItemName.ur_dash, ], ]),
     "5a_d-05_east---5a_d-05_south": RegionConnection("5a_d-05_east", "5a_d-05_south", []),
     "5a_d-05_south---5a_d-05_east": RegionConnection("5a_d-05_south", "5a_d-05_east", []),
 
-    "5a_d-06_south-east---5a_d-06_north-east": RegionConnection("5a_d-06_south-east", "5a_d-06_north-east", [[ItemName.red_boosters, ItemName.swap_blocks, ], ]),
-    "5a_d-06_south-west---5a_d-06_north-west": RegionConnection("5a_d-06_south-west", "5a_d-06_north-west", [[ItemName.springs, ], ]),
+    "5a_d-06_south-east---5a_d-06_north-east": RegionConnection("5a_d-06_south-east", "5a_d-06_north-east", [[ItemName.red_boosters, ItemName.swap_blocks, ItemName.ur_dash, ], ]),
+    "5a_d-06_south-west---5a_d-06_north-west": RegionConnection("5a_d-06_south-west", "5a_d-06_north-west", [[ItemName.springs, ItemName.r_dash, ItemName.u_dash, ], ]),
     "5a_d-06_north-west---5a_d-06_south-west": RegionConnection("5a_d-06_north-west", "5a_d-06_south-west", []),
 
     "5a_d-07_north---5a_d-07_west": RegionConnection("5a_d-07_north", "5a_d-07_west", [[ItemName.coins, ], ]),
 
-    "5a_d-02_east---5a_d-02_west": RegionConnection("5a_d-02_east", "5a_d-02_west", [[ItemName.springs, ], [ItemName.seekers, ], ]),
+    "5a_d-02_east---5a_d-02_west": RegionConnection("5a_d-02_east", "5a_d-02_west", [[ItemName.springs, ItemName.seekers, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
 
-    "5a_d-03_east---5a_d-03_west": RegionConnection("5a_d-03_east", "5a_d-03_west", [[ItemName.coins, ItemName.seekers, ], ]),
+    "5a_d-03_east---5a_d-03_west": RegionConnection("5a_d-03_east", "5a_d-03_west", [[ItemName.coins, ItemName.seekers, ItemName.u_dash, ], [ItemName.coins, ItemName.seekers, ItemName.ul_dash, ], [ItemName.coins, ItemName.seekers, ItemName.ur_dash, ], ]),
 
     "5a_d-15_north-west---5a_d-15_center": RegionConnection("5a_d-15_north-west", "5a_d-15_center", []),
-    "5a_d-15_center---5a_d-15_north-west": RegionConnection("5a_d-15_center", "5a_d-15_north-west", []),
-    "5a_d-15_center---5a_d-15_south-west": RegionConnection("5a_d-15_center", "5a_d-15_south-west", []),
-    "5a_d-15_center---5a_d-15_south-east": RegionConnection("5a_d-15_center", "5a_d-15_south-east", []),
-    "5a_d-15_south-west---5a_d-15_center": RegionConnection("5a_d-15_south-west", "5a_d-15_center", []),
-    "5a_d-15_south---5a_d-15_center": RegionConnection("5a_d-15_south", "5a_d-15_center", []),
+    "5a_d-15_center---5a_d-15_north-west": RegionConnection("5a_d-15_center", "5a_d-15_north-west", [[ItemName.seekers, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_d-15_center---5a_d-15_south-center": RegionConnection("5a_d-15_center", "5a_d-15_south-center", []),
+    "5a_d-15_south-west---5a_d-15_south-center": RegionConnection("5a_d-15_south-west", "5a_d-15_south-center", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_d-15_south-center---5a_d-15_center": RegionConnection("5a_d-15_south-center", "5a_d-15_center", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_d-15_south-center---5a_d-15_south-west": RegionConnection("5a_d-15_south-center", "5a_d-15_south-west", [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
+    "5a_d-15_south-center---5a_d-15_south-east": RegionConnection("5a_d-15_south-center", "5a_d-15_south-east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.l_dash, ], ]),
+    "5a_d-15_south---5a_d-15_south-center": RegionConnection("5a_d-15_south", "5a_d-15_south-center", []),
 
     "5a_d-13_east---5a_d-13_west": RegionConnection("5a_d-13_east", "5a_d-13_west", []),
-    "5a_d-13_west---5a_d-13_west": RegionConnection("5a_d-13_west", "5a_d-13_west", []),
+    "5a_d-13_west---5a_d-13_east": RegionConnection("5a_d-13_west", "5a_d-13_east", []),
 
     "5a_d-19b_south-east-right---5a_d-19b_south-east-down": RegionConnection("5a_d-19b_south-east-right", "5a_d-19b_south-east-down", []),
     "5a_d-19b_south-east-down---5a_d-19b_south-east-right": RegionConnection("5a_d-19b_south-east-down", "5a_d-19b_south-east-right", []),
-    "5a_d-19b_south-west---5a_d-19b_north-east": RegionConnection("5a_d-19b_south-west", "5a_d-19b_north-east", []),
+    "5a_d-19b_south-west---5a_d-19b_north-east": RegionConnection("5a_d-19b_south-west", "5a_d-19b_north-east", [[ItemName.seekers, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "5a_d-19b_north-east---5a_d-19b_south-west": RegionConnection("5a_d-19b_north-east", "5a_d-19b_south-west", []),
 
-    "5a_d-19_east---5a_d-19_west": RegionConnection("5a_d-19_east", "5a_d-19_west", [[ItemName.swap_blocks, ItemName.springs, ], ]),
+    "5a_d-19_east---5a_d-19_west": RegionConnection("5a_d-19_east", "5a_d-19_west", [[ItemName.swap_blocks, ItemName.springs, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.springs, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.springs, ItemName.ur_dash, ], ]),
 
-    "5a_d-10_west---5a_d-10_east": RegionConnection("5a_d-10_west", "5a_d-10_east", [[ItemName.dash_refills, ], ]),
+    "5a_d-10_west---5a_d-10_east": RegionConnection("5a_d-10_west", "5a_d-10_east", [[ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ]),
 
     "5a_d-20_west---5a_d-20_east": RegionConnection("5a_d-20_west", "5a_d-20_east", [[ItemName.seekers, ItemName.coins, ], ]),
 
     "5a_e-00_west---5a_e-00_east": RegionConnection("5a_e-00_west", "5a_e-00_east", [[ItemName.theo_crystal, ], ]),
 
-    "5a_e-01_west---5a_e-01_east": RegionConnection("5a_e-01_west", "5a_e-01_east", [[ItemName.theo_crystal, ItemName.dash_switches, ], ]),
+    "5a_e-01_west---5a_e-01_east": RegionConnection("5a_e-01_west", "5a_e-01_east", [[ItemName.theo_crystal, ItemName.dash_switches, ItemName.d_dash, ItemName.u_dash, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.d_dash, ItemName.ur_dash, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.dr_dash, ItemName.ur_dash, ], ]),
 
     "5a_e-02_west---5a_e-02_east": RegionConnection("5a_e-02_west", "5a_e-02_east", [[ItemName.theo_crystal, ItemName.dash_switches, ], ]),
 
@@ -3849,7 +3850,7 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "5a_e-04_west---5a_e-04_east": RegionConnection("5a_e-04_west", "5a_e-04_east", [[ItemName.theo_crystal, ItemName.coins, ], ]),
 
-    "5a_e-06_west---5a_e-06_east": RegionConnection("5a_e-06_west", "5a_e-06_east", [[ItemName.theo_crystal, ItemName.dash_switches, ItemName.springs, ], ]),
+    "5a_e-06_west---5a_e-06_east": RegionConnection("5a_e-06_west", "5a_e-06_east", [[ItemName.theo_crystal, ItemName.dash_switches, ItemName.springs, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.seekers, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.r_dash, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.u_dash, ], [ItemName.theo_crystal, ItemName.dash_switches, ItemName.ur_dash, ], ]),
 
     "5a_e-05_west---5a_e-05_east": RegionConnection("5a_e-05_west", "5a_e-05_east", [[ItemName.theo_crystal, ItemName.swap_blocks, ItemName.coins, ], ]),
 
@@ -3857,7 +3858,7 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "5a_e-08_west---5a_e-08_east": RegionConnection("5a_e-08_west", "5a_e-08_east", [[ItemName.theo_crystal, ItemName.swap_blocks, ], ]),
 
-    "5a_e-09_west---5a_e-09_east": RegionConnection("5a_e-09_west", "5a_e-09_east", [[ItemName.theo_crystal, ItemName.swap_blocks, ], ]),
+    "5a_e-09_west---5a_e-09_east": RegionConnection("5a_e-09_west", "5a_e-09_east", [[ItemName.theo_crystal, ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.theo_crystal, ItemName.swap_blocks, ItemName.ur_dash, ], ]),
 
     "5a_e-10_west---5a_e-10_east": RegionConnection("5a_e-10_west", "5a_e-10_east", [[ItemName.theo_crystal, ItemName.swap_blocks, ItemName.springs, ItemName.dash_switches, ], ]),
 
@@ -5172,47 +5173,47 @@ all_locations: dict[str, LevelLocation] = {
     "4c_02_clear": LevelLocation("4c_02_clear", "Golden Ridge C - Level Clear", "4c_02_goal", LocationType.level_clear, []),
     "4c_02_golden": LevelLocation("4c_02_golden", "Golden Ridge C - Golden Strawberry", "4c_02_goal", LocationType.golden_strawberry, [[ItemName.pink_clouds, ItemName.blue_boosters, ItemName.move_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "5a_a-00x_strawberry": LevelLocation("5a_a-00x_strawberry", "Mirror Temple A - Room a-00x Strawberry", "5a_a-00x_east", LocationType.strawberry, []),
-    "5a_a-01_strawberry_1": LevelLocation("5a_a-01_strawberry_1", "Mirror Temple A - Room a-01 Strawberry 1", "5a_a-01_center", LocationType.strawberry, [[ItemName.red_boosters, ], ]),
-    "5a_a-01_strawberry_2": LevelLocation("5a_a-01_strawberry_2", "Mirror Temple A - Room a-01 Strawberry 2", "5a_a-01_center", LocationType.strawberry, []),
-    "5a_a-02_strawberry": LevelLocation("5a_a-02_strawberry", "Mirror Temple A - Room a-02 Strawberry", "5a_a-02_west", LocationType.strawberry, [[ItemName.swap_blocks, ], ]),
-    "5a_a-03_strawberry": LevelLocation("5a_a-03_strawberry", "Mirror Temple A - Room a-03 Strawberry", "5a_a-03_west", LocationType.strawberry, [[ItemName.red_boosters, ], ]),
-    "5a_a-04_strawberry": LevelLocation("5a_a-04_strawberry", "Mirror Temple A - Room a-04 Strawberry", "5a_a-04_east", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.springs, ], ]),
-    "5a_a-05_strawberry": LevelLocation("5a_a-05_strawberry", "Mirror Temple A - Room a-05 Strawberry", "5a_a-05_center", LocationType.strawberry, [[ItemName.swap_blocks, ], ]),
-    "5a_a-06_strawberry": LevelLocation("5a_a-06_strawberry", "Mirror Temple A - Room a-06 Strawberry", "5a_a-06_west", LocationType.strawberry, [[ItemName.red_boosters, ItemName.swap_blocks, ], ]),
-    "5a_a-07_strawberry": LevelLocation("5a_a-07_strawberry", "Mirror Temple A - Room a-07 Strawberry", "5a_a-07_east", LocationType.strawberry, [[ItemName.dash_refills, ItemName.swap_blocks, ], ]),
+    "5a_a-00x_strawberry": LevelLocation("5a_a-00x_strawberry", "Mirror Temple A - Room a-00x Strawberry", "5a_a-00x_east", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "5a_a-01_strawberry_1": LevelLocation("5a_a-01_strawberry_1", "Mirror Temple A - Room a-01 Strawberry 1", "5a_a-01_center", LocationType.strawberry, [[ItemName.red_boosters, ItemName.r_dash, ], ]),
+    "5a_a-01_strawberry_2": LevelLocation("5a_a-01_strawberry_2", "Mirror Temple A - Room a-01 Strawberry 2", "5a_a-01_center", LocationType.strawberry, [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
+    "5a_a-02_strawberry": LevelLocation("5a_a-02_strawberry", "Mirror Temple A - Room a-02 Strawberry", "5a_a-02_west", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.d_dash, ], [ItemName.swap_blocks, ItemName.dl_dash, ], [ItemName.swap_blocks, ItemName.dr_dash, ], [ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.r_dash, ], [ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.ur_dash, ], ]),
+    "5a_a-03_strawberry": LevelLocation("5a_a-03_strawberry", "Mirror Temple A - Room a-03 Strawberry", "5a_a-03_west", LocationType.strawberry, [[ItemName.red_boosters, ItemName.r_dash, ItemName.d_dash, ], ]),
+    "5a_a-04_strawberry": LevelLocation("5a_a-04_strawberry", "Mirror Temple A - Room a-04 Strawberry", "5a_a-04_east", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.springs, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.springs, ItemName.ul_dash, ], ]),
+    "5a_a-05_strawberry": LevelLocation("5a_a-05_strawberry", "Mirror Temple A - Room a-05 Strawberry", "5a_a-05_center", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.r_dash, ], [ItemName.swap_blocks, ItemName.u_dash, ], ]),
+    "5a_a-06_strawberry": LevelLocation("5a_a-06_strawberry", "Mirror Temple A - Room a-06 Strawberry", "5a_a-06_west", LocationType.strawberry, [[ItemName.red_boosters, ItemName.swap_blocks, ItemName.u_dash, ], ]),
+    "5a_a-07_strawberry": LevelLocation("5a_a-07_strawberry", "Mirror Temple A - Room a-07 Strawberry", "5a_a-07_east", LocationType.strawberry, [[ItemName.dash_refills, ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.swap_blocks, ItemName.ul_dash, ], ]),
     "5a_a-08_key_1": LevelLocation("5a_a-08_key_1", "Mirror Temple A - Entrance Key", "5a_a-08_east", LocationType.key, []),
-    "5a_a-11_strawberry": LevelLocation("5a_a-11_strawberry", "Mirror Temple A - Room a-11 Strawberry", "5a_a-11_east", LocationType.strawberry, [[ItemName.dash_refills, ItemName.swap_blocks, ], ]),
-    "5a_a-15_strawberry": LevelLocation("5a_a-15_strawberry", "Mirror Temple A - Room a-15 Strawberry", "5a_a-15_south", LocationType.strawberry, [[ItemName.coins, ItemName.red_boosters, ], ]),
-    "5a_a-14_strawberry": LevelLocation("5a_a-14_strawberry", "Mirror Temple A - Room a-14 Strawberry", "5a_a-14_south", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.dash_refills, ], ]),
-    "5a_b-18_strawberry": LevelLocation("5a_b-18_strawberry", "Mirror Temple A - Room b-18 Strawberry", "5a_b-18_south", LocationType.strawberry, [[ItemName.red_boosters, ], ]),
+    "5a_a-11_strawberry": LevelLocation("5a_a-11_strawberry", "Mirror Temple A - Room a-11 Strawberry", "5a_a-11_east", LocationType.strawberry, [[ItemName.dash_refills, ItemName.swap_blocks, ItemName.dr_dash, ], [ItemName.dash_refills, ItemName.swap_blocks, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.swap_blocks, ItemName.ur_dash, ], ]),
+    "5a_a-15_strawberry": LevelLocation("5a_a-15_strawberry", "Mirror Temple A - Room a-15 Strawberry", "5a_a-15_south", LocationType.strawberry, [[ItemName.coins, ItemName.red_boosters, ItemName.r_dash, ], [ItemName.coins, ItemName.red_boosters, ItemName.u_dash, ], [ItemName.coins, ItemName.red_boosters, ItemName.ur_dash, ], ]),
+    "5a_a-14_strawberry": LevelLocation("5a_a-14_strawberry", "Mirror Temple A - Room a-14 Strawberry", "5a_a-14_south", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.dash_refills, ItemName.ur_dash, ], ]),
+    "5a_b-18_strawberry": LevelLocation("5a_b-18_strawberry", "Mirror Temple A - Room b-18 Strawberry", "5a_b-18_south", LocationType.strawberry, [[ItemName.red_boosters, ItemName.d_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.d_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.d_dash, ItemName.ur_dash, ], ]),
     "5a_b-01c_strawberry": LevelLocation("5a_b-01c_strawberry", "Mirror Temple A - Room b-01c Strawberry", "5a_b-01c_east", LocationType.strawberry, []),
     "5a_b-20_strawberry_1": LevelLocation("5a_b-20_strawberry_1", "Mirror Temple A - Room b-20 Strawberry 1", "5a_b-20_south", LocationType.strawberry, []),
-    "5a_b-20_strawberry_2": LevelLocation("5a_b-20_strawberry_2", "Mirror Temple A - Room b-20 Strawberry 2", "5a_b-20_east", LocationType.strawberry, [[ItemName.swap_blocks, ], ]),
-    "5a_b-21_strawberry": LevelLocation("5a_b-21_strawberry", "Mirror Temple A - Room b-21 Strawberry", "5a_b-21_east", LocationType.strawberry, [[ItemName.red_boosters, ItemName.dash_refills, ], ]),
-    "5a_b-03_strawberry": LevelLocation("5a_b-03_strawberry", "Mirror Temple A - Room b-03 Strawberry", "5a_b-03_east", LocationType.strawberry, [[ItemName.red_boosters, ], ]),
-    "5a_b-05_strawberry": LevelLocation("5a_b-05_strawberry", "Mirror Temple A - Room b-05 Strawberry", "5a_b-05_west", LocationType.strawberry, [[ItemName.red_boosters, ItemName.dash_refills, ], ]),
-    "5a_b-04_key_2": LevelLocation("5a_b-04_key_2", "Mirror Temple A - Depths Key", "5a_b-04_east", LocationType.key, []),
-    "5a_b-10_strawberry": LevelLocation("5a_b-10_strawberry", "Mirror Temple A - Room b-10 Strawberry", "5a_b-10_east", LocationType.strawberry, []),
-    "5a_b-12_strawberry": LevelLocation("5a_b-12_strawberry", "Mirror Temple A - Room b-12 Strawberry", "5a_b-12_east", LocationType.strawberry, [[ItemName.red_boosters, ], ]),
-    "5a_b-17_strawberry_2": LevelLocation("5a_b-17_strawberry_2", "Mirror Temple A - Room b-17 Strawberry 2", "5a_b-17_west", LocationType.strawberry, [[ItemName.strawberry_seeds, ItemName.springs, ], ]),
+    "5a_b-20_strawberry_2": LevelLocation("5a_b-20_strawberry_2", "Mirror Temple A - Room b-20 Strawberry 2", "5a_b-20_east", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.r_dash, ItemName.ur_dash, ], ]),
+    "5a_b-21_strawberry": LevelLocation("5a_b-21_strawberry", "Mirror Temple A - Room b-21 Strawberry", "5a_b-21_east", LocationType.strawberry, [[ItemName.red_boosters, ItemName.dash_refills, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.dash_refills, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.dash_refills, ItemName.ur_dash, ], ]),
+    "5a_b-03_strawberry": LevelLocation("5a_b-03_strawberry", "Mirror Temple A - Room b-03 Strawberry", "5a_b-03_east", LocationType.strawberry, [[ItemName.red_boosters, ItemName.ul_dash, ItemName.d_dash, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ItemName.d_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ItemName.ur_dash, ], ]),
+    "5a_b-05_strawberry": LevelLocation("5a_b-05_strawberry", "Mirror Temple A - Room b-05 Strawberry", "5a_b-05_west", LocationType.strawberry, [[ItemName.red_boosters, ItemName.dash_refills, ItemName.ur_dash, ItemName.ul_dash, ], ]),
+    "5a_b-04_key_2": LevelLocation("5a_b-04_key_2", "Mirror Temple A - Depths Key", "5a_b-04_east", LocationType.key, [[ItemName.l_dash, ], ]),
+    "5a_b-10_strawberry": LevelLocation("5a_b-10_strawberry", "Mirror Temple A - Room b-10 Strawberry", "5a_b-10_east", LocationType.strawberry, [[ItemName.swap_blocks, ], ]),
+    "5a_b-12_strawberry": LevelLocation("5a_b-12_strawberry", "Mirror Temple A - Room b-12 Strawberry", "5a_b-12_east", LocationType.strawberry, [[ItemName.red_boosters, ItemName.l_dash, ], [ItemName.red_boosters, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.ur_dash, ], ]),
+    "5a_b-17_strawberry_2": LevelLocation("5a_b-17_strawberry_2", "Mirror Temple A - Room b-17 Strawberry 2", "5a_b-17_west", LocationType.strawberry, [[ItemName.strawberry_seeds, ItemName.springs, ItemName.l_dash, ], [ItemName.strawberry_seeds, ItemName.springs, ItemName.ul_dash, ], ]),
     "5a_b-17_strawberry_1": LevelLocation("5a_b-17_strawberry_1", "Mirror Temple A - Room b-17 Strawberry 1", "5a_b-17_north-west", LocationType.strawberry, []),
     "5a_b-22_binoculars": LevelLocation("5a_b-22_binoculars", "Mirror Temple A - Room b-22 Binoculars", "5a_b-22_west", LocationType.binoculars, []),
-    "5a_b-22_cassette": LevelLocation("5a_b-22_cassette", "Mirror Temple A - Cassette", "5a_b-22_west", LocationType.cassette, [[ItemName.red_boosters, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ], ]),
-    "5a_b-15_crystal_heart": LevelLocation("5a_b-15_crystal_heart", "Mirror Temple A - Crystal Heart", "5a_b-15_west", LocationType.crystal_heart, [[ItemName.swap_blocks, ], ]),
+    "5a_b-22_cassette": LevelLocation("5a_b-22_cassette", "Mirror Temple A - Cassette", "5a_b-22_west", LocationType.cassette, [[ItemName.red_boosters, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.l_dash, ItemName.r_dash, ], [ItemName.red_boosters, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.ul_dash, ItemName.ur_dash, ], ]),
+    "5a_b-15_crystal_heart": LevelLocation("5a_b-15_crystal_heart", "Mirror Temple A - Crystal Heart", "5a_b-15_west", LocationType.crystal_heart, [[ItemName.swap_blocks, ItemName.l_dash, ], [ItemName.swap_blocks, ItemName.u_dash, ], [ItemName.swap_blocks, ItemName.ul_dash, ], ]),
     "5a_c-08_strawberry": LevelLocation("5a_c-08_strawberry", "Mirror Temple A - Room c-08 Strawberry", "5a_c-08_east", LocationType.strawberry, [[ItemName.seekers, ], ]),
     "5a_d-04_key_3": LevelLocation("5a_d-04_key_3", "Mirror Temple A - Search Key 1", "5a_d-04_south-west-left", LocationType.key, []),
     "5a_d-04_key_4": LevelLocation("5a_d-04_key_4", "Mirror Temple A - Search Key 2", "5a_d-04_south-west-right", LocationType.key, []),
-    "5a_d-04_strawberry_2": LevelLocation("5a_d-04_strawberry_2", "Mirror Temple A - Room d-04 Strawberry 2", "5a_d-04_south-east", LocationType.strawberry, [[ItemName.red_boosters, ItemName.swap_blocks, ], ]),
+    "5a_d-04_strawberry_2": LevelLocation("5a_d-04_strawberry_2", "Mirror Temple A - Room d-04 Strawberry 2", "5a_d-04_south-east", LocationType.strawberry, [[ItemName.red_boosters, ItemName.swap_blocks, ItemName.crouch, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.crouch, ItemName.dl_dash, ItemName.ur_dash, ], ]),
     "5a_d-04_strawberry_1": LevelLocation("5a_d-04_strawberry_1", "Mirror Temple A - Room d-04 Strawberry 1", "5a_d-04_north", LocationType.strawberry, []),
-    "5a_d-15_strawberry_2": LevelLocation("5a_d-15_strawberry_2", "Mirror Temple A - Room d-15 Strawberry 2", "5a_d-15_center", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.dash_refills, ], ]),
-    "5a_d-15_key_5": LevelLocation("5a_d-15_key_5", "Mirror Temple A - Search Key 3", "5a_d-15_center", LocationType.key, [[ItemName.swap_blocks, ItemName.seekers, ], ]),
+    "5a_d-15_key_5": LevelLocation("5a_d-15_key_5", "Mirror Temple A - Search Key 3", "5a_d-15_north-west", LocationType.key, [[ItemName.swap_blocks, ItemName.seekers, ItemName.l_dash, ItemName.r_dash, ], [ItemName.swap_blocks, ItemName.seekers, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.swap_blocks, ItemName.seekers, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.swap_blocks, ItemName.seekers, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "5a_d-15_strawberry_1": LevelLocation("5a_d-15_strawberry_1", "Mirror Temple A - Room d-15 Strawberry 1", "5a_d-15_west", LocationType.strawberry, [[ItemName.red_boosters, ], ]),
+    "5a_d-15_strawberry_2": LevelLocation("5a_d-15_strawberry_2", "Mirror Temple A - Room d-15 Strawberry 2", "5a_d-15_south-center", LocationType.strawberry, [[ItemName.swap_blocks, ItemName.dash_refills, ItemName.l_dash, ItemName.r_dash, ], [ItemName.swap_blocks, ItemName.dash_refills, ItemName.l_dash, ItemName.ur_dash, ], ]),
     "5a_d-13_strawberry": LevelLocation("5a_d-13_strawberry", "Mirror Temple A - Room d-13 Strawberry", "5a_d-13_west", LocationType.strawberry, []),
     "5a_d-19_strawberry": LevelLocation("5a_d-19_strawberry", "Mirror Temple A - Room d-19 Strawberry", "5a_d-19_east", LocationType.strawberry, [["Mirror Temple A - Search Key 3", ], ]),
-    "5a_e-06_strawberry": LevelLocation("5a_e-06_strawberry", "Mirror Temple A - Room e-06 Strawberry", "5a_e-06_east", LocationType.strawberry, [[ItemName.dash_switches, ], ]),
+    "5a_e-06_strawberry": LevelLocation("5a_e-06_strawberry", "Mirror Temple A - Room e-06 Strawberry", "5a_e-06_east", LocationType.strawberry, [[ItemName.dash_switches, ItemName.theo_crystal, ItemName.seekers, ], ]),
     "5a_e-11_clear": LevelLocation("5a_e-11_clear", "Mirror Temple A - Level Clear", "5a_e-11_goal", LocationType.level_clear, []),
-    "5a_e-11_golden": LevelLocation("5a_e-11_golden", "Mirror Temple A - Golden Strawberry", "5a_e-11_goal", LocationType.golden_strawberry, [[ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ], ]),
+    "5a_e-11_golden": LevelLocation("5a_e-11_golden", "Mirror Temple A - Golden Strawberry", "5a_e-11_goal", LocationType.golden_strawberry, [[ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.d_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dl_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, ItemName.dash_refills, "Mirror Temple A - Entrance Key", "Mirror Temple A - Depths Key", "Mirror Temple A - Search Key 1", "Mirror Temple A - Search Key 2", ItemName.seekers, ItemName.coins, ItemName.theo_crystal, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
     "5b_b-02_key_1": LevelLocation("5b_b-02_key_1", "Mirror Temple B - Central Chamber Key 1", "5b_b-02_south-west", LocationType.key, []),
     "5b_b-02_key_2": LevelLocation("5b_b-02_key_2", "Mirror Temple B - Central Chamber Key 2", "5b_b-02_south-east", LocationType.key, []),
@@ -6637,6 +6638,7 @@ all_regions: dict[str, PreRegion] = {
     "5a_d-15_center": PreRegion("5a_d-15_center", "5a_d-15", connections_by_region["5a_d-15_center"], locations_by_region["5a_d-15_center"]),
     "5a_d-15_west": PreRegion("5a_d-15_west", "5a_d-15", connections_by_region["5a_d-15_west"], locations_by_region["5a_d-15_west"]),
     "5a_d-15_south-west": PreRegion("5a_d-15_south-west", "5a_d-15", connections_by_region["5a_d-15_south-west"], locations_by_region["5a_d-15_south-west"]),
+    "5a_d-15_south-center": PreRegion("5a_d-15_south-center", "5a_d-15", connections_by_region["5a_d-15_south-center"], locations_by_region["5a_d-15_south-center"]),
     "5a_d-15_south": PreRegion("5a_d-15_south", "5a_d-15", connections_by_region["5a_d-15_south"], locations_by_region["5a_d-15_south"]),
     "5a_d-15_south-east": PreRegion("5a_d-15_south-east", "5a_d-15", connections_by_region["5a_d-15_south-east"], locations_by_region["5a_d-15_south-east"]),
 
