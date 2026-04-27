@@ -22208,7 +22208,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "swap_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "swap_blocks", "dash_refills", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -22217,7 +22217,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "swap_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "swap_blocks", "dash_refills", "u_dash" ] ]
                                 }
                             ]
                         }
@@ -22241,7 +22241,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "swap_blocks" ] ]
+                                    "rule": [ [ "swap_blocks", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -22280,7 +22280,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches" ] ]
+                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "u_dash", "d_dash", "ur_dash", "r_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -22306,7 +22306,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "swap_blocks" ] ]
+                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "swap_blocks", "u_dash", "d_dash", "ur_dash", "r_dash" ] ]
                                 }
                             ]
                         }

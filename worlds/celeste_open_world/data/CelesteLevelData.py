@@ -3933,13 +3933,13 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "5b_d-05_west---5b_d-05_goal": RegionConnection("5b_d-05_west", "5b_d-05_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.springs, ItemName.swap_blocks, ItemName.ur_dash, ], ]),
 
-    "5c_00_west---5c_00_east": RegionConnection("5c_00_west", "5c_00_east", [[ItemName.swap_blocks, ItemName.dash_refills, ], ]),
-    "5c_00_east---5c_00_west": RegionConnection("5c_00_east", "5c_00_west", [[ItemName.swap_blocks, ItemName.dash_refills, ], ]),
+    "5c_00_west---5c_00_east": RegionConnection("5c_00_west", "5c_00_east", [[ItemName.swap_blocks, ItemName.dash_refills, ItemName.u_dash, ], ]),
+    "5c_00_east---5c_00_west": RegionConnection("5c_00_east", "5c_00_west", [[ItemName.swap_blocks, ItemName.dash_refills, ItemName.u_dash, ], ]),
 
-    "5c_01_west---5c_01_east": RegionConnection("5c_01_west", "5c_01_east", [[ItemName.swap_blocks, ], ]),
+    "5c_01_west---5c_01_east": RegionConnection("5c_01_west", "5c_01_east", [[ItemName.swap_blocks, ItemName.u_dash, ], ]),
     "5c_01_east---5c_01_west": RegionConnection("5c_01_east", "5c_01_west", [[ItemName.cannot_access, ], ]),
 
-    "5c_02_west---5c_02_goal": RegionConnection("5c_02_west", "5c_02_goal", [[ItemName.red_boosters, ItemName.dash_refills, ItemName.dash_switches, ], ]),
+    "5c_02_west---5c_02_goal": RegionConnection("5c_02_west", "5c_02_goal", [[ItemName.red_boosters, ItemName.dash_refills, ItemName.dash_switches, ItemName.u_dash, ItemName.d_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
     "6a_00_west---6a_00_east": RegionConnection("6a_00_west", "6a_00_east", []),
     "6a_00_east---6a_00_west": RegionConnection("6a_00_east", "6a_00_west", [[ItemName.kevin_blocks, ], ]),
@@ -5223,7 +5223,7 @@ all_locations: dict[str, LevelLocation] = {
 
     "5c_02_binoculars": LevelLocation("5c_02_binoculars", "Mirror Temple C - Room 02 Binoculars", "5c_02_west", LocationType.binoculars, []),
     "5c_02_clear": LevelLocation("5c_02_clear", "Mirror Temple C - Level Clear", "5c_02_goal", LocationType.level_clear, []),
-    "5c_02_golden": LevelLocation("5c_02_golden", "Mirror Temple C - Golden Strawberry", "5c_02_goal", LocationType.golden_strawberry, [[ItemName.red_boosters, ItemName.dash_refills, ItemName.dash_switches, ItemName.swap_blocks, ], ]),
+    "5c_02_golden": LevelLocation("5c_02_golden", "Mirror Temple C - Golden Strawberry", "5c_02_goal", LocationType.golden_strawberry, [[ItemName.red_boosters, ItemName.dash_refills, ItemName.dash_switches, ItemName.swap_blocks, ItemName.u_dash, ItemName.d_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
     "6a_04c_crystal_heart": LevelLocation("6a_04c_crystal_heart", "Reflection A - Crystal Heart", "6a_04c_east", LocationType.crystal_heart, []),
     "6a_04e_binoculars": LevelLocation("6a_04e_binoculars", "Reflection A - Room 04e Binoculars", "6a_04e_east", LocationType.binoculars, []),
