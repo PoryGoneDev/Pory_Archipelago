@@ -15946,7 +15946,7 @@
         {
             "name": "5a",
             "display_name": "Mirror Temple A",
-            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills", "coins", "springs", "torches", "seekers", "theo_crystal", "strawberry_seeds", "pink_cassette_blocks", "blue_cassette_blocks" ],
+            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills", "coins", "springs", "torches", "yellow_torches", "seekers", "theo_crystal", "strawberry_seeds", "pink_cassette_blocks", "blue_cassette_blocks" ],
             "rooms": [
                 {
                     "name": "a-00b",
@@ -36395,7 +36395,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "springs", "traffic_blocks", "dash_refills", "core_toggles", "dream_blocks", "bumpers", "pink_clouds", "swap_blocks", "kevin_blocks", "core_blocks" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "core_toggles", "dream_blocks", "bumpers", "pink_clouds", "swap_blocks", "kevin_blocks", "core_blocks" ] ]
                                 }
                             ]
                         }

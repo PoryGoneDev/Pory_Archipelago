@@ -397,6 +397,25 @@ class RequireCassettes(Toggle):
     """
     display_name = "Require Cassettes"
 
+class TorchBehavior(Choice):
+    """
+    How Torches behave
+
+    Vanilla: Yellow Torches begin lit, Blue Torches do not
+
+    Start Lit: Blue and Yellow Torches both begin lit (if you have the corresponding Item)
+
+    Start Unlit: Blue and Yellow Torches both begin unlit
+
+    Never Lit: Blue and Yellow Torches begin unlit, and their items are not added to the item pool
+    """
+    display_name = "Torch Behavior"
+    option_vanilla = 0
+    option_start_lit = 1
+    option_start_unlit = 2
+    option_never_lit = 3
+    default = 0
+
 
 class MadelineHairLength(Choice):
     """
@@ -537,6 +556,7 @@ celeste_option_groups = [
     OptionGroup("Aesthetic Options", [
         MusicShuffle,
         RequireCassettes,
+        TorchBehavior,
         MadelineHairLength,
         MadelineOneDashHairColor,
         MadelineTwoDashHairColor,
@@ -658,6 +678,7 @@ class CelesteOptions(PerGameCommonOptions):
 
     music_shuffle: MusicShuffle
     require_cassettes: RequireCassettes
+    torch_behavior: TorchBehavior
 
     madeline_hair_length: MadelineHairLength
     madeline_one_dash_hair_color: MadelineOneDashHairColor

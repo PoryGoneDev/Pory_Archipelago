@@ -317,6 +317,18 @@ class CelesteOpenWorld(World):
             location_count -= 1
 
         # Interactables
+        if self.options.torch_behavior.value == 3:
+            self.active_items.discard(ItemName.torches)
+            self.active_items.discard(ItemName.yellow_torches)
+            self.active_items.discard("Mirror Temple " + ItemName.torches)
+            self.active_items.discard("Mirror Temple " + ItemName.yellow_torches)
+            self.active_items.discard("Mirror Temple A " + ItemName.torches)
+            self.active_items.discard("Mirror Temple B " + ItemName.torches)
+            self.active_items.discard("Mirror Temple A " + ItemName.yellow_torches)
+            self.active_items.discard("A-Side " + ItemName.torches)
+            self.active_items.discard("B-Side " + ItemName.torches)
+            self.active_items.discard("A-Side " + ItemName.yellow_torches)
+
         item_pool += [self.create_item(item_name) for item_name in sorted(self.active_items) if item_name not in self.multiworld.precollected_items[self.player]]
 
         # Movement
@@ -497,6 +509,7 @@ class CelesteOpenWorld(World):
             "music_shuffle": self.options.music_shuffle.value,
             "music_map": self.generate_music_data(),
             "require_cassettes": self.options.require_cassettes.value,
+            "torch_behavior": self.options.torch_behavior.value,
             "chosen_poem": self.random.randint(0, 119),
         }
 
