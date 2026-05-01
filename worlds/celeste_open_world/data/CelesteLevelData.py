@@ -1344,7 +1344,7 @@ all_doors: dict[str, Door] = {
     "6a_02b_top": Door("6a_02b_top", "6a_02b", DoorDirection.up, False, False),
 
     "6a_04_south": Door("6a_04_south", "6a_04", DoorDirection.down, False, True),
-    "6a_04_south-west": Door("6a_04_south-west", "6a_04", DoorDirection.left, True, False),
+    "6a_04_south-west-door": Door("6a_04_south-west-door", "6a_04", DoorDirection.left, True, False),
     "6a_04_south-east": Door("6a_04_south-east", "6a_04", DoorDirection.right, False, False),
     "6a_04_east": Door("6a_04_east", "6a_04", DoorDirection.right, False, False),
     "6a_04_north-west": Door("6a_04_north-west", "6a_04", DoorDirection.left, False, False),
@@ -3942,27 +3942,29 @@ all_region_connections: dict[str, RegionConnection] = {
     "5c_02_west---5c_02_goal": RegionConnection("5c_02_west", "5c_02_goal", [[ItemName.red_boosters, ItemName.dash_refills, ItemName.dash_switches, ItemName.u_dash, ItemName.d_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
     "6a_00_west---6a_00_east": RegionConnection("6a_00_west", "6a_00_east", []),
-    "6a_00_east---6a_00_west": RegionConnection("6a_00_east", "6a_00_west", [[ItemName.kevin_blocks, ], ]),
+    "6a_00_east---6a_00_west": RegionConnection("6a_00_east", "6a_00_west", [[ItemName.kevin_blocks, ItemName.d_dash, ItemName.dr_dash, ], [ItemName.kevin_blocks, ItemName.d_dash, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.d_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ], [ItemName.kevin_blocks, ItemName.dl_dash, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.dr_dash, ], [ItemName.kevin_blocks, ItemName.dr_dash, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.dr_dash, ItemName.ur_dash, ], ]),
 
-    "6a_01_bottom---6a_01_top": RegionConnection("6a_01_bottom", "6a_01_top", [[ItemName.feathers, ], ]),
+    "6a_01_bottom---6a_01_top": RegionConnection("6a_01_bottom", "6a_01_top", [[ItemName.feathers, ItemName.u_dash, ], [ItemName.feathers, ItemName.ul_dash, ], ]),
     "6a_01_top---6a_01_bottom": RegionConnection("6a_01_top", "6a_01_bottom", []),
 
-    "6a_02_bottom---6a_02_bottom-west": RegionConnection("6a_02_bottom", "6a_02_bottom-west", [[ItemName.feathers, ], ]),
+    "6a_02_bottom---6a_02_bottom-west": RegionConnection("6a_02_bottom", "6a_02_bottom-west", [[ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.dr_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dr_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.dr_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.d_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.dr_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.kevin_blocks, ItemName.dr_dash, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "6a_02_top-west---6a_02_top": RegionConnection("6a_02_top-west", "6a_02_top", [[ItemName.feathers, ], ]),
     "6a_02_top---6a_02_top-west": RegionConnection("6a_02_top", "6a_02_top-west", [[ItemName.feathers, ], ]),
 
-    "6a_03_bottom---6a_03_top": RegionConnection("6a_03_bottom", "6a_03_top", [[ItemName.feathers, ], ]),
+    "6a_03_bottom---6a_03_top": RegionConnection("6a_03_bottom", "6a_03_top", [[ItemName.feathers, ItemName.l_dash, ], [ItemName.feathers, ItemName.u_dash, ], [ItemName.feathers, ItemName.ul_dash, ], ]),
 
-    "6a_02b_bottom---6a_02b_top": RegionConnection("6a_02b_bottom", "6a_02b_top", [[ItemName.kevin_blocks, ], ]),
+    "6a_02b_bottom---6a_02b_top": RegionConnection("6a_02b_bottom", "6a_02b_top", [[ItemName.kevin_blocks, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
-    "6a_04_south---6a_04_south-west": RegionConnection("6a_04_south", "6a_04_south-west", [[ItemName.kevin_blocks, ], ]),
+    "6a_04_south---6a_04_south-west": RegionConnection("6a_04_south", "6a_04_south-west", [[ItemName.kevin_blocks, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.ul_dash, ], ]),
     "6a_04_south---6a_04_south-east": RegionConnection("6a_04_south", "6a_04_south-east", []),
     "6a_04_south-west---6a_04_south": RegionConnection("6a_04_south-west", "6a_04_south", []),
+    "6a_04_south-west---6a_04_south-west-door": RegionConnection("6a_04_south-west", "6a_04_south-west-door", [[ItemName.kevin_blocks, ItemName.dr_dash, ], [ItemName.kevin_blocks, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.ur_dash, ], ]),
     "6a_04_south-west---6a_04_east": RegionConnection("6a_04_south-west", "6a_04_east", [[ItemName.feathers, ], ]),
     "6a_04_south-east---6a_04_south": RegionConnection("6a_04_south-east", "6a_04_south", []),
     "6a_04_east---6a_04_south": RegionConnection("6a_04_east", "6a_04_south", []),
-    "6a_04_east---6a_04_north-west": RegionConnection("6a_04_east", "6a_04_north-west", [[ItemName.feathers, ], ]),
+    "6a_04_east---6a_04_north-west": RegionConnection("6a_04_east", "6a_04_north-west", [[ItemName.feathers, ItemName.d_dash, ], [ItemName.feathers, ItemName.dl_dash, ], [ItemName.feathers, ItemName.dr_dash, ], ]),
     "6a_04_north-west---6a_04_south": RegionConnection("6a_04_north-west", "6a_04_south", []),
+    "6a_04_north-west---6a_04_south-west": RegionConnection("6a_04_north-west", "6a_04_south-west", [[ItemName.kevin_blocks, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
     "6a_04b_west---6a_04b_east": RegionConnection("6a_04b_west", "6a_04b_east", []),
     "6a_04b_east---6a_04b_west": RegionConnection("6a_04b_east", "6a_04b_west", []),
@@ -3970,98 +3972,108 @@ all_region_connections: dict[str, RegionConnection] = {
 
 
 
-    "6a_05_west---6a_05_east": RegionConnection("6a_05_west", "6a_05_east", [[ItemName.kevin_blocks, ], ]),
+    "6a_05_west---6a_05_east": RegionConnection("6a_05_west", "6a_05_east", [[ItemName.kevin_blocks, ItemName.dl_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ], [ItemName.kevin_blocks, ItemName.ul_dash, ], ]),
 
-    "6a_06_west---6a_06_east": RegionConnection("6a_06_west", "6a_06_east", [[ItemName.kevin_blocks, ItemName.feathers, ], ]),
+    "6a_06_west---6a_06_east": RegionConnection("6a_06_west", "6a_06_east", [[ItemName.kevin_blocks, ItemName.feathers, ItemName.dl_dash, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.l_dash, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.l_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
     "6a_07_west---6a_07_east": RegionConnection("6a_07_west", "6a_07_east", []),
-    "6a_07_west---6a_07_north-east": RegionConnection("6a_07_west", "6a_07_north-east", []),
+    "6a_07_west---6a_07_north-east": RegionConnection("6a_07_west", "6a_07_north-east", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "6a_07_east---6a_07_west": RegionConnection("6a_07_east", "6a_07_west", []),
     "6a_07_north-east---6a_07_west": RegionConnection("6a_07_north-east", "6a_07_west", []),
 
-    "6a_08a_west---6a_08a_east": RegionConnection("6a_08a_west", "6a_08a_east", [[ItemName.kevin_blocks, ItemName.dash_refills, ], ]),
+    "6a_08a_west---6a_08a_east": RegionConnection("6a_08a_west", "6a_08a_east", [[ItemName.kevin_blocks, ItemName.dash_refills, ItemName.dl_dash, ], [ItemName.kevin_blocks, ItemName.dash_refills, ItemName.l_dash, ], [ItemName.kevin_blocks, ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
-    "6a_08b_west---6a_08b_east": RegionConnection("6a_08b_west", "6a_08b_east", [[ItemName.kevin_blocks, ItemName.feathers, ], ]),
+    "6a_08b_west---6a_08b_east": RegionConnection("6a_08b_west", "6a_08b_east", [[ItemName.kevin_blocks, ItemName.feathers, ItemName.d_dash, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.d_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.d_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.dl_dash, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.dr_dash, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.feathers, ItemName.dr_dash, ItemName.ur_dash, ], ]),
 
     "6a_09_west---6a_09_north-west": RegionConnection("6a_09_west", "6a_09_north-west", []),
-    "6a_09_north-west---6a_09_north-east": RegionConnection("6a_09_north-west", "6a_09_north-east", []),
-    "6a_09_east---6a_09_west": RegionConnection("6a_09_east", "6a_09_west", []),
+    "6a_09_north-west---6a_09_north-east": RegionConnection("6a_09_north-west", "6a_09_north-east", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "6a_09_north-west---6a_09_west": RegionConnection("6a_09_north-west", "6a_09_west", []),
+    "6a_09_east---6a_09_west": RegionConnection("6a_09_east", "6a_09_west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "6a_09_north-east---6a_09_east": RegionConnection("6a_09_north-east", "6a_09_east", []),
+    "6a_09_north-east---6a_09_north-west": RegionConnection("6a_09_north-east", "6a_09_north-west", []),
 
-    "6a_10a_west---6a_10a_east": RegionConnection("6a_10a_west", "6a_10a_east", [[ItemName.dash_refills, ], ]),
+    "6a_10a_west---6a_10a_east": RegionConnection("6a_10a_west", "6a_10a_east", [[ItemName.feathers, ItemName.r_dash, ], [ItemName.feathers, ItemName.u_dash, ], [ItemName.feathers, ItemName.ur_dash, ], ]),
     "6a_10a_east---6a_10a_east": RegionConnection("6a_10a_east", "6a_10a_east", [[ItemName.cannot_access, ], ]),
 
     "6a_10b_west---6a_10b_east": RegionConnection("6a_10b_west", "6a_10b_east", [[ItemName.bumpers, ], ]),
     "6a_10b_east---6a_10b_west": RegionConnection("6a_10b_east", "6a_10b_west", [[ItemName.bumpers, ], ]),
 
-    "6a_11_west---6a_11_north-west": RegionConnection("6a_11_west", "6a_11_north-west", [[ItemName.bumpers, ], ]),
-    "6a_11_north-west---6a_11_north-east": RegionConnection("6a_11_north-west", "6a_11_north-east", [[ItemName.bumpers, ], ]),
+    "6a_11_west---6a_11_north-west": RegionConnection("6a_11_west", "6a_11_north-west", [[ItemName.bumpers, ItemName.r_dash, ItemName.u_dash, ], [ItemName.bumpers, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.bumpers, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.bumpers, ItemName.ul_dash, ItemName.ur_dash, ], ]),
+    "6a_11_north-west---6a_11_north-east": RegionConnection("6a_11_north-west", "6a_11_north-east", [[ItemName.bumpers, ItemName.r_dash, ], [ItemName.bumpers, ItemName.ur_dash, ], ]),
     "6a_11_east---6a_11_north-east": RegionConnection("6a_11_east", "6a_11_north-east", []),
     "6a_11_north-east---6a_11_north-west": RegionConnection("6a_11_north-east", "6a_11_north-west", []),
     "6a_11_north-east---6a_11_east": RegionConnection("6a_11_north-east", "6a_11_east", []),
 
-    "6a_12a_west---6a_12a_east": RegionConnection("6a_12a_west", "6a_12a_east", [[ItemName.feathers, ], ]),
+    "6a_12a_west---6a_12a_east": RegionConnection("6a_12a_west", "6a_12a_east", [[ItemName.feathers, ItemName.l_dash, ItemName.u_dash, ], [ItemName.feathers, ItemName.l_dash, ItemName.ur_dash, ], ]),
 
-    "6a_12b_west---6a_12b_east": RegionConnection("6a_12b_west", "6a_12b_east", [[ItemName.kevin_blocks, ItemName.bumpers, ], ]),
-    "6a_12b_east---6a_12b_west": RegionConnection("6a_12b_east", "6a_12b_west", [[ItemName.bumpers, ], ]),
+    "6a_12b_west---6a_12b_east": RegionConnection("6a_12b_west", "6a_12b_east", [[ItemName.kevin_blocks, ItemName.bumpers, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.l_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.ul_dash, ItemName.ur_dash, ], ]),
+    "6a_12b_east---6a_12b_west": RegionConnection("6a_12b_east", "6a_12b_west", [[ItemName.bumpers, ItemName.l_dash, ], [ItemName.bumpers, ItemName.ul_dash, ], ]),
 
-    "6a_13_west---6a_13_north-west": RegionConnection("6a_13_west", "6a_13_north-west", []),
-    "6a_13_north-west---6a_13_east": RegionConnection("6a_13_north-west", "6a_13_east", []),
-    "6a_13_north-west---6a_13_north-east": RegionConnection("6a_13_north-west", "6a_13_north-east", []),
-    "6a_13_east---6a_13_north-east": RegionConnection("6a_13_east", "6a_13_north-east", []),
+    "6a_13_west---6a_13_north-west": RegionConnection("6a_13_west", "6a_13_north-west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "6a_13_west---6a_13_east": RegionConnection("6a_13_west", "6a_13_east", [[ItemName.d_dash, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.d_dash, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.d_dash, ItemName.dr_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.d_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.d_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.dr_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.u_dash, ], [ItemName.dr_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.ur_dash, ], ]),
+    "6a_13_west---6a_13_north-east": RegionConnection("6a_13_west", "6a_13_north-east", [[ItemName.dr_dash, ItemName.u_dash, ], [ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.ur_dash, ], [ItemName.r_dash, ItemName.u_dash, ], [ItemName.r_dash, ItemName.ul_dash, ], [ItemName.r_dash, ItemName.ur_dash, ], [ItemName.u_dash, ItemName.ur_dash, ], [ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.ur_dash, ], ]),
+    "6a_13_north-west---6a_13_west": RegionConnection("6a_13_north-west", "6a_13_west", [[ItemName.d_dash, ], [ItemName.dl_dash, ], [ItemName.dr_dash, ], ]),
+    "6a_13_north-west---6a_13_east": RegionConnection("6a_13_north-west", "6a_13_east", [[ItemName.d_dash, ItemName.dr_dash, ], [ItemName.d_dash, ItemName.r_dash, ], [ItemName.d_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ], [ItemName.dl_dash, ItemName.r_dash, ], [ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ], [ItemName.dr_dash, ItemName.r_dash, ], [ItemName.dr_dash, ItemName.ur_dash, ], ]),
+    "6a_13_north-west---6a_13_north-east": RegionConnection("6a_13_north-west", "6a_13_north-east", [[ItemName.d_dash, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.d_dash, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.d_dash, ItemName.dr_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.d_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.d_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.dr_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.u_dash, ], [ItemName.dr_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.ur_dash, ], ]),
+    "6a_13_east---6a_13_north-east": RegionConnection("6a_13_east", "6a_13_north-east", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "6a_13_east---6a_13_north-west": RegionConnection("6a_13_east", "6a_13_north-west", [[ItemName.dl_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.l_dash, ItemName.u_dash, ], [ItemName.l_dash, ItemName.ul_dash, ], [ItemName.l_dash, ItemName.ur_dash, ], [ItemName.u_dash, ItemName.ul_dash, ], [ItemName.ul_dash, ], [ItemName.ul_dash, ItemName.ur_dash, ], ]),
+    "6a_13_east---6a_13_west": RegionConnection("6a_13_east", "6a_13_west", [[ItemName.d_dash, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.d_dash, ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.d_dash, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.l_dash, ItemName.u_dash, ], [ItemName.d_dash, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.d_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.d_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.d_dash, ItemName.ul_dash, ], [ItemName.d_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.l_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.u_dash, ], [ItemName.dl_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.l_dash, ItemName.u_dash, ], [ItemName.dr_dash, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.dr_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.ul_dash, ItemName.ur_dash, ], ]),
     "6a_13_north-east---6a_13_north-west": RegionConnection("6a_13_north-east", "6a_13_north-west", []),
-    "6a_13_north-east---6a_13_east": RegionConnection("6a_13_north-east", "6a_13_east", []),
+    "6a_13_north-east---6a_13_east": RegionConnection("6a_13_north-east", "6a_13_east", [[ItemName.d_dash, ], [ItemName.dl_dash, ], [ItemName.dr_dash, ], ]),
+    "6a_13_north-east---6a_13_west": RegionConnection("6a_13_north-east", "6a_13_west", [[ItemName.d_dash, ItemName.dl_dash, ], [ItemName.d_dash, ItemName.l_dash, ], [ItemName.d_dash, ItemName.ul_dash, ], [ItemName.dl_dash, ], [ItemName.dl_dash, ItemName.dr_dash, ], [ItemName.dl_dash, ItemName.l_dash, ], [ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.dr_dash, ItemName.l_dash, ], [ItemName.dr_dash, ItemName.ul_dash, ], ]),
 
-    "6a_14a_west---6a_14a_east": RegionConnection("6a_14a_west", "6a_14a_east", [[ItemName.bumpers, ItemName.dash_refills, ], ]),
+    "6a_14a_west---6a_14a_east": RegionConnection("6a_14a_west", "6a_14a_east", [[ItemName.bumpers, ItemName.dash_refills, ItemName.l_dash, ItemName.r_dash, ], [ItemName.bumpers, ItemName.dash_refills, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.bumpers, ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.bumpers, ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
-    "6a_14b_west---6a_14b_east": RegionConnection("6a_14b_west", "6a_14b_east", [[ItemName.springs, ItemName.coins, ItemName.bumpers, ], ]),
+    "6a_14b_west---6a_14b_east": RegionConnection("6a_14b_west", "6a_14b_east", [[ItemName.springs, ItemName.coins, ItemName.bumpers, ItemName.ul_dash, ], [ItemName.springs, ItemName.coins, ItemName.bumpers, ItemName.ur_dash, ], ]),
 
     "6a_15_west---6a_15_north-west": RegionConnection("6a_15_west", "6a_15_north-west", []),
-    "6a_15_north-west---6a_15_east": RegionConnection("6a_15_north-west", "6a_15_east", []),
-    "6a_15_north-west---6a_15_north-east": RegionConnection("6a_15_north-west", "6a_15_north-east", []),
-    "6a_15_east---6a_15_north-east": RegionConnection("6a_15_east", "6a_15_north-east", []),
-    "6a_15_north-east---6a_15_north-west": RegionConnection("6a_15_north-east", "6a_15_north-west", []),
+    "6a_15_north-west---6a_15_west": RegionConnection("6a_15_north-west", "6a_15_west", []),
+    "6a_15_north-west---6a_15_east": RegionConnection("6a_15_north-west", "6a_15_east", [[ItemName.bumpers, ], [ItemName.feathers, ], [ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
+    "6a_15_north-west---6a_15_north-east": RegionConnection("6a_15_north-west", "6a_15_north-east", [[ItemName.feathers, ], ]),
+    "6a_15_east---6a_15_west": RegionConnection("6a_15_east", "6a_15_west", [[ItemName.bumpers, ], [ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
+    "6a_15_east---6a_15_north-east": RegionConnection("6a_15_east", "6a_15_north-east", [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "6a_15_north-east---6a_15_east": RegionConnection("6a_15_north-east", "6a_15_east", []),
 
-    "6a_16a_west---6a_16a_east": RegionConnection("6a_16a_west", "6a_16a_east", [[ItemName.feathers, ], ]),
+    "6a_16a_west---6a_16a_east": RegionConnection("6a_16a_west", "6a_16a_east", [[ItemName.feathers, ItemName.r_dash, ], ]),
 
-    "6a_16b_west---6a_16b_east": RegionConnection("6a_16b_west", "6a_16b_east", [[ItemName.dash_refills, ItemName.feathers, ], ]),
+    "6a_16b_west---6a_16b_east": RegionConnection("6a_16b_west", "6a_16b_east", [[ItemName.dash_refills, ItemName.feathers, ItemName.u_dash, ItemName.r_dash, ], ]),
 
     "6a_17_west---6a_17_north-west": RegionConnection("6a_17_west", "6a_17_north-west", []),
-    "6a_17_north-west---6a_17_east": RegionConnection("6a_17_north-west", "6a_17_east", []),
-    "6a_17_north-west---6a_17_north-east": RegionConnection("6a_17_north-west", "6a_17_north-east", [[ItemName.kevin_blocks, ], ]),
-    "6a_17_east---6a_17_north-east": RegionConnection("6a_17_east", "6a_17_north-east", []),
+    "6a_17_west---6a_17_north-east": RegionConnection("6a_17_west", "6a_17_north-east", [[ItemName.kevin_blocks, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.ur_dash, ], ]),
+    "6a_17_west---6a_17_east": RegionConnection("6a_17_west", "6a_17_east", [[ItemName.kevin_blocks, ItemName.r_dash, ], [ItemName.kevin_blocks, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.dr_dash, ItemName.dl_dash, ], [ItemName.kevin_blocks, ItemName.dr_dash, ItemName.l_dash, ], [ItemName.kevin_blocks, ItemName.dr_dash, ItemName.ul_dash, ], ]),
+    "6a_17_north-west---6a_17_west": RegionConnection("6a_17_north-west", "6a_17_west", []),
+    "6a_17_east---6a_17_north-east": RegionConnection("6a_17_east", "6a_17_north-east", [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "6a_17_north-east---6a_17_north-west": RegionConnection("6a_17_north-east", "6a_17_north-west", [[ItemName.cannot_access, ], ]),
     "6a_17_north-east---6a_17_east": RegionConnection("6a_17_north-east", "6a_17_east", []),
 
-    "6a_18a_west---6a_18a_east": RegionConnection("6a_18a_west", "6a_18a_east", [[ItemName.bumpers, ItemName.feathers, ], ]),
+    "6a_18a_west---6a_18a_east": RegionConnection("6a_18a_west", "6a_18a_east", [[ItemName.bumpers, ItemName.feathers, ItemName.l_dash, ItemName.u_dash, ], ]),
 
-    "6a_18b_west---6a_18b_east": RegionConnection("6a_18b_west", "6a_18b_east", [[ItemName.bumpers, ], ]),
+    "6a_18b_west---6a_18b_east": RegionConnection("6a_18b_west", "6a_18b_east", [[ItemName.bumpers, ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ], [ItemName.bumpers, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "6a_19_west---6a_19_north-west": RegionConnection("6a_19_west", "6a_19_north-west", []),
-    "6a_19_west---6a_19_east": RegionConnection("6a_19_west", "6a_19_east", [[ItemName.feathers, ], ]),
-    "6a_19_north-west---6a_19_west": RegionConnection("6a_19_north-west", "6a_19_west", [[ItemName.feathers, ], ]),
-    "6a_19_north-west---6a_19_east": RegionConnection("6a_19_north-west", "6a_19_east", []),
+    "6a_19_west---6a_19_north-west": RegionConnection("6a_19_west", "6a_19_north-west", [[ItemName.feathers, ], ]),
+    "6a_19_west---6a_19_east": RegionConnection("6a_19_west", "6a_19_east", [[ItemName.feathers, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ], ]),
+    "6a_19_north-west---6a_19_west": RegionConnection("6a_19_north-west", "6a_19_west", []),
+    "6a_19_north-west---6a_19_east": RegionConnection("6a_19_north-west", "6a_19_east", [[ItemName.feathers, ItemName.d_dash, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "6a_20_west---6a_20_east": RegionConnection("6a_20_west", "6a_20_east", [[ItemName.feathers, ], ]),
+    "6a_20_west---6a_20_east": RegionConnection("6a_20_west", "6a_20_east", [[ItemName.feathers, ItemName.u_dash, ], ]),
 
     "6a_b-00_west---6a_b-00_east": RegionConnection("6a_b-00_west", "6a_b-00_east", []),
-    "6a_b-00_west---6a_b-00_top": RegionConnection("6a_b-00_west", "6a_b-00_top", []),
+    "6a_b-00_west---6a_b-00_top": RegionConnection("6a_b-00_west", "6a_b-00_top", [[ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
     "6a_b-00_east---6a_b-00_west": RegionConnection("6a_b-00_east", "6a_b-00_west", []),
     "6a_b-00_top---6a_b-00_west": RegionConnection("6a_b-00_top", "6a_b-00_west", []),
 
-    "6a_b-00b_bottom---6a_b-00b_top": RegionConnection("6a_b-00b_bottom", "6a_b-00b_top", []),
-    "6a_b-00b_top---6a_b-00b_bottom": RegionConnection("6a_b-00b_top", "6a_b-00b_bottom", []),
+    "6a_b-00b_bottom---6a_b-00b_top": RegionConnection("6a_b-00b_bottom", "6a_b-00b_top", [[ItemName.u_dash, ItemName.dl_dash, ItemName.crouch, ], ]),
+    "6a_b-00b_top---6a_b-00b_bottom": RegionConnection("6a_b-00b_top", "6a_b-00b_bottom", [[ItemName.r_dash, ], ]),
 
 
     "6a_b-01_west---6a_b-01_east": RegionConnection("6a_b-01_west", "6a_b-01_east", []),
-    "6a_b-01_east---6a_b-01_west": RegionConnection("6a_b-01_east", "6a_b-01_west", []),
+    "6a_b-01_east---6a_b-01_west": RegionConnection("6a_b-01_east", "6a_b-01_west", [[ItemName.ul_dash, ], ]),
 
-    "6a_b-02_top---6a_b-02_bottom": RegionConnection("6a_b-02_top", "6a_b-02_bottom", [[ItemName.kevin_blocks, ], ]),
+    "6a_b-02_top---6a_b-02_bottom": RegionConnection("6a_b-02_top", "6a_b-02_bottom", [[ItemName.kevin_blocks, ItemName.bumpers, ItemName.l_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.l_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.bumpers, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
     "6a_b-02b_top---6a_b-02b_bottom": RegionConnection("6a_b-02b_top", "6a_b-02b_bottom", []),
 
-    "6a_b-03_west---6a_b-03_east": RegionConnection("6a_b-03_west", "6a_b-03_east", [[ItemName.kevin_blocks, ], ]),
+    "6a_b-03_west---6a_b-03_east": RegionConnection("6a_b-03_west", "6a_b-03_east", [[ItemName.kevin_blocks, ItemName.dl_dash, ], [ItemName.kevin_blocks, ItemName.l_dash, ], [ItemName.kevin_blocks, ItemName.ul_dash, ], ]),
 
     "6a_boss-00_west---6a_boss-00_east": RegionConnection("6a_boss-00_west", "6a_boss-00_east", []),
     "6a_boss-00_east---6a_boss-00_west": RegionConnection("6a_boss-00_east", "6a_boss-00_west", []),
@@ -4069,7 +4081,7 @@ all_region_connections: dict[str, RegionConnection] = {
     "6a_boss-01_west---6a_boss-01_east": RegionConnection("6a_boss-01_west", "6a_boss-01_east", []),
     "6a_boss-01_east---6a_boss-01_west": RegionConnection("6a_boss-01_east", "6a_boss-01_west", []),
 
-    "6a_boss-02_west---6a_boss-02_east": RegionConnection("6a_boss-02_west", "6a_boss-02_east", [[ItemName.springs, ], ]),
+    "6a_boss-02_west---6a_boss-02_east": RegionConnection("6a_boss-02_west", "6a_boss-02_east", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "6a_boss-02_east---6a_boss-02_west": RegionConnection("6a_boss-02_east", "6a_boss-02_west", []),
 
     "6a_boss-03_west---6a_boss-03_east": RegionConnection("6a_boss-03_west", "6a_boss-03_east", []),
@@ -4078,25 +4090,24 @@ all_region_connections: dict[str, RegionConnection] = {
     "6a_boss-04_west---6a_boss-04_east": RegionConnection("6a_boss-04_west", "6a_boss-04_east", []),
     "6a_boss-04_east---6a_boss-04_west": RegionConnection("6a_boss-04_east", "6a_boss-04_west", []),
 
-    "6a_boss-05_west---6a_boss-05_east": RegionConnection("6a_boss-05_west", "6a_boss-05_east", [[ItemName.dash_refills, ], ]),
-    "6a_boss-05_east---6a_boss-05_west": RegionConnection("6a_boss-05_east", "6a_boss-05_west", [[ItemName.dash_refills, ], ]),
+    "6a_boss-05_west---6a_boss-05_east": RegionConnection("6a_boss-05_west", "6a_boss-05_east", [[ItemName.dash_refills, ItemName.ur_dash, ], ]),
+    "6a_boss-05_east---6a_boss-05_west": RegionConnection("6a_boss-05_east", "6a_boss-05_west", [[ItemName.dash_refills, ItemName.ul_dash, ], ]),
 
-    "6a_boss-06_west---6a_boss-06_east": RegionConnection("6a_boss-06_west", "6a_boss-06_east", []),
-    "6a_boss-06_east---6a_boss-06_west": RegionConnection("6a_boss-06_east", "6a_boss-06_west", []),
+    "6a_boss-06_west---6a_boss-06_east": RegionConnection("6a_boss-06_west", "6a_boss-06_east", [[ItemName.l_dash, ItemName.r_dash, ], [ItemName.l_dash, ItemName.u_dash, ], [ItemName.l_dash, ItemName.ur_dash, ], [ItemName.r_dash, ItemName.u_dash, ], [ItemName.r_dash, ItemName.ul_dash, ], [ItemName.u_dash, ], [ItemName.u_dash, ItemName.ul_dash, ], [ItemName.u_dash, ItemName.ur_dash, ], [ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
     "6a_boss-07_west---6a_boss-07_east": RegionConnection("6a_boss-07_west", "6a_boss-07_east", [[ItemName.feathers, ], ]),
     "6a_boss-07_east---6a_boss-07_west": RegionConnection("6a_boss-07_east", "6a_boss-07_west", [[ItemName.feathers, ], ]),
 
-    "6a_boss-08_west---6a_boss-08_east": RegionConnection("6a_boss-08_west", "6a_boss-08_east", [[ItemName.dash_refills, ], ]),
+    "6a_boss-08_west---6a_boss-08_east": RegionConnection("6a_boss-08_west", "6a_boss-08_east", [[ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ]),
 
     "6a_boss-09_west---6a_boss-09_east": RegionConnection("6a_boss-09_west", "6a_boss-09_east", [[ItemName.feathers, ], ]),
 
-    "6a_boss-10_west---6a_boss-10_east": RegionConnection("6a_boss-10_west", "6a_boss-10_east", [[ItemName.bumpers, ], ]),
-    "6a_boss-10_east---6a_boss-10_west": RegionConnection("6a_boss-10_east", "6a_boss-10_west", [[ItemName.bumpers, ], ]),
+    "6a_boss-10_west---6a_boss-10_east": RegionConnection("6a_boss-10_west", "6a_boss-10_east", [[ItemName.bumpers, ItemName.u_dash, ], [ItemName.bumpers, ItemName.ur_dash, ], ]),
+    "6a_boss-10_east---6a_boss-10_west": RegionConnection("6a_boss-10_east", "6a_boss-10_west", [[ItemName.bumpers, ItemName.u_dash, ], [ItemName.bumpers, ItemName.ul_dash, ], ]),
 
-    "6a_boss-11_west---6a_boss-11_east": RegionConnection("6a_boss-11_west", "6a_boss-11_east", [[ItemName.bumpers, ], ]),
+    "6a_boss-11_west---6a_boss-11_east": RegionConnection("6a_boss-11_west", "6a_boss-11_east", [[ItemName.r_dash, ], ]),
 
-    "6a_boss-12_west---6a_boss-12_east": RegionConnection("6a_boss-12_west", "6a_boss-12_east", [[ItemName.dash_refills, ], ]),
+    "6a_boss-12_west---6a_boss-12_east": RegionConnection("6a_boss-12_west", "6a_boss-12_east", [[ItemName.dash_refills, ItemName.l_dash, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.l_dash, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
     "6a_boss-13_west---6a_boss-13_east": RegionConnection("6a_boss-13_west", "6a_boss-13_east", []),
     "6a_boss-13_east---6a_boss-13_west": RegionConnection("6a_boss-13_east", "6a_boss-13_west", []),
@@ -4104,7 +4115,7 @@ all_region_connections: dict[str, RegionConnection] = {
     "6a_boss-14_west---6a_boss-14_east": RegionConnection("6a_boss-14_west", "6a_boss-14_east", []),
     "6a_boss-14_east---6a_boss-14_west": RegionConnection("6a_boss-14_east", "6a_boss-14_west", []),
 
-    "6a_boss-15_west---6a_boss-15_east": RegionConnection("6a_boss-15_west", "6a_boss-15_east", []),
+    "6a_boss-15_west---6a_boss-15_east": RegionConnection("6a_boss-15_west", "6a_boss-15_east", [[ItemName.dr_dash, ], [ItemName.ur_dash, ], ]),
 
     "6a_boss-16_west---6a_boss-16_east": RegionConnection("6a_boss-16_west", "6a_boss-16_east", []),
     "6a_boss-16_east---6a_boss-16_west": RegionConnection("6a_boss-16_east", "6a_boss-16_west", []),
@@ -4112,17 +4123,17 @@ all_region_connections: dict[str, RegionConnection] = {
     "6a_boss-17_west---6a_boss-17_east": RegionConnection("6a_boss-17_west", "6a_boss-17_east", []),
     "6a_boss-17_east---6a_boss-17_west": RegionConnection("6a_boss-17_east", "6a_boss-17_west", [[ItemName.cannot_access, ], ]),
 
-    "6a_boss-18_west---6a_boss-18_east": RegionConnection("6a_boss-18_west", "6a_boss-18_east", [[ItemName.feathers, ItemName.bumpers, ], ]),
+    "6a_boss-18_west---6a_boss-18_east": RegionConnection("6a_boss-18_west", "6a_boss-18_east", [[ItemName.feathers, ItemName.bumpers, ItemName.l_dash, ItemName.r_dash, ], [ItemName.feathers, ItemName.bumpers, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.feathers, ItemName.bumpers, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.bumpers, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
-    "6a_boss-19_west---6a_boss-19_east": RegionConnection("6a_boss-19_west", "6a_boss-19_east", [[ItemName.feathers, ItemName.bumpers, ], ]),
+    "6a_boss-19_west---6a_boss-19_east": RegionConnection("6a_boss-19_west", "6a_boss-19_east", [[ItemName.feathers, ItemName.ur_dash, ], ]),
 
-    "6a_boss-20_west---6a_boss-20_east": RegionConnection("6a_boss-20_west", "6a_boss-20_east", []),
+    "6a_boss-20_west---6a_boss-20_east": RegionConnection("6a_boss-20_west", "6a_boss-20_east", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "6a_boss-20_east---6a_boss-20_west": RegionConnection("6a_boss-20_east", "6a_boss-20_west", []),
 
-    "6a_after-00_bottom---6a_after-00_top": RegionConnection("6a_after-00_bottom", "6a_after-00_top", []),
+    "6a_after-00_bottom---6a_after-00_top": RegionConnection("6a_after-00_bottom", "6a_after-00_top", [[ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
     "6a_after-00_top---6a_after-00_bottom": RegionConnection("6a_after-00_top", "6a_after-00_bottom", []),
 
-    "6a_after-01_bottom---6a_after-01_goal": RegionConnection("6a_after-01_bottom", "6a_after-01_goal", [[ItemName.badeline_boosters, ], ]),
+    "6a_after-01_bottom---6a_after-01_goal": RegionConnection("6a_after-01_bottom", "6a_after-01_goal", [[ItemName.badeline_boosters, ItemName.l_dash, ItemName.r_dash, ItemName.u_dash, ], [ItemName.badeline_boosters, ItemName.l_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.badeline_boosters, ItemName.l_dash, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.badeline_boosters, ItemName.l_dash, ItemName.u_dash, ], [ItemName.badeline_boosters, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.badeline_boosters, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.badeline_boosters, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.badeline_boosters, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.badeline_boosters, ItemName.r_dash, ItemName.u_dash, ], [ItemName.badeline_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.badeline_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.badeline_boosters, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.badeline_boosters, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.badeline_boosters, ItemName.u_dash, ], [ItemName.badeline_boosters, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.badeline_boosters, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.badeline_boosters, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.badeline_boosters, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
     "6b_a-00_bottom---6b_a-00_top": RegionConnection("6b_a-00_bottom", "6b_a-00_top", [[ItemName.kevin_blocks, ], ]),
 
@@ -5225,10 +5236,10 @@ all_locations: dict[str, LevelLocation] = {
     "5c_02_clear": LevelLocation("5c_02_clear", "Mirror Temple C - Level Clear", "5c_02_goal", LocationType.level_clear, []),
     "5c_02_golden": LevelLocation("5c_02_golden", "Mirror Temple C - Golden Strawberry", "5c_02_goal", LocationType.golden_strawberry, [[ItemName.red_boosters, ItemName.dash_refills, ItemName.dash_switches, ItemName.swap_blocks, ItemName.u_dash, ItemName.d_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
-    "6a_04c_crystal_heart": LevelLocation("6a_04c_crystal_heart", "Reflection A - Crystal Heart", "6a_04c_east", LocationType.crystal_heart, []),
+    "6a_04c_crystal_heart": LevelLocation("6a_04c_crystal_heart", "Reflection A - Crystal Heart", "6a_04c_east", LocationType.crystal_heart, [[ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ItemName.d_dash, ItemName.dl_dash, ItemName.l_dash, ItemName.ul_dash, ], ]),
     "6a_04e_binoculars": LevelLocation("6a_04e_binoculars", "Reflection A - Room 04e Binoculars", "6a_04e_east", LocationType.binoculars, []),
-    "6a_04e_cassette": LevelLocation("6a_04e_cassette", "Reflection A - Cassette", "6a_04e_east", LocationType.cassette, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ], ]),
-    "6a_boss-20_golden": LevelLocation("6a_boss-20_golden", "Reflection A - Golden Strawberry", "6a_boss-20_east", LocationType.golden_strawberry, [[ItemName.feathers, ItemName.dash_refills, ItemName.kevin_blocks, ItemName.bumpers, ItemName.springs, ], ]),
+    "6a_04e_cassette": LevelLocation("6a_04e_cassette", "Reflection A - Cassette", "6a_04e_east", LocationType.cassette, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.ul_dash, ItemName.u_dash, ], ]),
+    "6a_boss-20_golden": LevelLocation("6a_boss-20_golden", "Reflection A - Golden Strawberry", "6a_boss-20_east", LocationType.golden_strawberry, [[ItemName.feathers, ItemName.dash_refills, ItemName.kevin_blocks, ItemName.bumpers, ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.d_dash, ItemName.l_dash, ], [ItemName.feathers, ItemName.dash_refills, ItemName.kevin_blocks, ItemName.bumpers, ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.d_dash, ItemName.ul_dash, ], [ItemName.feathers, ItemName.dash_refills, ItemName.kevin_blocks, ItemName.bumpers, ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ItemName.l_dash, ], [ItemName.feathers, ItemName.dash_refills, ItemName.kevin_blocks, ItemName.bumpers, ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ItemName.ul_dash, ], ]),
     "6a_after-01_clear": LevelLocation("6a_after-01_clear", "Reflection A - Level Clear", "6a_after-01_goal", LocationType.level_clear, []),
 
     "6b_a-02_binoculars": LevelLocation("6b_a-02_binoculars", "Reflection B - Room a-02 Binoculars", "6b_a-02_bottom", LocationType.binoculars, []),
@@ -6808,6 +6819,7 @@ all_regions: dict[str, PreRegion] = {
 
     "6a_04_south": PreRegion("6a_04_south", "6a_04", connections_by_region["6a_04_south"], locations_by_region["6a_04_south"]),
     "6a_04_south-west": PreRegion("6a_04_south-west", "6a_04", connections_by_region["6a_04_south-west"], locations_by_region["6a_04_south-west"]),
+    "6a_04_south-west-door": PreRegion("6a_04_south-west-door", "6a_04", connections_by_region["6a_04_south-west-door"], locations_by_region["6a_04_south-west-door"]),
     "6a_04_south-east": PreRegion("6a_04_south-east", "6a_04", connections_by_region["6a_04_south-east"], locations_by_region["6a_04_south-east"]),
     "6a_04_east": PreRegion("6a_04_east", "6a_04", connections_by_region["6a_04_east"], locations_by_region["6a_04_east"]),
     "6a_04_north-west": PreRegion("6a_04_north-west", "6a_04", connections_by_region["6a_04_north-west"], locations_by_region["6a_04_north-west"]),
@@ -8552,7 +8564,7 @@ all_room_connections: dict[str, RoomConnection] = {
     "6a_04_north-west---6a_04b_east": RoomConnection("6a", all_doors["6a_04_north-west"], all_doors["6a_04b_east"]),
     "6a_04_south-east---6a_04d_west": RoomConnection("6a", all_doors["6a_04_south-east"], all_doors["6a_04d_west"]),
     "6a_04_east---6a_05_west": RoomConnection("6a", all_doors["6a_04_east"], all_doors["6a_05_west"]),
-    "6a_04_south-west---6a_04e_east": RoomConnection("6a", all_doors["6a_04_south-west"], all_doors["6a_04e_east"]),
+    "6a_04_south-west-door---6a_04e_east": RoomConnection("6a", all_doors["6a_04_south-west-door"], all_doors["6a_04e_east"]),
     "6a_04b_west---6a_04c_east": RoomConnection("6a", all_doors["6a_04b_west"], all_doors["6a_04c_east"]),
     "6a_05_east---6a_06_west": RoomConnection("6a", all_doors["6a_05_east"], all_doors["6a_06_west"]),
     "6a_06_east---6a_07_west": RoomConnection("6a", all_doors["6a_06_east"], all_doors["6a_07_west"]),

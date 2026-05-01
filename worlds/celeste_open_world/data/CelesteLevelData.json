@@ -22360,7 +22360,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "kevin_blocks" ] ]
+                                    "rule": [ [ "kevin_blocks", "any_dash_ur_r_dr", "any_dash_dl_d_dr" ] ]
                                 }
                             ]
                         }
@@ -22384,7 +22384,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": [ [ "feathers", "any_dash_ul_u" ] ]
                                 }
                             ]
                         },
@@ -22423,7 +22423,7 @@
                             "connections": [
                                 {
                                     "dest": "bottom-west",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": [ [ "feathers", "kevin_blocks", "any_dash_ul_u_ur", "any_dash_ul_l_dl", "any_dash_dl_d_dr", "any_dash_dr_r_ur" ] ]
                                 }
                             ]
                         },
@@ -22487,7 +22487,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": [ [ "feathers", "any_dash_u_ul_l" ] ]
                                 }
                             ]
                         },
@@ -22521,7 +22521,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "kevin_blocks" ] ]
+                                    "rule": [ [ "kevin_blocks", "any_dash_ul_l_dl", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -22555,7 +22555,7 @@
                             "connections": [
                                 {
                                     "dest": "south-west",
-                                    "rule": [ [ "kevin_blocks" ] ]
+                                    "rule": [ [ "kevin_blocks", "any_dash_u_ul", "any_dash_ul_l_dl" ] ]
                                 },
                                 {
                                     "dest": "south-east",
@@ -22571,10 +22571,18 @@
                                     "rule": []
                                 },
                                 {
+                                    "dest": "south-west-door",
+                                    "rule": [ [ "kevin_blocks", "any_dash_ur_r_dr" ] ]
+                                },
+                                {
                                     "dest": "east",
                                     "rule": [ [ "feathers" ] ]
                                 }
                             ]
+                        },
+                        {
+                            "name": "south-west-door",
+                            "connections": []
                         },
                         {
                             "name": "south-east",
@@ -22594,7 +22602,7 @@
                                 },
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": [ [ "feathers", "any_dash_dl_d_dr" ] ]
                                 }
                             ]
                         },
@@ -22604,6 +22612,10 @@
                                 {
                                     "dest": "south",
                                     "rule": []
+                                },
+                                {
+                                    "dest": "south-west",
+                                    "rule": [ [ "kevin_blocks", "any_dash_ur_u_ul", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
                         }
@@ -22616,7 +22628,7 @@
                             "closes_behind": true
                         },
                         {
-                            "name": "south-west",
+                            "name": "south-west-door",
                             "direction": "left",
                             "blocked": true,
                             "closes_behind": false
@@ -22693,7 +22705,7 @@
                                     "name": "crystal_heart",
                                     "display_name": "Crystal Heart",
                                     "type": "crystal_heart",
-                                    "rule": []
+                                    "rule": [ [ "u_dash", "ur_dash", "r_dash", "dr_dash", "d_dash", "dl_dash", "l_dash", "ul_dash" ] ]
                                 }
                             ]
                         }
@@ -22745,7 +22757,7 @@
                                     "name": "cassette",
                                     "display_name": "Cassette",
                                     "type": "cassette",
-                                    "rule": [ [ "pink_cassette_blocks", "blue_cassette_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "pink_cassette_blocks", "blue_cassette_blocks", "dash_refills", "ul_dash", "u_dash" ] ]
                                 }
                             ]
                         }
@@ -22769,7 +22781,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "kevin_blocks" ] ]
+                                    "rule": [ [ "kevin_blocks", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
                         },
@@ -22803,7 +22815,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "kevin_blocks", "feathers" ] ]
+                                    "rule": [ [ "kevin_blocks", "feathers", "any_dash_ul_l_dl", "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -22841,7 +22853,7 @@
                                 },
                                 {
                                     "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -22895,7 +22907,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "kevin_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "kevin_blocks", "dash_refills", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
                         },
@@ -22929,7 +22941,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "kevin_blocks", "feathers" ] ]
+                                    "rule": [ [ "kevin_blocks", "feathers", "any_dash_dl_d_dr", "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -22972,6 +22984,10 @@
                             "connections": [
                                 {
                                     "dest": "north-east",
+                                    "rule": [ [ "any_dash_u_ur_r" ] ]
+                                },
+                                {
+                                    "dest": "west",
                                     "rule": []
                                 }
                             ]
@@ -22981,7 +22997,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u" ] ]
                                 }
                             ]
                         },
@@ -22990,6 +23006,10 @@
                             "connections": [
                                 {
                                     "dest": "east",
+                                    "rule": []
+                                },
+                                {
+                                    "dest": "north-west",
                                     "rule": []
                                 }
                             ]
@@ -23032,7 +23052,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "feathers", "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -23110,7 +23130,7 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "bumpers" ] ]
+                                    "rule": [ [ "bumpers", "any_dash_ur_r", "any_dash_ul_u" ] ]
                                 }
                             ]
                         },
@@ -23119,7 +23139,7 @@
                             "connections": [
                                 {
                                     "dest": "north-east",
-                                    "rule": [ [ "bumpers" ] ]
+                                    "rule": [ [ "bumpers", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -23183,7 +23203,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": [ [ "feathers", "any_dash_u_ur", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -23217,7 +23237,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "kevin_blocks", "bumpers" ] ]
+                                    "rule": [ [ "kevin_blocks", "bumpers", "any_dash_ul_l_dl", "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -23226,7 +23246,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "bumpers" ] ]
+                                    "rule": [ [ "bumpers", "any_dash_l_ul" ] ]
                                 }
                             ]
                         }
@@ -23256,7 +23276,15 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
+                                },
+                                {
+                                    "dest": "east",
+                                    "rule": [ [ "any_dash_ul_u_ur", "any_dash_dr_r_ur", "any_dash_dl_d_dr" ] ]
+                                },
+                                {
+                                    "dest": "north-east",
+                                    "rule": [ [ "any_dash_ul_u_ur", "any_dash_dr_r_ur" ] ]
                                 }
                             ]
                         },
@@ -23264,12 +23292,16 @@
                             "name": "north-west",
                             "connections": [
                                 {
+                                    "dest": "west",
+                                    "rule": [ [ "any_dash_dl_d_dr" ] ]
+                                },
+                                {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_dr_r_ur", "any_dash_dl_d_dr" ] ]
                                 },
                                 {
                                     "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur", "any_dash_dr_r_ur", "any_dash_dl_d_dr" ] ]
                                 }
                             ]
                         },
@@ -23278,7 +23310,15 @@
                             "connections": [
                                 {
                                     "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
+                                },
+                                {
+                                    "dest": "north-west",
+                                    "rule": [ [ "any_dash_ul_u_ur", "any_dash_dl_l_ul" ] ]
+                                },
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "any_dash_ul_u_ur", "any_dash_dl_l_ul", "any_dash_dl_d_dr" ] ]
                                 }
                             ]
                         },
@@ -23291,7 +23331,11 @@
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_dl_d_dr" ] ]
+                                },
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "any_dash_dl_l_ul", "any_dash_dl_d_dr" ] ]
                                 }
                             ]
                         }
@@ -23333,7 +23377,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "bumpers", "dash_refills" ] ]
+                                    "rule": [ [ "bumpers", "dash_refills", "any_dash_r_ur", "any_dash_l_ul" ] ]
                                 }
                             ]
                         },
@@ -23367,7 +23411,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs", "coins", "bumpers" ] ]
+                                    "rule": [ [ "springs", "coins", "bumpers", "any_dash_ur_ul" ] ]
                                 }
                             ]
                         },
@@ -23409,12 +23453,20 @@
                             "name": "north-west",
                             "connections": [
                                 {
-                                    "dest": "east",
+                                    "dest": "west",
                                     "rule": []
                                 },
                                 {
+                                    "dest": "east",
+                                    "rule": [
+                                        [ "bumpers" ],
+                                        [ "feathers" ],
+                                        [ "any_dash_r_ur" ]
+                                    ]
+                                },
+                                {
                                     "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "feathers" ] ]
                                 }
                             ]
                         },
@@ -23422,18 +23474,21 @@
                             "name": "east",
                             "connections": [
                                 {
+                                    "dest": "west",
+                                    "rule": [
+                                        [ "bumpers" ],
+                                        [ "any_dash_l_ul" ]
+                                    ]
+                                },
+                                {
                                     "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
                         {
                             "name": "north-east",
                             "connections": [
-                                {
-                                    "dest": "north-west",
-                                    "rule": []
-                                },
                                 {
                                     "dest": "east",
                                     "rule": []
@@ -23478,7 +23533,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": [ [ "feathers", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -23512,7 +23567,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "feathers" ] ]
+                                    "rule": [ [ "dash_refills", "feathers", "u_dash", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -23547,6 +23602,17 @@
                                 {
                                     "dest": "north-west",
                                     "rule": []
+                                },
+                                {
+                                    "dest": "north-east",
+                                    "rule": [ [ "kevin_blocks", "any_dash_ur_r" ] ]
+                                },
+                                {
+                                    "dest": "east",
+                                    "rule": [
+                                        [ "kevin_blocks", "any_dash_ur_r" ],
+                                        [ "kevin_blocks", "dr_dash", "any_dash_ul_l_dl" ]
+                                    ]
                                 }
                             ]
                         },
@@ -23554,12 +23620,8 @@
                             "name": "north-west",
                             "connections": [
                                 {
-                                    "dest": "east",
+                                    "dest": "west",
                                     "rule": []
-                                },
-                                {
-                                    "dest": "north-east",
-                                    "rule": [ [ "kevin_blocks" ] ]
                                 }
                             ]
                         },
@@ -23568,7 +23630,7 @@
                             "connections": [
                                 {
                                     "dest": "north-east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -23623,7 +23685,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "bumpers", "feathers" ] ]
+                                    "rule": [ [ "bumpers", "feathers", "l_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -23657,7 +23719,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "bumpers" ] ]
+                                    "rule": [ [ "bumpers", "dash_refills", "u_dash", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -23691,11 +23753,11 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": []
+                                    "rule": [ [ "feathers" ] ]
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": [ [ "feathers", "ur_dash", "r_dash", "dr_dash" ] ]
                                 }
                             ]
                         },
@@ -23704,11 +23766,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": []
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "feathers", "d_dash", "r_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -23748,7 +23810,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "feathers" ] ]
+                                    "rule": [ [ "feathers", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -23786,7 +23848,7 @@
                                 },
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -23840,7 +23902,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [ [ "u_dash", "dl_dash", "crouch" ] ]
                                 }
                             ]
                         },
@@ -23849,7 +23911,7 @@
                             "connections": [
                                 {
                                     "dest": "bottom",
-                                    "rule": []
+                                    "rule": [ [ "r_dash" ] ]
                                 }
                             ]
                         }
@@ -23907,7 +23969,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "ul_dash" ] ]
                                 }
                             ]
                         }
@@ -23937,7 +23999,7 @@
                             "connections": [
                                 {
                                     "dest": "bottom",
-                                    "rule": [ [ "kevin_blocks" ] ]
+                                    "rule": [ [ "kevin_blocks", "bumpers", "any_dash_ul_u_ur", "any_dash_ul_l" ] ]
                                 }
                             ]
                         },
@@ -24005,7 +24067,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "kevin_blocks" ] ]
+                                    "rule": [ [ "kevin_blocks", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
                         },
@@ -24117,7 +24179,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -24234,7 +24296,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -24243,7 +24305,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "ul_dash" ] ]
                                 }
                             ]
                         }
@@ -24273,18 +24335,13 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur_r", "any_dash_u_ul_l" ] ]
                                 }
                             ]
                         },
                         {
                             "name": "east",
-                            "connections": [
-                                {
-                                    "dest": "west",
-                                    "rule": []
-                                }
-                            ]
+                            "connections": []
                         }
                     ],
                     "doors": [
@@ -24351,7 +24408,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_r_ur" ] ]
                                 }
                             ]
                         },
@@ -24419,7 +24476,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "bumpers" ] ]
+                                    "rule": [ [ "bumpers", "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -24428,7 +24485,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "bumpers" ] ]
+                                    "rule": [ [ "bumpers", "any_dash_u_ul" ] ]
                                 }
                             ]
                         }
@@ -24458,7 +24515,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "bumpers" ] ]
+                                    "rule": [ [ "r_dash" ] ]
                                 }
                             ]
                         },
@@ -24492,7 +24549,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ur_r", "any_dash_u_ul_l" ] ]
                                 }
                             ]
                         },
@@ -24604,7 +24661,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ur_dr" ] ]
                                 }
                             ]
                         },
@@ -24716,7 +24773,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "feathers", "bumpers" ] ]
+                                    "rule": [ [ "feathers", "bumpers", "any_dash_ur_r", "any_dash_ul_l" ] ]
                                 }
                             ]
                         },
@@ -24750,7 +24807,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "feathers", "bumpers" ] ]
+                                    "rule": [ [ "feathers", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -24784,7 +24841,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -24801,7 +24858,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "feathers", "dash_refills", "kevin_blocks", "bumpers", "springs" ] ]
+                                    "rule": [ [ "feathers", "dash_refills", "kevin_blocks", "bumpers", "springs", "u_dash", "ur_dash", "r_dash", "any_dash_ul_l", "any_dash_d_dr" ] ]
                                 }
                             ]
                         }
@@ -24831,7 +24888,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ul" ] ]
                                 }
                             ]
                         },
@@ -24870,7 +24927,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "badeline_boosters" ] ]
+                                    "rule": [ [ "badeline_boosters", "any_dash_u_ur_r", "any_dash_u_ul_l", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -24957,7 +25014,7 @@
                 },
                 {
                     "source_room": "04",
-                    "source_door": "south-west",
+                    "source_door": "south-west-door",
                     "dest_room": "04e",
                     "dest_door": "east"
                 },
