@@ -4191,11 +4191,11 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "6b_d-05_west---6b_d-05_goal": RegionConnection("6b_d-05_west", "6b_d-05_goal", [[ItemName.blue_cassette_blocks, ItemName.bumpers, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "6c_00_west---6c_00_east": RegionConnection("6c_00_west", "6c_00_east", [[ItemName.bumpers, ], ]),
+    "6c_00_west---6c_00_east": RegionConnection("6c_00_west", "6c_00_east", [[ItemName.bumpers, ItemName.r_dash, ItemName.u_dash, ], ]),
 
-    "6c_01_west---6c_01_east": RegionConnection("6c_01_west", "6c_01_east", [[ItemName.dash_refills, ItemName.feathers, ], ]),
+    "6c_01_west---6c_01_east": RegionConnection("6c_01_west", "6c_01_east", [[ItemName.dash_refills, ItemName.feathers, ItemName.r_dash, ], ]),
 
-    "6c_02_west---6c_02_goal": RegionConnection("6c_02_west", "6c_02_goal", [[ItemName.kevin_blocks, ItemName.dash_refills, ItemName.bumpers, ], ]),
+    "6c_02_west---6c_02_goal": RegionConnection("6c_02_west", "6c_02_goal", [[ItemName.kevin_blocks, ItemName.dash_refills, ItemName.bumpers, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ItemName.ur_dash, ], ]),
 
     "7a_a-00_west---7a_a-00_east": RegionConnection("7a_a-00_west", "7a_a-00_east", []),
     "7a_a-00_east---7a_a-00_west": RegionConnection("7a_a-00_east", "7a_a-00_west", []),
@@ -5248,9 +5248,9 @@ all_locations: dict[str, LevelLocation] = {
     "6b_d-05_golden": LevelLocation("6b_d-05_golden", "Reflection B - Golden Strawberry", "6b_d-05_goal", LocationType.golden_strawberry, [[ItemName.blue_cassette_blocks, ItemName.bumpers, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.kevin_blocks, ItemName.feathers, ItemName.l_dash, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.d_dash, ], [ItemName.blue_cassette_blocks, ItemName.bumpers, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.kevin_blocks, ItemName.feathers, ItemName.l_dash, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dl_dash, ], [ItemName.blue_cassette_blocks, ItemName.bumpers, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.kevin_blocks, ItemName.feathers, ItemName.l_dash, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ], ]),
 
     "6c_02_binoculars_1": LevelLocation("6c_02_binoculars_1", "Reflection C - Room 02 Binoculars 1", "6c_02_west", LocationType.binoculars, []),
-    "6c_02_binoculars_2": LevelLocation("6c_02_binoculars_2", "Reflection C - Room 02 Binoculars 2", "6c_02_west", LocationType.binoculars, [[ItemName.kevin_blocks, ItemName.dash_refills, ItemName.bumpers, ], ]),
+    "6c_02_binoculars_2": LevelLocation("6c_02_binoculars_2", "Reflection C - Room 02 Binoculars 2", "6c_02_west", LocationType.binoculars, [[ItemName.kevin_blocks, ItemName.dash_refills, ItemName.bumpers, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ItemName.ur_dash, ], ]),
     "6c_02_clear": LevelLocation("6c_02_clear", "Reflection C - Level Clear", "6c_02_goal", LocationType.level_clear, []),
-    "6c_02_golden": LevelLocation("6c_02_golden", "Reflection C - Golden Strawberry", "6c_02_goal", LocationType.golden_strawberry, [[ItemName.kevin_blocks, ItemName.dash_refills, ItemName.bumpers, ItemName.feathers, ], ]),
+    "6c_02_golden": LevelLocation("6c_02_golden", "Reflection C - Golden Strawberry", "6c_02_goal", LocationType.golden_strawberry, [[ItemName.kevin_blocks, ItemName.dash_refills, ItemName.bumpers, ItemName.feathers, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ItemName.ur_dash, ], ]),
 
     "7a_a-02b_strawberry": LevelLocation("7a_a-02b_strawberry", "The Summit A - Room a-02b Strawberry", "7a_a-02b_east", LocationType.strawberry, []),
     "7a_a-04b_strawberry_1": LevelLocation("7a_a-04b_strawberry_1", "The Summit A - Room a-04b Strawberry 1", "7a_a-04b_east", LocationType.strawberry, [[ItemName.springs, ItemName.dash_refills, ], ]),
