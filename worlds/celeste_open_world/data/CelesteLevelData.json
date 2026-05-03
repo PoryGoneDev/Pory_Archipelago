@@ -33471,7 +33471,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "badeline_boosters" ] ]
+                                    "rule": [ [ "dash_refills", "badeline_boosters", "u_dash", "r_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -33507,7 +33507,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs", "coins", "badeline_boosters" ] ]
+                                    "rule": [ [ "springs", "coins", "badeline_boosters", "u_dash", "ur_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -33541,7 +33541,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "pink_clouds", "dash_refills", "springs" ] ]
+                                    "rule": [ [ "pink_clouds", "dash_refills", "springs", "r_dash", "u_dash", "l_dash", "ul_dash", "ur_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -33567,7 +33567,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "pink_clouds", "dash_refills", "springs", "coins", "badeline_boosters" ] ]
+                                    "rule": [ [ "pink_clouds", "dash_refills", "springs", "coins", "badeline_boosters", "r_dash", "u_dash", "l_dash", "ul_dash", "ur_dash" ] ]
                                 }
                             ]
                         }
