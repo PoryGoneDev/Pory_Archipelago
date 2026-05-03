@@ -32320,7 +32320,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "r_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -32348,7 +32348,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "r_dash", "u_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -32382,7 +32382,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "u_dash", "ur_dash", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -32416,7 +32416,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "springs", "badeline_boosters" ] ]
+                                    "rule": [ [ "springs", "badeline_boosters", "r_dash", "u_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -32450,7 +32450,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "traffic_blocks" ] ]
+                                    "rule": [ [ "dash_refills", "traffic_blocks", "u_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -32489,7 +32489,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "traffic_blocks" ] ]
+                                    "rule": [ [ "traffic_blocks", "u_dash", "r_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -32536,7 +32536,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "u_dash", "any_dash_ur_r" ] ]
                                 }
                             ],
                             "locations": [
@@ -32544,7 +32544,7 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "u_dash", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -32578,7 +32578,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "traffic_blocks", "badeline_boosters" ] ]
+                                    "rule": [ [ "traffic_blocks", "badeline_boosters", "u_dash", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -32612,7 +32612,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dream_blocks", "springs" ] ]
+                                    "rule": [ [ "dream_blocks", "springs", "r_dash", "ur_dash", "dr_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -32646,7 +32646,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "r_dash", "u_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -32680,7 +32680,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dream_blocks", "springs" ] ]
+                                    "rule": [ [ "dream_blocks", "springs", "r_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -32714,7 +32714,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dream_blocks", "badeline_boosters" ] ]
+                                    "rule": [ [ "dream_blocks", "badeline_boosters", "r_dash", "u_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -32748,7 +32748,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs" ] ]
+                                    "rule": [ [ "springs", "r_dash", "u_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -32782,7 +32782,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -32816,7 +32816,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs", "moving_platforms", "coins" ] ]
+                                    "rule": [ [ "springs", "moving_platforms", "coins", "ul_dash", "u_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -32850,7 +32850,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "springs", "badeline_boosters" ] ]
+                                    "rule": [ [ "springs", "badeline_boosters", "ul_dash", "u_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -32884,7 +32884,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "blue_boosters", "blue_clouds" ] ]
+                                    "rule": [ [ "blue_boosters", "blue_clouds", "u_dash", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -32918,7 +32918,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "move_blocks", "springs" ] ]
+                                    "rule": [ [ "move_blocks", "springs", "r_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -32952,7 +32952,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "r_dash" ] ]
                                 }
                             ]
                         },
@@ -32986,7 +32986,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "blue_clouds", "pink_clouds", "coins", "badeline_boosters" ] ]
+                                    "rule": [ [ "blue_clouds", "pink_clouds", "coins", "badeline_boosters", "r_dash", "u_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -33020,7 +33020,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs", "swap_blocks" ] ]
+                                    "rule": [ [ "springs", "swap_blocks", "l_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -33054,7 +33054,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "red_boosters" ] ]
+                                    "rule": [ [ "red_boosters", "u_dash", "r_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -33088,7 +33088,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs", "swap_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "springs", "swap_blocks", "dash_refills", "ur_dash", "r_dash", "u_dash", "any_dash_ul_l" ] ]
                                 }
                             ]
                         },
@@ -33122,7 +33122,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "swap_blocks", "dash_refills", "badeline_boosters" ] ]
+                                    "rule": [ [ "dash_refills", "swap_blocks", "dash_refills", "badeline_boosters", "l_dash", "u_dash", "ur_dash", "r_dash", "dr_dash", "dl_dash" ] ]
                                 }
                             ]
                         },
@@ -33156,7 +33156,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "springs", "dash_refills", "badeline_boosters" ] ]
+                                    "rule": [ [ "springs", "dash_refills", "badeline_boosters", "u_dash", "ur_dash", "l_dash", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -33190,7 +33190,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "springs", "dash_refills", "pink_clouds", "blue_clouds", "badeline_boosters" ] ]
+                                    "rule": [ [ "springs", "dash_refills", "pink_clouds", "blue_clouds", "badeline_boosters", "u_dash", "ur_dash", "ul_dash", "r_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -33224,7 +33224,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "springs", "dash_refills", "pink_clouds", "blue_clouds", "badeline_boosters" ] ]
+                                    "rule": [ [ "springs", "dash_refills", "pink_clouds", "blue_clouds", "badeline_boosters", "u_dash", "l_dash", "r_dash", "ur_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -33258,7 +33258,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "blue_cassette_blocks", "pink_cassette_blocks", "blue_clouds" ] ]
+                                    "rule": [ [ "blue_cassette_blocks", "pink_cassette_blocks", "blue_clouds", "u_dash", "l_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -33276,7 +33276,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "springs", "dash_refills", "blue_clouds", "pink_clouds", "coins", "badeline_boosters", "red_boosters", "swap_blocks", "move_blocks", "blue_boosters", "dream_blocks", "traffic_blocks" ] ]
+                                    "rule": [ [ "springs", "dash_refills", "blue_clouds", "pink_clouds", "coins", "badeline_boosters", "red_boosters", "swap_blocks", "move_blocks", "blue_boosters", "dream_blocks", "traffic_blocks", "u_dash", "l_dash", "ul_dash", "ur_dash", "r_dash", "dl_dash", "dr_dash" ] ]
                                 }
                             ]
                         }

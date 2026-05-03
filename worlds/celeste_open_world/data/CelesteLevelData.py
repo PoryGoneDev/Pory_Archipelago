@@ -4537,63 +4537,63 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "7a_g-03_bottom---7a_g-03_goal": RegionConnection("7a_g-03_bottom", "7a_g-03_goal", [[ItemName.springs, ItemName.dash_refills, ItemName.feathers, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.l_dash, ], ]),
 
-    "7b_a-00_west---7b_a-00_east": RegionConnection("7b_a-00_west", "7b_a-00_east", [[ItemName.springs, ], ]),
+    "7b_a-00_west---7b_a-00_east": RegionConnection("7b_a-00_west", "7b_a-00_east", [[ItemName.springs, ItemName.r_dash, ItemName.u_dash, ], ]),
 
-    "7b_a-01_west---7b_a-01_east": RegionConnection("7b_a-01_west", "7b_a-01_east", [[ItemName.springs, ], ]),
+    "7b_a-01_west---7b_a-01_east": RegionConnection("7b_a-01_west", "7b_a-01_east", [[ItemName.springs, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], ]),
 
-    "7b_a-02_west---7b_a-02_east": RegionConnection("7b_a-02_west", "7b_a-02_east", [[ItemName.springs, ], ]),
+    "7b_a-02_west---7b_a-02_east": RegionConnection("7b_a-02_west", "7b_a-02_east", [[ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
-    "7b_a-03_bottom---7b_a-03_top": RegionConnection("7b_a-03_bottom", "7b_a-03_top", [[ItemName.springs, ItemName.badeline_boosters, ], ]),
+    "7b_a-03_bottom---7b_a-03_top": RegionConnection("7b_a-03_bottom", "7b_a-03_top", [[ItemName.springs, ItemName.badeline_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ], ]),
 
-    "7b_b-00_bottom---7b_b-00_top": RegionConnection("7b_b-00_bottom", "7b_b-00_top", [[ItemName.dash_refills, ItemName.traffic_blocks, ], ]),
+    "7b_b-00_bottom---7b_b-00_top": RegionConnection("7b_b-00_bottom", "7b_b-00_top", [[ItemName.dash_refills, ItemName.traffic_blocks, ItemName.u_dash, ItemName.ul_dash, ], ]),
     "7b_b-00_top---7b_b-00_bottom": RegionConnection("7b_b-00_top", "7b_b-00_bottom", []),
 
-    "7b_b-01_bottom---7b_b-01_top": RegionConnection("7b_b-01_bottom", "7b_b-01_top", [[ItemName.traffic_blocks, ], ]),
+    "7b_b-01_bottom---7b_b-01_top": RegionConnection("7b_b-01_bottom", "7b_b-01_top", [[ItemName.traffic_blocks, ItemName.u_dash, ItemName.r_dash, ], ]),
     "7b_b-01_top---7b_b-01_bottom": RegionConnection("7b_b-01_top", "7b_b-01_bottom", []),
 
-    "7b_b-02_west---7b_b-02_east": RegionConnection("7b_b-02_west", "7b_b-02_east", [[ItemName.springs, ], ]),
+    "7b_b-02_west---7b_b-02_east": RegionConnection("7b_b-02_west", "7b_b-02_east", [[ItemName.springs, ItemName.u_dash, ItemName.r_dash, ], [ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "7b_b-03_bottom---7b_b-03_top": RegionConnection("7b_b-03_bottom", "7b_b-03_top", [[ItemName.traffic_blocks, ItemName.badeline_boosters, ], ]),
+    "7b_b-03_bottom---7b_b-03_top": RegionConnection("7b_b-03_bottom", "7b_b-03_top", [[ItemName.traffic_blocks, ItemName.badeline_boosters, ItemName.u_dash, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.badeline_boosters, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "7b_c-01_west---7b_c-01_east": RegionConnection("7b_c-01_west", "7b_c-01_east", [[ItemName.dream_blocks, ItemName.springs, ], ]),
+    "7b_c-01_west---7b_c-01_east": RegionConnection("7b_c-01_west", "7b_c-01_east", [[ItemName.dream_blocks, ItemName.springs, ItemName.r_dash, ItemName.ur_dash, ItemName.dr_dash, ItemName.u_dash, ], ]),
 
-    "7b_c-00_west---7b_c-00_east": RegionConnection("7b_c-00_west", "7b_c-00_east", [[ItemName.dream_blocks, ], ]),
+    "7b_c-00_west---7b_c-00_east": RegionConnection("7b_c-00_west", "7b_c-00_east", [[ItemName.dream_blocks, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ], ]),
 
-    "7b_c-02_west---7b_c-02_east": RegionConnection("7b_c-02_west", "7b_c-02_east", [[ItemName.dream_blocks, ItemName.springs, ], ]),
+    "7b_c-02_west---7b_c-02_east": RegionConnection("7b_c-02_west", "7b_c-02_east", [[ItemName.dream_blocks, ItemName.springs, ItemName.r_dash, ItemName.u_dash, ], ]),
 
-    "7b_c-03_bottom---7b_c-03_top": RegionConnection("7b_c-03_bottom", "7b_c-03_top", [[ItemName.dream_blocks, ItemName.badeline_boosters, ], ]),
+    "7b_c-03_bottom---7b_c-03_top": RegionConnection("7b_c-03_bottom", "7b_c-03_top", [[ItemName.dream_blocks, ItemName.badeline_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ], ]),
 
-    "7b_d-00_west---7b_d-00_east": RegionConnection("7b_d-00_west", "7b_d-00_east", [[ItemName.springs, ], ]),
+    "7b_d-00_west---7b_d-00_east": RegionConnection("7b_d-00_west", "7b_d-00_east", [[ItemName.springs, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "7b_d-01_west---7b_d-01_east": RegionConnection("7b_d-01_west", "7b_d-01_east", [[ItemName.dash_refills, ], ]),
+    "7b_d-01_west---7b_d-01_east": RegionConnection("7b_d-01_west", "7b_d-01_east", [[ItemName.dash_refills, ItemName.ur_dash, ], ]),
 
-    "7b_d-02_west---7b_d-02_east": RegionConnection("7b_d-02_west", "7b_d-02_east", [[ItemName.springs, ItemName.moving_platforms, ItemName.coins, ], ]),
+    "7b_d-02_west---7b_d-02_east": RegionConnection("7b_d-02_west", "7b_d-02_east", [[ItemName.springs, ItemName.moving_platforms, ItemName.coins, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "7b_d-03_bottom---7b_d-03_top": RegionConnection("7b_d-03_bottom", "7b_d-03_top", [[ItemName.springs, ItemName.badeline_boosters, ], ]),
+    "7b_d-03_bottom---7b_d-03_top": RegionConnection("7b_d-03_bottom", "7b_d-03_top", [[ItemName.springs, ItemName.badeline_boosters, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "7b_e-00_west---7b_e-00_east": RegionConnection("7b_e-00_west", "7b_e-00_east", [[ItemName.blue_boosters, ItemName.blue_clouds, ], ]),
+    "7b_e-00_west---7b_e-00_east": RegionConnection("7b_e-00_west", "7b_e-00_east", [[ItemName.blue_boosters, ItemName.blue_clouds, ItemName.u_dash, ItemName.r_dash, ], ]),
 
-    "7b_e-01_west---7b_e-01_east": RegionConnection("7b_e-01_west", "7b_e-01_east", [[ItemName.move_blocks, ItemName.springs, ], ]),
+    "7b_e-01_west---7b_e-01_east": RegionConnection("7b_e-01_west", "7b_e-01_east", [[ItemName.move_blocks, ItemName.springs, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "7b_e-02_west---7b_e-02_east": RegionConnection("7b_e-02_west", "7b_e-02_east", []),
+    "7b_e-02_west---7b_e-02_east": RegionConnection("7b_e-02_west", "7b_e-02_east", [[ItemName.r_dash, ], ]),
 
-    "7b_e-03_bottom---7b_e-03_top": RegionConnection("7b_e-03_bottom", "7b_e-03_top", [[ItemName.blue_clouds, ItemName.pink_clouds, ItemName.coins, ItemName.badeline_boosters, ], ]),
+    "7b_e-03_bottom---7b_e-03_top": RegionConnection("7b_e-03_bottom", "7b_e-03_top", [[ItemName.blue_clouds, ItemName.pink_clouds, ItemName.coins, ItemName.badeline_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ], ]),
 
-    "7b_f-00_west---7b_f-00_east": RegionConnection("7b_f-00_west", "7b_f-00_east", [[ItemName.springs, ItemName.swap_blocks, ], ]),
+    "7b_f-00_west---7b_f-00_east": RegionConnection("7b_f-00_west", "7b_f-00_east", [[ItemName.springs, ItemName.swap_blocks, ItemName.l_dash, ItemName.u_dash, ], ]),
 
-    "7b_f-01_west---7b_f-01_east": RegionConnection("7b_f-01_west", "7b_f-01_east", [[ItemName.red_boosters, ], ]),
+    "7b_f-01_west---7b_f-01_east": RegionConnection("7b_f-01_west", "7b_f-01_east", [[ItemName.red_boosters, ItemName.u_dash, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "7b_f-02_west---7b_f-02_east": RegionConnection("7b_f-02_west", "7b_f-02_east", [[ItemName.springs, ItemName.swap_blocks, ItemName.dash_refills, ], ]),
+    "7b_f-02_west---7b_f-02_east": RegionConnection("7b_f-02_west", "7b_f-02_east", [[ItemName.springs, ItemName.swap_blocks, ItemName.dash_refills, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ], [ItemName.springs, ItemName.swap_blocks, ItemName.dash_refills, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], ]),
 
-    "7b_f-03_bottom---7b_f-03_top": RegionConnection("7b_f-03_bottom", "7b_f-03_top", [[ItemName.dash_refills, ItemName.swap_blocks, ItemName.dash_refills, ItemName.badeline_boosters, ], ]),
+    "7b_f-03_bottom---7b_f-03_top": RegionConnection("7b_f-03_bottom", "7b_f-03_top", [[ItemName.dash_refills, ItemName.swap_blocks, ItemName.dash_refills, ItemName.badeline_boosters, ItemName.l_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dr_dash, ItemName.dl_dash, ], ]),
 
-    "7b_g-00_bottom---7b_g-00_top": RegionConnection("7b_g-00_bottom", "7b_g-00_top", [[ItemName.springs, ItemName.dash_refills, ItemName.badeline_boosters, ], ]),
+    "7b_g-00_bottom---7b_g-00_top": RegionConnection("7b_g-00_bottom", "7b_g-00_top", [[ItemName.springs, ItemName.dash_refills, ItemName.badeline_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.l_dash, ItemName.r_dash, ], ]),
 
-    "7b_g-01_bottom---7b_g-01_top": RegionConnection("7b_g-01_bottom", "7b_g-01_top", [[ItemName.springs, ItemName.dash_refills, ItemName.pink_clouds, ItemName.blue_clouds, ItemName.badeline_boosters, ], ]),
+    "7b_g-01_bottom---7b_g-01_top": RegionConnection("7b_g-01_bottom", "7b_g-01_top", [[ItemName.springs, ItemName.dash_refills, ItemName.pink_clouds, ItemName.blue_clouds, ItemName.badeline_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.ul_dash, ItemName.r_dash, ItemName.l_dash, ], ]),
 
-    "7b_g-02_bottom---7b_g-02_top": RegionConnection("7b_g-02_bottom", "7b_g-02_top", [[ItemName.springs, ItemName.dash_refills, ItemName.pink_clouds, ItemName.blue_clouds, ItemName.badeline_boosters, ], ]),
+    "7b_g-02_bottom---7b_g-02_top": RegionConnection("7b_g-02_bottom", "7b_g-02_top", [[ItemName.springs, ItemName.dash_refills, ItemName.pink_clouds, ItemName.blue_clouds, ItemName.badeline_boosters, ItemName.u_dash, ItemName.l_dash, ItemName.r_dash, ItemName.ur_dash, ItemName.ul_dash, ], ]),
 
-    "7b_g-03_bottom---7b_g-03_goal": RegionConnection("7b_g-03_bottom", "7b_g-03_goal", [[ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.blue_clouds, ], ]),
+    "7b_g-03_bottom---7b_g-03_goal": RegionConnection("7b_g-03_bottom", "7b_g-03_goal", [[ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.blue_clouds, ItemName.u_dash, ItemName.l_dash, ItemName.ul_dash, ], ]),
 
     "7c_01_west---7c_01_east": RegionConnection("7c_01_west", "7c_01_east", [[ItemName.dash_refills, ItemName.badeline_boosters, ], ]),
 
@@ -5334,9 +5334,9 @@ all_locations: dict[str, LevelLocation] = {
     "7a_g-03_golden": LevelLocation("7a_g-03_golden", "The Summit A - Golden Strawberry", "7a_g-03_goal", LocationType.golden_strawberry, [[ItemName.springs, ItemName.dash_refills, ItemName.feathers, ItemName.blue_clouds, ItemName.pink_clouds, ItemName.coins, ItemName.badeline_boosters, ItemName.red_boosters, ItemName.swap_blocks, ItemName.dash_switches, "The Summit A - 2500 M Key", ItemName.move_blocks, ItemName.blue_boosters, ItemName.dream_blocks, ItemName.traffic_blocks, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.ul_dash, ItemName.l_dash, ], ]),
 
     "7b_b-01_binoculars": LevelLocation("7b_b-01_binoculars", "The Summit B - Room b-01 Binoculars", "7b_b-01_bottom", LocationType.binoculars, []),
-    "7b_b-02_binoculars": LevelLocation("7b_b-02_binoculars", "The Summit B - Room b-02 Binoculars", "7b_b-02_west", LocationType.binoculars, [[ItemName.springs, ], ]),
+    "7b_b-02_binoculars": LevelLocation("7b_b-02_binoculars", "The Summit B - Room b-02 Binoculars", "7b_b-02_west", LocationType.binoculars, [[ItemName.springs, ItemName.u_dash, ItemName.r_dash, ], [ItemName.springs, ItemName.u_dash, ItemName.ur_dash, ], ]),
     "7b_g-03_clear": LevelLocation("7b_g-03_clear", "The Summit B - Level Clear", "7b_g-03_goal", LocationType.level_clear, []),
-    "7b_g-03_golden": LevelLocation("7b_g-03_golden", "The Summit B - Golden Strawberry", "7b_g-03_goal", LocationType.golden_strawberry, [[ItemName.springs, ItemName.dash_refills, ItemName.blue_clouds, ItemName.pink_clouds, ItemName.coins, ItemName.badeline_boosters, ItemName.red_boosters, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.dream_blocks, ItemName.traffic_blocks, ], ]),
+    "7b_g-03_golden": LevelLocation("7b_g-03_golden", "The Summit B - Golden Strawberry", "7b_g-03_goal", LocationType.golden_strawberry, [[ItemName.springs, ItemName.dash_refills, ItemName.blue_clouds, ItemName.pink_clouds, ItemName.coins, ItemName.badeline_boosters, ItemName.red_boosters, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.dream_blocks, ItemName.traffic_blocks, ItemName.u_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dl_dash, ItemName.dr_dash, ], ]),
 
     "7c_01_binoculars": LevelLocation("7c_01_binoculars", "The Summit C - Room 01 Binoculars", "7c_01_west", LocationType.binoculars, []),
     "7c_03_binoculars": LevelLocation("7c_03_binoculars", "The Summit C - Room 03 Binoculars", "7c_03_west", LocationType.binoculars, []),
