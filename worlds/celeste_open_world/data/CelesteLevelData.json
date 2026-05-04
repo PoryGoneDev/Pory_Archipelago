@@ -35598,7 +35598,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -35607,7 +35607,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         }
@@ -35637,7 +35637,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks" ] ]
+                                    "rule": [ [ "core_blocks", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -35671,7 +35671,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks", "core_toggles", "fire_ice_balls", "dash_refills" ] ]
+                                    "rule": [ [ "core_blocks", "core_toggles", "fire_ice_balls", "dash_refills", "any_dash_ur_r", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -35705,7 +35705,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "fire_ice_balls" ] ]
+                                    "rule": [ [ "fire_ice_balls", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -35714,7 +35714,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "fire_ice_balls" ] ]
+                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         }
@@ -35744,7 +35744,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "core_blocks", "dash_refills", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -35778,7 +35778,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks", "core_toggles", "dash_refills", "bumpers" ] ]
+                                    "rule": [ [ "core_blocks", "core_toggles", "dash_refills", "bumpers", "r_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -35812,7 +35812,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks" ] ]
+                                    "rule": [ [ "core_blocks", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -35846,7 +35846,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks", "core_toggles", "bumpers" ] ]
+                                    "rule": [ [ "core_blocks", "core_toggles", "bumpers", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -35880,7 +35880,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_toggles", "fire_ice_balls", "bumpers", "dash_refills", "coins" ] ]
+                                    "rule": [ [ "core_toggles", "fire_ice_balls", "bumpers", "dash_refills", "coins", "ur_dash", "any_dash_u_ul" ] ]
                                 }
                             ]
                         },
@@ -35914,7 +35914,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "core_toggles" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "ur_dash", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -35948,7 +35948,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills" ] ]
+                                    "rule": [ [ "dash_refills", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -35982,7 +35982,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "core_toggles", "fire_ice_balls" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "fire_ice_balls", "ur_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -36016,7 +36016,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "core_blocks", "core_toggles", "springs" ] ]
+                                    "rule": [ [ "dash_refills", "core_blocks", "core_toggles", "springs", "ur_dash", "u_dash", "l_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -36050,7 +36050,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "core_toggles", "bumpers", "fire_ice_balls" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "bumpers", "fire_ice_balls", "u_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -36084,7 +36084,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "springs" ] ]
+                                    "rule": [ [ "dash_refills", "springs", "l_dash", "ul_dash", "ur_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -36118,7 +36118,7 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "springs", "traffic_blocks", "dream_blocks", "moving_platforms", "blue_clouds", "swap_blocks", "kevin_blocks", "core_blocks", "badeline_boosters" ] ]
+                                    "rule": [ [ "dash_refills", "springs", "traffic_blocks", "dream_blocks", "moving_platforms", "blue_clouds", "swap_blocks", "kevin_blocks", "core_blocks", "badeline_boosters", "u_dash", "any_dash_dr_d_dl" ] ]
                                 }
                             ]
                         },
@@ -36152,7 +36152,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "core_toggles", "core_blocks", "bumpers" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "core_blocks", "bumpers", "ur_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -36186,7 +36186,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "fire_ice_balls", "core_toggles", "core_blocks" ] ]
+                                    "rule": [ [ "fire_ice_balls", "core_toggles", "core_blocks", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -36195,7 +36195,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "fire_ice_balls", "core_toggles", "core_blocks" ] ]
+                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         }
@@ -36225,7 +36225,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "core_toggles" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "u_dash", "ur_dash", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -36259,7 +36259,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "core_blocks" ] ]
+                                    "rule": [ [ "dash_refills", "core_blocks", "r_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -36293,7 +36293,7 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "dash_refills", "blue_cassette_blocks", "pink_cassette_blocks" ] ]
+                                    "rule": [ [ "dash_refills", "blue_cassette_blocks", "pink_cassette_blocks", "ur_dash", "r_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -36311,7 +36311,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "dash_refills", "bumpers", "coins", "springs", "traffic_blocks", "dream_blocks", "moving_platforms", "blue_clouds", "swap_blocks", "kevin_blocks", "core_blocks", "badeline_boosters", "core_toggles", "fire_ice_balls", "blue_cassette_blocks", "pink_cassette_blocks" ] ]
+                                    "rule": [ [ "dash_refills", "bumpers", "coins", "springs", "traffic_blocks", "dream_blocks", "moving_platforms", "blue_clouds", "swap_blocks", "kevin_blocks", "core_blocks", "badeline_boosters", "core_toggles", "fire_ice_balls", "blue_cassette_blocks", "pink_cassette_blocks", "ur_dash", "r_dash", "u_dash", "ul_dash", "l_dash", "any_dash_dr_d_dl" ] ]
                                 }
                             ]
                         }
