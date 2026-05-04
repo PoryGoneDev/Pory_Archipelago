@@ -1650,7 +1650,7 @@ all_doors: dict[str, Door] = {
 
     "7a_b-02_south": Door("7a_b-02_south", "7a_b-02", DoorDirection.left, False, False),
     "7a_b-02_north-west": Door("7a_b-02_north-west", "7a_b-02", DoorDirection.left, False, False),
-    "7a_b-02_north": Door("7a_b-02_north", "7a_b-02", DoorDirection.up, False, False),
+    "7a_b-02_north": Door("7a_b-02_north", "7a_b-02", DoorDirection.up, False, True),
     "7a_b-02_north-east": Door("7a_b-02_north-east", "7a_b-02", DoorDirection.right, False, False),
 
     "7a_b-02b_south": Door("7a_b-02b_south", "7a_b-02b", DoorDirection.right, False, False),
@@ -4460,7 +4460,7 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "7a_e-13_bottom---7a_e-13_top": RegionConnection("7a_e-13_bottom", "7a_e-13_top", [[ItemName.badeline_boosters, ItemName.dash_refills, ItemName.move_blocks, ItemName.blue_boosters, ItemName.springs, ItemName.ur_dash, ItemName.l_dash, ], [ItemName.badeline_boosters, ItemName.dash_refills, ItemName.move_blocks, ItemName.blue_boosters, ItemName.springs, ItemName.ur_dash, ItemName.ul_dash, ], ]),
 
-    "7a_f-00_south---7a_f-00_west": RegionConnection("7a_f-00_south", "7a_f-00_west", [[ItemName.dl_dash, ], [ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
+    "7a_f-00_south---7a_f-00_west": RegionConnection("7a_f-00_south", "7a_f-00_west", [[ItemName.dl_dash, ], [ItemName.l_dash, ], [ItemName.ul_dash, ], [ItemName.red_boosters, ], ]),
     "7a_f-00_south---7a_f-00_east": RegionConnection("7a_f-00_south", "7a_f-00_east", [[ItemName.red_boosters, ], ]),
     "7a_f-00_west---7a_f-00_south": RegionConnection("7a_f-00_west", "7a_f-00_south", []),
     "7a_f-00_north-west---7a_f-00_west": RegionConnection("7a_f-00_north-west", "7a_f-00_west", []),
@@ -4757,14 +4757,14 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "9b_space_west---9b_space_goal": RegionConnection("9b_space_west", "9b_space_goal", [[ItemName.dash_refills, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ], ]),
 
-    "9c_intro_west---9c_intro_east": RegionConnection("9c_intro_west", "9c_intro_east", []),
-    "9c_intro_east---9c_intro_west": RegionConnection("9c_intro_east", "9c_intro_west", []),
+    "9c_intro_west---9c_intro_east": RegionConnection("9c_intro_west", "9c_intro_east", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
+    "9c_intro_east---9c_intro_west": RegionConnection("9c_intro_east", "9c_intro_west", [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
 
-    "9c_00_west---9c_00_east": RegionConnection("9c_00_west", "9c_00_east", [[ItemName.dash_refills, ], ]),
+    "9c_00_west---9c_00_east": RegionConnection("9c_00_west", "9c_00_east", [[ItemName.dash_refills, ItemName.dr_dash, ItemName.crouch, ], ]),
 
-    "9c_01_west---9c_01_east": RegionConnection("9c_01_west", "9c_01_east", [[ItemName.core_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.bumpers, ], ]),
+    "9c_01_west---9c_01_east": RegionConnection("9c_01_west", "9c_01_east", [[ItemName.core_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.bumpers, ItemName.ur_dash, ItemName.u_dash, ], ]),
 
-    "9c_02_west---9c_02_goal": RegionConnection("9c_02_west", "9c_02_goal", [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.dream_blocks, ItemName.bumpers, ItemName.pink_clouds, ItemName.swap_blocks, ItemName.kevin_blocks, ItemName.core_blocks, ], ]),
+    "9c_02_west---9c_02_goal": RegionConnection("9c_02_west", "9c_02_goal", [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.dream_blocks, ItemName.bumpers, ItemName.pink_clouds, ItemName.swap_blocks, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ItemName.dr_dash, ItemName.crouch, ItemName.dl_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.dream_blocks, ItemName.bumpers, ItemName.pink_clouds, ItemName.swap_blocks, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ItemName.dr_dash, ItemName.crouch, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.dream_blocks, ItemName.bumpers, ItemName.pink_clouds, ItemName.swap_blocks, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ItemName.dr_dash, ItemName.crouch, ItemName.ul_dash, ], ]),
 
     "10a_intro-00-past_west---10a_intro-00-past_east": RegionConnection("10a_intro-00-past_west", "10a_intro-00-past_east", []),
     "10a_intro-00-past_east---10a_intro-00-past_west": RegionConnection("10a_intro-00-past_east", "10a_intro-00-past_west", []),
@@ -5360,7 +5360,7 @@ all_locations: dict[str, LevelLocation] = {
     "9c_01_binoculars": LevelLocation("9c_01_binoculars", "Core C - Room 01 Binoculars", "9c_01_west", LocationType.binoculars, []),
     "9c_02_binoculars": LevelLocation("9c_02_binoculars", "Core C - Room 02 Binoculars", "9c_02_west", LocationType.binoculars, []),
     "9c_02_clear": LevelLocation("9c_02_clear", "Core C - Level Clear", "9c_02_goal", LocationType.level_clear, []),
-    "9c_02_golden": LevelLocation("9c_02_golden", "Core C - Golden Strawberry", "9c_02_goal", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.dream_blocks, ItemName.bumpers, ItemName.pink_clouds, ItemName.swap_blocks, ItemName.kevin_blocks, ItemName.core_blocks, ], ]),
+    "9c_02_golden": LevelLocation("9c_02_golden", "Core C - Golden Strawberry", "9c_02_goal", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.dream_blocks, ItemName.bumpers, ItemName.pink_clouds, ItemName.swap_blocks, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ItemName.dr_dash, ItemName.crouch, ItemName.dl_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.dream_blocks, ItemName.bumpers, ItemName.pink_clouds, ItemName.swap_blocks, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ItemName.dr_dash, ItemName.crouch, ItemName.l_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.core_toggles, ItemName.dream_blocks, ItemName.bumpers, ItemName.pink_clouds, ItemName.swap_blocks, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.ur_dash, ItemName.r_dash, ItemName.u_dash, ItemName.dr_dash, ItemName.crouch, ItemName.ul_dash, ], ]),
 
     "10a_a-04_binoculars": LevelLocation("10a_a-04_binoculars", "Farewell - Room a-04 Binoculars", "10a_a-04_west", LocationType.binoculars, []),
     "10a_b-06_binoculars": LevelLocation("10a_b-06_binoculars", "Farewell - Room b-06 Binoculars", "10a_b-06_west", LocationType.binoculars, []),
