@@ -2469,9 +2469,11 @@ all_doors: dict[str, Door] = {
     "10b_h-07_east": Door("10b_h-07_east", "10b_h-07", DoorDirection.right, False, False),
 
     "10b_h-08_west": Door("10b_h-08_west", "10b_h-08", DoorDirection.left, False, True),
+    "10b_h-08_north-east": Door("10b_h-08_north-east", "10b_h-08", DoorDirection.right, False, False),
     "10b_h-08_east": Door("10b_h-08_east", "10b_h-08", DoorDirection.right, False, False),
 
     "10b_h-09_west": Door("10b_h-09_west", "10b_h-09", DoorDirection.left, False, False),
+    "10b_h-09_north-west": Door("10b_h-09_north-west", "10b_h-09", DoorDirection.left, False, False),
     "10b_h-09_east": Door("10b_h-09_east", "10b_h-09", DoorDirection.right, False, False),
 
     "10b_h-10_west": Door("10b_h-10_west", "10b_h-10", DoorDirection.left, False, False),
@@ -4886,147 +4888,150 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "10a_e-08_west---10a_e-08_east": RegionConnection("10a_e-08_west", "10a_e-08_east", [[ItemName.jellyfish, ItemName.springs, ItemName.double_dash_refills, ItemName.coins, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
-    "10b_f-door_west---10b_f-door_east": RegionConnection("10b_f-door_west", "10b_f-door_east", [[ItemName.double_dash_refills, ], ]),
-    "10b_f-door_east---10b_f-door_west": RegionConnection("10b_f-door_east", "10b_f-door_west", []),
+    "10b_f-door_west---10b_f-door_east": RegionConnection("10b_f-door_west", "10b_f-door_east", [[ItemName.double_dash_refills, ItemName.r_dash, ], [ItemName.double_dash_refills, ItemName.ur_dash, ], ]),
+    "10b_f-door_east---10b_f-door_west": RegionConnection("10b_f-door_east", "10b_f-door_west", [[ItemName.cannot_access, ], ]),
 
-    "10b_f-00_west---10b_f-00_east": RegionConnection("10b_f-00_west", "10b_f-00_east", [[ItemName.springs, ItemName.dream_blocks, ], ]),
+    "10b_f-00_west---10b_f-00_east": RegionConnection("10b_f-00_west", "10b_f-00_east", [[ItemName.springs, ItemName.dream_blocks, ItemName.dr_dash, ItemName.crouch, ItemName.u_dash, ItemName.r_dash, ItemName.d_dash, ItemName.u_dash, ], ]),
+    "10b_f-00_east---10b_f-00_west": RegionConnection("10b_f-00_east", "10b_f-00_west", [[ItemName.dream_blocks, ItemName.l_dash, ItemName.u_dash, ], ]),
 
-    "10b_f-01_west---10b_f-01_east": RegionConnection("10b_f-01_west", "10b_f-01_east", []),
-    "10b_f-01_east---10b_f-01_west": RegionConnection("10b_f-01_east", "10b_f-01_west", []),
+    "10b_f-01_west---10b_f-01_east": RegionConnection("10b_f-01_west", "10b_f-01_east", [[ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ], ]),
+    "10b_f-01_east---10b_f-01_west": RegionConnection("10b_f-01_east", "10b_f-01_west", [[ItemName.crouch, ItemName.dl_dash, ItemName.l_dash, ], [ItemName.crouch, ItemName.dl_dash, ItemName.ul_dash, ], ]),
 
-    "10b_f-02_west---10b_f-02_east": RegionConnection("10b_f-02_west", "10b_f-02_east", []),
+    "10b_f-02_west---10b_f-02_east": RegionConnection("10b_f-02_west", "10b_f-02_east", [[ItemName.crouch, ItemName.dr_dash, ItemName.ur_dash, ], ]),
 
-    "10b_f-03_west---10b_f-03_east": RegionConnection("10b_f-03_west", "10b_f-03_east", [[ItemName.double_dash_refills, ], ]),
+    "10b_f-03_west---10b_f-03_east": RegionConnection("10b_f-03_west", "10b_f-03_east", [[ItemName.double_dash_refills, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ], ]),
 
-    "10b_f-04_west---10b_f-04_east": RegionConnection("10b_f-04_west", "10b_f-04_east", []),
-    "10b_f-04_east---10b_f-04_west": RegionConnection("10b_f-04_east", "10b_f-04_west", []),
+    "10b_f-04_west---10b_f-04_east": RegionConnection("10b_f-04_west", "10b_f-04_east", [[ItemName.crouch, ItemName.dr_dash, ItemName.ur_dash, ], ]),
+    "10b_f-04_east---10b_f-04_west": RegionConnection("10b_f-04_east", "10b_f-04_west", [[ItemName.crouch, ItemName.dl_dash, ], ]),
 
-    "10b_f-05_west---10b_f-05_east": RegionConnection("10b_f-05_west", "10b_f-05_east", [[ItemName.double_dash_refills, ], ]),
+    "10b_f-05_west---10b_f-05_east": RegionConnection("10b_f-05_west", "10b_f-05_east", [[ItemName.double_dash_refills, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "10b_f-06_west---10b_f-06_east": RegionConnection("10b_f-06_west", "10b_f-06_east", [[ItemName.double_dash_refills, ItemName.kevin_blocks, ItemName.dream_blocks, ItemName.coins, ], ]),
+    "10b_f-06_west---10b_f-06_east": RegionConnection("10b_f-06_west", "10b_f-06_east", [[ItemName.double_dash_refills, ItemName.kevin_blocks, ItemName.dream_blocks, ItemName.coins, ItemName.ul_dash, ItemName.u_dash, ItemName.crouch, ], ]),
 
-    "10b_f-07_west---10b_f-07_east": RegionConnection("10b_f-07_west", "10b_f-07_east", [[ItemName.dash_refills, ItemName.traffic_blocks, ], ]),
+    "10b_f-07_west---10b_f-07_east": RegionConnection("10b_f-07_west", "10b_f-07_east", [[ItemName.dash_refills, ItemName.traffic_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ], ]),
 
-    "10b_f-08_west---10b_f-08_east": RegionConnection("10b_f-08_west", "10b_f-08_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.move_blocks, ], ]),
+    "10b_f-08_west---10b_f-08_east": RegionConnection("10b_f-08_west", "10b_f-08_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.move_blocks, ItemName.u_dash, ItemName.l_dash, ], ]),
 
-    "10b_f-09_west---10b_f-09_east": RegionConnection("10b_f-09_west", "10b_f-09_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ], ]),
+    "10b_f-09_west---10b_f-09_east": RegionConnection("10b_f-09_west", "10b_f-09_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.ul_dash, ], ]),
 
-    "10b_g-00_bottom---10b_g-00_top": RegionConnection("10b_g-00_bottom", "10b_g-00_top", [[ItemName.dash_refills, ItemName.traffic_blocks, ], ]),
+    "10b_g-00_bottom---10b_g-00_top": RegionConnection("10b_g-00_bottom", "10b_g-00_top", [[ItemName.dash_refills, ItemName.traffic_blocks, ItemName.u_dash, ], ]),
     "10b_g-00_top---10b_g-00_bottom": RegionConnection("10b_g-00_top", "10b_g-00_bottom", []),
 
-    "10b_g-01_bottom---10b_g-01_top": RegionConnection("10b_g-01_bottom", "10b_g-01_top", [[ItemName.blue_boosters, ], ]),
+    "10b_g-01_bottom---10b_g-01_top": RegionConnection("10b_g-01_bottom", "10b_g-01_top", [[ItemName.blue_boosters, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.u_dash, ItemName.ul_dash, ], ]),
     "10b_g-01_top---10b_g-01_bottom": RegionConnection("10b_g-01_top", "10b_g-01_bottom", []),
 
-    "10b_g-03_bottom---10b_g-03_top": RegionConnection("10b_g-03_bottom", "10b_g-03_top", [[ItemName.dream_blocks, ItemName.coins, ], ]),
+    "10b_g-03_bottom---10b_g-03_top": RegionConnection("10b_g-03_bottom", "10b_g-03_top", [[ItemName.dream_blocks, ItemName.coins, ItemName.r_dash, ItemName.l_dash, ItemName.ul_dash, ], ]),
 
-    "10b_g-02_west---10b_g-02_east": RegionConnection("10b_g-02_west", "10b_g-02_east", [[ItemName.dream_blocks, ], ]),
+    "10b_g-02_west---10b_g-02_east": RegionConnection("10b_g-02_west", "10b_g-02_east", [[ItemName.dream_blocks, ItemName.r_dash, ItemName.u_dash, ], ]),
 
-    "10b_g-04_west---10b_g-04_east": RegionConnection("10b_g-04_west", "10b_g-04_east", [[ItemName.move_blocks, ItemName.springs, ], ]),
+    "10b_g-04_west---10b_g-04_east": RegionConnection("10b_g-04_west", "10b_g-04_east", [[ItemName.move_blocks, ItemName.springs, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ], ]),
 
     "10b_g-05_west---10b_g-05_east": RegionConnection("10b_g-05_west", "10b_g-05_east", []),
 
-    "10b_g-06_west---10b_g-06_east": RegionConnection("10b_g-06_west", "10b_g-06_east", [[ItemName.double_dash_refills, ItemName.feathers, ], ]),
+    "10b_g-06_west---10b_g-06_east": RegionConnection("10b_g-06_west", "10b_g-06_east", [[ItemName.double_dash_refills, ItemName.dash_refills, ItemName.springs, ItemName.feathers, ItemName.u_dash, ItemName.ur_dash, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.l_dash, ], ]),
 
-    "10b_h-00b_west---10b_h-00b_east": RegionConnection("10b_h-00b_west", "10b_h-00b_east", [[ItemName.double_dash_refills, ItemName.feathers, ], ]),
+    "10b_h-00b_west---10b_h-00b_east": RegionConnection("10b_h-00b_west", "10b_h-00b_east", [[ItemName.double_dash_refills, ItemName.feathers, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "10b_h-00_west---10b_h-00_east": RegionConnection("10b_h-00_west", "10b_h-00_east", [[ItemName.dash_refills, ItemName.swap_blocks, ], ]),
+    "10b_h-00_west---10b_h-00_east": RegionConnection("10b_h-00_west", "10b_h-00_east", [[ItemName.dash_refills, ItemName.swap_blocks, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "10b_h-01_west---10b_h-01_east": RegionConnection("10b_h-01_west", "10b_h-01_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.springs, ItemName.move_blocks, ], ]),
+    "10b_h-01_west---10b_h-01_east": RegionConnection("10b_h-01_west", "10b_h-01_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.springs, ItemName.move_blocks, ItemName.l_dash, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "10b_h-02_west---10b_h-02_east": RegionConnection("10b_h-02_west", "10b_h-02_east", [[ItemName.red_boosters, ], ]),
+    "10b_h-02_west---10b_h-02_east": RegionConnection("10b_h-02_west", "10b_h-02_east", [[ItemName.red_boosters, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.d_dash, ], ]),
 
-    "10b_h-03_west---10b_h-03_east": RegionConnection("10b_h-03_west", "10b_h-03_east", [[ItemName.coins, ItemName.double_dash_refills, ItemName.springs, ], ]),
+    "10b_h-03_west---10b_h-03_east": RegionConnection("10b_h-03_west", "10b_h-03_east", [[ItemName.coins, ItemName.double_dash_refills, ItemName.springs, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ], ]),
 
-    "10b_h-03b_west---10b_h-03b_east": RegionConnection("10b_h-03b_west", "10b_h-03b_east", [[ItemName.coins, ItemName.double_dash_refills, ItemName.core_blocks, ], ]),
+    "10b_h-03b_west---10b_h-03b_east": RegionConnection("10b_h-03b_west", "10b_h-03b_east", [[ItemName.coins, ItemName.double_dash_refills, ItemName.core_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.ur_dash, ], ]),
 
-    "10b_h-04_top---10b_h-04_east": RegionConnection("10b_h-04_top", "10b_h-04_east", []),
-    "10b_h-04_top---10b_h-04_bottom": RegionConnection("10b_h-04_top", "10b_h-04_bottom", [[ItemName.red_boosters, ], ]),
+    "10b_h-04_top---10b_h-04_east": RegionConnection("10b_h-04_top", "10b_h-04_east", [[ItemName.crouch, ItemName.r_dash, ItemName.dr_dash, ], ]),
+    "10b_h-04_top---10b_h-04_bottom": RegionConnection("10b_h-04_top", "10b_h-04_bottom", [[ItemName.red_boosters, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ], ]),
 
-    "10b_h-04b_west---10b_h-04b_east": RegionConnection("10b_h-04b_west", "10b_h-04b_east", [[ItemName.double_dash_refills, ], ]),
+    "10b_h-04b_west---10b_h-04b_east": RegionConnection("10b_h-04b_west", "10b_h-04b_east", [[ItemName.double_dash_refills, ItemName.crouch, ItemName.r_dash, ], ]),
 
     "10b_h-05_west---10b_h-05_top": RegionConnection("10b_h-05_west", "10b_h-05_top", []),
-    "10b_h-05_top---10b_h-05_east": RegionConnection("10b_h-05_top", "10b_h-05_east", [[ItemName.double_dash_refills, ItemName.coins, ], ]),
+    "10b_h-05_top---10b_h-05_east": RegionConnection("10b_h-05_top", "10b_h-05_east", [[ItemName.double_dash_refills, ItemName.coins, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "10b_h-06_west---10b_h-06_east": RegionConnection("10b_h-06_west", "10b_h-06_east", [[ItemName.dash_refills, ItemName.springs, ItemName.feathers, ], ]),
+    "10b_h-06_west---10b_h-06_east": RegionConnection("10b_h-06_west", "10b_h-06_east", [[ItemName.dash_refills, ItemName.springs, ItemName.feathers, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.springs, ItemName.feathers, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ItemName.ul_dash, ], ]),
 
-    "10b_h-06b_bottom---10b_h-06b_top": RegionConnection("10b_h-06b_bottom", "10b_h-06b_top", [[ItemName.fire_ice_balls, ItemName.coins, ], ]),
+    "10b_h-06b_bottom---10b_h-06b_top": RegionConnection("10b_h-06b_bottom", "10b_h-06b_top", [[ItemName.fire_ice_balls, ItemName.coins, ItemName.u_dash, ItemName.ur_dash, ItemName.ul_dash, ], ]),
     "10b_h-06b_top---10b_h-06b_bottom": RegionConnection("10b_h-06b_top", "10b_h-06b_bottom", []),
 
-    "10b_h-07_west---10b_h-07_east": RegionConnection("10b_h-07_west", "10b_h-07_east", [[ItemName.blue_boosters, ItemName.springs, ItemName.coins, ], ]),
+    "10b_h-07_west---10b_h-07_center": RegionConnection("10b_h-07_west", "10b_h-07_center", [[ItemName.blue_boosters, ItemName.springs, ItemName.coins, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ItemName.u_dash, ], ]),
+    "10b_h-07_center---10b_h-07_east": RegionConnection("10b_h-07_center", "10b_h-07_east", [[ItemName.springs, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.l_dash, ], ]),
 
-    "10b_h-08_west---10b_h-08_east": RegionConnection("10b_h-08_west", "10b_h-08_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ], ]),
+    "10b_h-08_west---10b_h-08_north-east": RegionConnection("10b_h-08_west", "10b_h-08_north-east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.u_dash, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.u_dash, ItemName.ur_dash, ], ]),
+    "10b_h-08_north-east---10b_h-08_east": RegionConnection("10b_h-08_north-east", "10b_h-08_east", [[ItemName.r_dash, ], ]),
 
-    "10b_h-09_west---10b_h-09_east": RegionConnection("10b_h-09_west", "10b_h-09_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ], ]),
+    "10b_h-09_west---10b_h-09_east": RegionConnection("10b_h-09_west", "10b_h-09_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.d_dash, ItemName.dl_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.d_dash, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.d_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.dl_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.dl_dash, ItemName.dr_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.dl_dash, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.dl_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.dr_dash, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.kevin_blocks, ItemName.crouch, ItemName.ur_dash, ItemName.u_dash, ItemName.dr_dash, ItemName.ul_dash, ], ]),
 
-    "10b_h-10_west---10b_h-10_east": RegionConnection("10b_h-10_west", "10b_h-10_east", [[ItemName.feathers, ItemName.springs, ItemName.badeline_boosters, ], ]),
+    "10b_h-10_west---10b_h-10_east": RegionConnection("10b_h-10_west", "10b_h-10_east", [[ItemName.feathers, ItemName.springs, ItemName.badeline_boosters, ItemName.r_dash, ], ]),
 
-    "10b_i-00_west---10b_i-00_east": RegionConnection("10b_i-00_west", "10b_i-00_east", [[ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ], ]),
-    "10b_i-00_east---10b_i-00_west": RegionConnection("10b_i-00_east", "10b_i-00_west", [[ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ], ]),
+    "10b_i-00_west---10b_i-00_east": RegionConnection("10b_i-00_west", "10b_i-00_east", [[ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.springs, ], [ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.ur_dash, ], ]),
+    "10b_i-00_east---10b_i-00_west": RegionConnection("10b_i-00_east", "10b_i-00_west", [[ItemName.cannot_access, ], ]),
 
-    "10b_i-00b_west---10b_i-00b_east": RegionConnection("10b_i-00b_west", "10b_i-00b_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.springs, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ], ]),
+    "10b_i-00b_west---10b_i-00b_east": RegionConnection("10b_i-00b_west", "10b_i-00b_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.springs, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.u_dash, ItemName.r_dash, ], ]),
 
-    "10b_i-01_west---10b_i-01_east": RegionConnection("10b_i-01_west", "10b_i-01_east", [[ItemName.coins, ItemName.springs, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ], ]),
+    "10b_i-01_west---10b_i-01_east": RegionConnection("10b_i-01_west", "10b_i-01_east", [[ItemName.coins, ItemName.springs, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.ul_dash, ItemName.r_dash, ], [ItemName.coins, ItemName.springs, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.ul_dash, ItemName.u_dash, ], [ItemName.coins, ItemName.springs, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
-    "10b_i-02_west---10b_i-02_east": RegionConnection("10b_i-02_west", "10b_i-02_east", [[ItemName.double_dash_refills, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ], ]),
+    "10b_i-02_west---10b_i-02_east": RegionConnection("10b_i-02_west", "10b_i-02_east", [[ItemName.double_dash_refills, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "10b_i-03_west---10b_i-03_east": RegionConnection("10b_i-03_west", "10b_i-03_east", [[ItemName.double_dash_refills, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ], ]),
+    "10b_i-03_west---10b_i-03_east": RegionConnection("10b_i-03_west", "10b_i-03_east", [[ItemName.double_dash_refills, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ], ]),
 
-    "10b_i-04_west---10b_i-04_east": RegionConnection("10b_i-04_west", "10b_i-04_east", [[ItemName.red_boosters, ItemName.coins, ], ]),
+    "10b_i-04_west---10b_i-04_east": RegionConnection("10b_i-04_west", "10b_i-04_east", [[ItemName.red_boosters, ItemName.coins, ItemName.d_dash, ItemName.ur_dash, ItemName.l_dash, ItemName.r_dash, ], ]),
 
-    "10b_i-05_west---10b_i-05_east": RegionConnection("10b_i-05_west", "10b_i-05_east", [[ItemName.double_dash_refills, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ], ]),
+    "10b_i-05_west---10b_i-05_east": RegionConnection("10b_i-05_west", "10b_i-05_east", [[ItemName.double_dash_refills, ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
-    "10b_j-00_west---10b_j-00_east": RegionConnection("10b_j-00_west", "10b_j-00_east", [[ItemName.dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-00_west---10b_j-00_east": RegionConnection("10b_j-00_west", "10b_j-00_east", [[ItemName.dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "10b_j-00b_west---10b_j-00b_east": RegionConnection("10b_j-00b_west", "10b_j-00b_east", [[ItemName.double_dash_refills, ItemName.springs, ItemName.jellyfish, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-00b_west---10b_j-00b_east": RegionConnection("10b_j-00b_west", "10b_j-00b_east", [[ItemName.double_dash_refills, ItemName.springs, ItemName.jellyfish, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.r_dash, ItemName.ur_dash, ItemName.u_dash, ], ]),
 
-    "10b_j-01_west---10b_j-01_east": RegionConnection("10b_j-01_west", "10b_j-01_east", [[ItemName.dash_refills, ItemName.springs, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-01_west---10b_j-01_east": RegionConnection("10b_j-01_west", "10b_j-01_east", [[ItemName.dash_refills, ItemName.springs, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.ur_dash, ], ]),
 
-    "10b_j-02_west---10b_j-02_east": RegionConnection("10b_j-02_west", "10b_j-02_east", [[ItemName.jellyfish, ItemName.springs, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-02_west---10b_j-02_east": RegionConnection("10b_j-02_west", "10b_j-02_east", [[ItemName.jellyfish, ItemName.springs, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.ur_dash, ItemName.u_dash, ], ]),
 
-    "10b_j-03_west---10b_j-03_east": RegionConnection("10b_j-03_west", "10b_j-03_east", [[ItemName.pufferfish, ItemName.springs, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-03_west---10b_j-03_east": RegionConnection("10b_j-03_west", "10b_j-03_east", [[ItemName.pufferfish, ItemName.springs, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.u_dash, ItemName.r_dash, ItemName.l_dash, ], [ItemName.pufferfish, ItemName.springs, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.u_dash, ItemName.r_dash, ItemName.ul_dash, ], ]),
 
-    "10b_j-04_west---10b_j-04_east": RegionConnection("10b_j-04_west", "10b_j-04_east", [[ItemName.jellyfish, ItemName.bird, ], ]),
+    "10b_j-04_west---10b_j-04_east": RegionConnection("10b_j-04_west", "10b_j-04_east", [[ItemName.jellyfish, ItemName.bird, ItemName.crouch, ItemName.dr_dash, ItemName.ur_dash, ], ]),
 
     "10b_j-05_west---10b_j-05_east": RegionConnection("10b_j-05_west", "10b_j-05_east", [[ItemName.bird, ItemName.badeline_boosters, ItemName.feathers, ], ]),
 
-    "10b_j-06_west---10b_j-06_east": RegionConnection("10b_j-06_west", "10b_j-06_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-06_west---10b_j-06_east": RegionConnection("10b_j-06_west", "10b_j-06_east", [[ItemName.dash_refills, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "10b_j-07_west---10b_j-07_east": RegionConnection("10b_j-07_west", "10b_j-07_east", [[ItemName.pufferfish, ItemName.feathers, ItemName.springs, ItemName.bird, ], ]),
+    "10b_j-07_west---10b_j-07_east": RegionConnection("10b_j-07_west", "10b_j-07_east", [[ItemName.pufferfish, ItemName.feathers, ItemName.springs, ItemName.bird, ItemName.crouch, ItemName.dr_dash, ItemName.ur_dash, ItemName.ul_dash, ], ]),
 
-    "10b_j-08_west---10b_j-08_east": RegionConnection("10b_j-08_west", "10b_j-08_east", [[ItemName.dream_blocks, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-08_west---10b_j-08_east": RegionConnection("10b_j-08_west", "10b_j-08_east", [[ItemName.dream_blocks, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.r_dash, ItemName.u_dash, ItemName.d_dash, ], ]),
 
-    "10b_j-09_west---10b_j-09_east": RegionConnection("10b_j-09_west", "10b_j-09_east", [[ItemName.jellyfish, ItemName.springs, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-09_west---10b_j-09_east": RegionConnection("10b_j-09_west", "10b_j-09_east", [[ItemName.jellyfish, ItemName.springs, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.ur_dash, ], ]),
 
-    "10b_j-10_west---10b_j-10_east": RegionConnection("10b_j-10_west", "10b_j-10_east", [[ItemName.pufferfish, ItemName.swap_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-10_west---10b_j-10_east": RegionConnection("10b_j-10_west", "10b_j-10_east", [[ItemName.pufferfish, ItemName.swap_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.dl_dash, ], [ItemName.pufferfish, ItemName.swap_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.l_dash, ], [ItemName.pufferfish, ItemName.swap_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.ul_dash, ], ]),
 
-    "10b_j-11_west---10b_j-11_east": RegionConnection("10b_j-11_west", "10b_j-11_east", [[ItemName.springs, ItemName.move_blocks, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-11_west---10b_j-11_east": RegionConnection("10b_j-11_west", "10b_j-11_east", [[ItemName.springs, ItemName.move_blocks, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ], ]),
 
-    "10b_j-12_west---10b_j-12_east": RegionConnection("10b_j-12_west", "10b_j-12_east", [[ItemName.springs, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.bird, ], ]),
+    "10b_j-12_west---10b_j-12_east": RegionConnection("10b_j-12_west", "10b_j-12_east", [[ItemName.springs, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.bird, ItemName.crouch, ItemName.dr_dash, ItemName.ur_dash, ItemName.u_dash, ], ]),
 
-    "10b_j-13_west---10b_j-13_east": RegionConnection("10b_j-13_west", "10b_j-13_east", [[ItemName.springs, ItemName.feathers, ItemName.double_dash_refills, ], ]),
+    "10b_j-13_west---10b_j-13_east": RegionConnection("10b_j-13_west", "10b_j-13_east", [[ItemName.springs, ItemName.feathers, ItemName.double_dash_refills, ItemName.r_dash, ItemName.ur_dash, ], ]),
 
-    "10b_j-14_west---10b_j-14_east": RegionConnection("10b_j-14_west", "10b_j-14_east", [[ItemName.traffic_blocks, ItemName.pufferfish, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-14_west---10b_j-14_east": RegionConnection("10b_j-14_west", "10b_j-14_east", [[ItemName.traffic_blocks, ItemName.pufferfish, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.u_dash, ItemName.l_dash, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.pufferfish, ItemName.double_dash_refills, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.u_dash, ItemName.l_dash, ItemName.ur_dash, ], ]),
 
-    "10b_j-14b_west---10b_j-14b_east": RegionConnection("10b_j-14b_west", "10b_j-14b_east", [[ItemName.springs, ItemName.jellyfish, ItemName.double_dash_refills, ], ]),
+    "10b_j-14b_west---10b_j-14b_east": RegionConnection("10b_j-14b_west", "10b_j-14b_east", [[ItemName.springs, ItemName.jellyfish, ItemName.double_dash_refills, ItemName.r_dash, ItemName.u_dash, ], ]),
 
-    "10b_j-15_west---10b_j-15_east": RegionConnection("10b_j-15_west", "10b_j-15_east", [[ItemName.kevin_blocks, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-15_west---10b_j-15_east": RegionConnection("10b_j-15_west", "10b_j-15_east", [[ItemName.kevin_blocks, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.u_dash, ], [ItemName.kevin_blocks, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.crouch, ItemName.dr_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.kevin_blocks, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.crouch, ItemName.dr_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.kevin_blocks, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.crouch, ItemName.dr_dash, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
-    "10b_j-16_west---10b_j-16_east": RegionConnection("10b_j-16_west", "10b_j-16_east", [[ItemName.jellyfish, ItemName.pufferfish, ItemName.springs, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
-    "10b_j-16_west---10b_j-16_top": RegionConnection("10b_j-16_west", "10b_j-16_top", [[ItemName.jellyfish, ItemName.pufferfish, ItemName.springs, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ], ]),
+    "10b_j-16_west---10b_j-16_east": RegionConnection("10b_j-16_west", "10b_j-16_east", [[ItemName.jellyfish, ItemName.pufferfish, ItemName.springs, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.l_dash, ], ]),
+    "10b_j-16_west---10b_j-16_top": RegionConnection("10b_j-16_west", "10b_j-16_top", [[ItemName.jellyfish, ItemName.pufferfish, ItemName.springs, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.feathers, ItemName.bird, ItemName.badeline_boosters, ItemName.breaker_boxes, ItemName.crouch, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.l_dash, ItemName.dl_dash, ItemName.dr_dash, ItemName.ul_dash, ], ]),
 
-    "10b_j-17_south---10b_j-17_west": RegionConnection("10b_j-17_south", "10b_j-17_west", []),
+    "10b_j-17_south---10b_j-17_west": RegionConnection("10b_j-17_south", "10b_j-17_west", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "10b_j-17_west---10b_j-17_south": RegionConnection("10b_j-17_west", "10b_j-17_south", []),
     "10b_j-17_north---10b_j-17_south": RegionConnection("10b_j-17_north", "10b_j-17_south", []),
     "10b_j-17_north---10b_j-17_east": RegionConnection("10b_j-17_north", "10b_j-17_east", []),
 
     "10b_j-18_west---10b_j-18_east": RegionConnection("10b_j-18_west", "10b_j-18_east", []),
 
-    "10b_j-19_bottom---10b_j-19_top": RegionConnection("10b_j-19_bottom", "10b_j-19_top", [[ItemName.jellyfish, ItemName.springs, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ], ]),
+    "10b_j-19_bottom---10b_j-19_top": RegionConnection("10b_j-19_bottom", "10b_j-19_top", [[ItemName.jellyfish, ItemName.springs, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.coins, ItemName.l_dash, ItemName.ul_dash, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ]),
 
     "10b_GOAL_main---10b_GOAL_moon": RegionConnection("10b_GOAL_main", "10b_GOAL_moon", []),
     "10b_GOAL_moon---10b_GOAL_main": RegionConnection("10b_GOAL_moon", "10b_GOAL_main", []),
 
-    "10c_end-golden_bottom---10c_end-golden_top": RegionConnection("10c_end-golden_bottom", "10c_end-golden_top", [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.springs, ItemName.pufferfish, ItemName.badeline_boosters, ], ]),
+    "10c_end-golden_bottom---10c_end-golden_top": RegionConnection("10c_end-golden_bottom", "10c_end-golden_top", [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.springs, ItemName.pufferfish, ItemName.badeline_boosters, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
 }
 
@@ -5393,7 +5398,7 @@ all_locations: dict[str, LevelLocation] = {
     "10b_f-09_binoculars": LevelLocation("10b_f-09_binoculars", "Farewell - Room f-09 Binoculars", "10b_f-09_west", LocationType.binoculars, []),
     "10b_g-00_binoculars": LevelLocation("10b_g-00_binoculars", "Farewell - Room g-00 Binoculars", "10b_g-00_bottom", LocationType.binoculars, []),
     "10b_g-04_binoculars": LevelLocation("10b_g-04_binoculars", "Farewell - Room g-04 Binoculars", "10b_g-04_west", LocationType.binoculars, []),
-    "10b_g-06_binoculars": LevelLocation("10b_g-06_binoculars", "Farewell - Room g-06 Binoculars", "10b_g-06_west", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.dash_refills, ItemName.springs, ItemName.feathers, ], ]),
+    "10b_g-06_binoculars": LevelLocation("10b_g-06_binoculars", "Farewell - Room g-06 Binoculars", "10b_g-06_west", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.feathers, ItemName.u_dash, ItemName.ur_dash, ], ]),
     "10b_h-01_binoculars": LevelLocation("10b_h-01_binoculars", "Farewell - Room h-01 Binoculars", "10b_h-01_west", LocationType.binoculars, []),
     "10b_h-02_binoculars": LevelLocation("10b_h-02_binoculars", "Farewell - Room h-02 Binoculars", "10b_h-02_west", LocationType.binoculars, []),
     "10b_h-03b_binoculars": LevelLocation("10b_h-03b_binoculars", "Farewell - Room h-03b Binoculars", "10b_h-03b_west", LocationType.binoculars, []),
@@ -5401,7 +5406,7 @@ all_locations: dict[str, LevelLocation] = {
     "10b_h-05_binoculars": LevelLocation("10b_h-05_binoculars", "Farewell - Room h-05 Binoculars", "10b_h-05_top", LocationType.binoculars, []),
     "10b_h-06b_binoculars": LevelLocation("10b_h-06b_binoculars", "Farewell - Room h-06b Binoculars", "10b_h-06b_bottom", LocationType.binoculars, []),
     "10b_h-07_binoculars_1": LevelLocation("10b_h-07_binoculars_1", "Farewell - Room h-07 Binoculars 1", "10b_h-07_west", LocationType.binoculars, []),
-    "10b_h-07_binoculars_2": LevelLocation("10b_h-07_binoculars_2", "Farewell - Room h-07 Binoculars 2", "10b_h-07_west", LocationType.binoculars, [[ItemName.blue_boosters, ItemName.springs, ItemName.coins, ], ]),
+    "10b_h-07_binoculars_2": LevelLocation("10b_h-07_binoculars_2", "Farewell - Room h-07 Binoculars 2", "10b_h-07_center", LocationType.binoculars, []),
     "10b_h-08_binoculars": LevelLocation("10b_h-08_binoculars", "Farewell - Room h-08 Binoculars", "10b_h-08_west", LocationType.binoculars, []),
     "10b_h-09_binoculars": LevelLocation("10b_h-09_binoculars", "Farewell - Room h-09 Binoculars", "10b_h-09_west", LocationType.binoculars, []),
     "10b_i-00b_binoculars": LevelLocation("10b_i-00b_binoculars", "Farewell - Room i-00b Binoculars", "10b_i-00b_west", LocationType.binoculars, []),
@@ -5414,9 +5419,9 @@ all_locations: dict[str, LevelLocation] = {
     "10b_GOAL_clear": LevelLocation("10b_GOAL_clear", "Farewell - Level Clear", "10b_GOAL_main", LocationType.level_clear, []),
 
     "10c_end-golden_binoculars_1": LevelLocation("10c_end-golden_binoculars_1", "Farewell - Room end-golden Binoculars 1", "10c_end-golden_bottom", LocationType.binoculars, []),
-    "10c_end-golden_binoculars_2": LevelLocation("10c_end-golden_binoculars_2", "Farewell - Room end-golden Binoculars 2", "10c_end-golden_bottom", LocationType.binoculars, []),
-    "10c_end-golden_binoculars_3": LevelLocation("10c_end-golden_binoculars_3", "Farewell - Room end-golden Binoculars 3", "10c_end-golden_bottom", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.springs, ItemName.pufferfish, ], ]),
-    "10c_end-golden_golden": LevelLocation("10c_end-golden_golden", "Farewell - Golden Strawberry", "10c_end-golden_top", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.dream_blocks, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.springs, ItemName.feathers, ItemName.coins, ItemName.red_boosters, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.fire_ice_balls, ItemName.badeline_boosters, ItemName.bird, ItemName.breaker_boxes, ItemName.pufferfish, ItemName.jellyfish, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ], ]),
+    "10c_end-golden_binoculars_2": LevelLocation("10c_end-golden_binoculars_2", "Farewell - Room end-golden Binoculars 2", "10c_end-golden_bottom", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], ]),
+    "10c_end-golden_binoculars_3": LevelLocation("10c_end-golden_binoculars_3", "Farewell - Room end-golden Binoculars 3", "10c_end-golden_bottom", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.springs, ItemName.pufferfish, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ]),
+    "10c_end-golden_golden": LevelLocation("10c_end-golden_golden", "Farewell - Golden Strawberry", "10c_end-golden_top", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.dream_blocks, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.springs, ItemName.feathers, ItemName.coins, ItemName.red_boosters, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.fire_ice_balls, ItemName.badeline_boosters, ItemName.bird, ItemName.breaker_boxes, ItemName.pufferfish, ItemName.jellyfish, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.d_dash, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
 }
 
@@ -7990,11 +7995,14 @@ all_regions: dict[str, PreRegion] = {
     "10b_h-06b_top": PreRegion("10b_h-06b_top", "10b_h-06b", connections_by_region["10b_h-06b_top"], locations_by_region["10b_h-06b_top"]),
 
     "10b_h-07_west": PreRegion("10b_h-07_west", "10b_h-07", connections_by_region["10b_h-07_west"], locations_by_region["10b_h-07_west"]),
+    "10b_h-07_center": PreRegion("10b_h-07_center", "10b_h-07", connections_by_region["10b_h-07_center"], locations_by_region["10b_h-07_center"]),
     "10b_h-07_east": PreRegion("10b_h-07_east", "10b_h-07", connections_by_region["10b_h-07_east"], locations_by_region["10b_h-07_east"]),
 
     "10b_h-08_west": PreRegion("10b_h-08_west", "10b_h-08", connections_by_region["10b_h-08_west"], locations_by_region["10b_h-08_west"]),
+    "10b_h-08_north-east": PreRegion("10b_h-08_north-east", "10b_h-08", connections_by_region["10b_h-08_north-east"], locations_by_region["10b_h-08_north-east"]),
     "10b_h-08_east": PreRegion("10b_h-08_east", "10b_h-08", connections_by_region["10b_h-08_east"], locations_by_region["10b_h-08_east"]),
 
+    "10b_h-09_north-west": PreRegion("10b_h-09_north-west", "10b_h-09", connections_by_region["10b_h-09_north-west"], locations_by_region["10b_h-09_north-west"]),
     "10b_h-09_west": PreRegion("10b_h-09_west", "10b_h-09", connections_by_region["10b_h-09_west"], locations_by_region["10b_h-09_west"]),
     "10b_h-09_east": PreRegion("10b_h-09_east", "10b_h-09", connections_by_region["10b_h-09_east"], locations_by_region["10b_h-09_east"]),
 
@@ -8976,6 +8984,7 @@ all_room_connections: dict[str, RoomConnection] = {
     "10b_h-06_east---10b_h-06b_bottom": RoomConnection("10b", all_doors["10b_h-06_east"], all_doors["10b_h-06b_bottom"]),
     "10b_h-06b_top---10b_h-07_west": RoomConnection("10b", all_doors["10b_h-06b_top"], all_doors["10b_h-07_west"]),
     "10b_h-07_east---10b_h-08_west": RoomConnection("10b", all_doors["10b_h-07_east"], all_doors["10b_h-08_west"]),
+    "10b_h-08_north-east---10b_h-09_north-west": RoomConnection("10b", all_doors["10b_h-08_north-east"], all_doors["10b_h-09_north-west"]),
     "10b_h-08_east---10b_h-09_west": RoomConnection("10b", all_doors["10b_h-08_east"], all_doors["10b_h-09_west"]),
     "10b_h-09_east---10b_h-10_west": RoomConnection("10b", all_doors["10b_h-09_east"], all_doors["10b_h-10_west"]),
     "10b_h-10_east---10b_i-00_west": RoomConnection("10b", all_doors["10b_h-10_east"], all_doors["10b_i-00_west"]),
