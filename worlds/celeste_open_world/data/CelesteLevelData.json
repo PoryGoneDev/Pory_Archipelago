@@ -36698,7 +36698,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "badeline_boosters", "blue_clouds" ] ]
+                                    "rule": [ [ "badeline_boosters", "blue_clouds", "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -36732,7 +36732,10 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "badeline_boosters", "blue_clouds" ] ]
+                                    "rule": [
+                                        [ "badeline_boosters", "blue_clouds", "u_dash" ],
+                                        [ "badeline_boosters", "blue_clouds", "ur_dash", "ul_dash" ]
+                                    ]
                                 }
                             ]
                         },
@@ -36771,18 +36774,13 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
                         {
                             "name": "east",
-                            "connections": [
-                                {
-                                    "dest": "west",
-                                    "rule": []
-                                }
-                            ]
+                            "connections": []
                         }
                     ],
                     "doors": [
@@ -36810,7 +36808,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "double_dash_refills" ] ]
+                                    "rule": [ [ "double_dash_refills", "r_dash", "any_dash_ur_u" ] ]
                                 }
                             ]
                         },
@@ -36819,7 +36817,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "l_dash" ] ]
                                 }
                             ]
                         }
@@ -36849,7 +36847,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "double_dash_refills", "dash_refills" ] ]
+                                    "rule": [ [ "double_dash_refills", "dash_refills", "r_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -36858,7 +36856,7 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "double_dash_refills", "dash_refills" ] ]
+                                    "rule": [ [ "double_dash_refills", "dash_refills", "l_dash", "u_dash" ] ]
                                 }
                             ]
                         }
@@ -36888,7 +36886,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "double_dash_refills", "swap_blocks" ] ]
+                                    "rule": [ [ "double_dash_refills", "swap_blocks", "ur_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -36922,7 +36920,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "double_dash_refills", "swap_blocks" ] ]
+                                    "rule": [ [ "double_dash_refills", "swap_blocks", "r_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -36956,7 +36954,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "double_dash_refills", "springs" ] ]
+                                    "rule": [ [ "double_dash_refills", "springs", "any_dash_ur_r" ] ]
                                 }
                             ],
                             "locations": [
@@ -36998,7 +36996,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "coins", "springs" ] ]
+                                    "rule": [ [ "coins", "springs", "u_dash", "r_dash", "any_dash_l_ul" ] ]
                                 }
                             ]
                         },
@@ -37032,7 +37030,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish" ] ]
+                                    "rule": [ [ "pufferfish", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -37066,7 +37064,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish" ] ]
+                                    "rule": [ [ "pufferfish", "r_dash", "l_dash", "ur_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -37100,7 +37098,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "coins" ] ]
+                                    "rule": [ [ "pufferfish", "coins", "r_dash", "l_dash", "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -37134,7 +37132,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "coins", "dream_blocks" ] ]
+                                    "rule": [ [ "pufferfish", "coins", "dream_blocks", "d_dash", "l_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -37168,7 +37166,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "coins", "springs" ] ]
+                                    "rule": [ [ "pufferfish", "coins", "springs", "l_dash", "r_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -37202,7 +37200,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "springs" ] ]
+                                    "rule": [ [ "pufferfish", "springs", "u_dash", "any_dash_ur_r" ] ]
                                 }
                             ]
                         },
@@ -37236,7 +37234,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "springs", "dream_blocks", "dash_refills" ] ]
+                                    "rule": [ [ "pufferfish", "springs", "dream_blocks", "dash_refills", "r_dash", "ur_dash", "l_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -37278,7 +37276,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "double_dash_refills", "dash_refills" ] ]
+                                    "rule": [ [ "double_dash_refills", "dash_refills", "u_dash", "ur_dash", "r_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -37316,7 +37314,7 @@
                                 },
                                 {
                                     "dest": "north-east",
-                                    "rule": [ [ "jellyfish", "dash_refills" ] ]
+                                    "rule": [ [ "jellyfish", "dash_refills", "crouch", "dr_dash", "ur_dash", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -37360,7 +37358,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "jellyfish", "springs" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -37394,7 +37392,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "jellyfish" ] ]
+                                    "rule": [ [ "jellyfish", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -37428,7 +37426,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "jellyfish" ] ]
+                                    "rule": [ [ "jellyfish", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -37462,7 +37460,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "jellyfish", "double_dash_refills" ] ]
+                                    "rule": [ [ "jellyfish", "double_dash_refills", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -37496,7 +37494,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "r_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -37539,7 +37537,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "jellyfish", "springs" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "u_dash", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -37558,7 +37556,7 @@
                             "name": "south-west",
                             "direction": "left",
                             "blocked": false,
-                            "closes_behind": false
+                            "closes_behind": true
                         },
                         {
                             "name": "south",
@@ -37583,12 +37581,23 @@
                             "name": "south",
                             "connections": [
                                 {
-                                    "dest": "south-east",
-                                    "rule": [ [ "red_boosters" ] ]
+                                    "dest": "south-east-door",
+                                    "rule": [
+                                        [ "red_boosters" ],
+                                        [ "power_source_breaker" ]
+                                    ]
                                 },
                                 {
                                     "dest": "north",
                                     "rule": [ [ "red_boosters", "Power Source Key 1", "Power Source Key 2", "Power Source Key 3", "Power Source Key 4", "Power Source Key 5" ] ]
+                                },
+                                {
+                                    "dest": "south-west-door",
+                                    "rule": [
+                                        [ "power_source_breaker", "any_dash_l_ul_u" ],
+                                        [ "power_source_breaker", "jellyfish" ],
+                                        [ "power_source_breaker", "springs" ]
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -37596,7 +37605,10 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": []
+                                    "rule": [
+                                        [ "power_source_breaker" ],
+                                        [ "r_dash" ]
+                                    ]
                                 }
                             ]
                         },
@@ -37610,32 +37622,35 @@
                             ]
                         },
                         {
-                            "name": "south-east",
+                            "name": "south-east-door",
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "double_dash_refills", "dash_switches" ] ]
+                                    "rule": [ [ "double_dash_refills", "dash_switches", "u_dash", "l_dash", "any_dash_dr_d_dl" ] ]
                                 },
                                 {
-                                    "dest": "north-west",
-                                    "rule": [ [ "double_dash_refills", "springs", "dash_switches" ] ]
+                                    "dest": "west-door",
+                                    "rule": [ [ "double_dash_refills", "springs", "dash_switches", "u_dash", "l_dash", "any_dash_dr_d_dl" ] ]
                                 },
                                 {
-                                    "dest": "south-east-door",
-                                    "rule": []
+                                    "dest": "north-east-door",
+                                    "rule": [
+                                        [ "power_source_breaker", "springs" ],
+                                        [ "power_source_breaker", "any_dash_u_ur_r" ]
+                                    ]
                                 }
                             ]
                         },
                         {
-                            "name": "north-west",
+                            "name": "west-door",
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "jellyfish", "dash_switches" ] ]
+                                    "rule": [ [ "jellyfish", "dash_switches", "any_dash_dr_d_dl" ] ]
                                 },
                                 {
                                     "dest": "breaker",
-                                    "rule": [ [ "jellyfish", "springs", "dash_switches", "breaker_boxes" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "dash_switches", "any_dash_dr_d_dl", "u_dash", "breaker_boxes" ] ]
                                 }
                             ]
                         },
@@ -37648,19 +37663,29 @@
                                 },
                                 {
                                     "dest": "north-east-door",
-                                    "rule": []
+                                    "rule": [
+                                        [ "power_source_breaker", "springs" ],
+                                        [ "power_source_breaker", "any_dash_u_ur_r" ]
+                                    ]
                                 },
                                 {
-                                    "dest": "south-west-door",
-                                    "rule": []
-                                },
-                                {
-                                    "dest": "west-door",
-                                    "rule": []
+                                    "dest": "south-east-door",
+                                    "rule": [ [ "power_source_breaker"] ]
                                 },
                                 {
                                     "dest": "north-west-door",
-                                    "rule": []
+                                    "rule": [
+                                        [ "power_source_breaker", "any_dash_ul_l" ],
+                                        [ "power_source_breaker", "springs" ]
+                                    ]
+                                }
+                            ],
+                            "locations": [
+                                {
+                                    "name": "power_source_breaker",
+                                    "display_name": "Power Source - Breaker Disable",
+                                    "type": "breaker",
+                                    "rule": [ [ "breaker_boxes", "any_dash_dr_d_dl_l_ul_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -37669,16 +37694,11 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "breaker_boxes" ] ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "south-east-door",
-                            "connections": [
+                                    "rule": [ [ "power_source_breaker" ] ]
+                                },
                                 {
-                                    "dest": "south",
-                                    "rule": [ [ "breaker_boxes" ] ]
+                                    "dest": "south-east-door",
+                                    "rule": [ [ "power_source_breaker" ] ]
                                 }
                             ]
                         },
@@ -37687,16 +37707,15 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "breaker_boxes" ] ]
-                                }
-                            ]
-                        },
-                        {
-                            "name": "west-door",
-                            "connections": [
+                                    "rule": [ [ "breaker_boxes", "any_dash_u_ur_r" ] ]
+                                },
                                 {
-                                    "dest": "south",
-                                    "rule": [ [ "breaker_boxes" ] ]
+                                    "dest": "west-door",
+                                    "rule": [
+                                        [ "power_source_breaker", "springs", "u_dash" ],
+                                        [ "power_source_breaker", "springs", "ul_dash", "double_dash_refills" ],
+                                        [ "power_source_breaker", "springs", "ul_dash", "ur_dash" ]
+                                    ]
                                 }
                             ]
                         },
@@ -37705,7 +37724,11 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "breaker_boxes" ] ]
+                                    "rule": [ [ "power_source_breaker" ] ]
+                                },
+                                {
+                                    "dest": "west-door",
+                                    "rule": [ [ "power_source_breaker" ] ]
                                 }
                             ]
                         }
@@ -37774,7 +37797,7 @@
                                     "name": "key_1",
                                     "display_name": "Power Source Key 1",
                                     "type": "key",
-                                    "rule": [ [ "double_dash_refills", "jellyfish" ] ]
+                                    "rule": [ [ "double_dash_refills", "jellyfish", "ur_dash", "r_dash" ] ]
                                 }
                             ]
                         }
@@ -37801,13 +37824,13 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": [ [ "breaker_boxes", "double_dash_refills", "dash_switches" ] ]
+                                    "rule": [ [ "power_source_breaker" ] ]
                                 },
                                 {
                                     "name": "key_2",
                                     "display_name": "Power Source Key 2",
                                     "type": "key",
-                                    "rule": [ [ "breaker_boxes", "double_dash_refills", "dash_switches", "jellyfish" ] ]
+                                    "rule": [ [ "power_source_breaker", "double_dash_refills", "dash_switches", "jellyfish", "ur_dash" ] ]
                                 }
                             ]
                         }
@@ -37834,13 +37857,13 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur" ] ]
                                 },
                                 {
                                     "name": "key_3",
                                     "display_name": "Power Source Key 3",
                                     "type": "key",
-                                    "rule": [ [ "dash_refills", "dash_switches", "jellyfish" ] ]
+                                    "rule": [ [ "dash_refills", "dash_switches", "jellyfish", "u_dash" ] ]
                                 }
                             ]
                         }
@@ -37867,13 +37890,13 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": [ [ "breaker_boxes" ] ]
+                                    "rule": [ [ "power_source_breaker" ] ]
                                 },
                                 {
                                     "name": "key_4",
                                     "display_name": "Power Source Key 4",
                                     "type": "key",
-                                    "rule": [ [ "breaker_boxes", "double_dash_refills", "springs", "move_blocks", "jellyfish" ] ]
+                                    "rule": [ [ "power_source_breaker", "double_dash_refills", "springs", "move_blocks", "jellyfish", "u_dash" ] ]
                                 }
                             ]
                         }
@@ -37906,7 +37929,7 @@
                                     "name": "key_5",
                                     "display_name": "Power Source Key 5",
                                     "type": "key",
-                                    "rule": [ [ "double_dash_refills", "coins", "red_boosters", "jellyfish" ] ]
+                                    "rule": [ [ "double_dash_refills", "coins", "red_boosters", "jellyfish", "r_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -37959,7 +37982,7 @@
                                 },
                                 {
                                     "dest": "south-east",
-                                    "rule": []
+                                    "rule": [ [ "ur_dash", "u_dash", "crouch" ] ]
                                 }
                             ]
                         },
@@ -38023,7 +38046,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "red_boosters", "dash_refills", "double_dash_refills" ] ]
+                                    "rule": [ [ "red_boosters", "dash_refills", "double_dash_refills", "ur_dash", "u_dash", "any_dash_ul_l" ] ]
                                 }
                             ],
                             "locations": [
@@ -38065,7 +38088,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -38104,7 +38127,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "blue_clouds", "pufferfish", "coins", "double_dash_refills" ] ]
+                                    "rule": [ [ "blue_clouds", "pufferfish", "coins", "double_dash_refills", "u_dash", "ul_dash", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -38138,7 +38161,7 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "jellyfish", "springs" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "u_dash", "r_dash", "ul_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -38155,7 +38178,7 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": []
+                                    "rule": [ [ "l_dash" ] ]
                                 }
                             ]
                         }
@@ -38185,7 +38208,11 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "jellyfish", "springs", "dash_refills" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "dash_refills", "l_dash", "ul_dash", "u_dash", "ur_dash", "r_dash" ] ]
+                                },
+                                {
+                                    "dest": "car-nook",
+                                    "rule": [ [ "jellyfish", "springs", "dash_refills", "ul_dash", "u_dash", "ur_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -38194,12 +38221,18 @@
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
                                     "rule": []
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            "name": "car-nook",
+                            "connections": [],
+                            "locations": [
                                 {
                                     "name": "car",
                                     "display_name": "Secret Car",
                                     "type": "car",
-                                    "rule": [ [ "jellyfish", "springs", "dash_refills" ] ]
+                                    "rule": []
                                 }
                             ]
                         },
@@ -38233,7 +38266,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "jellyfish", "springs", "dash_refills", "coins" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "dash_refills", "coins", "ur_dash", "any_dash_ul_u" ] ]
                                 }
                             ],
                             "locations": [
@@ -38275,7 +38308,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "springs", "double_dash_refills" ] ]
+                                    "rule": [ [ "pufferfish", "springs", "double_dash_refills", "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -38284,7 +38317,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish" ] ]
+                                    "rule": [ [ "pufferfish", "any_dash_u_ul_l" ] ]
                                 }
                             ]
                         }
@@ -38314,7 +38347,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "jellyfish", "springs", "dash_switches" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "dash_switches", "u_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -38356,7 +38389,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "springs", "coins", "traffic_blocks" ] ]
+                                    "rule": [ [ "pufferfish", "springs", "coins", "traffic_blocks", "ul_dash" ] ]
                                 }
                             ]
                         },
@@ -38390,7 +38423,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "swap_blocks" ] ]
+                                    "rule": [ [ "pufferfish", "swap_blocks", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -38424,7 +38457,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "swap_blocks", "double_dash_refills" ] ]
+                                    "rule": [ [ "pufferfish", "swap_blocks", "double_dash_refills", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -38458,7 +38491,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "jellyfish", "springs", "dash_refills", "coins" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "dash_refills", "coins", "u_dash", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -38492,7 +38525,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pufferfish", "springs", "double_dash_refills", "move_blocks" ] ]
+                                    "rule": [ [ "pufferfish", "springs", "double_dash_refills", "move_blocks", "l_dash", "r_dash", "ur_dash", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -38526,7 +38559,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "jellyfish", "springs", "double_dash_refills", "coins" ] ]
+                                    "rule": [ [ "jellyfish", "springs", "double_dash_refills", "coins", "u_dash", "ur_dash", "r_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -38546,7 +38579,7 @@
                                     "name": "crystal_heart",
                                     "display_name": "Crystal Heart?",
                                     "type": "crystal_heart",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_l_ul_u_ur_r_dr_d_dl" ] ]
                                 }
                             ]
                         }

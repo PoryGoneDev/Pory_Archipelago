@@ -95,6 +95,8 @@ brown_clutter = "Celestial Resort A - Brown Clutter"
 green_clutter = "Celestial Resort A - Green Clutter"
 pink_clutter  = "Celestial Resort A - Pink Clutter"
 
+power_source_breaker = "Farewell - Power Source - Breaker Disable"
+
 cannot_access = "Cannot Access"
 
 # Checkpoints

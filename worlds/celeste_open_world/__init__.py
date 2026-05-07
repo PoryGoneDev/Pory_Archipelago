@@ -316,6 +316,12 @@ class CelesteOpenWorld(World):
             clutter_loc.place_locked_item(self.create_item(item_name))
             location_count -= 1
 
+        # Breaker Box Events
+        for item_name in self.active_breaker_names:
+            breaker_loc: Location = self.get_location(item_name)
+            breaker_loc.place_locked_item(self.create_item(item_name))
+            location_count -= 1
+
         # Interactables
         if self.options.torch_behavior.value == 3:
             self.active_items.discard(ItemName.torches)

@@ -40,6 +40,7 @@ location_id_offsets: dict[LocationType, int | None] = {
     LocationType.binoculars:        celeste_base_id + 0x7000,
     LocationType.room_enter:        celeste_base_id + 0x8000,
     LocationType.clutter:           None,
+    LocationType.breaker:           None,
 }
 
 
@@ -183,6 +184,7 @@ def create_regions_and_locations(world: CelesteOpenWorld):
     world.active_key_names: list[str] = []
     world.active_gem_names: list[str] = []
     world.active_clutter_names: list[str] = []
+    world.active_breaker_names: list[str] = []
 
     golden_items: list[list[str]]
 
@@ -232,6 +234,14 @@ def create_regions_and_locations(world: CelesteOpenWorld):
 
                     if level_location.loc_type == LocationType.clutter:
                         world.active_clutter_names.append(level_location.display_name)
+                        location = CelesteLocation(world.player, level_location.display_name, None, region)
+                        if location_rule is not None:
+                            world.set_rule(location, location_rule)
+                        region.locations.append(location)
+                        continue
+
+                    if level_location.loc_type == LocationType.breaker:
+                        world.active_breaker_names.append(level_location.display_name)
                         location = CelesteLocation(world.player, level_location.display_name, None, region)
                         if location_rule is not None:
                             world.set_rule(location, location_rule)

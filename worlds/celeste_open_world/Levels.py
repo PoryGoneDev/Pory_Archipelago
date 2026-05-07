@@ -85,6 +85,7 @@ class LocationType(IntEnum):
     clutter = 9
     gem = 10
     car = 11
+    breaker = 12
 
 class DoorDirection(IntEnum):
     up = 0
