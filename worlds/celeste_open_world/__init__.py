@@ -440,6 +440,10 @@ class CelesteOpenWorld(World):
         trap_count = 0 if (len(trap_weights) == 0) else math.ceil(total_filler_count * (self.options.trap_fill_percentage.value / 100.0))
         total_filler_count -= trap_count
 
+        if total_filler_count > 0:
+            item_pool.append(self.create_item(ItemName.gold_raspberry))
+            total_filler_count -= 1
+
         if self.options.reduce_raspberries:
             item_pool += [self.create_item(self.random.choice(list(filler_item_data_table.keys()))) for _ in range(total_filler_count)]
         else:

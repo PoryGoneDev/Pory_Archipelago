@@ -7,6 +7,7 @@ blackberry     = "Blackberry"
 boysenberry    = "Boysenberry"
 bananaberry    = "Banana"
 cranberry      = "Cranberry"
+gold_raspberry = "Golden Raspberry"
 
 # Goal Items
 house_keys = "Granny's House Keys"
