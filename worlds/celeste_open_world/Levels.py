@@ -136,11 +136,15 @@ class RegionConnection:
     destination_name: str
     destination: PreRegion
     possible_access: list[list[str]]
+    possible_access_vanilla: list[list[str]]
+    possible_access_assist: list[list[str]]
 
-    def __init__(self, source_name: str, destination_name: str, possible_access: list[list[str]] = []):
+    def __init__(self, source_name: str, destination_name: str, possible_access: list[list[str]] = [], possible_access_vanilla: list[list[str]] = [], possible_access_assist: list[list[str]] = []):
         self.source_name = source_name
         self.destination_name = destination_name
         self.possible_access = possible_access.copy()
+        self.possible_access_vanilla = possible_access_vanilla.copy()
+        self.possible_access_assist = possible_access_assist.copy()
 
 
 class LevelLocation:
@@ -150,13 +154,17 @@ class LevelLocation:
     region: PreRegion
     loc_type: LocationType
     possible_access: list[list[str]]
+    possible_access_vanilla: list[list[str]]
+    possible_access_assist: list[list[str]]
 
-    def __init__(self, name: str, display_name: str, region_name: str, loc_type: LocationType, possible_access: list[list[str]] = []):
+    def __init__(self, name: str, display_name: str, region_name: str, loc_type: LocationType, possible_access: list[list[str]] = [], possible_access_vanilla: list[list[str]] = [], possible_access_assist: list[list[str]] = []):
         self.name = name
         self.display_name = display_name
         self.region_name = region_name
         self.loc_type = loc_type
         self.possible_access = possible_access.copy()
+        self.possible_access_vanilla = possible_access_vanilla.copy()
+        self.possible_access_assist = possible_access_assist.copy()
 
 class Room:
     level_name: str

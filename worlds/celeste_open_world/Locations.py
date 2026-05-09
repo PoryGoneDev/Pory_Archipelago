@@ -201,11 +201,18 @@ def create_regions_and_locations(world: CelesteOpenWorld):
                 world.multiworld.regions.append(region)
 
                 for level_location in pre_region.locations:
+                    active_possible_access: list[list[str]] = level_location.possible_access
+
+                    if world.options.logic_difficulty.value == 1:
+                        active_possible_access = level_location.possible_access_vanilla
+                    elif world.options.logic_difficulty.value == 2:
+                        active_possible_access = level_location.possible_access_assist
+
                     if level_location.loc_type == LocationType.golden_strawberry:
                         if level_location.display_name == "Farewell - Golden Strawberry":
                             if not world.options.goal_area == "farewell_golden":
                                 continue
-                            golden_items = convert_item_list_list(world, level, level_location.possible_access)
+                            golden_items = convert_item_list_list(world, level, active_possible_access)
                         elif not world.options.include_goldens:
                             continue
 
@@ -222,14 +229,14 @@ def create_regions_and_locations(world: CelesteOpenWorld):
                         world.active_gem_names.append(level_location.display_name)
 
                     location_rule = None
-                    if len(level_location.possible_access) == 1:
-                        only_access = convert_item_list(world, level, level_location.possible_access[0])
+                    if len(active_possible_access) == 1:
+                        only_access = convert_item_list(world, level, active_possible_access[0])
                         if len(only_access) == 1:
                             location_rule = Has(only_access[0])
                         else:
                             location_rule = HasAll(*only_access)
-                    elif len(level_location.possible_access) > 0:
-                        possible_access = convert_item_list_list(world, level, level_location.possible_access)
+                    elif len(active_possible_access) > 0:
+                        possible_access = convert_item_list_list(world, level, active_possible_access)
                         location_rule = Or(*[HasAll(*sublist) for sublist in possible_access])
 
                     if level_location.loc_type == LocationType.clutter:
@@ -256,15 +263,22 @@ def create_regions_and_locations(world: CelesteOpenWorld):
             for pre_region in room.regions:
                 region = world.get_region(pre_region.name)
                 for connection in pre_region.connections:
+                    active_possible_access: list[list[str]] = connection.possible_access
+
+                    if world.options.logic_difficulty.value == 1:
+                        active_possible_access = connection.possible_access_vanilla
+                    elif world.options.logic_difficulty.value == 2:
+                        active_possible_access = connection.possible_access_assist
+
                     connection_rule = None
-                    if len(connection.possible_access) == 1:
-                        only_access = convert_item_list(world, level, connection.possible_access[0])
+                    if len(active_possible_access) == 1:
+                        only_access = convert_item_list(world, level, active_possible_access[0])
                         if len(only_access) == 1:
                             connection_rule = Has(only_access[0])
                         else:
                             connection_rule = HasAll(*only_access)
-                    elif len(connection.possible_access) > 0:
-                        possible_access = convert_item_list_list(world, level, connection.possible_access)
+                    elif len(active_possible_access) > 0:
+                        possible_access = convert_item_list_list(world, level, active_possible_access)
                         connection_rule = Or(*[HasAll(*sublist) for sublist in possible_access])
 
                     if connection_rule is None:

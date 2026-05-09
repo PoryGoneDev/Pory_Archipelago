@@ -99,12 +99,44 @@ if __name__ == "__main__":
 
                         location_str = (f"    \"{location_full_name}\": LevelLocation(\"{location_full_name}\", "
                                         f"\"{location_full_display_name}\", \"{region_full_name}\", "
-                                        f"LocationType.{location['type']}, ["
+                                        f"LocationType.{location['type']}"
                                        )
 
-                        #for rule_key in ['rule', 'vanilla_rule', 'assist_rule']:
-                        if "rule" in location:
-                            for possible_access in location['rule']:
+                        for rule_key in ['rule', 'vanilla_rule', 'assist_rule']:
+                            location_str += ", "
+                            if rule_key in location:
+                                location_str += "["
+                                for possible_access in location[rule_key]:
+                                    multi_dashes: list[list[str]] = []
+                                    possible_access_str = ""
+                                    for item in possible_access:
+                                        if "any_dash_" in item:
+                                            multi_dashes.append(list(item[9:].split("_")))
+                                        elif "Key" in item or "Gem" in item:
+                                            possible_access_str += f"\"{level['display_name']} - {item}\", "
+                                        else:
+                                            possible_access_str += f"ItemName.{item}, "
+                                    location_str += get_full_access_string(possible_access_str, multi_dashes)
+                                location_str += "]"
+                            else:
+                                location_str += "[]"
+
+                        location_str += "),"
+
+                        all_locations.append(location_str)
+
+                # Region Connections
+                for reg_con in region["connections"]:
+                    dest_region_full_name = f"{room_full_name}_{reg_con['dest']}"
+                    reg_con_full_name = f"{region_full_name}---{dest_region_full_name}"
+
+                    reg_con_str = f"    \"{reg_con_full_name}\": RegionConnection(\"{region_full_name}\", \"{dest_region_full_name}\""
+
+                    for rule_key in ['rule', 'vanilla_rule', 'assist_rule']:
+                        reg_con_str += ", "
+                        if rule_key in reg_con:
+                            reg_con_str += "["
+                            for possible_access in reg_con[rule_key]:
                                 multi_dashes: list[list[str]] = []
                                 possible_access_str = ""
                                 for item in possible_access:
@@ -114,34 +146,12 @@ if __name__ == "__main__":
                                         possible_access_str += f"\"{level['display_name']} - {item}\", "
                                     else:
                                         possible_access_str += f"ItemName.{item}, "
-                                location_str += get_full_access_string(possible_access_str, multi_dashes)
-                        elif "rules" in location:
-                            raise Exception(f"Location {location_full_name} uses 'rules' instead of 'rule")
+                                reg_con_str += get_full_access_string(possible_access_str, multi_dashes)
+                            reg_con_str += "]"
+                        else:
+                            reg_con_str += "[]"
 
-                        location_str += "]),"
-
-                        all_locations.append(location_str)
-
-                # Region Connections
-                for reg_con in region["connections"]:
-                    dest_region_full_name = f"{room_full_name}_{reg_con['dest']}"
-                    reg_con_full_name = f"{region_full_name}---{dest_region_full_name}"
-
-                    reg_con_str = f"    \"{reg_con_full_name}\": RegionConnection(\"{region_full_name}\", \"{dest_region_full_name}\", ["
-
-                    for possible_access in reg_con['rule']:
-                        multi_dashes: list[list[str]] = []
-                        possible_access_str = ""
-                        for item in possible_access:
-                            if "any_dash_" in item:
-                                multi_dashes.append(list(item[9:].split("_")))
-                            elif "Key" in item or "Gem" in item:
-                                possible_access_str += f"\"{level['display_name']} - {item}\", "
-                            else:
-                                possible_access_str += f"ItemName.{item}, "
-                        reg_con_str += get_full_access_string(possible_access_str, multi_dashes)
-
-                    reg_con_str += "]),"
+                    reg_con_str += "),"
 
                     all_region_connections.append(reg_con_str)
 

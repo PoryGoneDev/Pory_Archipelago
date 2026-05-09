@@ -51,7 +51,7 @@ class GoalArea(Choice):
     """
     What Area must be cleared to gain access to the Epilogue and complete the game
 
-    Poetry Slam requires receiving all 16 Crystal Heart items and assembling the poem in the correct order
+    Poetry Slam requires receiving all 16 Crystal Heart items and assembling the poem in the correct order to receive Granny's House Keys. Strawberries are still required.
     """
     display_name = "Goal Area"
     option_the_summit_a = 0
