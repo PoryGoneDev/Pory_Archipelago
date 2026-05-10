@@ -33482,7 +33482,7 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },

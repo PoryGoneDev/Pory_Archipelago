@@ -440,7 +440,7 @@ class CelesteOpenWorld(World):
         trap_count = 0 if (len(trap_weights) == 0) else math.ceil(total_filler_count * (self.options.trap_fill_percentage.value / 100.0))
         total_filler_count -= trap_count
 
-        if total_filler_count > 0:
+        if total_filler_count > 0 and ItemName.gold_raspberry not in self.multiworld.precollected_items[self.player]:
             item_pool.append(self.create_item(ItemName.gold_raspberry))
             total_filler_count -= 1
 
@@ -467,6 +467,13 @@ class CelesteOpenWorld(World):
 
     def set_rules(self) -> None:
         self.set_completion_rule(Has(ItemName.victory))
+
+
+    @classmethod
+    def stage_fill_hook(cls, multiworld: MultiWorld, progitempool, usefulitempool, filleritempool, fill_locations):
+        if multiworld.get_game_players(CelesteOpenWorld.game):
+            progitempool.sort(
+                key=lambda item: 0 if ("Strawberry" in item.name and item.game == CelesteOpenWorld.game) else 1)
 
 
     def fill_slot_data(self):
