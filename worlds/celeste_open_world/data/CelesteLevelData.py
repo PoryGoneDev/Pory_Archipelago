@@ -2584,14 +2584,14 @@ all_region_connections: dict[str, RegionConnection] = {
     "0a_0_west---0a_0_main": RegionConnection("0a_0_west", "0a_0_main", [], [], []),
     "0a_0_main---0a_0_west": RegionConnection("0a_0_main", "0a_0_west", [], [], []),
     "0a_0_main---0a_0_east": RegionConnection("0a_0_main", "0a_0_east", [], [], []),
-    "0a_0_main---0a_0_north": RegionConnection("0a_0_main", "0a_0_north", [], [], []),
+    "0a_0_main---0a_0_north": RegionConnection("0a_0_main", "0a_0_north", [], [], [[ItemName.l_climb, ], ]),
     "0a_0_north---0a_0_main": RegionConnection("0a_0_north", "0a_0_main", [], [], []),
     "0a_0_east---0a_0_main": RegionConnection("0a_0_east", "0a_0_main", [], [], []),
 
 
-    "0a_1_west---0a_1_main": RegionConnection("0a_1_west", "0a_1_main", [], [], []),
-    "0a_1_main---0a_1_west": RegionConnection("0a_1_main", "0a_1_west", [], [], []),
-    "0a_1_main---0a_1_east": RegionConnection("0a_1_main", "0a_1_east", [], [], []),
+    "0a_1_west---0a_1_main": RegionConnection("0a_1_west", "0a_1_main", [], [], [[ItemName.r_climb, ], ]),
+    "0a_1_main---0a_1_west": RegionConnection("0a_1_main", "0a_1_west", [], [], [[ItemName.l_climb, ], ]),
+    "0a_1_main---0a_1_east": RegionConnection("0a_1_main", "0a_1_east", [], [], [[ItemName.r_climb, ], ]),
     "0a_1_east---0a_1_main": RegionConnection("0a_1_east", "0a_1_main", [], [], []),
 
     "0a_2_west---0a_2_main": RegionConnection("0a_2_west", "0a_2_main", [], [], []),
@@ -5422,7 +5422,7 @@ all_locations: dict[str, LevelLocation] = {
     "10c_end-golden_binoculars_1": LevelLocation("10c_end-golden_binoculars_1", "Farewell - Room end-golden Binoculars 1", "10c_end-golden_bottom", LocationType.binoculars, [], [], []),
     "10c_end-golden_binoculars_2": LevelLocation("10c_end-golden_binoculars_2", "Farewell - Room end-golden Binoculars 2", "10c_end-golden_bottom", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], ], [], []),
     "10c_end-golden_binoculars_3": LevelLocation("10c_end-golden_binoculars_3", "Farewell - Room end-golden Binoculars 3", "10c_end-golden_bottom", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.springs, ItemName.pufferfish, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
-    "10c_end-golden_golden": LevelLocation("10c_end-golden_golden", "Farewell - Golden Strawberry", "10c_end-golden_top", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.dream_blocks, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.blue_clouds, ItemName.springs, ItemName.feathers, ItemName.coins, ItemName.red_boosters, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.fire_ice_balls, ItemName.badeline_boosters, ItemName.bird, ItemName.breaker_boxes, ItemName.pufferfish, ItemName.jellyfish, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.d_dash, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
+    "10c_end-golden_golden": LevelLocation("10c_end-golden_golden", "Farewell - Golden Strawberry", "10c_end-golden_top", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.dream_blocks, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.blue_clouds, ItemName.springs, ItemName.feathers, ItemName.coins, ItemName.red_boosters, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.fire_ice_balls, ItemName.badeline_boosters, ItemName.bird, ItemName.breaker_boxes, ItemName.pufferfish, ItemName.jellyfish, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.d_dash, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.dream_blocks, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.blue_clouds, ItemName.springs, ItemName.feathers, ItemName.coins, ItemName.red_boosters, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.fire_ice_balls, ItemName.badeline_boosters, ItemName.bird, ItemName.breaker_boxes, ItemName.pufferfish, ItemName.jellyfish, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.d_dash, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
 }
 

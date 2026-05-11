@@ -71,7 +71,8 @@
                                 },
                                 {
                                     "dest": "north",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [ [ "l_climb" ] ]
                                 }
                             ]
                         },
@@ -144,7 +145,8 @@
                             "connections": [
                                 {
                                     "dest": "main",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [ [ "r_climb" ] ]
                                 }
                             ]
                         },
@@ -153,11 +155,13 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [ [ "l_climb" ] ]
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [ [ "r_climb" ] ]
                                 }
                             ]
                         },
@@ -41856,7 +41860,8 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "traffic_blocks", "dash_refills", "double_dash_refills", "dream_blocks", "swap_blocks", "move_blocks", "blue_boosters", "blue_clouds", "springs", "feathers", "coins", "red_boosters", "kevin_blocks", "core_blocks", "fire_ice_balls", "badeline_boosters", "bird", "breaker_boxes", "pufferfish", "jellyfish", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "crouch", "dr_dash", "dl_dash", "d_dash", "r_dash", "l_dash", "u_dash", "ul_dash", "ur_dash" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "double_dash_refills", "dream_blocks", "swap_blocks", "move_blocks", "blue_boosters", "blue_clouds", "springs", "feathers", "coins", "red_boosters", "kevin_blocks", "core_blocks", "fire_ice_balls", "badeline_boosters", "bird", "breaker_boxes", "pufferfish", "jellyfish", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "crouch", "dr_dash", "dl_dash", "d_dash", "r_dash", "l_dash", "u_dash", "ul_dash", "ur_dash" ] ],
+                                    "assist_rule": [ [ "traffic_blocks", "dash_refills", "double_dash_refills", "dream_blocks", "swap_blocks", "move_blocks", "blue_boosters", "blue_clouds", "springs", "feathers", "coins", "red_boosters", "kevin_blocks", "core_blocks", "fire_ice_balls", "badeline_boosters", "bird", "breaker_boxes", "pufferfish", "jellyfish", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "crouch", "dr_dash", "dl_dash", "d_dash", "r_dash", "l_dash", "u_dash", "ul_dash", "ur_dash" ] ]
                                 }
                             ]
                         }
