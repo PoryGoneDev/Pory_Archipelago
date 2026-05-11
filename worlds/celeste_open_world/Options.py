@@ -204,6 +204,8 @@ class ClimbShuffle(Choice):
     """
     Whether the ability to climb is shuffled into the item pool, and in what manner
 
+    NOTE: Due to extreme difficulty, this option is disabled in `Developer Intended` logic difficulty
+
     None: Climbing is not shuffled
 
     Unified: A single `Climb` item exists, which gives allows you to climb to the left and right

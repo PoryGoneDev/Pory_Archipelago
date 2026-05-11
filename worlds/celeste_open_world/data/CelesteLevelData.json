@@ -2162,7 +2162,7 @@
                             "name": "east",
                             "direction": "right",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         }
                     ],
                     "checkpoint": "",
@@ -3754,7 +3754,11 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "any_dash_u_ur_r" ] ]
+                                    "rule": [ [ "any_dash_u_ul_l" ] ]
+                                },
+                                {
+                                    "dest": "west",
+                                    "rule": []
                                 }
                             ],
                             "locations": [
@@ -4908,7 +4912,7 @@
                             "name": "bottom",
                             "direction": "down",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "top",
@@ -5094,7 +5098,7 @@
                             "name": "east",
                             "direction": "right",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         }
                     ],
                     "checkpoint": "",
@@ -5254,7 +5258,7 @@
                             "name": "phone",
                             "direction": "special",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         }
                     ],
                     "checkpoint": "",
@@ -15296,7 +15300,7 @@
                             "name": "west",
                             "direction": "left",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "east",
@@ -17570,7 +17574,7 @@
                             "name": "north-west",
                             "direction": "left",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "north",
@@ -17594,13 +17598,13 @@
                             "name": "east-lower",
                             "direction": "right",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "south-east",
                             "direction": "right",
                             "blocked": false,
-                            "closes_behind": true
+                            "closes_behind": false
                         },
                         {
                             "name": "south",
@@ -41852,7 +41856,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "traffic_blocks", "dash_refills", "double_dash_refills", "dream_blocks", "swap_blocks", "move_blocks", "blue_boosters", "springs", "feathers", "coins", "red_boosters", "kevin_blocks", "core_blocks", "fire_ice_balls", "badeline_boosters", "bird", "breaker_boxes", "pufferfish", "jellyfish", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "crouch", "dr_dash", "dl_dash", "d_dash", "r_dash", "l_dash", "u_dash", "ul_dash", "ur_dash" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "double_dash_refills", "dream_blocks", "swap_blocks", "move_blocks", "blue_boosters", "blue_clouds", "springs", "feathers", "coins", "red_boosters", "kevin_blocks", "core_blocks", "fire_ice_balls", "badeline_boosters", "bird", "breaker_boxes", "pufferfish", "jellyfish", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "crouch", "dr_dash", "dl_dash", "d_dash", "r_dash", "l_dash", "u_dash", "ul_dash", "ur_dash" ] ]
                                 }
                             ]
                         }

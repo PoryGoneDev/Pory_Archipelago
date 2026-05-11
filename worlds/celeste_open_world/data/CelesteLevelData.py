@@ -134,7 +134,7 @@ all_doors: dict[str, Door] = {
 
     "1a_12_south-west": Door("1a_12_south-west", "1a_12", DoorDirection.down, False, True),
     "1a_12_north-west-door": Door("1a_12_north-west-door", "1a_12", DoorDirection.left, False, False),
-    "1a_12_east": Door("1a_12_east", "1a_12", DoorDirection.right, False, True),
+    "1a_12_east": Door("1a_12_east", "1a_12", DoorDirection.right, False, False),
 
     "1a_12z_east": Door("1a_12z_east", "1a_12z", DoorDirection.right, False, False),
 
@@ -285,7 +285,7 @@ all_doors: dict[str, Door] = {
     "2a_9b_east": Door("2a_9b_east", "2a_9b", DoorDirection.down, False, True),
     "2a_9b_west": Door("2a_9b_west", "2a_9b", DoorDirection.down, False, False),
 
-    "2a_10_bottom": Door("2a_10_bottom", "2a_10", DoorDirection.down, False, True),
+    "2a_10_bottom": Door("2a_10_bottom", "2a_10", DoorDirection.down, False, False),
     "2a_10_top": Door("2a_10_top", "2a_10", DoorDirection.up, False, False),
 
     "2a_2_north-west": Door("2a_2_north-west", "2a_2", DoorDirection.up, False, True),
@@ -299,7 +299,7 @@ all_doors: dict[str, Door] = {
     "2a_12b_north": Door("2a_12b_north", "2a_12b", DoorDirection.up, False, False),
     "2a_12b_south": Door("2a_12b_south", "2a_12b", DoorDirection.down, False, False),
     "2a_12b_south-east": Door("2a_12b_south-east", "2a_12b", DoorDirection.down, False, True),
-    "2a_12b_east": Door("2a_12b_east", "2a_12b", DoorDirection.right, False, True),
+    "2a_12b_east": Door("2a_12b_east", "2a_12b", DoorDirection.right, False, False),
 
     "2a_12c_south": Door("2a_12c_south", "2a_12c", DoorDirection.down, False, False),
 
@@ -310,7 +310,7 @@ all_doors: dict[str, Door] = {
     "2a_12_east": Door("2a_12_east", "2a_12", DoorDirection.right, False, False),
 
     "2a_13_west": Door("2a_13_west", "2a_13", DoorDirection.left, False, False),
-    "2a_13_phone": Door("2a_13_phone", "2a_13", DoorDirection.special, False, True),
+    "2a_13_phone": Door("2a_13_phone", "2a_13", DoorDirection.special, False, False),
 
     "2a_end_0_main": Door("2a_end_0_main", "2a_end_0", DoorDirection.special, False, True),
     "2a_end_0_east": Door("2a_end_0_east", "2a_end_0", DoorDirection.right, False, False),
@@ -902,7 +902,7 @@ all_doors: dict[str, Door] = {
     "4b_b-04_west": Door("4b_b-04_west", "4b_b-04", DoorDirection.down, False, True),
     "4b_b-04_east": Door("4b_b-04_east", "4b_b-04", DoorDirection.right, False, False),
 
-    "4b_c-00_west": Door("4b_c-00_west", "4b_c-00", DoorDirection.left, False, True),
+    "4b_c-00_west": Door("4b_c-00_west", "4b_c-00", DoorDirection.left, False, False),
     "4b_c-00_east": Door("4b_c-00_east", "4b_c-00", DoorDirection.right, False, False),
 
     "4b_c-01_west": Door("4b_c-01_west", "4b_c-01", DoorDirection.left, False, False),
@@ -1035,12 +1035,12 @@ all_doors: dict[str, Door] = {
     "5a_b-01b_east": Door("5a_b-01b_east", "5a_b-01b", DoorDirection.right, False, False),
 
     "5a_b-02_west": Door("5a_b-02_west", "5a_b-02", DoorDirection.left, False, True),
-    "5a_b-02_north-west": Door("5a_b-02_north-west", "5a_b-02", DoorDirection.left, False, True),
+    "5a_b-02_north-west": Door("5a_b-02_north-west", "5a_b-02", DoorDirection.left, False, False),
     "5a_b-02_north": Door("5a_b-02_north", "5a_b-02", DoorDirection.up, False, False),
     "5a_b-02_north-east": Door("5a_b-02_north-east", "5a_b-02", DoorDirection.right, False, False),
     "5a_b-02_east-upper": Door("5a_b-02_east-upper", "5a_b-02", DoorDirection.right, False, False),
-    "5a_b-02_east-lower": Door("5a_b-02_east-lower", "5a_b-02", DoorDirection.right, False, True),
-    "5a_b-02_south-east": Door("5a_b-02_south-east", "5a_b-02", DoorDirection.right, False, True),
+    "5a_b-02_east-lower": Door("5a_b-02_east-lower", "5a_b-02", DoorDirection.right, False, False),
+    "5a_b-02_south-east": Door("5a_b-02_south-east", "5a_b-02", DoorDirection.right, False, False),
     "5a_b-02_south": Door("5a_b-02_south", "5a_b-02", DoorDirection.down, False, False),
 
     "5a_b-03_east": Door("5a_b-03_east", "5a_b-03", DoorDirection.right, False, False),
@@ -2832,7 +2832,8 @@ all_region_connections: dict[str, RegionConnection] = {
     "2a_1_south---2a_1_south-east": RegionConnection("2a_1_south", "2a_1_south-east", [], [], []),
     "2a_1_south-east---2a_1_south": RegionConnection("2a_1_south-east", "2a_1_south", [], [], []),
 
-    "2a_d0_north---2a_d0_north-west": RegionConnection("2a_d0_north", "2a_d0_north-west", [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ], [], []),
+    "2a_d0_north---2a_d0_north-west": RegionConnection("2a_d0_north", "2a_d0_north-west", [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], ], [], []),
+    "2a_d0_north---2a_d0_west": RegionConnection("2a_d0_north", "2a_d0_west", [], [], []),
     "2a_d0_north-west---2a_d0_north": RegionConnection("2a_d0_north-west", "2a_d0_north", [], [], []),
     "2a_d0_north-west---2a_d0_west": RegionConnection("2a_d0_north-west", "2a_d0_west", [], [], []),
     "2a_d0_north-west---2a_d0_north-east": RegionConnection("2a_d0_north-west", "2a_d0_north-east", [[ItemName.dream_blocks, ItemName.dr_dash, ], [ItemName.dream_blocks, ItemName.r_dash, ], ], [], []),
@@ -5421,7 +5422,7 @@ all_locations: dict[str, LevelLocation] = {
     "10c_end-golden_binoculars_1": LevelLocation("10c_end-golden_binoculars_1", "Farewell - Room end-golden Binoculars 1", "10c_end-golden_bottom", LocationType.binoculars, [], [], []),
     "10c_end-golden_binoculars_2": LevelLocation("10c_end-golden_binoculars_2", "Farewell - Room end-golden Binoculars 2", "10c_end-golden_bottom", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], ], [], []),
     "10c_end-golden_binoculars_3": LevelLocation("10c_end-golden_binoculars_3", "Farewell - Room end-golden Binoculars 3", "10c_end-golden_bottom", LocationType.binoculars, [[ItemName.double_dash_refills, ItemName.jellyfish, ItemName.springs, ItemName.pufferfish, ItemName.crouch, ItemName.dr_dash, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
-    "10c_end-golden_golden": LevelLocation("10c_end-golden_golden", "Farewell - Golden Strawberry", "10c_end-golden_top", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.dream_blocks, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.springs, ItemName.feathers, ItemName.coins, ItemName.red_boosters, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.fire_ice_balls, ItemName.badeline_boosters, ItemName.bird, ItemName.breaker_boxes, ItemName.pufferfish, ItemName.jellyfish, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.d_dash, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
+    "10c_end-golden_golden": LevelLocation("10c_end-golden_golden", "Farewell - Golden Strawberry", "10c_end-golden_top", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.double_dash_refills, ItemName.dream_blocks, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.blue_clouds, ItemName.springs, ItemName.feathers, ItemName.coins, ItemName.red_boosters, ItemName.kevin_blocks, ItemName.core_blocks, ItemName.fire_ice_balls, ItemName.badeline_boosters, ItemName.bird, ItemName.breaker_boxes, ItemName.pufferfish, ItemName.jellyfish, ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.yellow_cassette_blocks, ItemName.green_cassette_blocks, ItemName.crouch, ItemName.dr_dash, ItemName.dl_dash, ItemName.d_dash, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
 
 }
 
