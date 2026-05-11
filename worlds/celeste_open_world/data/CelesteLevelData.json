@@ -22198,7 +22198,7 @@
         {
             "name": "5c",
             "display_name": "Mirror Temple C",
-            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills" ],
+            "items": [ "swap_blocks", "red_boosters", "dash_switches", "dash_refills", "springs" ],
             "rooms": [
                 {
                     "name": "00",
