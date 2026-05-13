@@ -2802,13 +2802,13 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "1b_end_west---1b_end_goal": RegionConnection("1b_end_west", "1b_end_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.ul_dash, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.blue_cassette_blocks, ItemName.r_climb, ItemName.dl_dash, ], [ItemName.blue_cassette_blocks, ItemName.r_climb, ItemName.l_dash, ], [ItemName.blue_cassette_blocks, ItemName.r_climb, ItemName.ul_dash, ], ]),
 
-    "1c_00_west---1c_00_east": RegionConnection("1c_00_west", "1c_00_east", [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ], [], []),
-    "1c_00_east---1c_00_west": RegionConnection("1c_00_east", "1c_00_west", [[ItemName.cannot_access, ], ], [], []),
+    "1c_00_west---1c_00_east": RegionConnection("1c_00_west", "1c_00_east", [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.dash_refills, ItemName.u_dash, ItemName.ur_dash, ], ], [], [[ItemName.r_climb, ItemName.traffic_blocks, ], ]),
+    "1c_00_east---1c_00_west": RegionConnection("1c_00_east", "1c_00_west", [[ItemName.cannot_access, ], ], [], [[ItemName.crouch, ItemName.l_dash, ], [ItemName.crouch, ItemName.u_dash, ], [ItemName.crouch, ItemName.ul_dash, ], [ItemName.l_climb, ItemName.crouch, ], [ItemName.l_climb, ItemName.traffic_blocks, ], ]),
 
-    "1c_01_west---1c_01_east": RegionConnection("1c_01_west", "1c_01_east", [[ItemName.traffic_blocks, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.ur_dash, ], ], [], []),
+    "1c_01_west---1c_01_east": RegionConnection("1c_01_west", "1c_01_east", [[ItemName.traffic_blocks, ItemName.r_dash, ], [ItemName.traffic_blocks, ItemName.ur_dash, ], ], [], [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], [ItemName.traffic_blocks, ], ]),
     "1c_01_east---1c_01_west": RegionConnection("1c_01_east", "1c_01_west", [], [], []),
 
-    "1c_02_west---1c_02_goal": RegionConnection("1c_02_west", "1c_02_goal", [[ItemName.coins, ItemName.traffic_blocks, ItemName.u_dash, ItemName.r_dash, ], ], [], []),
+    "1c_02_west---1c_02_goal": RegionConnection("1c_02_west", "1c_02_goal", [[ItemName.coins, ItemName.traffic_blocks, ItemName.u_dash, ItemName.r_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.ur_dash, ], [ItemName.l_climb, ItemName.dr_dash, ], [ItemName.r_climb, ItemName.dr_dash, ], ]),
 
     "2a_start_main---2a_start_east": RegionConnection("2a_start_main", "2a_start_east", [], [], []),
     "2a_start_top---2a_start_east": RegionConnection("2a_start_top", "2a_start_east", [], [], []),
@@ -5078,7 +5078,7 @@ all_locations: dict[str, LevelLocation] = {
     "1c_01_binoculars": LevelLocation("1c_01_binoculars", "Forsaken City C - Room 01 Binoculars", "1c_01_west", LocationType.binoculars, [], [], []),
     "1c_02_binoculars": LevelLocation("1c_02_binoculars", "Forsaken City C - Room 02 Binoculars", "1c_02_west", LocationType.binoculars, [], [], []),
     "1c_02_clear": LevelLocation("1c_02_clear", "Forsaken City C - Level Clear", "1c_02_goal", LocationType.level_clear, [], [], []),
-    "1c_02_golden": LevelLocation("1c_02_golden", "Forsaken City C - Golden Strawberry", "1c_02_goal", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.coins, ItemName.u_dash, ItemName.r_dash, ], ], [], []),
+    "1c_02_golden": LevelLocation("1c_02_golden", "Forsaken City C - Golden Strawberry", "1c_02_goal", LocationType.golden_strawberry, [[ItemName.traffic_blocks, ItemName.dash_refills, ItemName.coins, ItemName.u_dash, ItemName.r_dash, ], ], [], [[ItemName.r_climb, ItemName.traffic_blocks, ItemName.dr_dash, ], [ItemName.r_climb, ItemName.traffic_blocks, ItemName.r_dash, ], [ItemName.r_climb, ItemName.traffic_blocks, ItemName.ur_dash, ], ]),
 
     "2a_s2_crystal_heart": LevelLocation("2a_s2_crystal_heart", "Old Site A - Crystal Heart", "2a_s2_bottom", LocationType.crystal_heart, [[ItemName.dl_dash, ], [ItemName.dr_dash, ], [ItemName.l_dash, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ], [], []),
     "2a_1_strawberry": LevelLocation("2a_1_strawberry", "Old Site A - Room 1 Strawberry", "2a_1_north-west", LocationType.strawberry, [[ItemName.dream_blocks, ItemName.ul_dash, ItemName.r_dash, ], [ItemName.dream_blocks, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),

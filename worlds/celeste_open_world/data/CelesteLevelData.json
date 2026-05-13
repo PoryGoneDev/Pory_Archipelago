@@ -3595,7 +3595,10 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "traffic_blocks", "dash_refills", "u_dash", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "u_dash", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "r_climb", "traffic_blocks" ]
+                                    ]
                                 }
                             ]
                         },
@@ -3604,7 +3607,12 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l", "crouch" ],
+                                        [ "l_climb", "crouch" ],
+                                        [ "l_climb", "traffic_blocks" ]
+                                    ]
                                 }
                             ]
                         }
@@ -3628,7 +3636,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "traffic_blocks", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "traffic_blocks", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_ul" ],
+                                        [ "traffic_blocks" ]
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -3675,7 +3687,12 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "coins", "traffic_blocks", "u_dash", "r_dash" ] ]
+                                    "rule": [ [ "coins", "traffic_blocks", "u_dash", "r_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ur_r" ],
+                                        [ "l_climb", "dr_dash" ],
+                                        [ "r_climb", "dr_dash" ]
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -3701,7 +3718,8 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "traffic_blocks", "dash_refills", "coins", "u_dash", "r_dash" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "coins", "u_dash", "r_dash" ] ],
+                                    "assist_rule": [ [ "r_climb", "traffic_blocks", "any_dash_ur_r_dr" ] ]
                                 }
                             ]
                         }
