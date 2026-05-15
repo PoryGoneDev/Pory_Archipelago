@@ -7584,7 +7584,8 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dream_blocks", "r_dash" ] ]
+                                    "rule": [ [ "dream_blocks", "r_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -7593,7 +7594,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dream_blocks", "l_dash" ] ]
+                                    "rule": [ [ "dream_blocks", "l_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "l_dash" ] ]
                                 }
                             ]
                         }
@@ -7617,7 +7619,8 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dream_blocks", "coins", "u_dash", "ul_dash" ] ]
+                                    "rule": [ [ "dream_blocks", "coins", "u_dash", "ul_dash" ] ],
+                                    "assist_rule": [ [ "coins", "r_dash" ] ]
                                 }
                             ]
                         },
@@ -7651,7 +7654,8 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "coins", "dream_blocks", "dash_refills", "r_dash", "l_dash", "u_dash" ] ]
+                                    "rule": [ [ "coins", "dream_blocks", "dash_refills", "r_dash", "l_dash", "u_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "r_dash", "l_dash" ] ]
                                 }
                             ],
                             "locations": [
@@ -7677,7 +7681,8 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "dream_blocks", "dash_refills", "coins", "r_dash", "l_dash", "u_dash", "ul_dash" ] ]
+                                    "rule": [ [ "dream_blocks", "dash_refills", "coins", "r_dash", "l_dash", "u_dash", "ul_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "coins", "r_dash", "l_dash" ] ]
                                 }
                             ]
                         }

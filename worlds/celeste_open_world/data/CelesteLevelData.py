@@ -3051,12 +3051,12 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "2b_end_west---2b_end_goal": RegionConnection("2b_end_west", "2b_end_goal", [[ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.u_dash, ], ], [], [[ItemName.u_dash, ], [ItemName.blue_cassette_blocks, ItemName.ul_dash, ], [ItemName.blue_cassette_blocks, ItemName.ur_dash, ], [ItemName.ur_dash, ItemName.l_dash, ], [ItemName.ur_dash, ItemName.ul_dash, ], [ItemName.ul_dash, ItemName.r_dash, ], [ItemName.ul_dash, ItemName.ur_dash, ], ]),
 
-    "2c_00_west---2c_00_east": RegionConnection("2c_00_west", "2c_00_east", [[ItemName.dream_blocks, ItemName.r_dash, ], ], [], []),
-    "2c_00_east---2c_00_west": RegionConnection("2c_00_east", "2c_00_west", [[ItemName.dream_blocks, ItemName.l_dash, ], ], [], []),
+    "2c_00_west---2c_00_east": RegionConnection("2c_00_west", "2c_00_east", [[ItemName.dream_blocks, ItemName.r_dash, ], ], [], [[ItemName.dream_blocks, ItemName.r_dash, ], ]),
+    "2c_00_east---2c_00_west": RegionConnection("2c_00_east", "2c_00_west", [[ItemName.dream_blocks, ItemName.l_dash, ], ], [], [[ItemName.dream_blocks, ItemName.l_dash, ], ]),
 
-    "2c_01_west---2c_01_east": RegionConnection("2c_01_west", "2c_01_east", [[ItemName.dream_blocks, ItemName.coins, ItemName.u_dash, ItemName.ul_dash, ], ], [], []),
+    "2c_01_west---2c_01_east": RegionConnection("2c_01_west", "2c_01_east", [[ItemName.dream_blocks, ItemName.coins, ItemName.u_dash, ItemName.ul_dash, ], ], [], [[ItemName.coins, ItemName.r_dash, ], ]),
 
-    "2c_02_west---2c_02_goal": RegionConnection("2c_02_west", "2c_02_goal", [[ItemName.coins, ItemName.dream_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ], ], [], []),
+    "2c_02_west---2c_02_goal": RegionConnection("2c_02_west", "2c_02_goal", [[ItemName.coins, ItemName.dream_blocks, ItemName.dash_refills, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ], ], [], [[ItemName.dream_blocks, ItemName.r_dash, ItemName.l_dash, ], ]),
 
     "3a_s0_main---3a_s0_east": RegionConnection("3a_s0_main", "3a_s0_east", [], [], []),
     "3a_s0_east---3a_s0_main": RegionConnection("3a_s0_east", "3a_s0_main", [], [], []),
@@ -5119,7 +5119,7 @@ all_locations: dict[str, LevelLocation] = {
 
     "2c_02_binoculars": LevelLocation("2c_02_binoculars", "Old Site C - Room 02 Binoculars", "2c_02_west", LocationType.binoculars, [], [], []),
     "2c_02_clear": LevelLocation("2c_02_clear", "Old Site C - Level Clear", "2c_02_goal", LocationType.level_clear, [], [], []),
-    "2c_02_golden": LevelLocation("2c_02_golden", "Old Site C - Golden Strawberry", "2c_02_goal", LocationType.golden_strawberry, [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.coins, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ], ], [], []),
+    "2c_02_golden": LevelLocation("2c_02_golden", "Old Site C - Golden Strawberry", "2c_02_goal", LocationType.golden_strawberry, [[ItemName.dream_blocks, ItemName.dash_refills, ItemName.coins, ItemName.r_dash, ItemName.l_dash, ItemName.u_dash, ItemName.ul_dash, ], ], [], [[ItemName.dream_blocks, ItemName.coins, ItemName.r_dash, ItemName.l_dash, ], ]),
 
     "3a_s2_strawberry_1": LevelLocation("3a_s2_strawberry_1", "Celestial Resort A - Room s2 Strawberry 1", "3a_s2_west", LocationType.strawberry, [], [], []),
     "3a_s2_strawberry_2": LevelLocation("3a_s2_strawberry_2", "Celestial Resort A - Room s2 Strawberry 2", "3a_s2_north-west", LocationType.strawberry, [[ItemName.u_dash, ], [ItemName.ur_dash, ItemName.ul_dash, ], ], [], []),
