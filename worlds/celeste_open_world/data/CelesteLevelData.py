@@ -3322,14 +3322,14 @@ all_region_connections: dict[str, RegionConnection] = {
     "3a_roof07_west---3a_roof07_main": RegionConnection("3a_roof07_west", "3a_roof07_main", [], [], []),
     "3a_roof07_main---3a_roof07_west": RegionConnection("3a_roof07_main", "3a_roof07_west", [], [], []),
 
-    "3b_00_west---3b_00_east": RegionConnection("3b_00_west", "3b_00_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ], [], []),
-    "3b_00_east---3b_00_west": RegionConnection("3b_00_east", "3b_00_west", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ], [], []),
+    "3b_00_west---3b_00_east": RegionConnection("3b_00_west", "3b_00_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
+    "3b_00_east---3b_00_west": RegionConnection("3b_00_east", "3b_00_west", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
 
     "3b_01_west---3b_01_east": RegionConnection("3b_01_west", "3b_01_east", [[ItemName.dash_refills, ItemName.ur_dash, ], ], [], []),
-    "3b_01_east---3b_01_west": RegionConnection("3b_01_east", "3b_01_west", [[ItemName.dash_refills, ItemName.ul_dash, ], ], [], []),
+    "3b_01_east---3b_01_west": RegionConnection("3b_01_east", "3b_01_west", [[ItemName.dash_refills, ItemName.ul_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
-    "3b_02_west---3b_02_east": RegionConnection("3b_02_west", "3b_02_east", [[ItemName.ur_dash, ], ], [], []),
+    "3b_02_west---3b_02_east": RegionConnection("3b_02_west", "3b_02_east", [[ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
     "3b_02_east---3b_02_west": RegionConnection("3b_02_east", "3b_02_west", [[ItemName.cannot_access, ], ], [], []),
 
     "3b_03_west---3b_03_east": RegionConnection("3b_03_west", "3b_03_east", [[ItemName.dash_refills, ItemName.u_dash, ], ], [], []),
@@ -3338,38 +3338,39 @@ all_region_connections: dict[str, RegionConnection] = {
     "3b_04_west---3b_04_east": RegionConnection("3b_04_west", "3b_04_east", [[ItemName.dash_refills, ItemName.ur_dash, ItemName.r_dash, ], ], [], []),
     "3b_04_east---3b_04_west": RegionConnection("3b_04_east", "3b_04_west", [[ItemName.dash_refills, ItemName.l_dash, ], ], [], []),
 
-    "3b_05_west---3b_05_east": RegionConnection("3b_05_west", "3b_05_east", [[ItemName.moving_platforms, ItemName.coins, ItemName.springs, ItemName.ur_dash, ], ], [], []),
+    "3b_05_west---3b_05_east": RegionConnection("3b_05_west", "3b_05_east", [[ItemName.moving_platforms, ItemName.coins, ItemName.springs, ItemName.ur_dash, ], ], [], [[ItemName.coins, ItemName.springs, ], [ItemName.coins, ItemName.u_dash, ], [ItemName.coins, ItemName.ul_dash, ], [ItemName.coins, ItemName.ur_dash, ], ]),
 
-    "3b_06_west---3b_06_east": RegionConnection("3b_06_west", "3b_06_east", [[ItemName.sinking_platforms, ItemName.r_dash, ItemName.u_dash, ], [ItemName.sinking_platforms, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.sinking_platforms, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.sinking_platforms, ItemName.ur_dash, ], ], [], []),
+    "3b_06_west---3b_06_east": RegionConnection("3b_06_west", "3b_06_east", [[ItemName.sinking_platforms, ItemName.r_dash, ItemName.u_dash, ], [ItemName.sinking_platforms, ItemName.r_dash, ItemName.ur_dash, ], [ItemName.sinking_platforms, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.sinking_platforms, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
     "3b_06_east---3b_06_west": RegionConnection("3b_06_east", "3b_06_west", [[ItemName.sinking_platforms, ItemName.l_dash, ], [ItemName.sinking_platforms, ItemName.ul_dash, ], ], [], []),
 
-    "3b_07_west---3b_07_east": RegionConnection("3b_07_west", "3b_07_east", [[ItemName.ur_dash, ], ], [], []),
-    "3b_07_east---3b_07_west": RegionConnection("3b_07_east", "3b_07_west", [[ItemName.ul_dash, ], ], [], []),
+    "3b_07_west---3b_07_east": RegionConnection("3b_07_west", "3b_07_east", [[ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
+    "3b_07_east---3b_07_west": RegionConnection("3b_07_east", "3b_07_west", [[ItemName.ul_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
-    "3b_08_bottom---3b_08_top": RegionConnection("3b_08_bottom", "3b_08_top", [[ItemName.dash_refills, ItemName.u_dash, ItemName.l_dash, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
+    "3b_08_bottom---3b_08_top": RegionConnection("3b_08_bottom", "3b_08_top", [[ItemName.dash_refills, ItemName.u_dash, ItemName.l_dash, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.dash_refills, ItemName.u_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], [ItemName.l_climb, ], ]),
     "3b_08_top---3b_08_bottom": RegionConnection("3b_08_top", "3b_08_bottom", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ], [], []),
 
-    "3b_09_west---3b_09_east": RegionConnection("3b_09_west", "3b_09_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ], [], []),
+    "3b_09_west---3b_09_east": RegionConnection("3b_09_west", "3b_09_east", [[ItemName.r_dash, ], [ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
     "3b_09_east---3b_09_east": RegionConnection("3b_09_east", "3b_09_east", [[ItemName.l_dash, ], [ItemName.ul_dash, ], ], [], []),
 
     "3b_10_west---3b_10_east": RegionConnection("3b_10_west", "3b_10_east", [[ItemName.dash_refills, ItemName.u_dash, ], ], [], []),
+    "3b_10_east---3b_10_west": RegionConnection("3b_10_east", "3b_10_west", [[ItemName.cannot_access, ], ], [], []),
 
-    "3b_11_west---3b_11_east": RegionConnection("3b_11_west", "3b_11_east", [[ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ], [], []),
-    "3b_11_east---3b_11_west": RegionConnection("3b_11_east", "3b_11_west", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ], [], []),
+    "3b_11_west---3b_11_east": RegionConnection("3b_11_west", "3b_11_east", [[ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
+    "3b_11_east---3b_11_west": RegionConnection("3b_11_east", "3b_11_west", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
-    "3b_13_west---3b_13_east": RegionConnection("3b_13_west", "3b_13_east", [[ItemName.springs, ItemName.u_dash, ], [ItemName.springs, ItemName.ur_dash, ], ], [], []),
-    "3b_13_east---3b_13_west": RegionConnection("3b_13_east", "3b_13_west", [[ItemName.springs, ItemName.l_dash, ], [ItemName.springs, ItemName.u_dash, ], [ItemName.springs, ItemName.ul_dash, ], ], [], []),
+    "3b_13_west---3b_13_east": RegionConnection("3b_13_west", "3b_13_east", [[ItemName.springs, ItemName.u_dash, ], [ItemName.springs, ItemName.ur_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], [ItemName.l_climb, ], [ItemName.r_climb, ], ]),
+    "3b_13_east---3b_13_west": RegionConnection("3b_13_east", "3b_13_west", [[ItemName.springs, ItemName.l_dash, ], [ItemName.springs, ItemName.u_dash, ], [ItemName.springs, ItemName.ul_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
     "3b_14_west---3b_14_east": RegionConnection("3b_14_west", "3b_14_east", [[ItemName.dash_refills, ItemName.r_dash, ], [ItemName.dash_refills, ItemName.ur_dash, ], ], [], []),
-    "3b_14_east---3b_14_west": RegionConnection("3b_14_east", "3b_14_west", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ], [], []),
+    "3b_14_east---3b_14_west": RegionConnection("3b_14_east", "3b_14_west", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
     "3b_15_west---3b_15_east": RegionConnection("3b_15_west", "3b_15_east", [[ItemName.r_dash, ItemName.l_dash, ], ], [], []),
     "3b_15_east---3b_15_west": RegionConnection("3b_15_east", "3b_15_west", [[ItemName.cannot_access, ], ], [], []),
 
-    "3b_12_west---3b_12_east": RegionConnection("3b_12_west", "3b_12_east", [[ItemName.springs, ItemName.dash_refills, ItemName.r_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.ur_dash, ], ], [], []),
-    "3b_12_east---3b_12_west": RegionConnection("3b_12_east", "3b_12_west", [[ItemName.cannot_access, ], ], [], []),
+    "3b_12_west---3b_12_east": RegionConnection("3b_12_west", "3b_12_east", [[ItemName.springs, ItemName.dash_refills, ItemName.r_dash, ], [ItemName.springs, ItemName.dash_refills, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
+    "3b_12_east---3b_12_west": RegionConnection("3b_12_east", "3b_12_west", [[ItemName.cannot_access, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
 
-    "3b_16_west---3b_16_top": RegionConnection("3b_16_west", "3b_16_top", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ], [], []),
+    "3b_16_west---3b_16_top": RegionConnection("3b_16_west", "3b_16_top", [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ], [], [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
     "3b_16_top---3b_16_west": RegionConnection("3b_16_top", "3b_16_west", [], [], []),
 
     "3b_17_west---3b_17_east": RegionConnection("3b_17_west", "3b_17_east", [[ItemName.dash_refills, ItemName.springs, ItemName.ur_dash, ItemName.r_dash, ], ], [], []),
@@ -3386,7 +3387,7 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "3b_20_west---3b_20_east": RegionConnection("3b_20_west", "3b_20_east", [[ItemName.dash_refills, ItemName.coins, ItemName.u_dash, ], ], [], []),
 
-    "3b_end_west---3b_end_goal": RegionConnection("3b_end_west", "3b_end_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ], [], []),
+    "3b_end_west---3b_end_goal": RegionConnection("3b_end_west", "3b_end_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ItemName.l_dash, ], [ItemName.r_climb, ItemName.ul_dash, ], [ItemName.pink_cassette_blocks, ItemName.ul_dash, ], ]),
 
     "3c_00_west---3c_00_east": RegionConnection("3c_00_west", "3c_00_east", [[ItemName.dash_refills, ItemName.ur_dash, ItemName.u_dash, ], ], [], []),
     "3c_00_east---3c_00_west": RegionConnection("3c_00_east", "3c_00_west", [[ItemName.cannot_access, ], ], [], []),
@@ -5178,10 +5179,10 @@ all_locations: dict[str, LevelLocation] = {
     "3a_roof07_clear": LevelLocation("3a_roof07_clear", "Celestial Resort A - Level Clear", "3a_roof07_main", LocationType.level_clear, [], [], []),
     "3a_roof07_golden": LevelLocation("3a_roof07_golden", "Celestial Resort A - Golden Strawberry", "3a_roof07_main", LocationType.golden_strawberry, [["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", "Celestial Resort A - Presidential Suite Key", ItemName.sinking_platforms, ItemName.dash_refills, ItemName.brown_clutter, ItemName.green_clutter, ItemName.pink_clutter, ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.ur_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.u_dash, ItemName.r_dash, ], ], [], [["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", ItemName.coins, ItemName.u_dash, ], ["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", ItemName.coins, ItemName.ul_dash, ItemName.r_dash, ], ["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", ItemName.coins, ItemName.ul_dash, ItemName.ur_dash, ], ["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", ItemName.coins, ItemName.ul_dash, ItemName.r_climb, ], ["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", ItemName.coins, ItemName.ur_dash, ItemName.l_dash, ], ["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", ItemName.coins, ItemName.ur_dash, ItemName.ul_dash, ], ["Celestial Resort A - Front Door Key", "Celestial Resort A - Hallway Key 1", "Celestial Resort A - Hallway Key 2", "Celestial Resort A - Huge Mess Key", ItemName.coins, ItemName.ur_dash, ItemName.l_climb, ], ]),
 
-    "3b_back_binoculars": LevelLocation("3b_back_binoculars", "Celestial Resort B - Room back Binoculars", "3b_back_east", LocationType.binoculars, [[ItemName.dl_dash, ItemName.crouch, ItemName.l_dash, ], [ItemName.dl_dash, ItemName.crouch, ItemName.ul_dash, ], ], [], []),
-    "3b_12_binoculars": LevelLocation("3b_12_binoculars", "Celestial Resort B - Room 12 Binoculars", "3b_12_west", LocationType.binoculars, [], [], []),
+    "3b_back_binoculars": LevelLocation("3b_back_binoculars", "Celestial Resort B - Room back Binoculars", "3b_back_east", LocationType.binoculars, [[ItemName.dl_dash, ItemName.crouch, ItemName.l_dash, ], [ItemName.dl_dash, ItemName.crouch, ItemName.ul_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
+    "3b_12_binoculars": LevelLocation("3b_12_binoculars", "Celestial Resort B - Room 12 Binoculars", "3b_12_west", LocationType.binoculars, [], [], [[ItemName.l_dash, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], [ItemName.l_climb, ], ]),
     "3b_end_clear": LevelLocation("3b_end_clear", "Celestial Resort B - Level Clear", "3b_end_goal", LocationType.level_clear, [], [], []),
-    "3b_end_golden": LevelLocation("3b_end_golden", "Celestial Resort B - Golden Strawberry", "3b_end_goal", LocationType.golden_strawberry, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.moving_platforms, ItemName.sinking_platforms, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.l_dash, ], ], [], []),
+    "3b_end_golden": LevelLocation("3b_end_golden", "Celestial Resort B - Golden Strawberry", "3b_end_goal", LocationType.golden_strawberry, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.moving_platforms, ItemName.sinking_platforms, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.l_dash, ], ], [], [[ItemName.springs, ItemName.coins, ItemName.u_dash, ], [ItemName.springs, ItemName.coins, ItemName.ur_dash, ], [ItemName.springs, ItemName.coins, ItemName.ul_dash, ItemName.r_dash, ], [ItemName.springs, ItemName.coins, ItemName.ul_dash, ItemName.r_climb, ], ]),
 
     "3c_02_binoculars": LevelLocation("3c_02_binoculars", "Celestial Resort C - Room 02 Binoculars", "3c_02_west", LocationType.binoculars, [], [], []),
     "3c_02_clear": LevelLocation("3c_02_clear", "Celestial Resort C - Level Clear", "3c_02_goal", LocationType.level_clear, [], [], []),
