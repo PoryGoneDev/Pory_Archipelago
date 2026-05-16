@@ -7764,7 +7764,8 @@
                                 },
                                 {
                                     "dest": "north-east",
-                                    "rule": [ [ "u_dash" ] ]
+                                    "rule": [ [ "u_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -7818,7 +7819,16 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
+                                },
+                                {
+                                    "dest": "north-west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ul_ur" ] ]
                                 }
                             ],
                             "locations": [
@@ -7846,7 +7856,8 @@
                                     "rule": [
                                         [ "u_dash" ],
                                         [ "ur_dash", "ul_dash" ]
-                                    ]
+                                    ],
+                                    "assist_rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -7859,7 +7870,8 @@
                                 },
                                 {
                                     "dest": "north-west",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [ [ "any_dash_l_ul_u" ] ]
                                 }
                             ]
                         }
@@ -7895,7 +7907,8 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "Front Door Key" ] ]
+                                    "rule": [ [ "Front Door Key" ] ],
+                                    "assist_rule": [ [ "Front Door Key" ] ]
                                 }
                             ],
                             "locations": [
@@ -7903,7 +7916,12 @@
                                     "name": "key_1",
                                     "display_name": "Front Door Key",
                                     "type": "key",
-                                    "rule": [ [ "any_dash_u_ur", "any_dash_dl_l_ul_u" ] ]
+                                    "rule": [ [ "any_dash_u_ur", "any_dash_dl_l_ul_u" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "r_dash", "l_climb" ],
+                                        [ "r_dash", "l_dash" ]
+                                    ]
                                 }
                             ]
                         },
@@ -8058,7 +8076,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_l_ul_u_ur" ],
+                                        [ "l_climb" ]
+                                    ]
                                 },
                                 {
                                     "dest": "main",
@@ -8071,11 +8093,21 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "u_dash" ] ]
+                                    "rule": [ [ "dash_refills", "u_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
+                                },
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_l_ul_u_ur" ],
+                                        [ "l_climb" ]
+                                    ]
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "Hallway Key 1" ] ]
+                                    "rule": [ [ "Hallway Key 1" ] ],
+                                    "assist_rule": [ [ "Hallway Key 1" ] ]
                                 }
                             ]
                         },
@@ -8271,7 +8303,8 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ],
                             "locations": [
@@ -8417,7 +8450,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "ul_dash" ] ]
+                                    "rule": [ [ "dash_refills", "ul_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_l_ul_u" ] ]
                                 }
                             ]
                         }
@@ -8457,7 +8491,8 @@
                                 },
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "sinking_platforms", "u_dash" ] ]
+                                    "rule": [ [ "sinking_platforms", "u_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -8624,7 +8659,8 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "Hallway Key 2", "dash_refills", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "Hallway Key 2", "dash_refills", "any_dash_ur_r" ] ],
+                                    "assist_rule": [ [ "Hallway Key 2" ] ]
                                 },
                                 {
                                     "dest": "top",
@@ -8646,7 +8682,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "Hallway Key 2", "dash_refills", "any_dash_ul_l" ] ]
+                                    "rule": [ [ "Hallway Key 2", "dash_refills", "any_dash_ul_l" ] ],
+                                    "assist_rule": [ [ "Hallway Key 2" ] ]
                                 }
                             ]
                         }
@@ -8762,7 +8799,7 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [ [ "sinking_platforms" ] ]
                                 }
                             ],
                             "locations": [
@@ -8770,7 +8807,7 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "any_dash_u_ur" ] ]
+                                    "rule": [ [ "sinking_platforms", "any_dash_u_ur" ] ]
                                 }
                             ]
                         },
@@ -8779,7 +8816,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "any_dash_u_ul" ] ]
+                                    "rule": [ [ "sinking_platforms", "any_dash_u_ul" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "sinking_platforms" ]
+                                    ]
                                 }
                             ]
                         }
@@ -8809,11 +8850,16 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "any_dash_u_ul" ] ]
+                                    "rule": [ [ "any_dash_u_ul" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ul" ] ]
                                 },
                                 {
                                     "dest": "center",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -8823,6 +8869,11 @@
                                 {
                                     "dest": "south-west",
                                     "rule": [ [ "ul_dash" ] ]
+                                },
+                                {
+                                    "dest": "north-west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ul_l" ] ]
                                 },
                                 {
                                     "dest": "south-east",
@@ -8844,6 +8895,10 @@
                                 {
                                     "dest": "south-west",
                                     "rule": []
+                                },
+                                {
+                                    "dest": "center",
+                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         },
@@ -8860,7 +8915,8 @@
                                 },
                                 {
                                     "dest": "south-east-door",
-                                    "rule": [ [ "any_dash_dl_d_dr" ] ]
+                                    "rule": [ [ "any_dash_dl_d_dr" ] ],
+                                    "assist_rule": [ [ "any_dash_dl_d_dr" ] ]
                                 }
                             ]
                         },
@@ -8947,7 +9003,13 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "coins", "moving_platforms", "springs", "any_dash_u_ur_ul" ] ]
+                                    "rule": [ [ "coins", "moving_platforms", "springs", "any_dash_u_ur_ul" ] ],
+                                    "assist_rule": [
+                                        [ "coins", "springs", "any_dash_r_l" ],
+                                        [ "coins", "springs", "r_climb" ],
+                                        [ "coins", "springs", "l_climb" ],
+                                        [ "coins", "any_dash_u_ur_ul" ]
+                                    ]
                                 }
                             ]
                         },
@@ -8978,14 +9040,24 @@
                     "regions": [
                         {
                             "name": "west",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "east",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur_r_l" ] ]
+                                }
+                            ]
                         },
                         {
                             "name": "east",
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "sinking_platforms", "coins", "u_dash", "l_dash" ] ]
+                                    "rule": [ [ "sinking_platforms", "coins", "u_dash", "l_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_l_ur" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -9020,6 +9092,11 @@
                                 {
                                     "dest": "bottom",
                                     "rule": [
+                                        [ "brown_clutter" ],
+                                        [ "green_clutter" ],
+                                        [ "pink_clutter" ]
+                                    ],
+                                    "assist_rule": [
                                         [ "brown_clutter" ],
                                         [ "green_clutter" ],
                                         [ "pink_clutter" ]
@@ -9097,11 +9174,20 @@
                                     "rule": [
                                         [ "Huge Mess Key", "springs" ],
                                         [ "Huge Mess Key", "any_dash_u_ul" ]
+                                    ],
+                                    "assist_rule": [
+                                        [ "Huge Mess Key", "springs", "l_climb" ],
+                                        [ "Huge Mess Key", "any_dash_u_ul" ]
                                     ]
                                 },
                                 {
                                     "dest": "south-west",
                                     "rule": [
+                                        [ "brown_clutter" ],
+                                        [ "green_clutter" ],
+                                        [ "pink_clutter" ]
+                                    ],
+                                    "assist_rule": [
                                         [ "brown_clutter" ],
                                         [ "green_clutter" ],
                                         [ "pink_clutter" ]
@@ -9125,11 +9211,13 @@
                                 },
                                 {
                                     "dest": "north-east-top",
-                                    "rule": [ [ "any_dash_r_ur_u" ] ]
+                                    "rule": [ [ "any_dash_r_ur_u" ] ],
+                                    "assist_rule": [ [ "any_dash_r_ur_u" ] ]
                                 },
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "any_dash_l_ul_u" ] ]
+                                    "rule": [ [ "any_dash_l_ul_u" ] ],
+                                    "assist_rule": [ [ "any_dash_l_ul_u" ] ]
                                 }
                             ],
                             "locations": [
@@ -9137,7 +9225,8 @@
                                     "name": "key_4",
                                     "display_name": "Huge Mess Key",
                                     "type": "key",
-                                    "rule": [ [ "brown_clutter", "green_clutter", "pink_clutter" ] ]
+                                    "rule": [ [ "brown_clutter", "green_clutter", "pink_clutter" ] ],
+                                    "assist_rule": [ [ "brown_clutter", "green_clutter", "pink_clutter" ] ]
                                 }
                             ]
                         },
@@ -9145,8 +9234,13 @@
                             "name": "south-west",
                             "connections": [
                                 {
-                                    "dest": "center",
+                                    "dest": "south",
                                     "rule": [
+                                        [ "brown_clutter" ],
+                                        [ "green_clutter" ],
+                                        [ "pink_clutter" ]
+                                    ],
+                                    "assist_rule": [
                                         [ "brown_clutter" ],
                                         [ "green_clutter" ],
                                         [ "pink_clutter" ]
@@ -9159,7 +9253,12 @@
                             "connections": [
                                 {
                                     "dest": "center",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "l_climb" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -9168,7 +9267,12 @@
                             "connections": [
                                 {
                                     "dest": "center",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "l_climb" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -9285,7 +9389,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "brown_clutter" ] ]
+                                    "rule": [ [ "brown_clutter" ] ],
+                                    "assist_rule": [ [ "brown_clutter" ] ]
                                 }
                             ],
                             "locations": [
@@ -9293,7 +9398,8 @@
                                     "name": "brown_clutter",
                                     "display_name": "Brown Clutter",
                                     "type": "clutter",
-                                    "rule": [ [ "any_dash_dr_d_dl" ] ]
+                                    "rule": [ [ "any_dash_dr_d_dl" ] ],
+                                    "assist_rule": [ [ "any_dash_dr_d_dl" ] ]
                                 }
                             ]
                         },
@@ -9353,7 +9459,8 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "coins" ] ]
+                                    "rule": [ [ "coins" ] ],
+                                    "assist_rule": [ [ "coins" ] ]
                                 }
                             ]
                         },
@@ -9387,7 +9494,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_ur_u" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -9472,7 +9583,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -9511,7 +9626,13 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "sinking_platforms", "any_dash_l_ul", "any_dash_r_ur" ] ]
+                                    "rule": [ [ "sinking_platforms", "any_dash_l_ul", "any_dash_r_ur" ] ],
+                                    "assist_rule": [
+                                        [ "sinking_platforms", "any_dash_l_ul" ],
+                                        [ "sinking_platforms", "l_climb" ],
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -9666,7 +9787,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -9675,7 +9800,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_ur_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -9692,7 +9821,7 @@
                                     "name": "crystal_heart",
                                     "display_name": "Crystal Heart",
                                     "type": "crystal_heart",
-                                    "rule": []
+                                    "rule": [ [ "any_dash_ul_l_dl_u_ur_r_dr" ] ]
                                 }
                             ]
                         },
@@ -9824,7 +9953,34 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_l_ul_u" ],
+                                        [ "any_dash_ur_r", "brown_clutter" ],
+                                        [ "r_climb", "brown_clutter" ],
+                                        [ "l_climb" ]
+                                    ]
+                                },
+                                {
+                                    "dest": "strawberry",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_l_ul_u_ur_r" ],
+                                        [ "r_climb" ],
+                                        [ "l_climb" ]
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "strawberry",
+                            "connections": [],
+                            "locations": [
+                                {
+                                    "name": "strawberry",
+                                    "display_name": "Strawberry",
+                                    "type": "strawberry",
+                                    "rule": []
                                 }
                             ]
                         },
@@ -9833,15 +9989,15 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ]
-                                }
-                            ],
-                            "locations": [
+                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ur_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
+                                },
                                 {
-                                    "name": "strawberry",
-                                    "display_name": "Strawberry",
-                                    "type": "strawberry",
-                                    "rule": [ [ "dash_refills", "l_dash", "ul_dash" ] ]
+                                    "dest": "strawberry",
+                                    "rule": [ [ "dash_refills", "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -9871,7 +10027,8 @@
                             "connections": [
                                 {
                                     "dest": "main",
-                                    "rule": [ [ "green_clutter" ] ]
+                                    "rule": [ [ "green_clutter" ] ],
+                                    "assist_rule": [ [ "green_clutter" ] ]
                                 }
                             ]
                         },
@@ -9880,7 +10037,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "green_clutter" ] ]
+                                    "rule": [ [ "green_clutter" ] ],
+                                    "assist_rule": [ [ "green_clutter" ] ]
                                 }
                             ],
                             "locations": [
@@ -9888,7 +10046,8 @@
                                     "name": "green_clutter",
                                     "display_name": "Green Clutter",
                                     "type": "clutter",
-                                    "rule": [ [ "any_dash_dr_d_dl" ] ]
+                                    "rule": [ [ "any_dash_dr_d_dl" ] ],
+                                    "assist_rule": [ [ "any_dash_dr_d_dl" ] ]
                                 }
                             ]
                         },
@@ -9926,7 +10085,7 @@
                             "name": "west",
                             "connections": [
                                 {
-                                    "dest": "east",
+                                    "dest": "center",
                                     "rule": [ [ "ur_dash" ] ]
                                 }
                             ]
@@ -9941,11 +10100,45 @@
                             ]
                         },
                         {
+                            "name": "center",
+                            "connections": [
+                                {
+                                    "dest": "north-east",
+                                    "rule": [ [ "pink_clutter", "any_dash_u_ul" ] ],
+                                    "assist_rule": [
+                                        [ "pink_clutter", "any_dash_u_ul_l" ],
+                                        [ "pink_clutter", "l_climb" ]
+                                    ]
+                                },
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
+                                },
+                                {
+                                    "dest": "east",
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
+                                }
+                            ]
+                        },
+                        {
                             "name": "east",
                             "connections": [
                                 {
                                     "dest": "north-east",
-                                    "rule": [ [ "pink_clutter", "any_dash_u_ul" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [ [ "pink_clutter", "l_dash" ] ]
+                                },
+                                {
+                                    "dest": "center",
+                                    "rule": []
                                 }
                             ]
                         },
@@ -9953,7 +10146,7 @@
                             "name": "north-east",
                             "connections": [
                                 {
-                                    "dest": "east",
+                                    "dest": "center",
                                     "rule": [ [ "pink_clutter" ] ]
                                 }
                             ]
@@ -10052,7 +10245,11 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "any_dash_u_ul" ] ]
+                                    "rule": [ [ "any_dash_u_ul" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l_ur_r" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -10082,7 +10279,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "u_dash" ] ]
+                                    "rule": [ [ "u_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 },
                                 {
                                     "dest": "south-west",
@@ -10095,7 +10296,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "pink_clutter" ] ]
+                                    "rule": [ [ "pink_clutter" ] ],
+                                    "assist_rule": [
+                                        [ "pink_clutter", "any_dash_u_ul" ],
+                                        [ "pink_clutter", "l_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -10135,9 +10340,36 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "l_dash" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "u_dash" ],
+                                        [ "any_dash_ur_r", "ul_dash" ],
+                                        [ "any_dash_ur_r", "l_climb", "l_dash" ],
+                                        [ "r_climb", "ul_dash" ],
+                                        [ "r_climb", "l_climb", "l_dash" ]
+                                    ]
+                                },
+                                {
+                                    "dest": "strawberry",
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ],
+                            "locations": [
+                                {
+                                    "name": "strawberry",
+                                    "display_name": "Strawberry",
+                                    "type": "strawberry",
+                                    "rule": [ [ "any_dash_l_ul_ur_r" ] ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "strawberry",
+                            "connections": [],
                             "locations": [
                                 {
                                     "name": "strawberry",
@@ -10152,6 +10384,10 @@
                             "connections": [
                                 {
                                     "dest": "west",
+                                    "rule": [ [ "r_dash" ] ]
+                                },
+                                {
+                                    "dest": "strawberry",
                                     "rule": [ [ "r_dash" ] ]
                                 }
                             ]
@@ -10182,7 +10418,8 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "pink_clutter" ] ]
+                                    "rule": [ [ "pink_clutter" ] ],
+                                    "assist_rule": [ [ "pink_clutter" ] ]
                                 }
                             ]
                         },
@@ -10200,11 +10437,13 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "pink_clutter" ] ]
+                                    "rule": [ [ "pink_clutter" ] ],
+                                    "assist_rule": [ [ "pink_clutter" ] ]
                                 },
                                 {
                                     "dest": "north-east",
-                                    "rule": [ [ "u_dash" ] ]
+                                    "rule": [ [ "u_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ],
                             "locations": [
@@ -10212,7 +10451,8 @@
                                     "name": "pink_clutter",
                                     "display_name": "Pink Clutter",
                                     "type": "clutter",
-                                    "rule": [ [ "any_dash_dr_d_dl" ] ]
+                                    "rule": [ [ "any_dash_dr_d_dl" ] ],
+                                    "assist_rule": [ [ "any_dash_dr_d_dl" ] ]
                                 }
                             ]
                         }
@@ -10326,7 +10566,12 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_l_ul_u_ur_r" ],
+                                        [ "l_climb" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -10402,7 +10647,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "coins", "any_dash_ul_u_ur" ] ]
+                                    "rule": [ [ "dash_refills", "coins", "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [
+                                        [ "coins", "any_dash_ul_u_l" ],
+                                        [ "coins", "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -10429,14 +10678,23 @@
                     "regions": [
                         {
                             "name": "west",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "east",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         },
                         {
                             "name": "east",
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "u_dash", "l_dash" ] ]
+                                    "rule": [ [ "dash_refills", "u_dash", "l_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -10444,7 +10702,13 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "u_dash", "l_dash", "r_dash" ] ]
+                                    "rule": [ [ "u_dash", "l_dash", "r_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "l_dash", "r_dash" ],
+                                        [ "l_dash", "r_climb" ],
+                                        [ "l_climb", "r_dash" ]
+                                    ]
                                 }
                             ]
                         }
@@ -10484,6 +10748,10 @@
                                 {
                                     "dest": "west",
                                     "rule": []
+                                },
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         },
@@ -10501,7 +10769,11 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "dash_refills", "any_dash_u_ul_l" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ul_l" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -10543,11 +10815,13 @@
                             "connections": [
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "Presidential Suite Key" ] ]
+                                    "rule": [ [ "Presidential Suite Key" ] ],
+                                    "assist_rule": [ [ "Presidential Suite Key" ] ]
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -10556,7 +10830,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "Presidential Suite Key" ] ]
+                                    "rule": [ [ "Presidential Suite Key" ] ],
+                                    "assist_rule": [ [ "Presidential Suite Key" ] ]
                                 }
                             ]
                         },
@@ -10784,7 +11059,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -10793,7 +11072,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "l_dash", "ul_dash" ] ]
+                                    "rule": [ [ "dash_refills", "l_dash", "ul_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -10832,7 +11115,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "any_dash_ul_u_ur" ] ]
+                                    "rule": [ [ "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         }
@@ -10862,7 +11146,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -10871,7 +11159,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -10907,7 +11199,17 @@
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ],
+                                        [ "springs" ]
+                                    ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -10988,7 +11290,12 @@
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -11061,7 +11368,12 @@
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -11204,7 +11516,14 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "Presidential Suite Key", "sinking_platforms", "dash_refills", "brown_clutter", "green_clutter", "pink_clutter", "coins", "moving_platforms", "springs", "ur_dash", "l_dash", "ul_dash", "u_dash", "r_dash" ] ]
+                                    "rule": [ [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "Presidential Suite Key", "sinking_platforms", "dash_refills", "brown_clutter", "green_clutter", "pink_clutter", "coins", "moving_platforms", "springs", "ur_dash", "l_dash", "ul_dash", "u_dash", "r_dash" ] ],
+                                    "assist_rule": [
+                                        [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "coins", "u_dash" ],
+                                        [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "coins", "ul_dash", "any_dash_ur_r" ],
+                                        [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "coins", "ul_dash", "r_climb" ],
+                                        [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "coins", "ur_dash", "any_dash_ul_l" ],
+                                        [ "Front Door Key", "Hallway Key 1", "Hallway Key 2", "Huge Mess Key", "coins", "ur_dash", "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
