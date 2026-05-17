@@ -13228,7 +13228,12 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "ur_dash", "u_dash" ] ]
+                                    "rule": [ [ "dash_refills", "ur_dash", "u_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur" ],
+                                        [ "ul_dash", "r_dash" ],
+                                        [ "ul_dash", "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -13237,7 +13242,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -13261,7 +13270,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "sinking_platforms", "u_dash" ] ]
+                                    "rule": [ [ "sinking_platforms", "u_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -13295,7 +13308,8 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "coins", "dash_refills", "u_dash", "ur_dash", "r_dash" ] ]
+                                    "rule": [ [ "coins", "dash_refills", "u_dash", "ur_dash", "r_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur_r" ] ]
                                 }
                             ],
                             "locations": [
@@ -13321,7 +13335,12 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "sinking_platforms", "dash_refills", "coins", "u_dash", "ur_dash", "r_dash" ] ]
+                                    "rule": [ [ "sinking_platforms", "dash_refills", "coins", "u_dash", "ur_dash", "r_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur" ],
+                                        [ "ul_dash", "r_dash" ],
+                                        [ "ul_dash", "r_climb" ]
+                                    ]
                                 }
                             ]
                         }
