@@ -923,7 +923,7 @@ all_doors: dict[str, Door] = {
     "4b_d-01_west": Door("4b_d-01_west", "4b_d-01", DoorDirection.left, False, False),
     "4b_d-01_east": Door("4b_d-01_east", "4b_d-01", DoorDirection.right, False, False),
 
-    "4b_d-02_west": Door("4b_d-02_west", "4b_d-02", DoorDirection.left, False, False),
+    "4b_d-02_west": Door("4b_d-02_west", "4b_d-02", DoorDirection.left, False, True),
     "4b_d-02_east": Door("4b_d-02_east", "4b_d-02", DoorDirection.right, False, False),
 
     "4b_d-03_west": Door("4b_d-03_west", "4b_d-03", DoorDirection.left, False, False),
@@ -3557,55 +3557,60 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "4a_d-10_west---4a_d-10_goal": RegionConnection("4a_d-10_west", "4a_d-10_goal", [], [], []),
 
-    "4b_a-00_west---4b_a-00_east": RegionConnection("4b_a-00_west", "4b_a-00_east", [[ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ], ], [], []),
+    "4b_a-00_west---4b_a-00_east": RegionConnection("4b_a-00_west", "4b_a-00_east", [[ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
     "4b_a-00_east---4b_a-00_west": RegionConnection("4b_a-00_east", "4b_a-00_west", [[ItemName.cannot_access, ], ], [], []),
 
-    "4b_a-01_west---4b_a-01_east": RegionConnection("4b_a-01_west", "4b_a-01_east", [[ItemName.moving_platforms, ItemName.u_dash, ], [ItemName.moving_platforms, ItemName.ur_dash, ], ], [], []),
+    "4b_a-01_west---4b_a-01_east": RegionConnection("4b_a-01_west", "4b_a-01_east", [[ItemName.moving_platforms, ItemName.u_dash, ], [ItemName.moving_platforms, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
     "4b_a-01_east---4b_a-01_west": RegionConnection("4b_a-01_east", "4b_a-01_west", [[ItemName.moving_platforms, ItemName.ul_dash, ], ], [], []),
 
-    "4b_a-02_west---4b_a-02_east": RegionConnection("4b_a-02_west", "4b_a-02_east", [[ItemName.blue_boosters, ItemName.r_dash, ], [ItemName.blue_boosters, ItemName.ur_dash, ], ], [], []),
+    "4b_a-02_west---4b_a-02_east": RegionConnection("4b_a-02_west", "4b_a-02_east", [[ItemName.blue_boosters, ItemName.r_dash, ], [ItemName.blue_boosters, ItemName.ur_dash, ], ], [], [[ItemName.ur_dash, ], [ItemName.r_climb, ItemName.dr_dash, ], [ItemName.r_climb, ItemName.r_dash, ], [ItemName.u_dash, ItemName.dr_dash, ], [ItemName.u_dash, ItemName.r_dash, ], ]),
 
-    "4b_a-03_west---4b_a-03_east": RegionConnection("4b_a-03_west", "4b_a-03_east", [[ItemName.move_blocks, ItemName.blue_boosters, ItemName.u_dash, ItemName.r_dash, ], [ItemName.move_blocks, ItemName.blue_boosters, ItemName.ur_dash, ItemName.ul_dash, ItemName.r_dash, ], ], [], []),
+    "4b_a-03_west---4b_a-03_east": RegionConnection("4b_a-03_west", "4b_a-03_east", [[ItemName.move_blocks, ItemName.blue_boosters, ItemName.u_dash, ItemName.r_dash, ], [ItemName.move_blocks, ItemName.blue_boosters, ItemName.ur_dash, ItemName.ul_dash, ItemName.r_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], [ItemName.move_blocks, ItemName.crouch, ItemName.ul_dash, ], [ItemName.move_blocks, ItemName.crouch, ItemName.springs, ], ]),
+    "4b_a-03_east---4b_a-03_west": RegionConnection("4b_a-03_east", "4b_a-03_west", [[ItemName.cannot_access, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
-    "4b_a-04_west---4b_a-04_east": RegionConnection("4b_a-04_west", "4b_a-04_east", [[ItemName.move_blocks, ItemName.blue_boosters, ItemName.r_dash, ], [ItemName.move_blocks, ItemName.blue_boosters, ItemName.ur_dash, ], ], [], []),
+    "4b_a-04_west---4b_a-04_east": RegionConnection("4b_a-04_west", "4b_a-04_east", [[ItemName.move_blocks, ItemName.blue_boosters, ItemName.r_dash, ], [ItemName.move_blocks, ItemName.blue_boosters, ItemName.ur_dash, ], ], [], [[ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.ul_dash, ItemName.r_dash, ], [ItemName.move_blocks, ItemName.r_dash, ], [ItemName.move_blocks, ItemName.l_dash, ItemName.r_climb, ], ]),
+    "4b_a-04_east---4b_a-04_west": RegionConnection("4b_a-04_east", "4b_a-04_west", [[ItemName.cannot_access, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
-    "4b_b-00_west---4b_b-00_east": RegionConnection("4b_b-00_west", "4b_b-00_east", [[ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.blue_boosters, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
+    "4b_b-00_west---4b_b-00_east": RegionConnection("4b_b-00_west", "4b_b-00_east", [[ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.ul_dash, ], [ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.blue_boosters, ItemName.ul_dash, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.ur_dash, ], ]),
+    "4b_b-00_east---4b_b-00_west": RegionConnection("4b_b-00_east", "4b_b-00_west", [], [], []),
 
-    "4b_b-01_west---4b_b-01_east": RegionConnection("4b_b-01_west", "4b_b-01_east", [[ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
-    "4b_b-01_east---4b_b-01_west": RegionConnection("4b_b-01_east", "4b_b-01_west", [[ItemName.cannot_access, ], ], [], []),
+    "4b_b-01_west---4b_b-01_east": RegionConnection("4b_b-01_west", "4b_b-01_east", [[ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.ur_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], ]),
+    "4b_b-01_east---4b_b-01_west": RegionConnection("4b_b-01_east", "4b_b-01_west", [[ItemName.cannot_access, ], ], [], [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
-    "4b_b-02_bottom---4b_b-02_top": RegionConnection("4b_b-02_bottom", "4b_b-02_top", [[ItemName.move_blocks, ItemName.springs, ItemName.dash_refills, ItemName.ul_dash, ], [ItemName.move_blocks, ItemName.springs, ItemName.dash_refills, ItemName.u_dash, ItemName.l_dash, ], ], [], []),
-    "4b_b-02_top---4b_b-02_bottom": RegionConnection("4b_b-02_top", "4b_b-02_bottom", [], [], []),
+    "4b_b-02_bottom---4b_b-02_top": RegionConnection("4b_b-02_bottom", "4b_b-02_top", [[ItemName.move_blocks, ItemName.springs, ItemName.dash_refills, ItemName.ul_dash, ], [ItemName.move_blocks, ItemName.springs, ItemName.dash_refills, ItemName.u_dash, ItemName.l_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
+    "4b_b-02_top---4b_b-02_bottom": RegionConnection("4b_b-02_top", "4b_b-02_bottom", [[ItemName.cannot_access, ], ], [], []),
 
-    "4b_b-03_west---4b_b-03_east": RegionConnection("4b_b-03_west", "4b_b-03_east", [[ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.blue_boosters, ItemName.l_dash, ItemName.u_dash, ], [ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.blue_boosters, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.blue_boosters, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.blue_boosters, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
+    "4b_b-03_west---4b_b-03_east": RegionConnection("4b_b-03_west", "4b_b-03_east", [[ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.blue_boosters, ItemName.l_dash, ItemName.u_dash, ], [ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.blue_boosters, ItemName.l_dash, ItemName.ur_dash, ], [ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.blue_boosters, ItemName.u_dash, ItemName.ul_dash, ], [ItemName.coins, ItemName.moving_platforms, ItemName.springs, ItemName.blue_boosters, ItemName.ul_dash, ItemName.ur_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], [ItemName.l_climb, ], [ItemName.blue_boosters, ], ]),
 
-    "4b_b-04_west---4b_b-04_east": RegionConnection("4b_b-04_west", "4b_b-04_east", [[ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.ur_dash, ], ], [], []),
+    "4b_b-04_west---4b_b-04_east": RegionConnection("4b_b-04_west", "4b_b-04_east", [[ItemName.blue_boosters, ItemName.r_dash, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.r_dash, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
 
-    "4b_c-00_west---4b_c-00_east": RegionConnection("4b_c-00_west", "4b_c-00_east", [[ItemName.blue_boosters, ItemName.u_dash, ItemName.l_dash, ItemName.ur_dash, ], ], [], []),
+    "4b_c-00_west---4b_c-00_east": RegionConnection("4b_c-00_west", "4b_c-00_east", [[ItemName.blue_boosters, ItemName.u_dash, ItemName.l_dash, ItemName.ur_dash, ], ], [], [[ItemName.blue_boosters, ItemName.dl_dash, ], [ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], ]),
+    "4b_c-00_east---4b_c-00_west": RegionConnection("4b_c-00_east", "4b_c-00_west", [[ItemName.cannot_access, ], ], [], [[ItemName.l_climb, ], [ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
 
     "4b_c-01_west---4b_c-01_east": RegionConnection("4b_c-01_west", "4b_c-01_east", [[ItemName.moving_platforms, ItemName.ur_dash, ItemName.ul_dash, ], ], [], []),
-    "4b_c-01_east---4b_c-01_west": RegionConnection("4b_c-01_east", "4b_c-01_west", [[ItemName.cannot_access, ], ], [], []),
+    "4b_c-01_east---4b_c-01_west": RegionConnection("4b_c-01_east", "4b_c-01_west", [[ItemName.cannot_access, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
-    "4b_c-02_west---4b_c-02_east": RegionConnection("4b_c-02_west", "4b_c-02_east", [[ItemName.move_blocks, ItemName.ur_dash, ItemName.crouch, ], ], [], []),
+    "4b_c-02_west---4b_c-02_east": RegionConnection("4b_c-02_west", "4b_c-02_east", [[ItemName.move_blocks, ItemName.ur_dash, ItemName.crouch, ], ], [], [[ItemName.move_blocks, ], [ItemName.r_climb, ], [ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
 
-    "4b_c-03_bottom---4b_c-03_top": RegionConnection("4b_c-03_bottom", "4b_c-03_top", [[ItemName.move_blocks, ItemName.blue_clouds, ], ], [], []),
+    "4b_c-03_bottom---4b_c-03_top": RegionConnection("4b_c-03_bottom", "4b_c-03_top", [[ItemName.move_blocks, ItemName.blue_clouds, ], ], [], [[ItemName.u_dash, ], [ItemName.ur_dash, ItemName.l_climb, ], [ItemName.ur_dash, ItemName.l_dash, ], [ItemName.ur_dash, ItemName.blue_clouds, ], [ItemName.ul_dash, ItemName.ur_dash, ], [ItemName.ul_dash, ItemName.r_climb, ], [ItemName.ul_dash, ItemName.r_dash, ], [ItemName.l_dash, ItemName.r_dash, ], [ItemName.l_climb, ItemName.r_climb, ItemName.move_blocks, ], ]),
     "4b_c-03_top---4b_c-03_bottom": RegionConnection("4b_c-03_top", "4b_c-03_bottom", [[ItemName.cannot_access, ], ], [], []),
 
-    "4b_c-04_west---4b_c-04_east": RegionConnection("4b_c-04_west", "4b_c-04_east", [[ItemName.blue_boosters, ItemName.ur_dash, ItemName.u_dash, ], ], [], []),
-    "4b_c-04_east---4b_c-04_west": RegionConnection("4b_c-04_east", "4b_c-04_west", [[ItemName.cannot_access, ], ], [], []),
+    "4b_c-04_west---4b_c-04_east": RegionConnection("4b_c-04_west", "4b_c-04_east", [[ItemName.blue_boosters, ItemName.ur_dash, ItemName.u_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
+    "4b_c-04_east---4b_c-04_west": RegionConnection("4b_c-04_east", "4b_c-04_west", [[ItemName.cannot_access, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
     "4b_d-00_west---4b_d-00_east": RegionConnection("4b_d-00_west", "4b_d-00_east", [[ItemName.blue_clouds, ItemName.u_dash, ], [ItemName.blue_clouds, ItemName.ur_dash, ], ], [], []),
     "4b_d-00_east---4b_d-00_west": RegionConnection("4b_d-00_east", "4b_d-00_west", [[ItemName.blue_clouds, ItemName.u_dash, ], [ItemName.blue_clouds, ItemName.ul_dash, ], ], [], []),
 
-    "4b_d-01_west---4b_d-01_east": RegionConnection("4b_d-01_west", "4b_d-01_east", [[ItemName.pink_clouds, ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ], [], []),
-    "4b_d-01_east---4b_d-01_west": RegionConnection("4b_d-01_east", "4b_d-01_west", [[ItemName.cannot_access, ], ], [], []),
+    "4b_d-01_west---4b_d-01_east": RegionConnection("4b_d-01_west", "4b_d-01_east", [[ItemName.pink_clouds, ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], [ItemName.pink_clouds, ItemName.l_dash, ], [ItemName.pink_clouds, ItemName.ul_dash, ], ]),
+    "4b_d-01_east---4b_d-01_west": RegionConnection("4b_d-01_east", "4b_d-01_west", [[ItemName.cannot_access, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
-    "4b_d-02_west---4b_d-02_east": RegionConnection("4b_d-02_west", "4b_d-02_east", [[ItemName.dash_refills, ItemName.blue_boosters, ItemName.coins, ItemName.u_dash, ItemName.ur_dash, ], ], [], []),
+    "4b_d-02_west---4b_d-02_east": RegionConnection("4b_d-02_west", "4b_d-02_east", [[ItemName.dash_refills, ItemName.blue_boosters, ItemName.coins, ItemName.u_dash, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.l_climb, ItemName.r_climb, ], [ItemName.r_climb, ItemName.l_dash, ], [ItemName.r_climb, ItemName.ul_dash, ], ]),
     "4b_d-02_east---4b_d-02_west": RegionConnection("4b_d-02_east", "4b_d-02_west", [[ItemName.cannot_access, ], ], [], []),
 
     "4b_d-03_west---4b_d-03_east": RegionConnection("4b_d-03_west", "4b_d-03_east", [[ItemName.blue_boosters, ItemName.ur_dash, ItemName.l_dash, ItemName.r_dash, ], ], [], []),
+    "4b_d-03_east---4b_d-03_west": RegionConnection("4b_d-03_east", "4b_d-03_west", [[ItemName.cannot_access, ], ], [], [[ItemName.l_dash, ], [ItemName.ul_dash, ], ]),
 
-    "4b_end_west---4b_end_goal": RegionConnection("4b_end_west", "4b_end_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ], [], []),
+    "4b_end_west---4b_end_goal": RegionConnection("4b_end_west", "4b_end_goal", [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.blue_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], [ItemName.pink_cassette_blocks, ItemName.d_dash, ], [ItemName.pink_cassette_blocks, ItemName.dl_dash, ], [ItemName.pink_cassette_blocks, ItemName.dr_dash, ], [ItemName.pink_cassette_blocks, ItemName.l_dash, ], ]),
 
     "4c_00_west---4c_00_east": RegionConnection("4c_00_west", "4c_00_east", [[ItemName.blue_boosters, ItemName.r_dash, ], [ItemName.blue_boosters, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.ur_dash, ], ], [], []),
 
@@ -5241,7 +5246,7 @@ all_locations: dict[str, LevelLocation] = {
     "4b_d-01_binoculars": LevelLocation("4b_d-01_binoculars", "Golden Ridge B - Room d-01 Binoculars", "4b_d-01_west", LocationType.binoculars, [], [], []),
     "4b_end_binoculars": LevelLocation("4b_end_binoculars", "Golden Ridge B - Room end Binoculars", "4b_end_west", LocationType.binoculars, [], [], []),
     "4b_end_clear": LevelLocation("4b_end_clear", "Golden Ridge B - Level Clear", "4b_end_goal", LocationType.level_clear, [], [], []),
-    "4b_end_golden": LevelLocation("4b_end_golden", "Golden Ridge B - Golden Strawberry", "4b_end_goal", LocationType.golden_strawberry, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.moving_platforms, ItemName.blue_boosters, ItemName.blue_clouds, ItemName.pink_clouds, ItemName.move_blocks, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.crouch, ], ], [], []),
+    "4b_end_golden": LevelLocation("4b_end_golden", "Golden Ridge B - Golden Strawberry", "4b_end_goal", LocationType.golden_strawberry, [[ItemName.pink_cassette_blocks, ItemName.blue_cassette_blocks, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.moving_platforms, ItemName.blue_boosters, ItemName.blue_clouds, ItemName.pink_clouds, ItemName.move_blocks, ItemName.u_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.crouch, ], ], [], [[ItemName.u_dash, ItemName.r_dash, ], [ItemName.u_dash, ItemName.dr_dash, ], [ItemName.ur_dash, ItemName.u_dash, ], [ItemName.ur_dash, ItemName.ul_dash, ], [ItemName.ur_dash, ItemName.l_dash, ], ]),
 
     "4c_01_binoculars": LevelLocation("4c_01_binoculars", "Golden Ridge C - Room 01 Binoculars", "4c_01_west", LocationType.binoculars, [], [], []),
     "4c_02_binoculars": LevelLocation("4c_02_binoculars", "Golden Ridge C - Room 02 Binoculars", "4c_02_west", LocationType.binoculars, [[ItemName.u_dash, ], [ItemName.ul_dash, ], ], [], []),
