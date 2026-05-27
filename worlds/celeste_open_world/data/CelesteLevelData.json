@@ -24700,7 +24700,12 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "swap_blocks", "dash_refills", "u_dash" ] ]
+                                    "rule": [ [ "swap_blocks", "dash_refills", "u_dash" ] ],
+                                    "assist_rule": [
+                                        [ "swap_blocks", "ul_dash" ],
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -24772,7 +24777,18 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "u_dash", "d_dash", "ur_dash", "r_dash" ] ]
+                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "u_dash", "d_dash", "ur_dash", "r_dash" ] ],
+                                    "assist_rule": [
+                                        [ "dash_switches", "any_dash_u_ur" ],
+                                        [ "dash_switches", "ul_dash", "r_dash" ],
+                                        [ "dash_switches", "ul_dash", "r_climb" ],
+                                        [ "crouch", "any_dash_u_ur" ],
+                                        [ "crouch", "any_dash_ul_l_dl", "r_dash" ],
+                                        [ "crouch", "any_dash_ul_l_dl", "r_climb" ],
+                                        [ "crouch", "any_dash_ul_l", "dr_dash" ],
+                                        [ "crouch", "l_climb", "any_dash_r_dr" ]
+
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -24780,7 +24796,12 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "red_boosters" ],
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -24798,7 +24819,17 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "swap_blocks", "u_dash", "d_dash", "ur_dash", "r_dash" ] ]
+                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "swap_blocks", "u_dash", "d_dash", "ur_dash", "r_dash" ] ],
+                                    "assist_rule": [
+                                        [ "dash_switches", "any_dash_u_ur" ],
+                                        [ "dash_switches", "ul_dash", "r_dash" ],
+                                        [ "dash_switches", "ul_dash", "r_climb" ],
+                                        [ "crouch", "any_dash_u_ur" ],
+                                        [ "crouch", "any_dash_ul_l_dl", "r_dash" ],
+                                        [ "crouch", "any_dash_ul_l_dl", "r_climb" ],
+                                        [ "crouch", "swap_blocks", "ul_dash", "dr_dash" ],
+                                        [ "crouch", "l_climb", "r_dash" ]
+                                    ]
                                 }
                             ]
                         }
