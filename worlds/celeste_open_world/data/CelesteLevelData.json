@@ -37968,7 +37968,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "badeline_boosters", "u_dash", "r_dash" ] ]
+                                    "rule": [ [ "dash_refills", "badeline_boosters", "u_dash", "r_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur" ],
+                                        [ "ul_dash", "r_dash" ]
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -37982,7 +37986,12 @@
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -38004,7 +38013,8 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "springs", "coins", "badeline_boosters", "u_dash", "ur_dash", "ul_dash" ] ]
+                                    "rule": [ [ "springs", "coins", "badeline_boosters", "u_dash", "ur_dash", "ul_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -38038,7 +38048,11 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "pink_clouds", "dash_refills", "springs", "r_dash", "u_dash", "l_dash", "ul_dash", "ur_dash" ] ]
+                                    "rule": [ [ "pink_clouds", "dash_refills", "springs", "r_dash", "u_dash", "l_dash", "ul_dash", "ur_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb", "ul_dash" ]
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -38046,7 +38060,11 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": []
+                                    "rule": [],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38064,7 +38082,11 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "pink_clouds", "dash_refills", "springs", "coins", "badeline_boosters", "r_dash", "u_dash", "l_dash", "ul_dash", "ur_dash" ] ]
+                                    "rule": [ [ "pink_clouds", "dash_refills", "springs", "coins", "badeline_boosters", "r_dash", "u_dash", "l_dash", "ul_dash", "ur_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur" ],
+                                        [ "ul_dash", "r_dash" ]
+                                    ]
                                 }
                             ]
                         }

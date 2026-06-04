@@ -4795,11 +4795,12 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "7b_g-03_bottom---7b_g-03_goal": RegionConnection("7b_g-03_bottom", "7b_g-03_goal", [[ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.blue_clouds, ItemName.u_dash, ItemName.l_dash, ItemName.ul_dash, ], ], [], [[ItemName.u_dash, ], [ItemName.ur_dash, ItemName.ul_dash, ], [ItemName.r_dash, ItemName.ul_dash, ], [ItemName.ur_dash, ItemName.l_dash, ], [ItemName.blue_cassette_blocks, ItemName.pink_cassette_blocks, ItemName.ul_dash, ], ]),
 
-    "7c_01_west---7c_01_east": RegionConnection("7c_01_west", "7c_01_east", [[ItemName.dash_refills, ItemName.badeline_boosters, ItemName.u_dash, ItemName.r_dash, ], ], [], []),
+    "7c_01_west---7c_01_east": RegionConnection("7c_01_west", "7c_01_east", [[ItemName.dash_refills, ItemName.badeline_boosters, ItemName.u_dash, ItemName.r_dash, ], ], [], [[ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.ul_dash, ItemName.r_dash, ], ]),
+    "7c_01_east---7c_01_west": RegionConnection("7c_01_east", "7c_01_west", [[ItemName.cannot_access, ], ], [], []),
 
-    "7c_02_west---7c_02_east": RegionConnection("7c_02_west", "7c_02_east", [[ItemName.springs, ItemName.coins, ItemName.badeline_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.ul_dash, ], ], [], []),
+    "7c_02_west---7c_02_east": RegionConnection("7c_02_west", "7c_02_east", [[ItemName.springs, ItemName.coins, ItemName.badeline_boosters, ItemName.u_dash, ItemName.ur_dash, ItemName.ul_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ]),
 
-    "7c_03_west---7c_03_goal": RegionConnection("7c_03_west", "7c_03_goal", [[ItemName.pink_clouds, ItemName.dash_refills, ItemName.springs, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
+    "7c_03_west---7c_03_goal": RegionConnection("7c_03_west", "7c_03_goal", [[ItemName.pink_clouds, ItemName.dash_refills, ItemName.springs, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ItemName.ul_dash, ], ]),
 
 
     "8a_bridge_west---8a_bridge_east": RegionConnection("8a_bridge_west", "8a_bridge_east", [], [], []),
@@ -5545,9 +5546,9 @@ all_locations: dict[str, LevelLocation] = {
     "7b_g-03_golden": LevelLocation("7b_g-03_golden", "The Summit B - Golden Strawberry", "7b_g-03_goal", LocationType.golden_strawberry, [[ItemName.springs, ItemName.dash_refills, ItemName.blue_clouds, ItemName.pink_clouds, ItemName.coins, ItemName.badeline_boosters, ItemName.red_boosters, ItemName.swap_blocks, ItemName.move_blocks, ItemName.blue_boosters, ItemName.dream_blocks, ItemName.traffic_blocks, ItemName.u_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ItemName.r_dash, ItemName.dl_dash, ItemName.dr_dash, ], ], [], [[ItemName.badeline_boosters, ItemName.traffic_blocks, ItemName.dream_blocks, ItemName.coins, ItemName.u_dash, ItemName.r_dash, ItemName.l_dash, ItemName.ur_dash, ItemName.dr_dash, ItemName.r_climb, ], [ItemName.badeline_boosters, ItemName.traffic_blocks, ItemName.dream_blocks, ItemName.coins, ItemName.u_dash, ItemName.r_dash, ItemName.l_dash, ItemName.ur_dash, ItemName.dr_dash, ItemName.l_climb, ], ]),
 
     "7c_01_binoculars": LevelLocation("7c_01_binoculars", "The Summit C - Room 01 Binoculars", "7c_01_west", LocationType.binoculars, [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], ], [], []),
-    "7c_03_binoculars": LevelLocation("7c_03_binoculars", "The Summit C - Room 03 Binoculars", "7c_03_west", LocationType.binoculars, [], [], []),
+    "7c_03_binoculars": LevelLocation("7c_03_binoculars", "The Summit C - Room 03 Binoculars", "7c_03_west", LocationType.binoculars, [], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
     "7c_03_clear": LevelLocation("7c_03_clear", "The Summit C - Level Clear", "7c_03_goal", LocationType.level_clear, [], [], []),
-    "7c_03_golden": LevelLocation("7c_03_golden", "The Summit C - Golden Strawberry", "7c_03_goal", LocationType.golden_strawberry, [[ItemName.pink_clouds, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.badeline_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], []),
+    "7c_03_golden": LevelLocation("7c_03_golden", "The Summit C - Golden Strawberry", "7c_03_goal", LocationType.golden_strawberry, [[ItemName.pink_clouds, ItemName.dash_refills, ItemName.springs, ItemName.coins, ItemName.badeline_boosters, ItemName.r_dash, ItemName.u_dash, ItemName.l_dash, ItemName.ul_dash, ItemName.ur_dash, ], ], [], [[ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.ul_dash, ItemName.r_dash, ], ]),
 
 
     "9a_0x_car": LevelLocation("9a_0x_car", "Core A - Car", "9a_0x_east", LocationType.car, [], [], []),
