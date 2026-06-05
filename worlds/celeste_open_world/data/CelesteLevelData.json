@@ -38295,7 +38295,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "any_dash_u_ur" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ur" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38373,7 +38377,8 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ur_r" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
                         },
@@ -38382,7 +38387,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dash_refills", "any_dash_u_ul_l" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ul_l" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -38412,7 +38421,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "springs", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "dash_refills", "springs", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38451,7 +38464,12 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks", "any_dash_u_ur_r" ] ]
+                                    "rule": [ [ "core_blocks", "any_dash_u_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ],
+                                        [ "l_climb", "core_blocks" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38493,6 +38511,11 @@
                                     "rule": [
                                         [ "u_dash" ],
                                         [ "ur_dash", "ul_dash" ]
+                                    ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur" ],
+                                        [ "ul_dash", "r_dash" ],
+                                        [ "ul_dash", "r_climb" ]
                                     ]
                                 }
                             ]
@@ -38549,7 +38572,8 @@
                                 },
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "fire_ice_balls", "core_toggles", "core_blocks", "dash_refills", "coins", "u_dash", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "fire_ice_balls", "core_toggles", "core_blocks", "dash_refills", "coins", "u_dash", "any_dash_ur_r" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -38609,7 +38633,12 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks" ] ]
+                                    "rule": [ [ "core_blocks" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ],
+                                        [ "core_blocks" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38618,7 +38647,12 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "core_blocks" ] ]
+                                    "rule": [ [ "core_blocks" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ],
+                                        [ "core_blocks" ]
+                                    ]
                                 }
                             ]
                         }
@@ -38648,7 +38682,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks", "any_dash_u_ul" ] ]
+                                    "rule": [ [ "core_blocks", "any_dash_u_ul" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38657,7 +38695,12 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "core_blocks", "any_dash_u_ul_l" ] ]
+                                    "rule": [ [ "core_blocks", "any_dash_u_ul_l" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ],
+                                        [ "core_blocks" ]
+                                    ]
                                 }
                             ]
                         }
@@ -38687,7 +38730,12 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks" ] ]
+                                    "rule": [ [ "core_blocks" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ],
+                                        [ "core_blocks" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38696,7 +38744,12 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "core_blocks" ] ]
+                                    "rule": [ [ "core_blocks" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ],
+                                        [ "core_blocks" ]
+                                    ]
                                 }
                             ]
                         }
@@ -38726,7 +38779,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "core_toggles" ] ]
+                                    "rule": [ [ "core_toggles" ] ],
+                                    "assist_rule": [ [ "core_toggles" ] ]
                                 }
                             ]
                         },
@@ -38735,7 +38789,12 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks", "core_toggles", "u_dash", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "core_blocks", "core_toggles", "u_dash", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "core_blocks", "core_toggles" ],
+                                        [ "any_dash_u_ur_r", "core_toggles" ],
+                                        [ "r_climb", "core_toggles" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38779,7 +38838,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "fire_ice_balls", "core_toggles", "dash_refills", "coins", "u_dash" ] ]
+                                    "rule": [ [ "fire_ice_balls", "core_toggles", "dash_refills", "coins", "u_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ur_r", "coins" ] ]
                                 }
                             ]
                         }
@@ -38812,7 +38872,16 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "fire_ice_balls", "core_toggles", "core_blocks", "dash_refills", "bumpers", "coins", "u_dash", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "fire_ice_balls", "core_toggles", "core_blocks", "dash_refills", "bumpers", "coins", "u_dash", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "l_dash", "r_dash" ],
+                                        [ "l_dash", "r_climb" ],
+                                        [ "l_climb", "r_dash" ],
+                                        [ "r_climb" ],
+                                        [ "bumpers" ],
+                                        [ "fire_ice_balls" ]
+                                    ]
                                 }
                             ]
                         }
@@ -38836,7 +38905,17 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "core_toggles", "any_dash_ur_u_ul" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "any_dash_ur_u_ul" ] ],
+                                    "assist_rule": [
+                                        [ "u_dash" ],
+                                        [ "ur_dash", "fire_ice_balls" ],
+                                        [ "r_dash", "fire_ice_balls" ],
+                                        [ "ur_dash", "ul_dash" ],
+                                        [ "ur_dash", "l_dash" ],
+                                        [ "r_dash", "ul_dash" ],
+                                        [ "ur_dash", "l_climb", "core_toggles" ],
+                                        [ "ul_dash", "r_climb", "core_toggles" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38875,7 +38954,13 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "core_toggles", "core_blocks", "bumpers", "any_dash_ul_u_ur" ] ]
+                                    "rule": [ [ "core_toggles", "core_blocks", "bumpers", "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_l_ul_u" ],
+                                        [ "l_climb" ],
+                                        [ "fire_ice_balls", "bumpers", "any_dash_ur_r" ],
+                                        [ "fire_ice_balls", "bumpers", "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -38927,7 +39012,12 @@
                             "connections": [
                                 {
                                     "dest": "north-east",
-                                    "rule": [ [ "core_toggles", "fire_ice_balls", "dash_refills", "ur_dash" ] ]
+                                    "rule": [ [ "core_toggles", "fire_ice_balls", "dash_refills", "ur_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ur_r" ] ]
+                                },
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         }
@@ -38966,7 +39056,11 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "fire_ice_balls", "core_toggles", "dash_refills", "bumpers" ] ]
+                                    "rule": [ [ "fire_ice_balls", "core_toggles", "dash_refills", "bumpers" ] ],
+                                    "assist_rule": [
+                                        [ "bumpers" ],
+                                        [ "any_dash_ul_u_ur" ]
+                                    ]
                                 }
                             ]
                         }
@@ -38999,7 +39093,12 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "core_blocks", "core_toggles", "fire_ice_balls", "dash_refills", "ul_dash" ] ]
+                                    "rule": [ [ "core_blocks", "core_toggles", "fire_ice_balls", "dash_refills", "ul_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ],
+                                        [ "any_dash_ur_r", "fire_ice_balls" ]
+                                    ]
                                 }
                             ]
                         }
@@ -39037,7 +39136,8 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "core_blocks", "core_toggles", "dash_refills", "bumpers", "ur_dash", "any_dash_ul_l" ] ]
+                                    "rule": [ [ "core_blocks", "core_toggles", "dash_refills", "bumpers", "ur_dash", "any_dash_ul_l" ] ],
+                                    "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -39071,11 +39171,17 @@
                             "connections": [
                                 {
                                     "dest": "north",
-                                    "rule": [ [ "core_toggles", "fire_ice_balls", "any_dash_ur_u", "ul_dash" ] ]
+                                    "rule": [ [ "core_toggles", "fire_ice_balls", "any_dash_ur_u", "ul_dash" ] ],
+                                    "assist_rule": [ [ "any_dash_u_ul" ] ]
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_blocks", "core_toggles", "fire_ice_balls", "dash_refills", "any_dash_ur_u" ] ]
+                                    "rule": [ [ "core_blocks", "core_toggles", "fire_ice_balls", "dash_refills", "any_dash_ur_u" ] ],
+                                    "assist_rule": [
+                                        [ "core_toggles", "any_dash_r_ur_u_ul" ],
+                                        [ "core_toggles", "r_climb" ],
+                                        [ "core_toggles", "fire_ice_balls" ]
+                                    ]
                                 }
                             ]
                         },
@@ -39103,7 +39209,17 @@
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ],
+                                        [ "fire_ice_balls" ]
+                                    ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39153,11 +39269,13 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": []
+                                    "rule": [ [ "core_toggles" ] ],
+                                    "assist_rule": [ [ "core_toggles" ] ]
                                 },
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "core_toggles" ] ]
+                                    "rule": [ [ "core_toggles" ] ],
+                                    "assist_rule": [ [ "core_toggles" ] ]
                                 }
                             ],
                             "locations": [
@@ -39165,7 +39283,8 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "core_toggles" ] ]
+                                    "rule": [ [ "core_toggles" ] ],
+                                    "assist_rule": [ [ "core_toggles" ] ]
                                 }
                             ]
                         },
@@ -39174,7 +39293,8 @@
                             "connections": [
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "core_toggles" ] ]
+                                    "rule": [ [ "core_toggles" ] ],
+                                    "assist_rule": [ [ "core_toggles" ] ]
                                 }
                             ]
                         }
@@ -39249,13 +39369,24 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "any_dash_u_ul" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ul" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul" ],
+                                        [ "ur_dash", "l_dash" ],
+                                        [ "r_dash", "l_dash" ],
+                                        [ "r_climb", "l_dash" ]
+                                    ]
                                 }
                             ]
                         },
                         {
                             "name": "top",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39283,13 +39414,25 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "any_dash_ur_r", "any_dash_ul_l" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_ur_r", "any_dash_ul_l" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "r_dash", "l_dash" ],
+                                        [ "r_climb", "l_dash" ],
+                                        [ "r_dash", "l_climb" ],
+                                        [ "r_climb", "l_climb" ]
+                                    ]
                                 }
                             ]
                         },
                         {
                             "name": "top",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39317,13 +39460,24 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "core_toggles", "any_dash_ul_u_ur" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "r_dash", "l_dash" ],
+                                        [ "r_climb", "l_dash" ],
+                                        [ "r_dash", "l_climb" ]
+                                    ]
                                 }
                             ]
                         },
                         {
                             "name": "top",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39354,13 +39508,24 @@
                                     "rule": [
                                         [ "dash_refills", "core_blocks", "core_toggles", "u_dash" ],
                                         [ "dash_refills", "core_blocks", "core_toggles", "ur_dash", "ul_dash" ]
+                                    ],
+                                    "assist_rule": [
+                                        [ "core_toggles", "any_dash_ul_u_ur" ],
+                                        [ "core_toggles", "r_dash", "l_dash" ],
+                                        [ "core_toggles", "r_climb", "l_dash" ],
+                                        [ "core_toggles", "r_dash", "l_climb" ]
                                     ]
                                 }
                             ]
                         },
                         {
                             "name": "top",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39391,13 +39556,24 @@
                                     "rule": [
                                         [ "dash_refills", "u_dash" ],
                                         [ "dash_refills", "ul_dash", "ur_dash" ]
+                                    ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "r_dash", "l_dash" ],
+                                        [ "r_climb", "l_dash" ],
+                                        [ "r_dash", "l_climb" ]
                                     ]
                                 }
                             ]
                         },
                         {
                             "name": "top",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39425,13 +39601,24 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "core_toggles", "fire_ice_balls", "any_dash_u_ul" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "fire_ice_balls", "any_dash_u_ul" ] ],
+                                    "assist_rule": [
+                                        [ "core_toggles", "any_dash_ul_u_ur" ],
+                                        [ "core_toggles", "r_dash", "l_dash" ],
+                                        [ "core_toggles", "r_climb", "l_dash" ],
+                                        [ "core_toggles", "r_dash", "l_climb" ]
+                                    ]
                                 }
                             ]
                         },
                         {
                             "name": "top",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39462,6 +39649,13 @@
                                     "rule": [
                                         [ "dash_refills", "core_blocks", "u_dash" ],
                                         [ "dash_refills", "core_blocks", "ur_dash", "ul_dash" ]
+                                    ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "r_dash", "l_dash" ],
+                                        [ "r_climb", "l_dash" ],
+                                        [ "r_dash", "l_climb" ],
+                                        [ "r_climb", "l_climb", "core_blocks" ]
                                     ]
                                 }
                             ],
@@ -39473,13 +39667,25 @@
                                     "rule": [
                                         [ "dash_refills", "core_blocks", "u_dash" ],
                                         [ "dash_refills", "core_blocks", "ur_dash", "ul_dash" ]
+                                    ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "r_dash", "l_dash" ],
+                                        [ "r_climb", "l_dash" ],
+                                        [ "r_dash", "l_climb" ],
+                                        [ "r_climb", "l_climb", "core_blocks" ]
                                     ]
                                 }
                             ]
                         },
                         {
                             "name": "top",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39507,13 +39713,23 @@
                             "connections": [
                                 {
                                     "dest": "top",
-                                    "rule": [ [ "dash_refills", "core_blocks", "core_toggles", "fire_ice_balls", "springs", "badeline_boosters", "ul_dash", "ur_dash" ] ]
+                                    "rule": [ [ "dash_refills", "core_blocks", "core_toggles", "fire_ice_balls", "springs", "badeline_boosters", "ul_dash", "ur_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_ul_u_ur" ],
+                                        [ "r_dash", "l_dash" ],
+                                        [ "r_climb", "l_dash" ]
+                                    ]
                                 }
                             ]
                         },
                         {
                             "name": "top",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "bottom",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39541,7 +39757,12 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "core_blocks", "core_toggles", "fire_ice_balls", "bumpers", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "dash_refills", "core_blocks", "core_toggles", "fire_ice_balls", "bumpers", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_r_ur" ],
+                                        [ "dr_dash", "u_dash" ],
+                                        [ "r_climb", "dr_dash" ]
+                                    ]
                                 }
                             ]
                         },
@@ -39575,7 +39796,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "core_toggles", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "dash_refills", "core_toggles", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "core_toggles", "any_dash_u_ur_r" ],
+                                        [ "core_toggles", "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
@@ -39615,7 +39840,12 @@
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39643,13 +39873,27 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "bumpers", "core_toggles", "core_blocks", "u_dash", "ur_dash", "r_dash" ] ]
+                                    "rule": [ [ "dash_refills", "bumpers", "core_toggles", "core_blocks", "u_dash", "ur_dash", "r_dash" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ],
+                                        [ "core_blocks" ]
+                                    ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39677,13 +39921,27 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "feathers", "core_toggles", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "feathers", "core_toggles", "any_dash_ur_r" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ]
                                 }
                             ]
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ],
+                                        [ "feathers" ]
+                                    ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39711,13 +39969,25 @@
                             "connections": [
                                 {
                                     "dest": "center",
-                                    "rule": [ [ "core_blocks", "core_toggles", "blue_cassette_blocks", "pink_cassette_blocks" ] ]
+                                    "rule": [ [ "core_blocks", "core_toggles", "blue_cassette_blocks", "pink_cassette_blocks" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
                                 }
                             ]
                         },
                         {
                             "name": "center",
                             "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
+                                },
                                 {
                                     "dest": "east",
                                     "rule": []
@@ -39734,7 +40004,16 @@
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "center",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ul_l" ],
+                                        [ "l_climb" ]
+                                    ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -39774,13 +40053,23 @@
                                     "name": "clear",
                                     "display_name": "Level Clear",
                                     "type": "level_clear",
-                                    "rule": [ [ "any_dash_d_dr_r_ur_u_ul_l_dl" ] ]
+                                    "rule": [ [ "any_dash_d_dr_r_ur_u_ul_l_dl" ] ],
+                                    "assist_rule": [ [ "any_dash_d_dr_r_ur_u_ul_l_dl" ] ]
                                 },
                                 {
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "dash_refills", "springs", "coins", "bumpers", "feathers", "badeline_boosters", "core_blocks", "core_toggles", "fire_ice_balls", "blue_cassette_blocks", "pink_cassette_blocks", "u_dash", "ur_dash", "r_dash", "ul_dash" ] ]
+                                    "rule": [ [ "dash_refills", "springs", "coins", "bumpers", "feathers", "badeline_boosters", "core_blocks", "core_toggles", "fire_ice_balls", "blue_cassette_blocks", "pink_cassette_blocks", "u_dash", "ur_dash", "r_dash", "ul_dash" ] ],
+                                    "assist_rule": [
+                                        [ "core_toggles", "u_dash", "ur_dash" ],
+                                        [ "core_toggles", "u_dash", "r_dash" ],
+                                        [ "core_toggles", "u_dash", "dr_dash" ],
+                                        [ "core_toggles", "ur_dash", "fire_ice_balls", "bumpers" ],
+                                        [ "core_toggles", "ur_dash", "ul_dash" ],
+                                        [ "core_toggles", "ur_dash", "l_dash" ],
+                                        [ "core_toggles", "ul_dash", "r_dash" ]
+                                    ]
                                 }
                             ]
                         }
