@@ -10750,7 +10750,7 @@
                                     "rule": []
                                 },
                                 {
-                                    "dest": "west",
+                                    "dest": "south",
                                     "rule": [ [ "cannot_access" ] ]
                                 }
                             ]
@@ -15068,7 +15068,7 @@
                                 },
                                 {
                                     "dest": "strawberry",
-                                    "rule": [ [ "cannot_access" ] ],
+                                    "rule": [ [ "blue_boosters", "move_blocks" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "move_blocks" ]

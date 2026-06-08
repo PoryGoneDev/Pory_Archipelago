@@ -274,13 +274,18 @@ def create_regions_and_locations(world: CelesteOpenWorld):
                     if len(active_possible_access) == 1:
                         only_access = convert_item_list(world, level, active_possible_access[0])
                         if len(only_access) == 1:
-                            connection_rule = Has(only_access[0])
+                            if only_access[0] == ItemName.cannot_access:
+                                connection_rule = False
+                            else:
+                                connection_rule = Has(only_access[0])
                         else:
                             connection_rule = HasAll(*only_access)
                     elif len(active_possible_access) > 0:
                         possible_access = convert_item_list_list(world, level, active_possible_access)
                         connection_rule = Or(*[HasAll(*sublist) for sublist in possible_access])
 
+                    if connection_rule == False:
+                        continue
                     if connection_rule is None:
                         region.add_exits([connection.destination_name])
                     else:

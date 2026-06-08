@@ -3269,7 +3269,7 @@ all_region_connections: dict[str, RegionConnection] = {
 
     "3a_04-d_west---3a_04-d_south-west": RegionConnection("3a_04-d_west", "3a_04-d_south-west", [], [], []),
     "3a_04-d_south-west---3a_04-d_west": RegionConnection("3a_04-d_south-west", "3a_04-d_west", [], [], []),
-    "3a_04-d_south-west---3a_04-d_west": RegionConnection("3a_04-d_south-west", "3a_04-d_west", [[ItemName.cannot_access, ], ], [], []),
+    "3a_04-d_south-west---3a_04-d_south": RegionConnection("3a_04-d_south-west", "3a_04-d_south", [[ItemName.cannot_access, ], ], [], []),
     "3a_04-d_south---3a_04-d_south-west": RegionConnection("3a_04-d_south", "3a_04-d_south-west", [[ItemName.cannot_access, ], ], [], []),
     "3a_04-d_east---3a_04-d_south": RegionConnection("3a_04-d_east", "3a_04-d_south", [[ItemName.dash_refills, ItemName.l_dash, ], [ItemName.dash_refills, ItemName.u_dash, ], [ItemName.dash_refills, ItemName.ul_dash, ], ], [], [[ItemName.l_dash, ], [ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.l_climb, ], ]),
 
@@ -3499,7 +3499,7 @@ all_region_connections: dict[str, RegionConnection] = {
     "4a_c-05_west---4a_c-05_east": RegionConnection("4a_c-05_west", "4a_c-05_east", [[ItemName.blue_boosters, ItemName.move_blocks, ItemName.u_dash, ItemName.ur_dash, ], ], [], [[ItemName.u_dash, ], [ItemName.ul_dash, ], [ItemName.ur_dash, ], [ItemName.move_blocks, ItemName.blue_boosters, ], [ItemName.r_dash, ItemName.blue_boosters, ], [ItemName.r_dash, ItemName.l_dash, ], ]),
     "4a_c-05_west---4a_c-05_strawberry": RegionConnection("4a_c-05_west", "4a_c-05_strawberry", [[ItemName.cannot_access, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.move_blocks, ], ]),
     "4a_c-05_east---4a_c-05_west": RegionConnection("4a_c-05_east", "4a_c-05_west", [[ItemName.blue_boosters, ItemName.move_blocks, ItemName.ul_dash, ], ], [], []),
-    "4a_c-05_east---4a_c-05_strawberry": RegionConnection("4a_c-05_east", "4a_c-05_strawberry", [[ItemName.cannot_access, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.move_blocks, ], ]),
+    "4a_c-05_east---4a_c-05_strawberry": RegionConnection("4a_c-05_east", "4a_c-05_strawberry", [[ItemName.blue_boosters, ItemName.move_blocks, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.move_blocks, ], ]),
 
     "4a_c-06_bottom---4a_c-06_west": RegionConnection("4a_c-06_bottom", "4a_c-06_west", [[ItemName.blue_boosters, ItemName.blue_clouds, ItemName.move_blocks, ItemName.u_dash, ], [ItemName.blue_boosters, ItemName.blue_clouds, ItemName.move_blocks, ItemName.ur_dash, ], ], [], [[ItemName.r_dash, ], [ItemName.u_dash, ], [ItemName.ur_dash, ], [ItemName.r_climb, ], ]),
     "4a_c-06_west---4a_c-06_bottom": RegionConnection("4a_c-06_west", "4a_c-06_bottom", [], [], []),
