@@ -248,7 +248,7 @@ class CelesteOpenWorld(World):
         item_data_table = generate_item_data_table()
 
         if self.options.goal_area.value == 9 and "Crystal Heart" in name:
-            return CelesteItem(name, ItemClassification.progression_skip_balancing, item_data_table[name].code, self.player)
+            return CelesteItem(name, ItemClassification.progression_deprioritized_skip_balancing, item_data_table[name].code, self.player)
         elif name == ItemName.strawberry and force_useful:
             return CelesteItem(name, ItemClassification.useful, item_data_table[name].code, self.player)
         elif name in item_data_table:
