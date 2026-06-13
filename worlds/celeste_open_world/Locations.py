@@ -286,7 +286,7 @@ def create_regions_and_locations(world: CelesteOpenWorld):
 
                     if connection_rule == False:
                         continue
-                    if connection_rule is None:
+                    elif connection_rule is None:
                         region.add_exits([connection.destination_name])
                     else:
                         region.add_exits([connection.destination_name], {connection.destination_name: connection_rule})

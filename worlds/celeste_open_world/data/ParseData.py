@@ -102,7 +102,7 @@ if __name__ == "__main__":
                                         f"LocationType.{location['type']}"
                                        )
 
-                        for rule_key in ['rule', 'vanilla_rule', 'assist_rule']:
+                        for rule_key in ['rule', 'vm_rule', 'assist_rule']:
                             location_str += ", "
                             if rule_key in location:
                                 location_str += "["
@@ -132,7 +132,7 @@ if __name__ == "__main__":
 
                     reg_con_str = f"    \"{reg_con_full_name}\": RegionConnection(\"{region_full_name}\", \"{dest_region_full_name}\""
 
-                    for rule_key in ['rule', 'vanilla_rule', 'assist_rule']:
+                    for rule_key in ['rule', 'vm_rule', 'assist_rule']:
                         reg_con_str += ", "
                         if rule_key in reg_con:
                             reg_con_str += "["
