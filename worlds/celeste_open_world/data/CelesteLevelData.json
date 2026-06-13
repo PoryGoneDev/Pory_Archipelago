@@ -3987,6 +3987,10 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "traffic_blocks", "dash_refills", "u_dash", "any_dash_ur_r" ] ],
+                                    "vm_rule": [
+                                        [ "traffic_blocks", "dash_refills", "r_climb", "any_dash_u_ur" ],
+                                        [ "traffic_blocks", "dash_refills", "r_climb", "l_climb", "r_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "r_climb", "traffic_blocks" ]
                                     ]
@@ -3999,6 +4003,7 @@
                                 {
                                     "dest": "west",
                                     "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "traffic_blocks", "dash_refills", "l_climb", "l_dash" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ul_l", "crouch" ],
                                         [ "l_climb", "crouch" ],
@@ -4028,6 +4033,10 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "traffic_blocks", "any_dash_ur_r" ] ],
+                                    "vm_rule": [
+                                        [ "traffic_blocks", "any_dash_u_ur_r", "r_climb", "l_climb" ],
+                                        [ "traffic_blocks", "dr_dash", "crouch", "r_climb", "l_climb" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_ul" ],
                                         [ "traffic_blocks" ]
@@ -4045,12 +4054,7 @@
                         },
                         {
                             "name": "east",
-                            "connections": [
-                                {
-                                    "dest": "west",
-                                    "rule": []
-                                }
-                            ]
+                            "connections": []
                         }
                     ],
                     "doors": [
@@ -4079,6 +4083,12 @@
                                 {
                                     "dest": "goal",
                                     "rule": [ [ "coins", "traffic_blocks", "u_dash", "r_dash" ] ],
+                                    "vm_rule": [
+                                        [ "traffic_blocks", "r_climb", "l_climb", "coins", "u_dash", "any_dash_ul_r" ],
+                                        [ "traffic_blocks", "r_climb", "l_climb", "coins", "ul_dash", "ur_dash" ],
+                                        [ "traffic_blocks", "r_climb", "l_climb", "dr_dash", "crouch", "u_dash", "any_dash_ul_r" ],
+                                        [ "traffic_blocks", "r_climb", "l_climb", "dr_dash", "crouch", "ul_dash", "ur_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_ur_r" ],
                                         [ "l_climb", "dr_dash" ],
@@ -4110,6 +4120,12 @@
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
                                     "rule": [ [ "traffic_blocks", "dash_refills", "coins", "u_dash", "r_dash" ] ],
+                                    "vm_rule": [
+                                        [ "traffic_blocks", "dash_refills", "r_climb", "l_climb", "coins", "u_dash", "any_dash_ul_r" ],
+                                        [ "traffic_blocks", "dash_refills", "r_climb", "l_climb", "coins", "ul_dash", "ur_dash" ],
+                                        [ "traffic_blocks", "dash_refills", "r_climb", "l_climb", "dr_dash", "crouch", "u_dash", "any_dash_ul_r" ],
+                                        [ "traffic_blocks", "dash_refills", "r_climb", "l_climb", "dr_dash", "crouch", "ul_dash", "ur_dash" ]
+                                    ],
                                     "assist_rule": [ [ "r_climb", "traffic_blocks", "any_dash_ur_r_dr" ] ]
                                 }
                             ]
