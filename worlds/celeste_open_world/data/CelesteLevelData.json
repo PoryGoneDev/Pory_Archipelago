@@ -3491,8 +3491,7 @@
                                     "dest": "east",
                                     "rule": [ [ "springs", "dash_refills", "any_dash_u_ul", "any_dash_ur_r" ] ],
                                     "vm_rule": [
-                                        [ "u_dash", "dash_refills", "any_dash_ul_l" ],
-                                        [ "u_dash", "dash_refills", "r_climb" ],
+                                        [ "u_dash", "dash_refills", "any_dash_ur_r" ],
                                         [ "ur_dash", "dash_refills", "springs" ],
                                         [ "ul_dash", "r_dash", "dash_refills", "springs" ]
                                     ]
@@ -4201,6 +4200,12 @@
                                         [ "u_dash" ],
                                         [ "ur_dash", "ul_dash" ]
                                     ],
+                                    "vm_rule": [
+                                        [ "u_dash" ],
+                                        [ "ur_dash", "ul_dash" ],
+                                        [ "ur_dash", "l_dash" ],
+                                        [ "r_dash", "ul_dash" ]
+                                    ],
                                     "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
@@ -4275,6 +4280,7 @@
                                 {
                                     "dest": "top",
                                     "rule": [ [ "u_dash" ] ],
+                                    "vm_rule": [ [ "any_dash_u_ur" ] ],
                                     "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ]
@@ -4318,6 +4324,7 @@
                                     "display_name": "Crystal Heart",
                                     "type": "crystal_heart",
                                     "rule": [ [ "any_dash_dr_r_ur_u_ul_l_dl" ] ],
+                                    "vm_rule": [ [ "any_dash_dr_r_ur_u_ul_l_dl" ] ],
                                     "assist_rule": [ [ "any_dash_dr_r_ur_u_ul_l_dl" ] ]
                                 }
                             ]
@@ -4360,6 +4367,11 @@
                                         [ "dream_blocks", "ul_dash", "ur_dash" ],
                                         [ "dream_blocks", "u_dash" ]
                                     ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "ul_dash", "ur_dash" ],
+                                        [ "dream_blocks", "l_dash", "ur_dash" ],
+                                        [ "dream_blocks", "u_dash" ]
+                                    ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_u_ur" ] ]
                                 },
                                 {
@@ -4369,6 +4381,11 @@
                                 {
                                     "dest": "north-west",
                                     "rule": [ [ "dream_blocks", "ul_dash" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "ul_dash" ],
+                                        [ "dream_blocks", "l_dash", "ur_dash" ],
+                                        [ "u_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "ul_dash" ],
                                         [ "l_dash", "r_climb" ],
@@ -4383,6 +4400,12 @@
                                 {
                                     "dest": "south-west",
                                     "rule": []
+                                },
+                                {
+                                    "dest": "north-east",
+                                    "rule": [ [ "dream_blocks", "ur_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "ur_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "ur_dash" ] ]
                                 }
                             ]
                         },
@@ -4391,11 +4414,15 @@
                             "connections": [
                                 {
                                     "dest": "south-east",
-                                    "rule": [ [ "dream_blocks", "any_dash_dl_d" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_dl_d" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_dl_d" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "any_dash_dl_d" ] ]
                                 },
                                 {
                                     "dest": "north-west",
-                                    "rule": [ [ "dream_blocks", "dl_dash" ] ]
+                                    "rule": [ [ "dream_blocks", "dl_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "dl_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "dl_dash" ] ]
                                 }
                             ]
                         }
@@ -4471,7 +4498,8 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks", "ul_dash", "any_dash_r_ur" ] ]
+                                    "rule": [ [ "dream_blocks", "ul_dash", "any_dash_r_ur" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_dl_l_ul", "any_dash_dr_r_ur" ] ]
                                 }
                             ]
                         }
@@ -4518,6 +4546,7 @@
                                 {
                                     "dest": "north-east",
                                     "rule": [ [ "dream_blocks", "any_dash_r_dr" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_r_dr" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_r_dr" ] ]
                                 },
                                 {
@@ -4527,19 +4556,8 @@
                                 {
                                     "dest": "strawberry",
                                     "rule": [ [ "dream_blocks", "d_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_d_dr" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_d_dr" ] ]
-                                }
-                            ],
-                            "locations": [
-                                {
-                                    "name": "strawberry",
-                                    "display_name": "Strawberry",
-                                    "type": "strawberry",
-                                    "rule": [ [ "dream_blocks", "d_dash", "u_dash" ] ],
-                                    "assist_rule": [
-                                        [ "dream_blocks", "any_dash_d_dr" ],
-                                        [ "dream_blocks", "dl_dash", "any_dash_r_dr" ]
-                                    ]
                                 }
                             ]
                         },
@@ -4568,7 +4586,8 @@
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
                                     "rule": [ [ "dream_blocks", "u_dash" ] ],
-                                    "assist_rule": [ [ "dream_blocks", "any_dash_ul_u_r" ] ]
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         },
@@ -4578,10 +4597,20 @@
                                 {
                                     "dest": "north",
                                     "rule": [],
+                                    "vm_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb" ]
                                     ]
+                                },
+                                {
+                                    "dest": "north-east",
+                                    "rule": [ [ "dream_blocks", "r_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_d_dr" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "any_dash_d_dr" ] ]
                                 },
                                 {
                                     "dest": "west",
@@ -4591,6 +4620,12 @@
                                     "dest": "north-east",
                                     "rule": [ [ "dream_blocks", "r_dash" ] ],
                                     "assist_rule": [ [ "dream_blocks", "r_dash" ] ]
+                                },
+                                {
+                                    "dest": "strawberry",
+                                    "rule": [ [ "dream_blocks", "dr_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "dr_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "dr_dash" ] ]
                                 }
                             ]
                         },
@@ -4617,6 +4652,7 @@
                                 {
                                     "dest": "south",
                                     "rule": [ [ "dream_blocks", "d_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "d_dash" ] ],
                                     "assist_rule": [ [ "dream_blocks", "d_dash" ] ]
                                 },
                                 {
@@ -4639,6 +4675,7 @@
                                 {
                                     "dest": "south-west",
                                     "rule": [ [ "dream_blocks", "u_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "u_dash" ] ],
                                     "assist_rule": [ [ "dream_blocks", "u_dash" ] ]
                                 }
                             ]
@@ -4653,11 +4690,13 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "any_dash_u_ur" ] ],
+                                    "vm_rule": [ [ "any_dash_u_ur" ] ],
                                     "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 },
                                 {
                                     "dest": "south-east-door",
                                     "rule": [ [ "any_dash_ur_r_dr" ] ],
+                                    "vm_rule": [ [ "any_dash_ur_r_dr" ] ],
                                     "assist_rule": [ [ "any_dash_ur_r_dr" ] ]
                                 }
                             ]
@@ -4689,12 +4728,21 @@
                             "name": "north-east",
                             "connections": [
                                 {
+                                    "dest": "north",
+                                    "rule": [ [ "dream_blocks", "ul_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "ul_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "ul_dash" ] ]
+                                },
+                                {
                                     "dest": "north-west",
-                                    "rule": [ [ "dream_blocks", "any_dash_ul_l" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ul_l" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_l" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "any_dash_ul_l" ] ]
                                 },
                                 {
                                     "dest": "strawberry",
                                     "rule": [ [ "dream_blocks", "dl_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "dl_dash" ] ],
                                     "assist_rule": [ [ "dream_blocks", "dl_dash" ] ]
                                 }
                             ]
@@ -4761,7 +4809,12 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "any_dash_u_ul", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ul", "any_dash_ur_r" ] ],
+                                    "vm_rule": [
+                                        [ "dr_dash", "crouch", "any_dash_u_ur_r", "r_climb" ],
+                                        [ "dash_refills", "any_dash_u_ur", "dr_dash", "crouch" ],
+                                        [ "dash_refills", "any_dash_u_ul", "any_dash_ur_r" ]
+                                    ]
                                 }
                             ]
                         },
@@ -4770,7 +4823,11 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [
+                                        [ "dash_refills", "ul_dash" ],
+                                        [ "dash_refills", "dl_dash", "crouch", "u_dash" ]
+                                    ]
                                 }
                             ]
                         }
@@ -4800,7 +4857,12 @@
                             "connections": [
                                 {
                                     "dest": "south-east",
-                                    "rule": [ [ "dash_refills", "any_dash_u_ur_r" ] ]
+                                    "rule": [ [ "dash_refills", "any_dash_u_ur_r" ] ],
+                                    "vm_rule": [
+                                        [ "dash_refills", "any_dash_u_ur_r" ],
+                                        [ "r_climb", "any_dash_u_ur_r" ],
+                                        [ "dr_dash", "u_dash", "crouch" ]
+                                    ]
                                 }
                             ]
                         },
@@ -4809,7 +4871,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "any_dash_u_ul_l" ] ]
                                 },
                                 {
                                     "dest": "north-east",
@@ -4854,6 +4917,7 @@
                                 {
                                     "dest": "north",
                                     "rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
@@ -4864,6 +4928,7 @@
                                 {
                                     "dest": "west",
                                     "rule": [ [ "dream_blocks", "any_dash_dl_d_dr" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_dl_d_dr" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_dl_d_dr" ] ]
                                 }
                             ],
@@ -4959,6 +5024,7 @@
                                     "display_name": "Strawberry 2",
                                     "type": "strawberry",
                                     "rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
@@ -4999,7 +5065,14 @@
                                     "display_name": "Cassette",
                                     "type": "cassette",
                                     "rule": [ [ "dream_blocks", "pink_cassette_blocks", "blue_cassette_blocks", "r_dash", "l_dash" ] ],
-                                    "assist_rule": [ [ "dream_blocks", "r_dash", "l_dash" ] ]
+                                    "vm_rule": [
+                                        [ "dream_blocks", "pink_cassette_blocks", "r_dash", "ul_dash" ],
+                                        [ "dream_blocks", "pink_cassette_blocks", "r_dash", "l_dash", "dl_dash", "crouch" ],
+                                        [ "dream_blocks", "blue_cassette_blocks", "r_dash", "l_dash" ],
+                                        [ "dream_blocks", "blue_cassette_blocks", "r_dash", "ul_dash", "dl_dash", "crouch" ],
+                                        [ "dream_blocks", "blue_cassette_blocks", "pink_cassette_blocks", "r_dash", "any_dash_ul_l" ]
+                                    ],
+                                    "assist_rule": [ [ "dream_blocks", "r_dash", "any_dash_ul_l" ] ]
                                 }
                             ]
                         }
@@ -5033,6 +5106,7 @@
                                 {
                                     "dest": "south-west",
                                     "rule": [ [ "any_dash_dl_d_dr" ] ],
+                                    "vm_rule": [ [ "any_dash_dl_d_dr" ] ],
                                     "assist_rule": [ [ "any_dash_dl_d_dr" ] ]
                                 },
                                 {
@@ -5046,6 +5120,7 @@
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
                                     "rule": [ [ "dream_blocks", "strawberry_seeds", "ur_dash", "ul_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "strawberry_seeds", "any_dash_ul_u_ur_r_dr_d_dl" ] ],
                                     "assist_rule": [
                                         [ "dream_blocks", "strawberry_seeds", "u_dash" ],
                                         [ "dream_blocks", "strawberry_seeds", "any_dash_ul_l", "any_dash_ur_r" ]
@@ -5128,7 +5203,11 @@
                             "connections": [
                                 {
                                     "dest": "center",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [
+                                        [ "dl_dash", "crouch", "any_dash_u_ul" ],
+                                        [ "dl_dash", "crouch", "l_dash", "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -5163,6 +5242,7 @@
                                 {
                                     "dest": "south",
                                     "rule": [ [ "dream_blocks", "d_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_dl_d_dr" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_dl_d_dr" ] ]
                                 }
                             ],
@@ -5171,7 +5251,11 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "traffic_blocks", "dream_blocks", "any_dash_ur_r" ] ]
+                                    "rule": [ [ "traffic_blocks", "dream_blocks", "any_dash_ur_r" ] ],
+                                    "vm_rule": [
+                                        [ "dr_dash", "crouch", "any_dash_ur_r" ],
+                                        [ "dream_blocks", "any_dash_ur_r_dr" ]
+                                    ]
                                 }
                             ]
                         },
@@ -5189,7 +5273,9 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "dream_blocks", "u_dash" ] ]
+                                    "rule": [ [ "dream_blocks", "u_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
                         }
@@ -5229,6 +5315,10 @@
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
                                     "rule": [ [ "dream_blocks", "r_dash", "any_dash_ul_l" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "any_dash_ur_r", "any_dash_ul_l_dl" ],
+                                        [ "dream_blocks", "dr_dash", "ul_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "dream_blocks", "any_dash_ur_r" ],
                                         [ "dr_dash", "u_dash" ],
@@ -5258,7 +5348,8 @@
                                 {
                                     "dest": "top",
                                     "rule": [ [ "dream_blocks", "ur_dash", "dr_dash", "u_dash", "l_dash" ] ],
-                                    "assist_rule": [ [ "dream_blocks", "ur_dash", "dr_dash", "u_dash", "l_dash" ] ]
+                                    "vm_rule": [ [ "dream_blocks", "ur_dash", "any_dash_d_dr", "l_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "ur_dash", "any_dash_d_dr", "l_dash" ] ]
                                 }
                             ]
                         },
@@ -5268,7 +5359,8 @@
                                 {
                                     "dest": "bottom",
                                     "rule": [ [ "dream_blocks", "r_dash", "ul_dash", "d_dash", "dl_dash" ] ],
-                                    "assist_rule": [ [ "dream_blocks", "r_dash", "ul_dash", "d_dash", "dl_dash" ] ]
+                                    "vm_rule": [ [ "dream_blocks", "r_dash", "any_dash_u_ul", "dl_dash" ] ],
+                                    "assist_rule": [ [ "dream_blocks", "r_dash", "any_dash_u_ul", "dl_dash" ] ]
                                 }
                             ]
                         }
@@ -5299,6 +5391,7 @@
                                 {
                                     "dest": "top",
                                     "rule": [ [ "dream_blocks", "any_dash_ur_r" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ]
                                 }
                             ]
@@ -5309,6 +5402,7 @@
                                 {
                                     "dest": "bottom",
                                     "rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
@@ -5340,6 +5434,7 @@
                                 {
                                     "dest": "south-west",
                                     "rule": [ [ "dream_blocks", "any_dash_l_ul" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_l_ul" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_l_ul" ] ]
                                 }
                             ]
@@ -5350,18 +5445,27 @@
                                 {
                                     "dest": "south-east",
                                     "rule": [ [ "dream_blocks", "any_dash_r_dr" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_r_dr" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_r_dr" ] ]
                                 },
                                 {
                                     "dest": "north-east",
                                     "rule": [ [ "dream_blocks", "any_dash_r_ur" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "ur_dash" ],
+                                        [ "dream_blocks", "r_dash", "r_climb" ]
+                                    ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_r_ur" ] ]
                                 },
                                 {
                                     "dest": "north-west",
                                     "rule": [ [ "dream_blocks", "u_dash", "l_dash" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "any_dash_u_ur", "l_dash" ],
+                                        [ "dream_blocks", "ul_dash" ]
+                                    ],
                                     "assist_rule": [
-                                        [ "dream_blocks", "u_dash", "l_dash" ],
+                                        [ "dream_blocks", "any_dash_u_ur", "l_dash" ],
                                         [ "dream_blocks", "ul_dash" ]
                                     ]
                                 }
@@ -5373,6 +5477,7 @@
                                 {
                                     "dest": "south-west",
                                     "rule": [ [ "dream_blocks", "any_dash_l_dl" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_l_dl" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_l_dl" ] ]
                                 }
                             ],
@@ -5391,8 +5496,12 @@
                                 {
                                     "dest": "south-west",
                                     "rule": [ [ "dream_blocks", "r_dash", "d_dash" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "r_dash", "any_dash_d_dl" ],
+                                        [ "dream_blocks", "dr_dash" ]
+                                    ],
                                     "assist_rule": [
-                                        [ "dream_blocks", "r_dash", "d_dash" ],
+                                        [ "dream_blocks", "r_dash", "any_dash_d_dl" ],
                                         [ "dream_blocks", "dr_dash" ]
                                     ]
                                 }
@@ -5425,6 +5534,7 @@
                                 {
                                     "dest": "center",
                                     "rule": [ [ "dream_blocks", "u_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_u_ur" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_u_ur" ] ]
                                 }
                             ]
@@ -5435,11 +5545,13 @@
                                 {
                                     "dest": "bottom",
                                     "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "cannot_access" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_d_dl" ] ]
                                 },
                                 {
                                     "dest": "top",
                                     "rule": [ [ "dream_blocks", "any_dash_r_ur" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_dr_r_ur" ] ],
                                     "assist_rule": [
                                         [ "dream_blocks", "any_dash_r_ur" ],
                                         [ "dream_blocks", "dr_dash", "u_dash" ],
@@ -5453,6 +5565,7 @@
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
                                     "rule": [ [ "dream_blocks", "l_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "l_dash" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_l_dl" ] ]
                                 }
                             ]
@@ -5463,6 +5576,7 @@
                                 {
                                     "dest": "center",
                                     "rule": [ [ "dream_blocks", "l_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
@@ -5494,6 +5608,7 @@
                                 {
                                     "dest": "top",
                                     "rule": [ [ "dream_blocks", "coins", "l_dash", "any_dash_ul_u_ur" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "coins", "l_dash", "any_dash_ul_u_ur" ] ],
                                     "assist_rule": [ [ "dream_blocks", "coins", "l_dash", "any_dash_ul_u_ur" ] ]
                                 }
                             ]
@@ -5529,6 +5644,13 @@
                                 {
                                     "dest": "top",
                                     "rule": [ [ "dream_blocks", "coins", "ul_dash", "u_dash", "ur_dash" ] ],
+                                    "vm_rule": [
+                                        [ "coins", "ur_dash" ],
+                                        [ "coins", "u_dash", "r_climb" ],
+                                        [ "coins", "u_dash", "dream_blocks" ],
+                                        [ "coins", "ul_dash", "dream_blocks", "r_dash" ],
+                                        [ "coins", "ul_dash", "dream_blocks", "dr_dash", "crouch" ]
+                                    ],
                                     "assist_rule": [
                                         [ "coins", "any_dash_ul_u_ur_r" ],
                                         [ "coins", "l_dash", "l_climb", "r_climb" ]
@@ -5567,6 +5689,7 @@
                                 {
                                     "dest": "top",
                                     "rule": [ [ "dream_blocks", "any_dash_r_dr" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ],
                                     "assist_rule": [
                                         [ "dream_blocks", "any_dash_ur_r_dr", "any_dash_l_ul_u" ],
                                         [ "dream_blocks", "ur_dash", "springs" ]
@@ -5617,6 +5740,7 @@
                                 {
                                     "dest": "north",
                                     "rule": [ [ "dream_blocks", "any_dash_r_ur" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_dr_r_ur" ] ],
                                     "assist_rule": [
                                         [ "dream_blocks", "any_dash_r_dr" ],
                                         [ "any_dash_ul_u_ur" ]
@@ -5625,6 +5749,10 @@
                                 {
                                     "dest": "south",
                                     "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "any_dash_dr_r_ur" ],
+                                        [ "r_climb", "any_dash_r_ur" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb" ]
@@ -5637,15 +5765,24 @@
                             "connections": [
                                 {
                                     "dest": "north-door",
-                                    "rule": [ [ "any_dash_u_ul" ] ]
+                                    "rule": [ [ "any_dash_u_ul" ] ],
+                                    "vm_rule": [
+                                        [ "any_dash_ur_u_ul" ],
+                                        [ "r_climb" ]
+                                    ]
                                 },
                                 {
                                     "dest": "south",
-                                    "rule": [ [ "dream_blocks" ] ]
+                                    "rule": [ [ "dream_blocks", "any_dash_ur_r" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "any_dash_ur_r_dr" ],
+                                        [ "r_climb" ]
+                                    ]
                                 },
                                 {
                                     "dest": "west",
                                     "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_u_ul" ] ],
                                     "assist_rule": [
                                         [ "dream_blocks", "l_dash" ],
                                         [ "any_dash_ul_u_ur" ]
@@ -5676,11 +5813,14 @@
                             "connections": [
                                 {
                                     "dest": "south-east",
-                                    "rule": [ [ "coins" ] ]
+                                    "rule": [ [ "coins" ] ],
+                                    "vm_rule": [ [ "coins" ] ],
+                                    "assist_rule": [ [ "coins" ] ]
                                 },
                                 {
                                     "dest": "north",
                                     "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "dl_dash", "crouch", "l_climb", "ul_dash" ] ],
                                     "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
                             ],
@@ -5783,6 +5923,7 @@
                                 {
                                     "dest": "bottom",
                                     "rule": [ [ "dream_blocks", "dash_refills", "coins", "l_dash", "any_dash_ur_r" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "coins", "l_dash", "any_dash_ur_r_dr" ] ],
                                     "assist_rule": [
                                         [ "dream_blocks", "coins", "l_dash", "any_dash_ur_r_dr", "crouch" ],
                                         [ "dream_blocks", "coins", "l_dash", "any_dash_ur_r_dr", "any_dash_u_ur_r" ],
@@ -5795,7 +5936,12 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks", "l_dash" ] ],
+                                    "rule": [ [ "dream_blocks", "l_dash", "any_dash_ur_r" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "l_dash", "crouch" ],
+                                        [ "dream_blocks", "l_dash", "any_dash_ur_r_dr" ],
+                                        [ "dream_blocks", "l_dash", "r_climb" ]
+                                    ],
                                     "assist_rule": [
                                         [ "dream_blocks", "l_dash", "crouch" ],
                                         [ "dream_blocks", "l_dash", "any_dash_u_ur_r" ],
@@ -5930,6 +6076,7 @@
                                 {
                                     "dest": "north",
                                     "rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ],
                                     "assist_rule": [
                                         [ "dream_blocks", "any_dash_ur_r" ],
                                         [ "dream_blocks", "dr_dash", "r_climb" ]
@@ -5943,16 +6090,19 @@
                                 {
                                     "dest": "west",
                                     "rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ]
                                 },
                                 {
                                     "dest": "south",
                                     "rule": [ [ "dream_blocks", "d_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_d_dl" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_d_dl" ] ]
                                 },
                                 {
                                     "dest": "east",
                                     "rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_ur_r_dr" ] ]
                                 }
                             ]
@@ -5963,6 +6113,7 @@
                                 {
                                     "dest": "north",
                                     "rule": [ [ "dream_blocks", "u_dash" ] ],
+                                    "vm__rule": [ [ "dream_blocks", "any_dash_u_ur" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_u_ur" ] ]
                                 }
                             ]
@@ -5973,6 +6124,7 @@
                                 {
                                     "dest": "north",
                                     "rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ],
                                     "assist_rule": [ [ "dream_blocks", "any_dash_ul_l_dl" ] ]
                                 }
                             ]
@@ -6038,6 +6190,15 @@
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
                                     "rule": [ [ "dream_blocks", "u_dash", "any_dash_r_dr", "any_dash_l_dl" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "l_dash", "r_dash" ],
+                                        [ "dream_blocks", "ul_dash", "dl_dash", "r_dash" ],
+                                        [ "dream_blocks", "l_dash", "ur_dash", "dr_dash" ],
+                                        [ "dream_blocks", "ul_dash", "dl_dash", "ur_dash", "dr_dash" ],
+                                        [ "dream_blocks", "u_dash", "dl_dash", "r_dash" ],
+                                        [ "dream_blocks", "u_dash", "l_dash", "dr_dash" ],
+                                        [ "dream_blocks", "u_dash", "dl_dash", "dr_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "dream_blocks", "u_dash" ],
                                         [ "dream_blocks", "any_dash_ul_l", "any_dash_ur_r" ]
@@ -6073,7 +6234,11 @@
                                     "name": "strawberry",
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
-                                    "rule": [ [ "dream_blocks", "ur_dash", "ul_dash" ] ]
+                                    "rule": [ [ "dream_blocks", "ur_dash", "ul_dash" ] ],
+                                    "vm_rule": [
+                                        [ "dream_blocks", "ur_dash" ],
+                                        [ "dream_blocks", "u_dash", "dl_dash" ]
+                                    ]
                                 }
                             ]
                         },
@@ -6169,6 +6334,7 @@
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
                                     "rule": [ [ "dream_blocks", "coins", "dash_refills", "ul_dash", "ur_dash", "d_dash", "u_dash", "dr_dash", "l_dash" ] ],
+                                    "vm_rule": [ [ "dream_blocks", "coins", "ur_dash", "any_dash_d_dr", "l_dash" ] ],
                                     "assist_rule": [ [ "dream_blocks", "coins", "ur_dash", "d_dash", "u_dash", "dr_dash", "l_dash" ] ]
                                 }
                             ]
@@ -6228,6 +6394,12 @@
                                     "rule": [
                                         [ "u_dash" ],
                                         [ "ul_dash", "ur_dash" ]
+                                    ],
+                                    "vm_rule": [
+                                        [ "u_dash" ],
+                                        [ "any_dash_ul_l", "ur_dash" ],
+                                        [ "r_dash", "ul_dash" ],
+                                        [ "dl_dash", "crouch" ]
                                     ],
                                     "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 }
@@ -6335,6 +6507,10 @@
                                 {
                                     "dest": "north-east",
                                     "rule": [ [ "any_dash_u_ur" ] ],
+                                    "vm_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb" ]
@@ -6621,6 +6797,7 @@
                                 {
                                     "dest": "north",
                                     "rule": [ [ "any_dash_u_ul" ] ],
+                                    "vm_rule": [ [ "any_dash_u_ul_ur" ] ],
                                     "assist_rule": [ [ "any_dash_u_ul_ur" ] ]
                                 },
                                 {
@@ -6722,6 +6899,10 @@
                                     "display_name": "Strawberry",
                                     "type": "strawberry",
                                     "rule": [ [ "springs", "any_dash_ul_l" ] ],
+                                    "vm_rule": [
+                                        [ "springs", "any_dash_u_ul_l" ],
+                                        [ "springs", "dl_dash", "crouch" ]
+                                    ],
                                     "assist_rule": [
                                         [ "springs", "any_dash_ul_l" ],
                                         [ "l_climb" ]
