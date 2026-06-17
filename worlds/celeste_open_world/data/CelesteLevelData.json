@@ -14325,6 +14325,10 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "dash_refills", "ur_dash", "u_dash" ] ],
+                                    "vm_rule": [
+                                        [ "dash_refills", "u_dash" ],
+                                        [ "dash_refills", "ul_dash", "ur_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur" ],
                                         [ "ul_dash", "r_dash" ],
@@ -14339,6 +14343,7 @@
                                 {
                                     "dest": "west",
                                     "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "dash_refills", "any_dash_u_ul" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ul_l" ],
                                         [ "l_climb" ]
@@ -14367,6 +14372,7 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "sinking_platforms", "u_dash" ] ],
+                                    "vm_rule": [ [ "sinking_platforms", "u_dash" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb" ]
@@ -14405,6 +14411,10 @@
                                 {
                                     "dest": "goal",
                                     "rule": [ [ "coins", "dash_refills", "u_dash", "ur_dash", "r_dash" ] ],
+                                    "vm_rule": [
+                                        [ "dash_refills", "ur_dash" ],
+                                        [ "coins", "any_dash_u_ur_r" ]
+                                    ],
                                     "assist_rule": [ [ "any_dash_ul_u_ur_r" ] ]
                                 }
                             ],
@@ -14432,6 +14442,10 @@
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
                                     "rule": [ [ "sinking_platforms", "dash_refills", "coins", "u_dash", "ur_dash", "r_dash" ] ],
+                                    "vm_rule": [
+                                        [ "sinking_platforms", "dash_refills", "u_dash", "ur_dash" ],
+                                        [ "sinking_platforms", "dash_refills", "coins", "u_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur" ],
                                         [ "ul_dash", "r_dash" ],
