@@ -18889,6 +18889,7 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "blue_boosters", "any_dash_u_ur_r" ] ],
+                                    "vm_rule": [ [ "blue_boosters", "any_dash_u_ur_r" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "blue_boosters" ],
@@ -18931,6 +18932,10 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "move_blocks", "dash_refills", "u_dash", "ur_dash" ] ],
+                                    "vm_rule": [
+                                        [ "move_blocks", "dash_refills", "any_dash_u_ur", "r_climb", "l_climb" ],
+                                        [ "move_blocks", "dash_refills", "r_dash", "ul_dash", "r_climb", "l_climb" ]
+                                    ],
                                     "assist_rule": [
                                         [ "move_blocks" ],
                                         [ "u_dash" ],
@@ -18988,6 +18993,7 @@
                                 {
                                     "dest": "goal",
                                     "rule": [ [ "pink_clouds", "blue_boosters", "move_blocks", "u_dash", "ur_dash" ] ],
+                                    "vm_rule": [ [ "pink_clouds", "blue_boosters", "u_dash", "ur_dash" ] ],
                                     "assist_rule": [ [ "any_dash_r_ur_u_ul" ] ]
                                 }
                             ],
@@ -19019,6 +19025,7 @@
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
                                     "rule": [ [ "pink_clouds", "blue_boosters", "move_blocks", "dash_refills", "u_dash", "ur_dash" ] ],
+                                    "vm_rule": [ [ "pink_clouds", "blue_boosters", "move_blocks", "dash_refills", "u_dash", "ur_dash", "r_climb", "l_climb" ] ],
                                     "assist_rule": [
                                         [ "u_dash" ],
                                         [ "ul_dash", "move_blocks", "blue_boosters" ],
