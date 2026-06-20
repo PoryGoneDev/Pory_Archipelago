@@ -125,6 +125,9 @@ if __name__ == "__main__":
 
                         all_locations.append(location_str)
 
+                        if location.keys() - { "name", "display_name", "type", "rule", "assist_rule", "vm_rule" }:
+                            print(location_full_name + "   |   " + str(location.keys() - { "name", "display_name", "type", "rule", "assist_rule", "vm_rule" }))
+
                 # Region Connections
                 for reg_con in region["connections"]:
                     dest_region_full_name = f"{room_full_name}_{reg_con['dest']}"
@@ -154,6 +157,9 @@ if __name__ == "__main__":
                     reg_con_str += "),"
 
                     all_region_connections.append(reg_con_str)
+
+                    if reg_con.keys() - { "dest", "rule", "assist_rule", "vm_rule" }:
+                        print(f"{region_full_name} -> {reg_con['dest']}    |    " + str(reg_con.keys() - { "dest", "rule", "assist_rule", "vm_rule" }))
 
             for door in room["doors"]:
                 door_full_name = f"{room_full_name}_{door['name']}"
