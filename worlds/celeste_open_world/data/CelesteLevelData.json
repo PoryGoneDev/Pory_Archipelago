@@ -26706,6 +26706,7 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "swap_blocks", "dash_refills", "u_dash" ] ],
+                                    "vm_rule": [ [ "swap_blocks", "dash_refills", "u_dash" ] ],
                                     "assist_rule": [
                                         [ "swap_blocks", "ul_dash" ],
                                         [ "any_dash_u_ur_r" ],
@@ -26719,7 +26720,12 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "swap_blocks", "dash_refills", "u_dash" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [
+                                        [ "dash_refills", "dl_dash", "crouch", "ul_dash" ],
+                                        [ "dash_refills", "any_dash_u_ul", "l_climb" ],
+                                        [ "swap_blocks", "dash_refills", "l_dash", "l_climb" ]
+                                    ]
                                 }
                             ]
                         }
@@ -26743,7 +26749,8 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "swap_blocks", "u_dash" ] ]
+                                    "rule": [ [ "swap_blocks", "u_dash" ] ],
+                                    "vm_rule": [ [ "swap_blocks", "u_dash" ] ]
                                 }
                             ]
                         },
@@ -26752,7 +26759,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         }
@@ -26782,7 +26790,11 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "u_dash", "d_dash", "ur_dash", "r_dash" ] ],
+                                    "rule": [ [ "red_boosters", "dash_refills", "swap_blocks", "dash_switches", "u_dash", "d_dash", "ur_dash", "r_dash" ] ],
+                                    "vm_rule": [
+                                        [ "red_boosters", "dash_refills", "swap_blocks", "dash_switches", "u_dash", "r_dash" ],
+                                        [ "red_boosters", "dash_refills", "swap_blocks", "dash_switches", "u_dash", "ul_dash", "ur_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "dash_switches", "any_dash_u_ur" ],
                                         [ "dash_switches", "ul_dash", "r_dash" ],
@@ -26825,6 +26837,10 @@
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
                                     "rule": [ [ "red_boosters", "dash_refills", "dash_switches", "swap_blocks", "u_dash", "d_dash", "ur_dash", "r_dash" ] ],
+                                    "vm_rule": [
+                                        [ "red_boosters", "dash_refills", "swap_blocks", "dash_switches", "u_dash", "r_dash" ],
+                                        [ "red_boosters", "dash_refills", "swap_blocks", "dash_switches", "u_dash", "ul_dash", "ur_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "dash_switches", "any_dash_u_ur" ],
                                         [ "dash_switches", "ul_dash", "r_dash" ],
