@@ -32153,6 +32153,7 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "bumpers", "r_dash", "u_dash" ] ],
+                                    "vm_rule": [ [ "bumpers", "u_dash" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb" ]
@@ -32166,6 +32167,7 @@
                                 {
                                     "dest": "west",
                                     "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "cannot_access" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ul_l" ],
                                         [ "l_climb" ]
@@ -32193,7 +32195,11 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "feathers", "r_dash" ] ]
+                                    "rule": [ [ "dash_refills", "feathers", "r_dash" ] ],
+                                    "vm_rule": [
+                                        [ "dash_refills", "feathers", "r_dash" ],
+                                        [ "feathers", "r_dash", "dr_dash", "crouch" ]
+                                    ]
                                 }
                             ]
                         },
@@ -32239,6 +32245,7 @@
                                 {
                                     "dest": "goal",
                                     "rule": [ [ "kevin_blocks", "dash_refills", "bumpers", "r_dash", "u_dash", "l_dash", "ur_dash" ] ],
+                                    "vm_rule": [ [ "kevin_blocks", "dash_refills", "bumpers", "u_dash", "l_dash", "any_dash_ur_r" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur" ],
                                         [ "r_dash", "any_dash_ul_l" ],
@@ -32262,6 +32269,10 @@
                                     "display_name": "Binoculars 2",
                                     "type": "binoculars",
                                     "rule": [ [ "kevin_blocks", "dash_refills", "bumpers", "r_dash", "u_dash", "l_dash", "ur_dash" ] ],
+                                    "vm_rule": [
+                                        [ "kevin_blocks", "dash_refills", "l_dash", "ur_dash" ],
+                                        [ "kevin_blocks", "dash_refills", "l_dash", "any_dash_u_ul", "r_dash" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb" ]
@@ -32284,6 +32295,7 @@
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
                                     "rule": [ [ "kevin_blocks", "dash_refills", "bumpers", "feathers", "r_dash", "u_dash", "l_dash", "ur_dash" ] ],
+                                    "vm_rule": [ [ "kevin_blocks", "dash_refills", "bumpers", "feathers", "r_dash", "u_dash", "l_dash" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur" ],
                                         [ "r_dash", "any_dash_ul_l" ],
