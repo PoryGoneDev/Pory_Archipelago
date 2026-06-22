@@ -43982,6 +43982,7 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "any_dash_u_ur_r" ] ],
+                                    "vm_rule": [ [ "any_dash_u_ur_r_dr" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb" ]
@@ -43994,7 +43995,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "any_dash_u_ul_l" ] ]
+                                    "rule": [ [ "any_dash_u_ul_l" ] ],
+                                    "vm_rule": [ [ "any_dash_u_ul_l_dl" ] ]
                                 }
                             ]
                         }
@@ -44018,13 +44020,20 @@
                             "connections": [
                                 {
                                     "dest": "east",
-                                    "rule": [ [ "dash_refills", "dr_dash", "crouch" ] ]
+                                    "rule": [ [ "dash_refills", "dr_dash", "crouch" ] ],
+                                    "vm_rule": [ [ "dash_refills", "dr_dash", "crouch" ] ]
                                 }
                             ]
                         },
                         {
                             "name": "east",
-                            "connections": []
+                            "connections": [
+                                {
+                                    "dest": "west",
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "cannot_access" ] ]
+                                }
+                            ]
                         }
                     ],
                     "doors": [
@@ -44053,6 +44062,7 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "core_blocks", "dash_refills", "core_toggles", "bumpers", "ur_dash", "u_dash" ] ],
+                                    "vm_rule": [ [ "core_blocks", "dash_refills", "core_toggles", "bumpers", "ur_dash", "any_dash_u_ul", "l_climb" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb" ]
@@ -44079,6 +44089,7 @@
                                 {
                                     "dest": "west",
                                     "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "cannot_access" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ul_l" ],
                                         [ "l_climb" ],
@@ -44113,7 +44124,15 @@
                             "connections": [
                                 {
                                     "dest": "goal",
-                                    "rule": [ [ "traffic_blocks", "dash_refills", "core_toggles", "dream_blocks", "bumpers", "pink_clouds", "swap_blocks", "kevin_blocks", "core_blocks", "ur_dash", "r_dash", "any_dash_ul_l_dl", "u_dash", "dr_dash", "crouch" ] ]
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "core_toggles", "dream_blocks", "bumpers", "pink_clouds", "swap_blocks", "kevin_blocks", "core_blocks", "ur_dash", "r_dash", "any_dash_ul_l_dl", "u_dash", "dr_dash", "crouch" ] ],
+                                    "vm_rule": [
+                                        [ "traffic_blocks", "dash_refills", "core_toggles", "bumpers", "pink_clouds", "swap_blocks", "kevin_blocks", "core_blocks", "r_dash", "any_dash_ul_l_dl", "u_dash", "dr_dash", "crouch", "r_climb", "l_climb" ],
+                                        [ "traffic_blocks", "dash_refills", "core_toggles", "bumpers", "pink_clouds", "kevin_blocks", "core_blocks", "ur_dash", "r_dash", "any_dash_ul_l_dl", "u_dash", "dr_dash", "crouch", "r_climb", "l_climb" ]
+                                    ],
+                                    "assist_rule": [
+                                        [ "any_dash_u_ur_r" ],
+                                        [ "r_climb", "ul_dash" ]
+                                    ]
                                 }
                             ],
                             "locations": [
@@ -44133,17 +44152,14 @@
                                     "name": "clear",
                                     "display_name": "Level Clear",
                                     "type": "level_clear",
-                                    "rule": [],
-                                    "assist_rule": [
-                                        [ "any_dash_u_ur_r" ],
-                                        [ "r_climb", "ul_dash" ]
-                                    ]
+                                    "rule": []
                                 },
                                 {
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
                                     "rule": [ [ "traffic_blocks", "dash_refills", "core_toggles", "dream_blocks", "bumpers", "pink_clouds", "swap_blocks", "kevin_blocks", "core_blocks", "ur_dash", "r_dash", "any_dash_ul_l_dl", "u_dash", "dr_dash", "crouch" ] ],
+                                    "vm_rule": [ [ "traffic_blocks", "dash_refills", "core_toggles", "bumpers", "pink_clouds", "kevin_blocks", "core_blocks", "ur_dash", "r_dash", "any_dash_ul_l_dl", "u_dash", "dr_dash", "crouch", "r_climb", "l_climb" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb", "ul_dash" ]
