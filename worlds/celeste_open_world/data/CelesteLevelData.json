@@ -40256,6 +40256,7 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "dash_refills", "badeline_boosters", "u_dash", "r_dash" ] ],
+                                    "vm_rule": [ [ "dash_refills", "badeline_boosters", "u_dash" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur" ],
                                         [ "ul_dash", "r_dash" ]
@@ -40267,7 +40268,8 @@
                                     "name": "binoculars",
                                     "display_name": "Binoculars",
                                     "type": "binoculars",
-                                    "rule": [ [ "any_dash_u_ur_r" ] ]
+                                    "rule": [ [ "any_dash_u_ur_r" ] ],
+                                    "vm_rule": [ [ "any_dash_u_ur_r_dr" ] ]
                                 }
                             ]
                         },
@@ -40276,7 +40278,8 @@
                             "connections": [
                                 {
                                     "dest": "west",
-                                    "rule": [ [ "cannot_access" ] ]
+                                    "rule": [ [ "cannot_access" ] ],
+                                    "vm_rule": [ [ "cannot_access" ] ]
                                 }
                             ]
                         }
@@ -40301,6 +40304,7 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "springs", "coins", "badeline_boosters", "u_dash", "ur_dash", "ul_dash" ] ],
+                                    "vm_rule": [ [ "springs", "coins", "badeline_boosters", "u_dash", "any_dash_ul_l_dl_d" ] ],
                                     "assist_rule": [ [ "any_dash_u_ur_r" ] ]
                                 }
                             ]
@@ -40336,6 +40340,7 @@
                                 {
                                     "dest": "goal",
                                     "rule": [ [ "pink_clouds", "dash_refills", "springs", "r_dash", "u_dash", "l_dash", "ul_dash", "ur_dash" ] ],
+                                    "vm_rule": [ [ "pink_clouds", "dash_refills", "springs", "r_dash", "u_dash", "ur_dash" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "r_climb", "ul_dash" ]
@@ -40370,6 +40375,7 @@
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
                                     "rule": [ [ "pink_clouds", "dash_refills", "springs", "coins", "badeline_boosters", "r_dash", "u_dash", "l_dash", "ul_dash", "ur_dash" ] ],
+                                    "vm_rule": [ [ "pink_clouds", "dash_refills", "springs", "coins", "badeline_boosters", "r_dash", "u_dash", "ur_dash", "any_dash_ul_l_dl_d" ] ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur" ],
                                         [ "ul_dash", "r_dash" ]
