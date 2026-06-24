@@ -51839,6 +51839,7 @@
                                 {
                                     "dest": "top",
                                     "rule": [ [ "double_dash_refills", "jellyfish", "springs", "pufferfish", "badeline_boosters", "crouch", "dr_dash", "r_dash", "u_dash", "ul_dash", "ur_dash" ] ],
+                                    "vm_rule": [ [ "badeline_boosters", "jellyfish", "pufferfish", "u_dash", "l_climb" ] ],
                                     "assist_rule": [
                                         [ "u_dash" ],
                                         [ "ur_dash", "ul_dash" ],
@@ -51859,6 +51860,7 @@
                                     "display_name": "Binoculars 2",
                                     "type": "binoculars",
                                     "rule": [ [ "double_dash_refills", "jellyfish", "crouch", "dr_dash", "r_dash", "u_dash", "ul_dash" ] ],
+                                    "vm_rule": [ [ "any_dash_ul_u" ] ],
                                     "assist_rule": [ [ "any_dash_ul_u_ur" ] ]
                                 },
                                 {
@@ -51866,6 +51868,7 @@
                                     "display_name": "Binoculars 3",
                                     "type": "binoculars",
                                     "rule": [ [ "double_dash_refills", "jellyfish", "springs", "pufferfish", "crouch", "dr_dash", "r_dash", "u_dash", "ul_dash", "ur_dash" ] ],
+                                    "vm_rule": [ [ "jellyfish", "pufferfish", "any_dash_u_ul" ] ],
                                     "assist_rule": [
                                         [ "u_dash" ],
                                         [ "ur_dash", "ul_dash" ],
@@ -51883,8 +51886,8 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "traffic_blocks", "dash_refills", "double_dash_refills", "dream_blocks", "swap_blocks", "move_blocks", "blue_boosters", "blue_clouds", "springs", "feathers", "coins", "red_boosters", "kevin_blocks", "core_blocks", "fire_ice_balls", "badeline_boosters", "bird", "breaker_boxes", "pufferfish", "jellyfish", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "crouch", "dr_dash", "dl_dash", "d_dash", "r_dash", "l_dash", "u_dash", "ul_dash", "ur_dash" ] ],
-                                    "vm_rule": [ [ "u_dash" ] ],
+                                    "rule": [ [ "traffic_blocks", "dash_refills", "double_dash_refills", "dream_blocks", "swap_blocks", "move_blocks", "blue_boosters", "blue_clouds", "springs", "feathers", "coins", "red_boosters", "kevin_blocks", "core_blocks", "fire_ice_balls", "badeline_boosters", "bird", "breaker_boxes", "pufferfish", "jellyfish", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "crouch", "dr_dash", "dl_dash", "d_dash", "r_dash", "l_dash", "u_dash", "ul_dash", "ur_dash", "Power Source Key 1", "Power Source Key 2", "Power Source Key 3", "Power Source Key 4", "Power Source Key 5" ] ],
+                                    "vm_rule": [ [ "traffic_blocks", "dash_refills", "double_dash_refills", "dream_blocks", "swap_blocks", "move_blocks", "blue_boosters", "blue_clouds", "springs", "feathers", "coins", "red_boosters", "kevin_blocks", "core_blocks", "fire_ice_balls", "badeline_boosters", "bird", "breaker_boxes", "pufferfish", "jellyfish", "pink_cassette_blocks", "blue_cassette_blocks", "yellow_cassette_blocks", "green_cassette_blocks", "crouch", "dr_dash", "dl_dash", "d_dash", "r_dash", "l_dash", "u_dash", "ur_dash", "r_climb", "l_climb", "Power Source Key 1", "Power Source Key 2", "Power Source Key 3", "Power Source Key 4", "Power Source Key 5" ] ],
                                     "assist_rule": [
                                         [ "badeline_boosters", "dream_blocks", "coins", "r_dash", "u_dash", "d_dash", "l_climb" ],
                                         [ "badeline_boosters", "dream_blocks", "coins", "r_dash", "u_dash", "d_dash", "r_climb" ]
