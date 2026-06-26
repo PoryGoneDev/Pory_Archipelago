@@ -7700,9 +7700,9 @@
                                         [ "dream_blocks", "l_dash", "u_dash", "ul_dash", "r_dash", "r_climb" ]
                                     ],
                                     "assist_rule": [
-                                        [ "dream_blocks", "dash_refills", "l_dash", "r_dash" ],
-                                        [ "dream_blocks", "dash_refills", "dl_dash", "any_dash_ul_u_ur" ],
-                                        [ "dream_blocks", "dash_refills", "dl_dash", "l_climb" ]
+                                        [ "dream_blocks", "l_dash", "r_dash" ],
+                                        [ "dream_blocks", "dl_dash", "any_dash_ul_u_ur", "r_dash" ],
+                                        [ "dream_blocks", "dl_dash", "l_climb", "r_dash" ]
                                     ]
                                 }
                             ]
@@ -7871,8 +7871,8 @@
                                     "dest": "east",
                                     "rule": [ [ "dream_blocks", "dash_refills", "u_dash", "r_dash", "d_dash", "ur_dash", "dr_dash", "ul_dash" ] ],
                                     "vm_rule": [
-                                        [ "dream_blocks", "dash_refills", "u_dash", "r_dash", "dr_dash", "ul_dash" ],
-                                        [ "dream_blocks", "dash_refills", "u_dash", "r_dash", "dr_dash", "r_climb" ]
+                                        [ "dream_blocks", "u_dash", "r_dash", "dr_dash", "ul_dash" ],
+                                        [ "dream_blocks", "u_dash", "r_dash", "dr_dash", "r_climb" ]
                                     ],
                                     "assist_rule": [ [ "dream_blocks", "dash_refills", "u_dash", "r_dash" ] ]
                                 }
@@ -11965,7 +11965,7 @@
                                     "display_name": "Cassette",
                                     "type": "cassette",
                                     "rule": [ [ "pink_cassette_blocks", "blue_cassette_blocks", "u_dash" ] ],
-                                    "assist_rule": [
+                                    "vm_rule": [
                                         [ "pink_cassette_blocks", "blue_cassette_blocks", "l_climb" ],
                                         [ "pink_cassette_blocks", "any_dash_ul_u" ]
                                     ]
@@ -44676,7 +44676,10 @@
                                 {
                                     "dest": "east",
                                     "rule": [ [ "dash_refills", "core_toggles", "u_dash", "ur_dash", "r_dash" ] ],
-                                    "vm_rule": [ [ "dash_refills", "core_toggles", "any_dash_u_ur_r", "r_climb" ] ],
+                                    "vm_rule": [
+                                        [ "dash_refills", "core_toggles", "any_dash_u_ur_r", "r_climb" ],
+                                        [ "dash_refills", "core_toggles", "any_dash_u_ur_r", "l_climb" ]
+                                    ],
                                     "assist_rule": [
                                         [ "any_dash_u_ur_r" ],
                                         [ "core_toggles" ]
