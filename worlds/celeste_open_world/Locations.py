@@ -138,7 +138,7 @@ def convert_item(world: CelesteOpenWorld, level: Level, item: str) -> str:
     from .Items import interactable_item_data_table
     if item in interactable_item_data_table:
         if world.options.split_interactables.value == 1:
-            converted_item = level_id_to_name[level.name[:-1]] + " " + item
+            converted_item = level_id_to_name[level.name[:-1]] + " - " + item
         elif world.options.split_interactables.value == 2:
             if level.name[:-1] != "10":
                 converted_item = level.name[-1].upper() + "-Side " + item
@@ -146,9 +146,9 @@ def convert_item(world: CelesteOpenWorld, level: Level, item: str) -> str:
                 converted_item = "A-Side " + item
         elif world.options.split_interactables.value == 3:
             if level.name[:-1] != "10":
-                converted_item = level_id_to_name[level.name[:-1]] + " " + level.name[-1].upper() + " " + item
+                converted_item = level_id_to_name[level.name[:-1]] + " " + level.name[-1].upper() + " - " + item
             else:
-                converted_item = level_id_to_name[level.name[:-1]] + " " + item
+                converted_item = level_id_to_name[level.name[:-1]] + " - " + item
 
     return converted_item
 

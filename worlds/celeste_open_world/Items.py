@@ -242,7 +242,7 @@ def add_interactable_to_table(name: str, level: str = None, side: str = None):
 
         full_id = shared_id + base_id_offset + level_id_offset
 
-        interactable_item_data_table[level_id_to_name[level] + " " + name] = CelesteItemData(full_id, shared_type)
+        interactable_item_data_table[level_id_to_name[level] + " - " + name] = CelesteItemData(full_id, shared_type)
     else:
         base_id_offset: int = 0x7000  # 0xCA19000 base
 
@@ -256,7 +256,7 @@ def add_interactable_to_table(name: str, level: str = None, side: str = None):
 
         full_id = shared_id + base_id_offset + level_id_offset + side_id_offset
 
-        interactable_item_data_table[level_id_to_name[level] + " " + side.upper() + " " + name] = CelesteItemData(full_id, shared_type)
+        interactable_item_data_table[level_id_to_name[level] + " " + side.upper() + " - " + name] = CelesteItemData(full_id, shared_type)
 
 
 def generate_item_data_table() -> dict[str, CelesteItemData]:

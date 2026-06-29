@@ -108,7 +108,7 @@ class CelesteOpenWorld(World):
             elif self.options.split_interactables.value == 1:
                 # Per-Level
                 for item in self.level_data[level].items:
-                    self.active_items.add(level_id_to_name[level[:-1]] + " " + item)
+                    self.active_items.add(level_id_to_name[level[:-1]] + " - " + item)
             elif self.options.split_interactables.value == 2:
                 # Per Side
                 for item in self.level_data[level].items:
@@ -120,9 +120,9 @@ class CelesteOpenWorld(World):
                 # Per Level and Side
                 for item in self.level_data[level].items:
                     if level[:-1] != "10":
-                        self.active_items.add(level_id_to_name[level[:-1]] + " " + level[-1].upper() + " " + item)
+                        self.active_items.add(level_id_to_name[level[:-1]] + " " + level[-1].upper() + " - " + item)
                     else:
-                        self.active_items.add(level_id_to_name[level[:-1]] + " " + item)
+                        self.active_items.add(level_id_to_name[level[:-1]] + " - " + item)
 
 
     def create_regions(self) -> None:
