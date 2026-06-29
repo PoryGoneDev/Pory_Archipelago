@@ -94,7 +94,7 @@ class StrawberriesRequiredPercentage(Range):
     display_name = "Strawberries Required Percentage"
     range_start = 0
     range_end = 100
-    default = 80
+    default = 0
 
 
 class Checkpointsanity(Toggle):
