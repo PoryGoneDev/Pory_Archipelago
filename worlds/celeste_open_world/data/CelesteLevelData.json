@@ -40992,7 +40992,7 @@
                                     "name": "golden",
                                     "display_name": "Golden Strawberry",
                                     "type": "golden_strawberry",
-                                    "rule": [ [ "blue_cassette_blocks", "pink_cassette_blocks", "springs", "dash_refills", "blue_clouds", "pink_clouds", "coins", "badeline_boosters", "red_boosters", "swap_blocks", "move_blocks", "blue_boosters", "dream_blocks", "traffic_blocks", "u_dash", "l_dash", "ul_dash", "ur_dash", "r_dash", "dl_dash", "dr_dash" ] ],
+                                    "rule": [ [ "blue_cassette_blocks", "pink_cassette_blocks", "springs", "dash_refills", "moving_platforms", "blue_clouds", "pink_clouds", "coins", "badeline_boosters", "red_boosters", "swap_blocks", "move_blocks", "blue_boosters", "dream_blocks", "traffic_blocks", "u_dash", "l_dash", "ul_dash", "ur_dash", "r_dash", "dl_dash", "dr_dash" ] ],
                                     "vm_rule": [
                                         [ "pink_cassette_blocks", "springs", "dash_refills", "blue_clouds", "pink_clouds", "coins", "badeline_boosters", "red_boosters", "swap_blocks", "move_blocks", "dream_blocks", "traffic_blocks", "u_dash", "l_dash", "ul_dash", "ur_dash", "r_dash", "dr_dash", "crouch", "r_climb", "l_climb" ],
                                         [ "blue_cassette_blocks", "springs", "dash_refills", "blue_clouds", "pink_clouds", "coins", "badeline_boosters", "red_boosters", "swap_blocks", "move_blocks", "dream_blocks", "traffic_blocks", "u_dash", "l_dash", "ul_dash", "ur_dash", "r_dash", "dr_dash", "crouch", "r_climb", "l_climb" ]
