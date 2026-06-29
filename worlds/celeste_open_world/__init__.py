@@ -44,7 +44,7 @@ class CelesteOpenWorld(World):
     options_dataclass = CelesteOptions
     options: CelesteOptions
 
-    apworld_version = 10100
+    apworld_version = 10101
 
     level_data: dict[str, Level] = load_logic_data()
 
@@ -479,7 +479,7 @@ class CelesteOpenWorld(World):
     def fill_slot_data(self):
         return {
             "apworld_version": self.apworld_version,
-            "min_mod_version": 10100,
+            "min_mod_version": 10101,
 
             "death_link": self.options.death_link.value,
             "death_link_amnesty": self.options.death_link_amnesty.value,
