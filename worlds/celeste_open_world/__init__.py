@@ -1,6 +1,6 @@
 from copy import deepcopy
 import math
-from typing import TextIO, Optional
+from typing import TextIO, Optional, Any
 
 from BaseClasses import CollectionState, ItemClassification, Location, MultiWorld, Region, Tutorial
 from Options import Option
