@@ -60,6 +60,10 @@ collectable_item_data_table: dict[str, CelesteItemData] = {
     ItemName.gold_raspberry: CelesteItemData(celeste_base_id + 0x8, ItemClassification.progression_skip_balancing | ItemClassification.useful | ItemClassification.deprioritized),
 }
 
+empty_room_data_table: dict[str, CelesteItemData] = {
+    ItemName.empty_room:     CelesteItemData(celeste_base_id + 0x9, ItemClassification.filler),
+}
+
 filler_item_data_table: dict[str, CelesteItemData] = {
     ItemName.raspberry:      CelesteItemData(celeste_base_id + 0x1, ItemClassification.filler),
     ItemName.blue_raspberry: CelesteItemData(celeste_base_id + 0x2, ItemClassification.filler),
@@ -261,6 +265,7 @@ def add_interactable_to_table(name: str, level: str = None, side: str = None):
 
 def generate_item_data_table() -> dict[str, CelesteItemData]:
     return {**collectable_item_data_table,
+            **empty_room_data_table,
             **filler_item_data_table,
             **movement_item_data_table,
             **goal_item_data_table,

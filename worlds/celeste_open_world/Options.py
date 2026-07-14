@@ -254,11 +254,26 @@ class JunkFillPercentage(Range):
     range_end = 100
     default = 50
 
+class RoomsanityEmptyRoomPercentage(Range):
+    """
+    Percentage of Roomsanity locations that will be "empty", that is, they will have an
+    Empty Room junk item that is locked to the local game.
+    This is useful in multiworlds to prevent other worlds from being flooded with junk berries,
+    and to prevent useful items from other worlds from being disproportionately likely to end up
+    as roomsanity checks.
+    Only applies if Roomsanity is enabled.
+    """
+    display_name = "Roomsanity Empty Room Percentage"
+    range_start = 0
+    range_end = 100
+    default = 0
+
+
 class ReduceRaspberries(Toggle):
     """
     Reduces the number of Raspberries in the item pool
     """
-    display_name = "Reduce Rapsberries"
+    display_name = "Reduce Raspberries"
 
 class TrapFillPercentage(Range):
     """
@@ -537,6 +552,7 @@ celeste_option_groups = [
     ]),
     OptionGroup("Junk and Traps", [
         JunkFillPercentage,
+        RoomsanityEmptyRoomPercentage,
         ReduceRaspberries,
         TrapFillPercentage,
         TrapExpirationAction,
@@ -647,6 +663,7 @@ class CelesteOptions(PerGameCommonOptions):
     split_interactables: SplitInteractables
 
     junk_fill_percentage: JunkFillPercentage
+    roomsanity_empty_room_percentage: RoomsanityEmptyRoomPercentage
     reduce_raspberries: ReduceRaspberries
     trap_fill_percentage: TrapFillPercentage
     trap_expiration_action: TrapExpirationAction

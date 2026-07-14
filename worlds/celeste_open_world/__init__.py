@@ -413,6 +413,19 @@ class CelesteOpenWorld(World):
         trap_weights += ([ItemName.zoom_trap] * self.options.zoom_trap_weight.value)
         trap_weights += ([ItemName.tiny_trap] * self.options.tiny_trap_weight.value)
 
+        if self.options.roomsanity and self.options.roomsanity_empty_room_percentage.value > 0:
+            room_names = set(self.location_name_groups["Rooms"])
+            roomsanity_locs = [
+                loc for loc in self.get_locations()
+                if loc.name in room_names and loc.item is None
+            ]
+            self.random.shuffle(roomsanity_locs)
+            empty_room_count = math.floor(len(roomsanity_locs) * (self.options.roomsanity_empty_room_percentage.value / 100.0))
+            for i in range(empty_room_count):
+                empty_room = self.create_item(ItemName.empty_room)
+                roomsanity_locs[i].place_locked_item(empty_room)
+                item_pool.append(empty_room)
+
         total_filler_count: int = (location_count - len(item_pool))
 
         # Cassettes

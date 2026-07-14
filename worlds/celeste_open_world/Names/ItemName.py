@@ -9,6 +9,9 @@ bananaberry    = "Banana"
 cranberry      = "Cranberry"
 gold_raspberry = "Golden Raspberry"
 
+# Roomsanity Filler
+empty_room = "Empty Room"
+
 # Goal Items
 house_keys = "Granny's House Keys"
 victory    = "Victory"
